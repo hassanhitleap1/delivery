@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Areas/AreaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Areas/RegionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Shipments/DelayController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Shipments/ShipmentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Areas/Area.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Areas/Region.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Shipments/Delay.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Shipments/Shipment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +201,7 @@
       <workItem from="1624526838559" duration="1034000" />
       <workItem from="1624782107322" duration="2776000" />
       <workItem from="1624785495344" duration="6000" />
-      <workItem from="1624787192483" duration="843000" />
+      <workItem from="1624787192483" duration="1118000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
@@ -246,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624784838781</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="34">
+      <created>1624788049846</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1624788049846</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,6 +268,7 @@
     <MESSAGE value="first" />
     <MESSAGE value="21" />
     <MESSAGE value="30" />
-    <option name="LAST_COMMIT_MESSAGE" value="30" />
+    <MESSAGE value="34" />
+    <option name="LAST_COMMIT_MESSAGE" value="34" />
   </component>
 </project>
