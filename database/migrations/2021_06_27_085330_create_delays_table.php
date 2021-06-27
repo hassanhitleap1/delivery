@@ -15,6 +15,9 @@ class CreateDelaysTable extends Migration
     {
         Schema::create('delays', function (Blueprint $table) {
             $table->id();
+            $table->integer("shipment_id");
+            $table->date('date');
+            $table->text('note');
             $table->timestamps();
         });
     }
