@@ -4,7 +4,9 @@
 namespace App\Model\Users;
 
 
-class Customer
+use App\User;
+
+class Customer extends  User
 {
 
 }

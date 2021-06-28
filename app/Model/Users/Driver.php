@@ -4,7 +4,9 @@
 namespace App\Model\Users;
 
 
-class Driver
+use App\User;
+
+class Driver extends  User
 {
 
 }

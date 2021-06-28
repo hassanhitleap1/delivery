@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/database/factories/AreaFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/RegionFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Areas/RegionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Areas/RegionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Areas/Area.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Areas/Area.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Areas/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Areas/Region.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Users/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Users/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Users/Driver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Users/Driver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +153,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Model" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/factories" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -158,6 +164,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\database\factories" />
       <recent name="C:\xampp\htdocs\delivery\app\Model" />
     </key>
   </component>
@@ -203,7 +210,8 @@
       <workItem from="1624526838559" duration="1034000" />
       <workItem from="1624782107322" duration="2776000" />
       <workItem from="1624785495344" duration="6000" />
-      <workItem from="1624787192483" duration="1331000" />
+      <workItem from="1624787192483" duration="1515000" />
+      <workItem from="1624888645382" duration="4813000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
@@ -254,7 +262,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624788320064</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="4">
+      <created>1624788554060</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1624788554060</updated>
+    </task>
+    <task id="LOCAL-00009" summary="5">
+      <created>1624788672025</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1624788672025</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +301,8 @@
     <MESSAGE value="30" />
     <MESSAGE value="34" />
     <MESSAGE value="3" />
-    <option name="LAST_COMMIT_MESSAGE" value="3" />
+    <MESSAGE value="4" />
+    <MESSAGE value="5" />
+    <option name="LAST_COMMIT_MESSAGE" value="5" />
   </component>
 </project>
