@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Status/HistoryStatusResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Status/HistoryStatus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Shipments/ShipmentsResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Status/HistoryStatusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Status/HistoryStatusController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_27_084459_create_shipments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_27_084459_create_shipments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shipments/ShipmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shipments/ShipmentController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +147,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Resources/Status" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Resources/Shipments" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -160,11 +158,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\app\Http\Resources\Shipments" />
       <recent name="C:\xampp\htdocs\delivery\app\Http\Resources\Status" />
       <recent name="C:\xampp\htdocs\delivery\app\Model\Status" />
       <recent name="C:\xampp\htdocs\delivery\app\Http\Controllers\Status" />
       <recent name="C:\xampp\htdocs\delivery\app\Model" />
-      <recent name="C:\xampp\htdocs\delivery\app\Http\Resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -212,7 +210,8 @@
       <workItem from="1624787192483" duration="1515000" />
       <workItem from="1624888645382" duration="4813000" />
       <workItem from="1628147561230" duration="5892000" />
-      <workItem from="1628162406958" duration="6433000" />
+      <workItem from="1628162406958" duration="6479000" />
+      <workItem from="1628170885968" duration="1147000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
@@ -305,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628166951779</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="12">
+      <created>1628170736111</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1628170736111</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +342,8 @@
     <MESSAGE value="7" />
     <MESSAGE value="9" />
     <MESSAGE value="10" />
-    <option name="LAST_COMMIT_MESSAGE" value="10" />
+    <MESSAGE value="12" />
+    <option name="LAST_COMMIT_MESSAGE" value="12" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
