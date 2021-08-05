@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model\Area\Region;
+use App\Model\Areas\Region;
 use Faker\Generator as Faker;
 
 

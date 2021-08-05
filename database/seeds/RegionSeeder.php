@@ -1,11 +1,12 @@
 <?php
 
-use App\Model\Area\Region;
+use App\Model\Areas\Area;
+use App\Model\Areas\Region;
 use Illuminate\Database\Seeder;
 
 class RegionSeeder extends Seeder
 {
-    protected $model = Region::class;
+//    protected $model = Region::class;
     /**
      * Run the database seeds.
      *
@@ -13,7 +14,12 @@ class RegionSeeder extends Seeder
      */
     public function run()
     {
+//        factory(Region::class, 50)->make();
 
-        factory(\App\Model\Area\Region::class, 50)->make();
+        factory(Region::class, 50)->create()->each(function ($region)
+        {
+            factory(Area::class, 10)
+                ->create();
+        });
     }
 }
