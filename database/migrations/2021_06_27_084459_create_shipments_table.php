@@ -22,6 +22,7 @@ class CreateShipmentsTable extends Migration
             $table->integer('areas_id');
             $table->string('address');
             $table->string('phone');
+            $table->string('other_phone');
             $table->string('required_amount');
             $table->float('delivery_amount');
             $table->text('note');

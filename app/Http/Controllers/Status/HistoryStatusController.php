@@ -4,37 +4,39 @@
 namespace App\Http\Controllers\Status;
 
 
-use App\Http\Resources\Area\StatusResource;
-use App\Model\Areas\Status;
+use App\Http\Resources\Area\HistoryStatusResource;
+use App\Model\Areas\HistoryStatus;
 use Illuminate\Http\Request;
 
 class HistoryStatusController
 {
 
     public function index(){
-        return StatusResource::collection(Status::all());
+        return HistoryStatusResource::collection(HistoryStatus::all());
     }
 
     public function create(Request $request){
         $request->validate([
-            'title' => 'required|max:255',
+            'status_id' => 'numeric',
+            'shipment_id' => 'numeric',
         ]);
-        Status::cerate($request->all());
+        HistoryStatus::cerate($request->all());
     }
 
     public function edit(){
 
     }
 
-    public function update(Status $status, Request $request){
+    public function update(HistoryStatus $history, Request $request){
         $request->validate([
-            'title' => 'required|max:255',
+            'status_id' => 'numeric',
+            'shipment_id' => 'numeric',
         ]);
-        $status->update([$request->all()]);
+        $history->update([$request->all()]);
     }
 
 
-    public function delete(Status $status){
-        $status->delete();
+    public function delete(HistoryStatus $history){
+        $history->delete();
     }
 }
