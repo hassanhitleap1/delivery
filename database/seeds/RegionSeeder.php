@@ -14,12 +14,12 @@ class RegionSeeder extends Seeder
      */
     public function run()
     {
-//        factory(Region::class, 50)->make();
 
-        factory(Region::class, 50)->create()->each(function ($region)
+
+        factory(Region::class, 5)->create()->each(function ($region)
         {
-            factory(Area::class, 10)
-                ->create();
+            factory(Area::class, 2)
+                ->create(['region_id'=>$region->id]);
         });
     }
 }

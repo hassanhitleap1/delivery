@@ -18,9 +18,9 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(Area::class, function (Faker $faker) {
+$factory->define(Area::class, function (Faker $faker ,$region_id) {
     return [
         'name' => $faker->name,
-//        'region_id'=>Region::all()->random()->id,
+        'region_id'=>$region_id,
     ];
 });
