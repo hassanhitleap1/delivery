@@ -18,6 +18,7 @@ class CreateShipmentsTable extends Migration
             $table->string('policy_number');
             $table->integer('driver_id');
             $table->integer('customer_id');
+            $table->smallInteger('status_id');
             $table->integer('areas_id');
             $table->string('address');
             $table->string('phone');

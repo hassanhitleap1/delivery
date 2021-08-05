@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model\Areas\Area;
+use App\Model\Areas\Status;
 use App\Model\Areas\Region;
 use Faker\Generator as Faker;
 
@@ -18,7 +18,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(Area::class, function (Faker $faker ,$region_id) {
+$factory->define(Status::class, function (Faker $faker , $region_id) {
     return [
         'name' => $faker->name,
         'region_id'=>$region_id,

@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Users;
 
 
 use App\Http\Controllers\Controller;
+use App\Model\Users\Driver;
 
 class DriverController extends Controller
 {
     public function index(){
-
+        return DriverResource::collection(Driver::all());
     }
 
     public function create(){

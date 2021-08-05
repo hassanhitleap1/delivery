@@ -1,25 +1,23 @@
 <?php
 
 
-namespace App\Http\Controllers\Areas;
+namespace App\Http\Controllers\Status;
 
 
-use App\Http\Resources\Area\AreaResource;
+use App\Http\Resources\Area\StatusResource;
 use App\Model\Areas\Status;
 use Illuminate\Http\Request;
 
-
-class AreaController
+class StatusController
 {
 
     public function index(){
-        return AreaResource::collection(Status::all());
+        return StatusResource::collection(Status::all());
     }
 
     public function create(Request $request){
         $request->validate([
             'title' => 'required|max:255',
-            'region_id'=>'required|numeric'
         ]);
         Status::cerate($request->all());
     }
@@ -28,18 +26,15 @@ class AreaController
 
     }
 
-    public function update(Status $area, Request $request){
+    public function update(Status $status, Request $request){
         $request->validate([
             'title' => 'required|max:255',
-            'region_id'=>'required|numeric'
         ]);
-        $area->update([$request->all()]);
+        $status->update([$request->all()]);
     }
 
 
-    public function delete(Status $area){
-        $area->delete();
+    public function delete(Status $status){
+        $status->delete();
     }
-
-
 }

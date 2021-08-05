@@ -1,6 +1,6 @@
 <?php
 
-use App\Model\Areas\Area;
+use App\Model\Areas\Status;
 use App\Model\Areas\Region;
 use Illuminate\Database\Seeder;
 
@@ -18,7 +18,7 @@ class RegionSeeder extends Seeder
 
         factory(Region::class, 5)->create()->each(function ($region)
         {
-            factory(Area::class, 2)
+            factory(Status::class, 2)
                 ->create(['region_id'=>$region->id]);
         });
     }

@@ -22,9 +22,11 @@ class RegionController
             'name' => 'required',
             'price' => 'number',
         ]);
+        Region::cerate($request->all());
+
     }
 
-    public function upfate(Region $region,Request $request){
+    public function update(Region $region,Request $request){
         $request->validate([
             'name' => 'required',
             'price' => 'number',
@@ -33,7 +35,7 @@ class RegionController
 
     }
 
-    public function edite(){
+    public function edit(){
 
     }
 
