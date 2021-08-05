@@ -9,6 +9,13 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+    /**
+     * consertnt
+     */
+    const ADMIN=1;
+    const CUSTOMER=2;
+    const DRIVER=3;
+
 
     /**
      * The attributes that are mass assignable.
@@ -38,10 +45,5 @@ class User extends Authenticatable
     ];
 
 
-    /**
-     * consertnt
-     */
-    const ADMIN=1;
-    const CUSTOMER=2;
-    const DRIVER=3;
+
 }
