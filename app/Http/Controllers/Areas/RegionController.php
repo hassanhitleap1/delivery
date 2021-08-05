@@ -8,7 +8,7 @@ namespace App\Http\Controllers\Areas;
 
 
 use App\Http\Resources\Area\RegionResource;
-use App\Model\Area\Region;
+use App\Model\Areas\Region;
 use Illuminate\Http\Request;
 
 class RegionController
