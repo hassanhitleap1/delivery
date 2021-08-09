@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -70,12 +71,18 @@ class AuthController extends Controller
 
 
 
-        public function registration(Request $request){
-            $request->validate([
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:8', 'confirmed'],
-            ]);
+    public function registration(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        if($validator->fails()){
+            return $validator->errors()->getMessages();
+        }
 
 
         return User::create([
@@ -84,7 +91,8 @@ class AuthController extends Controller
                 'password' => Hash::make($request['password']),
             ]);
 
-        }
+    }
+
 
     /**
      * Get the token array structure.

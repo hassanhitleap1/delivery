@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Auth/AuthResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthJwt/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthJwt/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +148,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Resources/Auth" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -159,11 +159,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\app\Http\Resources\Auth" />
       <recent name="C:\xampp\htdocs\delivery\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\delivery\app\Http\Resources\Shipments" />
       <recent name="C:\xampp\htdocs\delivery\app\Http\Resources\Status" />
       <recent name="C:\xampp\htdocs\delivery\app\Model\Status" />
-      <recent name="C:\xampp\htdocs\delivery\app\Http\Controllers\Status" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -214,7 +214,8 @@
       <workItem from="1628162406958" duration="6479000" />
       <workItem from="1628170885968" duration="2545000" />
       <workItem from="1628486486373" duration="614000" />
-      <workItem from="1628500783407" duration="3877000" />
+      <workItem from="1628500783407" duration="3884000" />
+      <workItem from="1628507593189" duration="1618000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
@@ -356,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628501821866</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="28">
+      <created>1628507055655</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1628507055655</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
