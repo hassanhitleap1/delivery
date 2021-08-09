@@ -14,6 +14,7 @@ Route::group([
     Route::post('logout', 'AuthJwt\AuthController@logout');
     Route::post('refresh', 'AuthJwt\AuthController@refresh');
     Route::post('me', 'AuthJwt\AuthController@me');
+    Route::post('registration', 'AuthJwt\AuthController@registration');
 
 });
 
