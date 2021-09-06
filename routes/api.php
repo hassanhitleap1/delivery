@@ -2,10 +2,11 @@
 
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Passport\Passport;
 
 
 
-
+Passport::routes();
 
 Route::group(['prefix' => 'auth' ], function () {
     Route::post('login', 'AuthJwt\AuthController@login');
