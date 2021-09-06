@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Model\Areas;
+namespace App\Model\Status;
 
 
 use Illuminate\Database\Eloquent\Model;

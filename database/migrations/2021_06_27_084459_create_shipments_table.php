@@ -19,13 +19,15 @@ class CreateShipmentsTable extends Migration
             $table->integer('driver_id');
             $table->integer('customer_id');
             $table->smallInteger('status_id');
+            $table->integer('country_id');
+            $table->integer('region_id');
             $table->integer('areas_id');
             $table->string('address');
             $table->string('phone');
             $table->string('other_phone');
             $table->string('required_amount');
             $table->float('delivery_amount');
-            $table->text('note');
+            $table->longtext('note');
             $table->timestamps();
         });
     }

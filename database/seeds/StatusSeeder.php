@@ -1,12 +1,10 @@
 <?php
 
 use App\Model\Status\Status;
-use App\Model\Areas\Region;
 use Illuminate\Database\Seeder;
 
-class RegionSeeder extends Seeder
+class StatusSeeder extends Seeder
 {
-//    protected $model = Region::class;
     /**
      * Run the database seeds.
      *
@@ -14,6 +12,6 @@ class RegionSeeder extends Seeder
      */
     public function run()
     {
-        factory(Region::class, 5)->create();
+        Status::factory()->count(30)->create();
     }
 }
