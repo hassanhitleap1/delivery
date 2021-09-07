@@ -2,72 +2,81 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\APIController;
+use App\Http\Requests\RegistrationRequest;
+use App\Services\Contracts\RegistrationServiceInterface;
+use Illuminate\Http\JsonResponse;
 
-class RegisterController extends Controller
+class RegisterController extends APIController
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
 
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected RegistrationServiceInterface $service;
 
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param RegistrationServiceInterface $service
      */
-    public function __construct()
+    public function __construct(RegistrationServiceInterface $service)
     {
-        $this->middleware('guest');
+        $this->service = $service;
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * @OA\Post(
+     *     path="/users/registration",
+     *     operationId="registration",
+     *     tags={"Authentication"},
+     *     summary="New user registration.",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/RegistrationRequestEntity")
+     *     ),
+     *     @OA\Response(
+     *         response="200",
+     *         description="Successfull registration.",
+     *         @OA\JsonContent(
+     *              ref="#/components/schemas/RegistrationResponseEntity"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response="400",
+     *         description="Some serious issue (with database / store) / server.",
+     *         @OA\JsonContent(
+     *              ref="#/components/schemas/GenericBackendErrorEntity"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response="422",
+     *         description="Validation error. Invalid parameters."
+     *     )
+     * )
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @param RegistrationRequest $request
+     * @return JsonResponse
+     * @throws \Exception
      */
-    protected function validator(array $data)
+    public function register(RegistrationRequest $request): JsonResponse
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+        $payload = $request->validated();
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $result = $this->service
+            ->register($payload);
+
+        if($result) {
+
+            $response = $result;
+            $status = 200;
+        } else {
+            $status = 400;
+            $response = [
+                'status' => 'error',
+                'error' => 'Some serious error occurs during the registration process.',
+                'code' => $status
+            ];
+        }
+
+        return response()
+            ->json($response, $status);
     }
 }

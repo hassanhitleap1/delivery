@@ -13,14 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-//Auth::routes();
-//
-//Route::get('/home', 'HomeController@index')->name('home');
-//
-//Auth::routes();
-//
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'InitialController@init');
+
+Route::group(['middleware' => 'web'], function () {
+    Route::get('api/documentation', '\L5Swagger\Http\Controllers\SwaggerController@api')->name('l5swagger.api');
+});
