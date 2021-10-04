@@ -4,41 +4,41 @@ import VueRouter from 'vue-router';
 import store from '../store'
 
 import App from '../App';
-import Login from '../views/Login';
-import Register from '../views/Register';
+// import Login from '../views/Login';
+// import Register from '../views/Register';
 
 Vue.use(VueRouter);
 
 const router =  new VueRouter({
-    //mode: 'history',
+    mode: 'history',
     routes: [
         {
             path: '/',
             name: 'home',
             component: App,
-            meta: {
-                requiresAuth: false,
-                hideForAuth: false,
-            }
+            // meta: {
+            //     requiresAuth: false,
+            //     hideForAuth: false,
+            // }
         },
-        {
-            path: '/login',
-            name: 'login',
-            component: Login,
-            meta: {
-                requiresAuth: false,
-                hideForAuth: true,
-            }
-        },
-        {
-            path: '/register',
-            name: 'register',
-            component: Register,
-            meta: {
-                requiresAuth: false,
-                hideForAuth: true,
-            }
-        }
+        // {
+        //     path: '/login',
+        //     name: 'login',
+        //     component: Login,
+        //     meta: {
+        //         requiresAuth: false,
+        //         hideForAuth: true,
+        //     }
+        // },
+        // {
+        //     path: '/register',
+        //     name: 'register',
+        //     component: Register,
+        //     meta: {
+        //         requiresAuth: false,
+        //         hideForAuth: true,
+        //     }
+        // }
     ]
 });
 
