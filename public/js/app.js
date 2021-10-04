@@ -61200,6 +61200,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/globals.js":
+/*!*********************************!*\
+  !*** ./resources/js/globals.js ***!
+  \*********************************/
+/*! exports provided: site_url, api_url */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "site_url", function() { return site_url; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "api_url", function() { return api_url; });
+var site_url = "http://localhost:8080";
+var api_url = "http://localhost:8080/api";
+
+/***/ }),
+
 /***/ "./resources/js/pages/Index.vue":
 /*!**************************************!*\
   !*** ./resources/js/pages/Index.vue ***!
@@ -61348,11 +61364,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_dara_dashboard", function() { return get_dara_dashboard; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../globals */ "./resources/js/globals.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 function get_dara_dashboard() {
   return _get_dara_dashboard.apply(this, arguments);
@@ -61365,18 +61383,17 @@ function _get_dara_dashboard() {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            console.log(Vue.$api_url);
-            _context.next = 3;
-            return axios.get("".concat(Vue.$api_url, "/dashboard")).then(function (response) {
+            _context.next = 2;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/dashboard")).then(function (response) {
               console.log(response);
             })["catch"](function (error) {
               console.log(error);
             });
 
-          case 3:
+          case 2:
             res = _context.sent;
 
-          case 4:
+          case 3:
           case "end":
             return _context.stop();
         }
