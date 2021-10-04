@@ -4,13 +4,14 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                <router-link :to="{name:'home'}" name=""  class="nav-link" data-widget="pushmenu"><i class="fas fa-bars"></i></router-link>
+
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <router-link to="/"  class="nav-link" >Home</router-link>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <router-link to="/"  class="nav-link" >Contact</router-link>
             </li>
         </ul>
 
@@ -129,6 +130,4 @@
     }
 </script>
 
-<style scoped>
 
-</style>
