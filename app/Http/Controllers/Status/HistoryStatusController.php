@@ -4,11 +4,12 @@
 namespace App\Http\Controllers\Status;
 
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Area\HistoryStatusResource;
 use App\Model\Areas\HistoryStatus;
 use Illuminate\Http\Request;
 
-class HistoryStatusController
+class HistoryStatusController extends Controller
 {
 
     public function index(){

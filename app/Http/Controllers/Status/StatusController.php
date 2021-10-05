@@ -4,11 +4,12 @@
 namespace App\Http\Controllers\Status;
 
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Area\StatusResource;
 use App\Model\Areas\Status;
 use Illuminate\Http\Request;
 
-class StatusController
+class StatusController extends Controller
 {
 
     public function index(){
