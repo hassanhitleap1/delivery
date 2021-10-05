@@ -23,6 +23,12 @@ const route =  new VueRouter({
             }
         },
         {
+            path: '/',
+            name: 'status',
+            component: ()=>import("../pages/Index"),
+        },
+
+        {
             path: '/login',
             name: 'login',
             component: Login,

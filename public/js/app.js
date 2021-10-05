@@ -61319,6 +61319,12 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       hideForAuth: false
     }
   }, {
+    path: '/',
+    name: 'status',
+    component: function component() {
+      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../pages/Index */ "./resources/js/pages/Index.vue"));
+    }
+  }, {
     path: '/login',
     name: 'login',
     component: _views_Login__WEBPACK_IMPORTED_MODULE_2__["default"],
