@@ -2384,7 +2384,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Sidebar"
 });
@@ -42332,14 +42331,31 @@ var render = function() {
                     [
                       _c(
                         "router-link",
+                        { staticClass: "nav-link ", attrs: { to: "/users" } },
+                        [
+                          _c("i", { staticClass: "far fa-circle nav-icon" }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("user")])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item" },
+                    [
+                      _c(
+                        "router-link",
                         {
                           staticClass: "nav-link ",
-                          attrs: { to: "/dashboard2" }
+                          attrs: { to: "/custumer" }
                         },
                         [
                           _c("i", { staticClass: "far fa-circle nav-icon" }),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Top Navigation")])
+                          _c("p", [_vm._v("custumer")])
                         ]
                       )
                     ],
@@ -42359,27 +42375,7 @@ var render = function() {
                         [
                           _c("i", { staticClass: "far fa-circle nav-icon" }),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Top Navigation")])
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "nav-link ",
-                          attrs: { to: "/dashboard2" }
-                        },
-                        [
-                          _c("i", { staticClass: "far fa-circle nav-icon" }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Top Navigation")])
+                          _c("p", [_vm._v("users")])
                         ]
                       )
                     ],
@@ -42420,7 +42416,7 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "nav-link ",
-                          attrs: { to: { name: "create_status" }, exact: "" }
+                          attrs: { to: "/status/create", exact: "" }
                         },
                         [
                           _c("i", { staticClass: "far fa-circle nav-icon" }),
@@ -61526,25 +61522,60 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       hideForAuth: false
     }
   }, {
-    path: '/',
-    name: 'status',
+    path: '/users',
+    name: 'users',
+    component: function component() {
+      return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module '../views/users/Index'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
+    }
+  }, {
+    path: '/custmers',
+    name: 'users',
+    component: function component() {
+      return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module '../views/custmers/Index'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
+    }
+  }, {
+    path: '/stats',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
     },
     children: [{
+      name: 'stats.create',
       path: 'create',
       component: function component() {
         return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
-      },
-      name: "create_status"
+      }
     }, {
       path: ':id',
-      component: function component() {
+      name: 'stats.update',
+      components: function components() {
         return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../views/status/Update */ "./resources/js/views/status/Update.vue"));
-      },
-      name: "" + "update_status"
+      }
+    }, {
+      path: 'view',
+      name: 'stats.create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
+      }
     }]
-  }, {
+  }, // {
+  //     path: '/status',
+  //     name: 'status',
+  //     component: ()=>import("../views/status/Index"),
+  //     children: [
+  //         {
+  //             path: '/status/create',
+  //             component: SstatusCreate,
+  //             name:"create_status"
+  //         },
+  //         {
+  //             path: '/status/:id',
+  //             component: ()=>import("../views/status/Update"),
+  //             name:"update_status"
+  //
+  //         }
+  //    ]
+  // },
+  {
     path: '/login',
     name: 'login',
     component: _views_Login__WEBPACK_IMPORTED_MODULE_2__["default"],

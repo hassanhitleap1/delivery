@@ -65,21 +65,21 @@
 
 
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/dashboard2">
+                                <router-link class="nav-link " to="/users">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Top Navigation</p>
+                                    <p>user</p>
+                                </router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link class="nav-link " to="/custumer">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>custumer</p>
                                 </router-link>
                             </li>
                             <li class="nav-item">
                                 <router-link class="nav-link " to="/dashboard2">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Top Navigation</p>
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link class="nav-link " to="/dashboard2">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Top Navigation</p>
+                                    <p>users</p>
                                 </router-link>
                             </li>
                         </ul>
@@ -96,16 +96,15 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-
-
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/status" exact>
+                                <router-link class="nav-link " to="/status"  exact>
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>status</p>
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link class="nav-link " :to="{name:'create_status'}" exact>
+
+                                <router-link class="nav-link "  to="/status/create" exact>
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>create status</p>
                                 </router-link>

@@ -7,6 +7,7 @@ import Login from '../views/Login';
 import Register from '../views/Register';
 import Index from "../pages/Index";
 
+
 Vue.use(VueRouter);
 
 const route =  new VueRouter({
@@ -22,24 +23,57 @@ const route =  new VueRouter({
                 hideForAuth: false,
             }
         },
+
         {
-            path: '/',
-            name: 'status',
-            component: ()=>import("../views/status/Index"),
-            children: [
-                {
-                    path: 'create',
-                    component: ()=>import("../views/status/Create"),
-                    name:"create_status"
-                },
-                {
-                    path: ':id',
-                    component: ()=>import("../views/status/Update"),
-                    name:"" +
-                        "update_status"
-                }
-           ]
+            path: '/users',
+            name: 'users',
+            component: ()=>import("../views/users/Index"),
         },
+
+        {
+            path: '/custmers',
+            name: 'users',
+            component: ()=>import("../views/custmers/Index"),
+        },
+
+        {
+            path: '/stats',
+            component:  ()=>import("../views/status/Index"),
+            children: [{
+                name: 'stats.create',
+                path: 'create',
+                component:  ()=>import("../views/status/Create"),
+            }, {
+                path: ':id',
+                name: 'stats.update',
+                components:  ()=>import("../views/status/Update"),
+            }, {
+                path: 'view',
+                name: 'stats.create',
+                component:()=>import("../views/status/Create"),
+
+            }]
+            },
+
+
+        // {
+        //     path: '/status',
+        //     name: 'status',
+        //     component: ()=>import("../views/status/Index"),
+        //     children: [
+        //         {
+        //             path: '/status/create',
+        //             component: SstatusCreate,
+        //             name:"create_status"
+        //         },
+        //         {
+        //             path: '/status/:id',
+        //             component: ()=>import("../views/status/Update"),
+        //             name:"update_status"
+        //
+        //         }
+        //    ]
+        // },
 
         {
             path: '/login',
