@@ -25,7 +25,20 @@ const route =  new VueRouter({
         {
             path: '/',
             name: 'status',
-            component: ()=>import("../pages/Index"),
+            component: ()=>import("../views/status/Index"),
+            children: [
+                {
+                    path: 'create',
+                    component: ()=>import("../views/status/Create"),
+                    name:"create_status"
+                },
+                {
+                    path: ':id',
+                    component: ()=>import("../views/status/Update"),
+                    name:"" +
+                        "update_status"
+                }
+           ]
         },
 
         {

@@ -67,24 +67,26 @@
 </template>
 
 <script>
-    import { site_url, api_url } from '../../globals';
+    // import { site_url, api_url } from '../../globals';
     export default {
         name: "Index",
-        data:()=>{
-          status:[]
+        data(){
+            return {
+                status:[]
+            }
         },
         mounted() {
-            get_status();
+            //get_status();
         },
         methods:{
-            async get_status(){
-                const res = await axios.get(`${api_url}/status`).then(function (response) {
-                    this.status=response.data
-                    console.log(response);
-                }).catch(function (error) {
-                    console.log(error);
-                });
-            }
+            // async get_status(){
+            //     const res = await axios.get(`${api_url}/status`).then(function (response) {
+            //         this.status=response
+            //         console.log(response);
+            //     }).catch(function (error) {
+            //         console.log(error);
+            //     });
+            // }
         }
     }
 </script>

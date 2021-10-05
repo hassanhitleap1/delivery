@@ -26,6 +26,12 @@ Route::middleware('auth:api')->group(function () {
 });
 
 
+Route::group(['prefix' => 'dashboard' ], function () {
+    Route::get('/', 'Home\Dashboard@index');
+});
+
+
+
 Route::group(['prefix' => 'auth' ], function () {
     Route::post('login', 'AuthJwt\AuthController@login');
     Route::post('logout', 'AuthJwt\AuthController@logout');

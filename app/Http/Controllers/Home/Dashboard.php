@@ -15,10 +15,11 @@ class Dashboard extends Controller
 
 
     public function index(){
-        $date=Carbon::now()->toDateString();
-        $data=User::select("count(*) as count_user",
-            DB::row("(select (*) from orders where date(orders.cerated_at)='$date') as count_order"))
-            ->first();
+//        $date=Carbon::now()->toDateString();
+//        $data=User::select("count(*) as count_user",
+//            DB::row("(select (*) from orders where date(orders.cerated_at)='$date') as count_order"))
+//            ->first();
+        $data=[];
         return new DashboardResource($data);
     }
 }
