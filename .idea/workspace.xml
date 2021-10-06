@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="">
+    <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="46">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Sidebar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/status/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/status/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/status/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/status/Update.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/root.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/root.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -254,7 +248,8 @@
       <workItem from="1633353241748" duration="3557000" />
       <workItem from="1633416085401" duration="268000" />
       <workItem from="1633421902008" duration="4933000" />
-      <workItem from="1633434319065" duration="4432000" />
+      <workItem from="1633434319065" duration="4565000" />
+      <workItem from="1633528753913" duration="22000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
@@ -510,7 +505,8 @@
     <MESSAGE value="42" />
     <MESSAGE value="44" />
     <MESSAGE value="45" />
-    <option name="LAST_COMMIT_MESSAGE" value="45" />
+    <MESSAGE value="46" />
+    <option name="LAST_COMMIT_MESSAGE" value="46" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

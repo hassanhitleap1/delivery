@@ -44,7 +44,7 @@ const route =  new VueRouter({
                 path: 'create',
                 component:  ()=>import("../views/status/Create"),
             }, {
-                path: ':id',
+                path: ':id/edit',
                 name: 'stats.update',
                 components:  ()=>import("../views/status/Update"),
             }, {
