@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="48" />
+    <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="48">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/custmers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/custmers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/shipments.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/shipments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/status.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/users.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +255,7 @@
       <workItem from="1633434319065" duration="4565000" />
       <workItem from="1633528753913" duration="1174000" />
       <workItem from="1633586615016" duration="11000" />
-      <workItem from="1633586639599" duration="7174000" />
+      <workItem from="1633586639599" duration="8857000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
