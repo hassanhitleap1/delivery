@@ -1,18 +1,26 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-
-// import store from '../store'
-
 import Login from '../views/Login';
 import Register from '../views/Register';
 import Index from "../pages/Index";
 
-
+import { languages } from '../plugins/i18n';
+import store from '../store/index';
 Vue.use(VueRouter);
 
 const route =  new VueRouter({
     mode: 'history',
     linkActiveClass: "active",
+    beforeEnter(to, from, next) {
+        let lang = to.params.lang
+        if (languages.includes(lang)) {
+            if (store.state.locale !== lang) {
+                store.dispatch('changeLocale', lang)
+            }
+            return next()
+        }
+        return next({ path: store.state.locale })
+    },
     routes: [
         {
             path: '/',
