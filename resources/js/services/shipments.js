@@ -17,6 +17,15 @@ export  async  function create_shipment(data) {
 }
 
 
+export  async  function create_shipments(data) {
+    const res = await axios.post(`${api_url}/shipments/list/create`,data).then(function (response) {
+        console.log(response);
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
+
+
 export  async  function update_shipment(id,data) {
     const res = await axios.put(`${api_url}/shipments/${id}/update`,data).then(function (response) {
         console.log(response);

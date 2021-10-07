@@ -3,10 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="48">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/custmers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/custmers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/0.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/1.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/10.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/10.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/11.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/11.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/3.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/4.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/5.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/6.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/7.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/7.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/8.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/8.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/9.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/9.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/i18n/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/i18n.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/plugins/i18n.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/services/shipments.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/shipments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/status.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/custmers/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/custmers/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/shipments/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/shipments/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/status/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/status/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/users/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/users/Create.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +190,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/store/modules/users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -255,7 +273,8 @@
       <workItem from="1633434319065" duration="4565000" />
       <workItem from="1633528753913" duration="1174000" />
       <workItem from="1633586615016" duration="11000" />
-      <workItem from="1633586639599" duration="8857000" />
+      <workItem from="1633586639599" duration="9535000" />
+      <workItem from="1633600153478" duration="1489000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
@@ -532,7 +551,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/resources/js/router/index.js</url>
           <line>8</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

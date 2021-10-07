@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueI18n from 'vue-i18n'
+import VueI18n from'vue-i18n';
 
 Vue.use(VueI18n);
 
@@ -29,11 +29,14 @@ function checkDefaultLanguage() {
     }
     return matched
 }
+
 export const selectedLocale =
     checkDefaultLanguage() || process.env.VUE_APP_I18N_LOCALE || 'en'
-export const languages = Object.getOwnPropertyNames(loadLocaleMessages())
+export  const languages = Object.getOwnPropertyNames(loadLocaleMessages())
 export default new VueI18n({
     locale: selectedLocale,
     fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'en',
     messages: loadLocaleMessages()
 })
+
+
