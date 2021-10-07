@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/views/areas/Create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/areas/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/areas/Update.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/countries/Create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/countries/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/countries/Update.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/prices/Create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/prices/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/prices/Update.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/regions/Create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/regions/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/regions/Update.vue" afterDir="false" />
+    <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="30">
+      <change afterPath="$PROJECT_DIR$/resources/js/services/areas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/services/countries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/services/regions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/areas/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/areas/getters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/areas/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/areas/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/areas/state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/getters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/prices/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/prices/getters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/prices/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/prices/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/prices/state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/getters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/state.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/custmers/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/custmers/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/custmers/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/custmers/Update.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/shipments/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/shipments/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/status/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/status/Update.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/users/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/users/Update.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -185,7 +191,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/services" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -197,11 +203,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\resources\js\services" />
+      <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\views" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\users" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\custmers" />
-      <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\shipments" />
-      <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\status" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -270,7 +276,7 @@
       <workItem from="1633586615016" duration="11000" />
       <workItem from="1633586639599" duration="9535000" />
       <workItem from="1633600153478" duration="1527000" />
-      <workItem from="1633605361546" duration="1182000" />
+      <workItem from="1633605361546" duration="2433000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
@@ -529,7 +535,6 @@
     <MESSAGE value="26" />
     <MESSAGE value="27" />
     <MESSAGE value="28" />
-    <MESSAGE value="30" />
     <MESSAGE value="34" />
     <MESSAGE value="36" />
     <MESSAGE value="40" />
@@ -541,7 +546,8 @@
     <MESSAGE value="47" />
     <MESSAGE value="48" />
     <MESSAGE value="29" />
-    <option name="LAST_COMMIT_MESSAGE" value="29" />
+    <MESSAGE value="30" />
+    <option name="LAST_COMMIT_MESSAGE" value="30" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
