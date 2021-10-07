@@ -1,6 +1,6 @@
 const getters={
-    all_users:(state)=>{
-        return state.users;
+    all_areas:(state)=>{
+        return state.areas;
     }
 }
 export  default getters;

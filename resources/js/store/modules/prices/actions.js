@@ -1,6 +1,6 @@
 const actions={
-    create: (context,shipment) => {
-        context.commit('create',shipment)
+    create: (context,price) => {
+        context.commit('create',price)
     }
 }
 export  default actions;

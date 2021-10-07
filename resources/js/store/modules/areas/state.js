@@ -1,5 +1,5 @@
 const state ={
-    users:[]
+    areas:[]
 }
 
 export default state;

@@ -1,8 +1,8 @@
 const  mutations={
-    cerate:(state,shipment)=>{
-        let list=state.shipments;
-        list.unshift(shipment);
-        state.shipments=list;
+    cerate:(state,country)=>{
+        let list=state.countries;
+        list.unshift(country);
+        state.countries=list;
     },
 
 };

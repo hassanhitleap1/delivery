@@ -13,11 +13,11 @@ import actions from './actions';
 // });
 
 
-const ShipmentModule ={
+const PriceModule ={
     namespaced: true,
     state,
     getters,
     mutations,
     actions
 }
-export  default ShipmentModule;
+export  default PriceModule;

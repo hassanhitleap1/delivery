@@ -1,5 +1,5 @@
 const state ={
-    shipments:[]
+    regions:[]
 }
 
 export default state;

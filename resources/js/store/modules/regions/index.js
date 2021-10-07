@@ -13,11 +13,11 @@ import actions from './actions';
 // });
 
 
-const ShipmentModule ={
+const RegionModule ={
     namespaced: true,
     state,
     getters,
     mutations,
     actions
 }
-export  default ShipmentModule;
+export  default RegionModule;

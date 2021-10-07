@@ -13,11 +13,11 @@ import actions from './actions';
 // });
 
 
-const UsersModule ={
+const AreaModule ={
     namespaced: true,
     state,
     getters,
     mutations,
     actions
 }
-export  default UsersModule;
+export  default AreaModule;

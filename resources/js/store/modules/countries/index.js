@@ -13,11 +13,11 @@ import actions from './actions';
 // });
 
 
-const ShipmentModule ={
+const ContryModule ={
     namespaced: true,
     state,
     getters,
     mutations,
     actions
 }
-export  default ShipmentModule;
+export  default ContryModule;

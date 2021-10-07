@@ -13,6 +13,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index"
 });
@@ -34,9 +101,150 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "content" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h3", { staticClass: "card-title" }, [
+                  _vm._v("Bordered Table")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("table", { staticClass: "table table-bordered" }, [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", { staticStyle: { width: "10px" } }, [
+                        _vm._v("#")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Task")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Progress")]),
+                      _vm._v(" "),
+                      _c("th", { staticStyle: { width: "40px" } }, [
+                        _vm._v("Label")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tbody", [
+                    _c("tr", [
+                      _c("td", [_vm._v("1.")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Update software")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("div", { staticClass: "progress progress-xs" }, [
+                          _c("div", {
+                            staticClass: "progress-bar progress-bar-danger",
+                            staticStyle: { width: "55%" }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("span", { staticClass: "badge bg-danger" }, [
+                          _vm._v("55%")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [_vm._v("2.")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Clean database")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("div", { staticClass: "progress progress-xs" }, [
+                          _c("div", {
+                            staticClass: "progress-bar bg-warning",
+                            staticStyle: { width: "70%" }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("span", { staticClass: "badge bg-warning" }, [
+                          _vm._v("70%")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [_vm._v("3.")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Cron job running")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "progress progress-xs progress-striped active"
+                          },
+                          [
+                            _c("div", {
+                              staticClass: "progress-bar bg-primary",
+                              staticStyle: { width: "30%" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("span", { staticClass: "badge bg-primary" }, [
+                          _vm._v("30%")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td", [_vm._v("4.")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("Fix and squish bugs")]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "progress progress-xs progress-striped active"
+                          },
+                          [
+                            _c("div", {
+                              staticClass: "progress-bar bg-success",
+                              staticStyle: { width: "90%" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("span", { staticClass: "badge bg-success" }, [
+                          _vm._v("90%")
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

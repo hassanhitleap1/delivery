@@ -1,6 +1,6 @@
 const getters={
-    all_shipments:(state)=>{
-        return state.shipments;
+    all_countries:(state)=>{
+        return state.countries;
     }
 }
 export  default getters;

@@ -66850,21 +66850,20 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
-/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
 Vue.prototype.$site_url = "http://localhost:8080";
-Vue.prototype.$api_url = "http://localhost:8080/api";
+Vue.prototype.$api_url = "http://localhost:8080/api"; // import store from './store/index';
 
 var app = new Vue({
   render: function render(h) {
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
   },
-  router: _router__WEBPACK_IMPORTED_MODULE_0__["default"],
-  store: _store_index__WEBPACK_IMPORTED_MODULE_2__["default"]
+  router: _router__WEBPACK_IMPORTED_MODULE_0__["default"] // store,
+
 }).$mount("#app"); // import Echo from "laravel-echo"
 //
 // window.Echo = new Echo({
@@ -67548,8 +67547,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_shipments_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/shipments/index */ "./resources/js/store/modules/shipments/index.js");
 /* harmony import */ var _modules_status_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/status/index */ "./resources/js/store/modules/status/index.js");
 /* harmony import */ var _modules_users_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/users/index */ "./resources/js/store/modules/users/index.js");
-/* harmony import */ var vuex_persistedstate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex-persistedstate */ "./node_modules/vuex-persistedstate/dist/vuex-persistedstate.es.js");
-/* harmony import */ var _plugins_i18n__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../plugins/i18n */ "./resources/js/plugins/i18n.js");
+/* harmony import */ var _modules_regions_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/regions/index */ "./resources/js/store/modules/regions/index.js");
+/* harmony import */ var _modules_countries_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/countries/index */ "./resources/js/store/modules/countries/index.js");
+/* harmony import */ var _modules_areas_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/areas/index */ "./resources/js/store/modules/areas/index.js");
+/* harmony import */ var _modules_prices_index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/prices/index */ "./resources/js/store/modules/prices/index.js");
+/* harmony import */ var vuex_persistedstate__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuex-persistedstate */ "./node_modules/vuex-persistedstate/dist/vuex-persistedstate.es.js");
+/* harmony import */ var _plugins_i18n__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../plugins/i18n */ "./resources/js/plugins/i18n.js");
 // import Vue from 'vue';
 // import Vuex from 'vuex';
 //
@@ -67588,16 +67591,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
     CustmerModule: _modules_custmers_index__WEBPACK_IMPORTED_MODULE_2__["default"],
     ShipmentModule: _modules_shipments_index__WEBPACK_IMPORTED_MODULE_3__["default"],
     StatusModule: _modules_status_index__WEBPACK_IMPORTED_MODULE_4__["default"],
-    UsersModule: _modules_users_index__WEBPACK_IMPORTED_MODULE_5__["default"]
+    UsersModule: _modules_users_index__WEBPACK_IMPORTED_MODULE_5__["default"],
+    RegionModule: _modules_regions_index__WEBPACK_IMPORTED_MODULE_6__["default"],
+    ContryModule: _modules_countries_index__WEBPACK_IMPORTED_MODULE_7__["default"],
+    AreaModule: _modules_areas_index__WEBPACK_IMPORTED_MODULE_8__["default"],
+    PriceModule: _modules_prices_index__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   state: {
-    locale: _plugins_i18n__WEBPACK_IMPORTED_MODULE_7__["selectedLocale"]
+    locale: _plugins_i18n__WEBPACK_IMPORTED_MODULE_11__["selectedLocale"]
   },
   mutations: {
     updateLocale: function updateLocale(state, newLocale) {
@@ -67607,13 +67618,231 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   actions: {
     changeLocale: function changeLocale(_ref, newLocale) {
       var commit = _ref.commit;
-      _plugins_i18n__WEBPACK_IMPORTED_MODULE_7__["default"].locale = newLocale; // important!
+      _plugins_i18n__WEBPACK_IMPORTED_MODULE_11__["default"].locale = newLocale; // important!
 
       commit('updateLocale', newLocale);
     }
   },
-  plugins: [Object(vuex_persistedstate__WEBPACK_IMPORTED_MODULE_6__["default"])()]
+  plugins: [Object(vuex_persistedstate__WEBPACK_IMPORTED_MODULE_10__["default"])()]
 }));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/areas/actions.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/store/modules/areas/actions.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var actions = {
+  create: function create(context, area) {
+    context.commit('create', area);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (actions);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/areas/getters.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/store/modules/areas/getters.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var getters = {
+  all_areas: function all_areas(state) {
+    return state.areas;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (getters);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/areas/index.js":
+/*!***************************************************!*\
+  !*** ./resources/js/store/modules/areas/index.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/modules/areas/state.js");
+/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/areas/getters.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/areas/mutations.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/areas/actions.js");
+// import Vue from 'vue'
+// import Vuex from 'vuex'
+
+
+
+ // Vue.use(Vuex);
+// const store = new Vuex.Store({
+//     state,
+//     getters,
+//     mutations,
+//     actions
+// });
+
+var AreaModule = {
+  namespaced: true,
+  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _getters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _actions__WEBPACK_IMPORTED_MODULE_3__["default"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (AreaModule);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/areas/mutations.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/store/modules/areas/mutations.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var mutations = {
+  cerate: function cerate(state, area) {
+    var list = state.areas;
+    list.unshift(area);
+    state.areas = list;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (mutations);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/areas/state.js":
+/*!***************************************************!*\
+  !*** ./resources/js/store/modules/areas/state.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  areas: []
+};
+/* harmony default export */ __webpack_exports__["default"] = (state);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/countries/actions.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/store/modules/countries/actions.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var actions = {
+  create: function create(context, contry) {
+    context.commit('create', contry);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (actions);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/countries/getters.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/store/modules/countries/getters.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var getters = {
+  all_countries: function all_countries(state) {
+    return state.countries;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (getters);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/countries/index.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/store/modules/countries/index.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/modules/countries/state.js");
+/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/countries/getters.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/countries/mutations.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/countries/actions.js");
+// import Vue from 'vue'
+// import Vuex from 'vuex'
+
+
+
+ // Vue.use(Vuex);
+// const store = new Vuex.Store({
+//     state,
+//     getters,
+//     mutations,
+//     actions
+// });
+
+var ContryModule = {
+  namespaced: true,
+  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _getters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _actions__WEBPACK_IMPORTED_MODULE_3__["default"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (ContryModule);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/countries/mutations.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/store/modules/countries/mutations.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var mutations = {
+  cerate: function cerate(state, country) {
+    var list = state.countries;
+    list.unshift(country);
+    state.countries = list;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (mutations);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/countries/state.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/store/modules/countries/state.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  countries: []
+};
+/* harmony default export */ __webpack_exports__["default"] = (state);
 
 /***/ }),
 
@@ -67721,6 +67950,224 @@ var mutations = {
 __webpack_require__.r(__webpack_exports__);
 var state = {
   custmers: []
+};
+/* harmony default export */ __webpack_exports__["default"] = (state);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/prices/actions.js":
+/*!******************************************************!*\
+  !*** ./resources/js/store/modules/prices/actions.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var actions = {
+  create: function create(context, price) {
+    context.commit('create', price);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (actions);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/prices/getters.js":
+/*!******************************************************!*\
+  !*** ./resources/js/store/modules/prices/getters.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var getters = {
+  all_prices: function all_prices(state) {
+    return state.prices;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (getters);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/prices/index.js":
+/*!****************************************************!*\
+  !*** ./resources/js/store/modules/prices/index.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/modules/prices/state.js");
+/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/prices/getters.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/prices/mutations.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/prices/actions.js");
+// import Vue from 'vue'
+// import Vuex from 'vuex'
+
+
+
+ // Vue.use(Vuex);
+// const store = new Vuex.Store({
+//     state,
+//     getters,
+//     mutations,
+//     actions
+// });
+
+var PriceModule = {
+  namespaced: true,
+  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _getters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _actions__WEBPACK_IMPORTED_MODULE_3__["default"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (PriceModule);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/prices/mutations.js":
+/*!********************************************************!*\
+  !*** ./resources/js/store/modules/prices/mutations.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var mutations = {
+  cerate: function cerate(state, price) {
+    var list = state.prices;
+    list.unshift(price);
+    state.prices = list;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (mutations);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/prices/state.js":
+/*!****************************************************!*\
+  !*** ./resources/js/store/modules/prices/state.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  prices: []
+};
+/* harmony default export */ __webpack_exports__["default"] = (state);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/regions/actions.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/store/modules/regions/actions.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var actions = {
+  create: function create(context, region) {
+    context.commit('create', region);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (actions);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/regions/getters.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/store/modules/regions/getters.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var getters = {
+  all_regions: function all_regions(state) {
+    return state.regions;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (getters);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/regions/index.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/store/modules/regions/index.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/modules/regions/state.js");
+/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/regions/getters.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/regions/mutations.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/regions/actions.js");
+// import Vue from 'vue'
+// import Vuex from 'vuex'
+
+
+
+ // Vue.use(Vuex);
+// const store = new Vuex.Store({
+//     state,
+//     getters,
+//     mutations,
+//     actions
+// });
+
+var RegionModule = {
+  namespaced: true,
+  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _getters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _actions__WEBPACK_IMPORTED_MODULE_3__["default"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (RegionModule);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/regions/mutations.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/store/modules/regions/mutations.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var mutations = {
+  cerate: function cerate(state, region) {
+    var list = state.regions;
+    list.unshift(region);
+    state.regions = list;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (mutations);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/regions/state.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/store/modules/regions/state.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  regions: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 

@@ -4,11 +4,11 @@ import router from "./router";
 import App from "./App.vue";
 Vue.prototype.$site_url ="http://localhost:8080";
 Vue.prototype.$api_url ="http://localhost:8080/api";
-import store from './store/index';
+// import store from './store/index';
 const app = new Vue({
     render: (h) => h(App),
     router,
-     store,
+     // store,
 }).$mount("#app");
 
 
