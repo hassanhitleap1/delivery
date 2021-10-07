@@ -262,7 +262,17 @@
 
 <script>
     export default {
-        name: "Update"
+        name: "Create",
+        data(){
+            return {
+                form:{
+                    name:null,
+                    phone:null,
+                    address:null,
+                    password:null
+                }
+            }
+        }
     }
 </script>
 
