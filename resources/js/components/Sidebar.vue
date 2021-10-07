@@ -142,6 +142,14 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="nav-item">
+
+                        <router-link class="nav-link " to="/shipments">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>shipments</p>
+                        </router-link>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
