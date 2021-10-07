@@ -31,10 +31,21 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
+import CustmerModule from './modules/custmers/index';
+import ShipmentModule from './modules/shipments/index';
+import StatusModule from './modules/status/index';
+import UsersModule from './modules/users/index';
+
 import createPersistedState from 'vuex-persistedstate'
 import i18n, { selectedLocale } from '../plugins/i18n'
-Vue.use(Vuex)
+Vue.use(Vuex);
 export default new Vuex.Store({
+    modules: {
+        CustmerModule: CustmerModule,
+        ShipmentModule: ShipmentModule,
+        StatusModule: StatusModule,
+        UsersModule: UsersModule
+    },
     state: {
         locale: selectedLocale
     },

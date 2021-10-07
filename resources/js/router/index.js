@@ -92,19 +92,19 @@ const route =  new VueRouter({
         },
 
         {
-            path: '/stats',
+            path: '/status',
             component:  ()=>import("../views/status/Index"),
             children: [{
-                    name: 'stats.create',
+                    name: 'status.create',
                     path: 'create',
                     component:  ()=>import("../views/status/Create"),
                 }, {
                     path: ':id/edit',
-                    name: 'stats.update',
+                    name: 'status.update',
                     components:  ()=>import("../views/status/Update"),
                 }, {
                     path: 'view',
-                    name: 'stats.create',
+                    name: 'status.create',
                     component:()=>import("../views/status/Create"),
 
                 }]
