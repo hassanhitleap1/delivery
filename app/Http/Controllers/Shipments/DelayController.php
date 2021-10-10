@@ -4,10 +4,12 @@
 namespace App\Http\Controllers\Shipments;
 
 
+use App\Model\Shipments\Delay;
+
 class DelayController
 {
     public function index(){
-        return DelayResource::collection(Shipment::all());
+        return DelayResource::collection(Delay::all());
     }
 
     public function create(Request $request){

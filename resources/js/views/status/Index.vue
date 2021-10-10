@@ -27,7 +27,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="stat in all_status" :key="stat.id">
+                        <tr v-for="stat in status" :key="stat.id">
                             <td>{{stat.id}}</td>
                             <td>{{stat.name}}</td>
                             <td class="action"> <span class="tag tag-success">Approved</span></td>
@@ -43,26 +43,21 @@
 </template>
 
 <script>
-    import { mapGetters ,mapActions  } from 'vuex';
+    import { mapGetters   } from 'vuex';
     import { site_url, api_url } from '../../globals';
     export default {
         name: "Index",
-
         data(){
             return {
                 status:[]
             }
         },
 
-        mounted() {
-
-            // this.get_status();
-        },
         computed: {
-            ...mapGetters(['all_status'])
+             ...mapGetters(['StatusModule/all_status'])
         },
         methods:{
-            ...mapActions(['delete']),
+            // ...mapActions(['delete']),
             // get_status() {
             //     axios.get(`${api_url}/status`)
             //         .then(response => {

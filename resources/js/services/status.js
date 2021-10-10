@@ -1,10 +1,17 @@
 import { site_url, api_url } from '../globals';
 
 export  async  function get_status() {
-    const res = await axios.get(`${api_url}/status`).then(function (response) {
-    }).catch(function (error) {
-        console.log(error);
-    });
+
+    axios.get(`${api_url}/status`)
+            .then(response => {
+                return  response.data;
+            });
+
+    // const res = await axios.get(`${api_url}/status`).then(function (response) {
+    //     return response.data;
+    // }).catch(function (error) {
+    //     console.log(error);
+    // });
 }
 
 export  async  function create_status(data) {

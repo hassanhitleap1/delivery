@@ -61150,20 +61150,21 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
 Vue.prototype.$site_url = "http://localhost:8080";
-Vue.prototype.$api_url = "http://localhost:8080/api"; // import store from './store/index';
+Vue.prototype.$api_url = "http://localhost:8080/api";
 
 var app = new Vue({
+  router: _router__WEBPACK_IMPORTED_MODULE_0__["default"],
+  store: _store_index__WEBPACK_IMPORTED_MODULE_2__["default"],
   render: function render(h) {
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
-  },
-  router: _router__WEBPACK_IMPORTED_MODULE_0__["default"] // store,
-
+  }
 }).$mount("#app"); // import Echo from "laravel-echo"
 //
 // window.Echo = new Echo({
@@ -62476,6 +62477,9 @@ __webpack_require__.r(__webpack_exports__);
 var actions = {
   create: function create(context, statu) {
     context.commit('create', statu);
+  },
+  "delete": function _delete(context, statu) {
+    context.commit('delete', statu);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
@@ -62493,7 +62497,9 @@ var actions = {
 __webpack_require__.r(__webpack_exports__);
 var getters = {
   all_status: function all_status(state) {
-    return state.status;
+    axios.get("".concat(api_url, "/status")).then(function (response) {
+      return response.data;
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62546,11 +62552,24 @@ var StatusModule = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var _this = undefined;
+
 var mutations = {
   cerate: function cerate(state, statu) {
     var list = state.status;
     list.unshift(statu);
     state.status = list;
+  },
+  "delete": function _delete(state, statu) {
+    var list = state.status;
+
+    _this.axios["delete"]("".concat(api_url, "/status/").concat(id)).then(function (response) {
+      var i = list.map(function (data) {
+        return data.id;
+      }).indexOf(id);
+      list.splice(i, 1);
+      state.status = list;
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
