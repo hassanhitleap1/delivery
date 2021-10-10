@@ -55,18 +55,33 @@
             this.get_status();
         },
         methods:{
-            async get_status(){
-                const res = await axios.get(`${api_url}/status`).then(function (response) {
-                    // console.log(response.data.data);
-                    // this.status=response.data.data
-                    // console.log(this.status);
-                }).catch(function (error) {
-                    console.log(error);
-                    console.log(error);
-                });
+            get_status() {
+                axios.get(`${api_url}/status`)
+                    .then(response => {
+                        this.status = response.data;
+                    });
+            },
+            deleteProduct(id) {
+                this.axios
+                    .delete(`${api_url}/status/${id}`)
+                    .then(response => {
+                        let i = this.status.map(data => data.id).indexOf(id);
+                        this.status.splice(i, 1)
+                    });
+            }
+            
+            // async get_status(){
+            //     const res = await axios.get(`${api_url}/status`).then(function (response) {
+            //         // console.log(response.data.data);
+            //         // this.status=response.data.data
+            //         // console.log(this.status);
+            //     }).catch(function (error) {
+            //         console.log(error);
+            //         console.log(error);
+            //     });
                 // console.log(res);
                 // this.status=res.data.data
-            }
+
         }
     }
 </script>
