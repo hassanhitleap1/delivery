@@ -9,6 +9,15 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../globals */ "./resources/js/globals.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -53,31 +62,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// import { site_url, api_url } from '../../globals';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
   data: function data() {
@@ -85,16 +70,37 @@ __webpack_require__.r(__webpack_exports__);
       status: []
     };
   },
-  mounted: function mounted() {//get_status();
+  mounted: function mounted() {
+    this.get_status();
   },
-  methods: {// async get_status(){
-    //     const res = await axios.get(`${api_url}/status`).then(function (response) {
-    //         this.status=response
-    //         console.log(response);
-    //     }).catch(function (error) {
-    //         console.log(error);
-    //     });
-    // }
+  methods: {
+    get_status: function get_status() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/status")).then(function (response) {// console.log(response.data.data);
+                  // this.status=response.data.data
+                  // console.log(this.status);
+                })["catch"](function (error) {
+                  console.log(error);
+                  console.log(error);
+                });
+
+              case 2:
+                res = _context.sent;
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
   }
 });
 
@@ -126,32 +132,16 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              [
-                _vm._l(_vm.status, function(stat) {
-                  return _c("tr", { key: stat.id }, [
-                    _c("td", [_vm._v("183")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("John Doe")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("11-7-2014")]),
-                    _vm._v(" "),
-                    _vm._m(2, true),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "Bacon ipsum dolor sit amet salami venison chicken flank fatback doner."
-                      )
-                    ])
-                  ])
-                }),
-                _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _vm._m(4),
-                _vm._v(" "),
-                _vm._m(5)
-              ],
-              2
+              _vm._l(_vm.status, function(stat) {
+                return _c("tr", { key: stat.id }, [
+                  _c("td", [_vm._v(_vm._s(stat.id))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(stat.name))]),
+                  _vm._v(" "),
+                  _vm._m(2, true)
+                ])
+              }),
+              0
             )
           ])
         ])
@@ -165,9 +155,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [
-        _vm._v("Responsive Hover Table")
-      ]),
+      _c("h3", { staticClass: "card-title" }, [_vm._v("users")]),
       _vm._v(" "),
       _c("div", { staticClass: "card-tools" }, [
         _c(
@@ -206,13 +194,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
-        _c("th", [_vm._v("User")]),
+        _c("th", [_vm._v("name   ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Date")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Status")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Reason")])
+        _c("th", [_vm._v("action ")])
       ])
     ])
   },
@@ -220,74 +204,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
+    return _c("td", { staticClass: "action" }, [
       _c("span", { staticClass: "tag tag-success" }, [_vm._v("Approved")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", [_vm._v("219")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("Alexander Pierce")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("11-7-2014")]),
-      _vm._v(" "),
-      _c("td", [
-        _c("span", { staticClass: "tag tag-warning" }, [_vm._v("Pending")])
-      ]),
-      _vm._v(" "),
-      _c("td", [
-        _vm._v(
-          "Bacon ipsum dolor sit amet salami venison chicken flank fatback doner."
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", [_vm._v("657")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("Bob Doe")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("11-7-2014")]),
-      _vm._v(" "),
-      _c("td", [
-        _c("span", { staticClass: "tag tag-primary" }, [_vm._v("Approved")])
-      ]),
-      _vm._v(" "),
-      _c("td", [
-        _vm._v(
-          "Bacon ipsum dolor sit amet salami venison chicken flank fatback doner."
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", [_vm._v("175")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("Mike Doe")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("11-7-2014")]),
-      _vm._v(" "),
-      _c("td", [
-        _c("span", { staticClass: "tag tag-danger" }, [_vm._v("Denied")])
-      ]),
-      _vm._v(" "),
-      _c("td", [
-        _vm._v(
-          "Bacon ipsum dolor sit amet salami venison chicken flank fatback doner."
-        )
-      ])
     ])
   }
 ]

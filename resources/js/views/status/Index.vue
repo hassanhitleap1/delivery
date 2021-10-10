@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Responsive Hover Table</h3>
+                    <h3 class="card-title">users</h3>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -21,40 +21,16 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>User</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Reason</th>
+                            <th>name   </th>
+                            <th>action </th>
+
                         </tr>
                         </thead>
                         <tbody>
                         <tr v-for="stat in status" :key="stat.id">
-                            <td>183</td>
-                            <td>John Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-success">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>219</td>
-                            <td>Alexander Pierce</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-warning">Pending</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>657</td>
-                            <td>Bob Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-primary">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        </tr>
-                        <tr>
-                            <td>175</td>
-                            <td>Mike Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-danger">Denied</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                            <td>{{stat.id}}</td>
+                            <td>{{stat.name}}</td>
+                            <td class="action"> <span class="tag tag-success">Approved</span></td>
                         </tr>
                         </tbody>
                     </table>
@@ -67,7 +43,7 @@
 </template>
 
 <script>
-    // import { site_url, api_url } from '../../globals';
+    import { site_url, api_url } from '../../globals';
     export default {
         name: "Index",
         data(){
@@ -76,17 +52,21 @@
             }
         },
         mounted() {
-            //get_status();
+            this.get_status();
         },
         methods:{
-            // async get_status(){
-            //     const res = await axios.get(`${api_url}/status`).then(function (response) {
-            //         this.status=response
-            //         console.log(response);
-            //     }).catch(function (error) {
-            //         console.log(error);
-            //     });
-            // }
+            async get_status(){
+                const res = await axios.get(`${api_url}/status`).then(function (response) {
+                    // console.log(response.data.data);
+                    // this.status=response.data.data
+                    // console.log(this.status);
+                }).catch(function (error) {
+                    console.log(error);
+                    console.log(error);
+                });
+                // console.log(res);
+                // this.status=res.data.data
+            }
         }
     }
 </script>

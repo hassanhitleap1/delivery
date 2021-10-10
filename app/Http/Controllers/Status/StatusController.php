@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Status;
 
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Area\StatusResource;
-use App\Model\Areas\Status;
+use App\Http\Resources\Status\StatusResource;
+use App\Model\Status\Status;
 use Illuminate\Http\Request;
 
 class StatusController extends Controller
