@@ -1,6 +1,9 @@
 const getters={
     all_status:(state)=>{
-        return state.status;
+        axios.get(`${api_url}/status`)
+            .then(response => {
+                return response.data;
+            });
     }
 }
 export  default getters;
