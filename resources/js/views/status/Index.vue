@@ -56,7 +56,7 @@
 
         mounted() {
 
-            this.get_status();
+            // this.get_status();
         },
         computed: {
             ...mapGetters(['all_status'])
