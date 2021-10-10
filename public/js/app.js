@@ -62475,6 +62475,30 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
+  createStatus: function createStatus(_ref, post) {
+    var commit = _ref.commit;
+    axios.post('/api/status', post).then(function (res) {
+      commit('CREATE_State', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  fetchstatus: function fetchstatus(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/status').then(function (res) {
+      commit('FETCH_status', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  deletestatus: function deletestatus(_ref3, statu) {
+    var commit = _ref3.commit;
+    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_State', statu);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
   create: function create(context, statu) {
     context.commit('create', statu);
   },
@@ -62496,6 +62520,9 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
+  status: function status(state) {
+    return state.status;
+  },
   all_status: function all_status(state) {
     axios.get("".concat(api_url, "/status")).then(function (response) {
       return response.data;
@@ -62555,6 +62582,18 @@ __webpack_require__.r(__webpack_exports__);
 var _this = undefined;
 
 var mutations = {
+  CREATE_State: function CREATE_State(state, statu) {
+    state.status.unshift(statu);
+  },
+  FETCH_status: function FETCH_status(state, status) {
+    return state.status = status;
+  },
+  DELETE_State: function DELETE_State(state, statu) {
+    var index = state.status.findIndex(function (item) {
+      return item.id === statu.id;
+    });
+    state.status.splice(index, 1);
+  },
   cerate: function cerate(state, statu) {
     var list = state.status;
     list.unshift(statu);

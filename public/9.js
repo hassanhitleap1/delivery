@@ -65,43 +65,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
-  data: function data() {
-    return {
-      status: []
-    };
+  mounted: function mounted() {
+    this.$store.dispatch('fetchstatus');
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['StatusModule/all_status'])),
   methods: {
-    // ...mapActions(['delete']),
-    // get_status() {
-    //     axios.get(`${api_url}/status`)
-    //         .then(response => {
-    //             this.status = response.data;
-    //         });
-    // },
-    deleteProduct: function deleteProduct(id) {
-      var _this = this;
-
-      this.axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/status/").concat(id)).then(function (response) {
-        var i = _this.status.map(function (data) {
-          return data.id;
-        }).indexOf(id);
-
-        _this.status.splice(i, 1);
-      });
-    } // async get_status(){
-    //     const res = await axios.get(`${api_url}/status`).then(function (response) {
-    //         // console.log(response.data.data);
-    //         // this.status=response.data.data
-    //         // console.log(this.status);
-    //     }).catch(function (error) {
-    //         console.log(error);
-    //         console.log(error);
-    //     });
-    // console.log(res);
-    // this.status=res.data.data
-
-  }
+    deletePost: function deletePost(statu) {
+      this.$store.dispatch('deletestatus', statu);
+    }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['StatusModule/status']))
 });
 
 /***/ }),

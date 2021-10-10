@@ -43,49 +43,22 @@
 </template>
 
 <script>
-    import { mapGetters   } from 'vuex';
+    import {mapGetters} from 'vuex'
     import { site_url, api_url } from '../../globals';
     export default {
         name: "Index",
-        data(){
-            return {
-                status:[]
+        mounted() {
+            this.$store.dispatch('fetchstatus')
+        },
+        methods: {
+            deletePost(statu) {
+                this.$store.dispatch('deletestatus',statu)
             }
         },
-
         computed: {
-             ...mapGetters(['StatusModule/all_status'])
+             ...mapGetters(['StatusModule/status'])
         },
-        methods:{
-            // ...mapActions(['delete']),
-            // get_status() {
-            //     axios.get(`${api_url}/status`)
-            //         .then(response => {
-            //             this.status = response.data;
-            //         });
-            // },
-            deleteProduct(id) {
-                this.axios
-                    .delete(`${api_url}/status/${id}`)
-                    .then(response => {
-                        let i = this.status.map(data => data.id).indexOf(id);
-                        this.status.splice(i, 1)
-                    });
-            }
 
-            // async get_status(){
-            //     const res = await axios.get(`${api_url}/status`).then(function (response) {
-            //         // console.log(response.data.data);
-            //         // this.status=response.data.data
-            //         // console.log(this.status);
-            //     }).catch(function (error) {
-            //         console.log(error);
-            //         console.log(error);
-            //     });
-                // console.log(res);
-                // this.status=res.data.data
-
-        }
     }
 </script>
 
