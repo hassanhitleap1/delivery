@@ -1,8 +1,7 @@
-import { site_url, api_url } from '../globals'
-export  async  function get_status() {
+import { site_url, api_url } from '../globals';
 
+export  async  function get_status() {
     const res = await axios.get(`${api_url}/status`).then(function (response) {
-        console.log(response);
     }).catch(function (error) {
         console.log(error);
     });

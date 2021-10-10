@@ -1,38 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="">
+    <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="33">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/10.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/10.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/12.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/12.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/4.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/5.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/6.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/6.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/7.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/7.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/11.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/11.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Navbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/locales/en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/locales/formats/dateTimeFormats.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/areas.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/areas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/countries.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/countries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/regions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/regions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/status.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/status.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/areas/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/areas/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/areas/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/areas/getters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/areas/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/areas/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/areas/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/areas/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/areas/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/areas/state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/countries/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/countries/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/getters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/countries/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/countries/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/countries/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/prices/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/prices/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/prices/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/prices/getters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/prices/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/prices/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/prices/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/prices/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/prices/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/prices/state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/regions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/regions/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/getters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/regions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/regions/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/regions/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/users/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/users/Index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -284,7 +267,10 @@
       <workItem from="1633586639599" duration="9535000" />
       <workItem from="1633600153478" duration="1527000" />
       <workItem from="1633605361546" duration="2614000" />
-      <workItem from="1633608793124" duration="1389000" />
+      <workItem from="1633608793124" duration="1471000" />
+      <workItem from="1633616352838" duration="20000" />
+      <workItem from="1633844336704" duration="3081000" />
+      <workItem from="1633851442860" duration="1573000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
@@ -537,7 +523,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="4" />
     <MESSAGE value="5" />
     <MESSAGE value="6" />
     <MESSAGE value="7" />
@@ -562,7 +547,8 @@
     <MESSAGE value="29" />
     <MESSAGE value="30" />
     <MESSAGE value="31" />
-    <option name="LAST_COMMIT_MESSAGE" value="31" />
+    <MESSAGE value="33" />
+    <option name="LAST_COMMIT_MESSAGE" value="33" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -6,6 +6,7 @@
             <li class="nav-item">
                 <router-link :to="{name:'home'}" name=""  class="nav-link" data-widget="pushmenu"><i class="fas fa-bars"></i></router-link>
 
+
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <router-link to="/"  class="nav-link" >Home</router-link>
