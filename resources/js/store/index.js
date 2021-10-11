@@ -8,6 +8,10 @@ import RegionModule from './modules/regions/index';
 import ContryModule from './modules/countries/index';
 import AreaModule from './modules/areas/index';
 import PriceModule from './modules/prices/index';
+import actions from './actions'
+import mutations from './mutations'
+import getters from './getters'
+import state from "./state";
 Vue.use(Vuex);
 
 
@@ -23,5 +27,9 @@ export default new Vuex.Store({
         ContryModule:ContryModule,
         AreaModule:AreaModule,
         PriceModule:PriceModule
-    }
+    },
+    state,
+    mutations,
+    getters,
+    actions
 })

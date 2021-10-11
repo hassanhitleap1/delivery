@@ -66,14 +66,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
   mounted: function mounted() {
-    this.$store.dispatch('fetchstatus');
+    this.$store.dispatch('fetchPosts');
+    console.log(this.posts);
   },
   methods: {
-    deletePost: function deletePost(statu) {
-      this.$store.dispatch('deletestatus', statu);
+    deletePost: function deletePost(post) {
+      this.$store.dispatch('deletePost', post);
     }
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['StatusModule/status']))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['posts']))
 });
 
 /***/ }),
@@ -104,7 +105,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.status, function(stat) {
+              _vm._l(_vm.posts, function(stat) {
                 return _c("tr", { key: stat.id }, [
                   _c("td", [_vm._v(_vm._s(stat.id))]),
                   _vm._v(" "),

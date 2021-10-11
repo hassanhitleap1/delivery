@@ -27,7 +27,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="stat in status" :key="stat.id">
+                        <tr v-for="stat in posts" :key="stat.id">
                             <td>{{stat.id}}</td>
                             <td>{{stat.name}}</td>
                             <td class="action"> <span class="tag tag-success">Approved</span></td>
@@ -48,16 +48,21 @@
     export default {
         name: "Index",
         mounted() {
-            this.$store.dispatch('fetchstatus')
+            this.$store.dispatch('fetchPosts');
+            console.log(this.posts)
         },
         methods: {
-            deletePost(statu) {
-                this.$store.dispatch('deletestatus',statu)
+            deletePost(post) {
+                this.$store.dispatch('deletePost',post)
             }
+
         },
         computed: {
-             ...mapGetters(['StatusModule/status'])
-        },
+            ...mapGetters([
+                'posts'
+            ]),
+
+        }
 
     }
 </script>
