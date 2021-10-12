@@ -1,5 +1,5 @@
-const state ={
-    shipments:[]
+let state = {
+    status: []
 }
 
-export default state;
+export default state

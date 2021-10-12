@@ -61891,8 +61891,30 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  create: function create(context, area) {
-    context.commit('create', area);
+  createStatu: function createStatu(_ref, statu) {
+    var commit = _ref.commit;
+    axios.post('/api/status', statu).then(function (res) {
+      commit('CREATE_STATU', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  fetchstatus: function fetchstatus(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/status').then(function (res) {
+      console.log(res.data);
+      commit('FETCH_STATUS', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  deleteStatu: function deleteStatu(_ref3, statu) {
+    var commit = _ref3.commit;
+    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    })["catch"](function (err) {
+      console.log(err);
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
@@ -61909,8 +61931,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  all_areas: function all_areas(state) {
-    return state.areas;
+  status: function status(state) {
+    return state.status;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -61964,10 +61986,17 @@ var AreaModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  cerate: function cerate(state, area) {
-    var list = state.areas;
-    list.unshift(area);
-    state.areas = list;
+  CREATE_STATU: function CREATE_STATU(state, statu) {
+    state.status.unshift(statu);
+  },
+  FETCH_STATUS: function FETCH_STATUS(state, status) {
+    return state.status = status;
+  },
+  DELETE_STATU: function DELETE_STATU(state, statu) {
+    var index = state.status.findIndex(function (item) {
+      return item.id === statu.id;
+    });
+    state.status.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -61984,7 +62013,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  areas: []
+  status: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -62000,8 +62029,30 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  create: function create(context, contry) {
-    context.commit('create', contry);
+  createStatu: function createStatu(_ref, statu) {
+    var commit = _ref.commit;
+    axios.post('/api/status', statu).then(function (res) {
+      commit('CREATE_STATU', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  fetchstatus: function fetchstatus(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/status').then(function (res) {
+      console.log(res.data);
+      commit('FETCH_STATUS', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  deleteStatu: function deleteStatu(_ref3, statu) {
+    var commit = _ref3.commit;
+    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    })["catch"](function (err) {
+      console.log(err);
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
@@ -62018,8 +62069,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  all_countries: function all_countries(state) {
-    return state.countries;
+  status: function status(state) {
+    return state.status;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62073,10 +62124,17 @@ var ContryModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  cerate: function cerate(state, country) {
-    var list = state.countries;
-    list.unshift(country);
-    state.countries = list;
+  CREATE_STATU: function CREATE_STATU(state, statu) {
+    state.status.unshift(statu);
+  },
+  FETCH_STATUS: function FETCH_STATUS(state, status) {
+    return state.status = status;
+  },
+  DELETE_STATU: function DELETE_STATU(state, statu) {
+    var index = state.status.findIndex(function (item) {
+      return item.id === statu.id;
+    });
+    state.status.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -62093,7 +62151,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  countries: []
+  status: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -62109,8 +62167,30 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  create: function create(context, custmer) {
-    context.commit('create', custmer);
+  createStatu: function createStatu(_ref, statu) {
+    var commit = _ref.commit;
+    axios.post('/api/status', statu).then(function (res) {
+      commit('CREATE_STATU', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  fetchstatus: function fetchstatus(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/status').then(function (res) {
+      console.log(res.data);
+      commit('FETCH_STATUS', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  deleteStatu: function deleteStatu(_ref3, statu) {
+    var commit = _ref3.commit;
+    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    })["catch"](function (err) {
+      console.log(err);
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
@@ -62127,8 +62207,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  all_custmers: function all_custmers(state) {
-    return state.custmers;
+  status: function status(state) {
+    return state.status;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62182,10 +62262,17 @@ var CustmerModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  cerate: function cerate(state, custmer) {
-    var list = state.custmers;
-    list.unshift(custmer);
-    state.custmers = list;
+  CREATE_STATU: function CREATE_STATU(state, statu) {
+    state.status.unshift(statu);
+  },
+  FETCH_STATUS: function FETCH_STATUS(state, status) {
+    return state.status = status;
+  },
+  DELETE_STATU: function DELETE_STATU(state, statu) {
+    var index = state.status.findIndex(function (item) {
+      return item.id === statu.id;
+    });
+    state.status.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -62202,7 +62289,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  custmers: []
+  status: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -62218,8 +62305,30 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  create: function create(context, price) {
-    context.commit('create', price);
+  createStatu: function createStatu(_ref, statu) {
+    var commit = _ref.commit;
+    axios.post('/api/status', statu).then(function (res) {
+      commit('CREATE_STATU', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  fetchstatus: function fetchstatus(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/status').then(function (res) {
+      console.log(res.data);
+      commit('FETCH_STATUS', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  deleteStatu: function deleteStatu(_ref3, statu) {
+    var commit = _ref3.commit;
+    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    })["catch"](function (err) {
+      console.log(err);
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
@@ -62236,8 +62345,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  all_prices: function all_prices(state) {
-    return state.prices;
+  status: function status(state) {
+    return state.status;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62291,10 +62400,17 @@ var PriceModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  cerate: function cerate(state, price) {
-    var list = state.prices;
-    list.unshift(price);
-    state.prices = list;
+  CREATE_STATU: function CREATE_STATU(state, statu) {
+    state.status.unshift(statu);
+  },
+  FETCH_STATUS: function FETCH_STATUS(state, status) {
+    return state.status = status;
+  },
+  DELETE_STATU: function DELETE_STATU(state, statu) {
+    var index = state.status.findIndex(function (item) {
+      return item.id === statu.id;
+    });
+    state.status.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -62311,7 +62427,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  prices: []
+  status: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -62327,8 +62443,30 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  create: function create(context, region) {
-    context.commit('create', region);
+  createStatu: function createStatu(_ref, statu) {
+    var commit = _ref.commit;
+    axios.post('/api/status', statu).then(function (res) {
+      commit('CREATE_STATU', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  fetchstatus: function fetchstatus(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/status').then(function (res) {
+      console.log(res.data);
+      commit('FETCH_STATUS', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  deleteStatu: function deleteStatu(_ref3, statu) {
+    var commit = _ref3.commit;
+    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    })["catch"](function (err) {
+      console.log(err);
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
@@ -62345,8 +62483,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  all_regions: function all_regions(state) {
-    return state.regions;
+  status: function status(state) {
+    return state.status;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62400,10 +62538,17 @@ var RegionModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  cerate: function cerate(state, region) {
-    var list = state.regions;
-    list.unshift(region);
-    state.regions = list;
+  CREATE_STATU: function CREATE_STATU(state, statu) {
+    state.status.unshift(statu);
+  },
+  FETCH_STATUS: function FETCH_STATUS(state, status) {
+    return state.status = status;
+  },
+  DELETE_STATU: function DELETE_STATU(state, statu) {
+    var index = state.status.findIndex(function (item) {
+      return item.id === statu.id;
+    });
+    state.status.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -62420,7 +62565,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  regions: []
+  status: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -62436,8 +62581,30 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  create: function create(context, shipment) {
-    context.commit('create', shipment);
+  createStatu: function createStatu(_ref, statu) {
+    var commit = _ref.commit;
+    axios.post('/api/status', statu).then(function (res) {
+      commit('CREATE_STATU', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  fetchstatus: function fetchstatus(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/status').then(function (res) {
+      console.log(res.data);
+      commit('FETCH_STATUS', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  deleteStatu: function deleteStatu(_ref3, statu) {
+    var commit = _ref3.commit;
+    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    })["catch"](function (err) {
+      console.log(err);
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
@@ -62454,8 +62621,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  all_shipments: function all_shipments(state) {
-    return state.shipments;
+  status: function status(state) {
+    return state.status;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62509,10 +62676,17 @@ var ShipmentModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  cerate: function cerate(state, shipment) {
-    var list = state.shipments;
-    list.unshift(shipment);
-    state.shipments = list;
+  CREATE_STATU: function CREATE_STATU(state, statu) {
+    state.status.unshift(statu);
+  },
+  FETCH_STATUS: function FETCH_STATUS(state, status) {
+    return state.status = status;
+  },
+  DELETE_STATU: function DELETE_STATU(state, statu) {
+    var index = state.status.findIndex(function (item) {
+      return item.id === statu.id;
+    });
+    state.status.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -62529,7 +62703,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  shipments: []
+  status: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -62545,27 +62719,27 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  createPost: function createPost(_ref, post) {
+  createStatu: function createStatu(_ref, statu) {
     var commit = _ref.commit;
-    axios.post('/api/status', post).then(function (res) {
-      commit('CREATE_POST', res.data);
+    axios.post('/api/status', statu).then(function (res) {
+      commit('CREATE_STATU', res.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  fetchPosts: function fetchPosts(_ref2) {
+  fetchstatus: function fetchstatus(_ref2) {
     var commit = _ref2.commit;
     axios.get('/api/status').then(function (res) {
       console.log(res.data);
-      commit('FETCH_POSTS', res.data.data);
+      commit('FETCH_STATUS', res.data.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  deletePost: function deletePost(_ref3, post) {
+  deleteStatu: function deleteStatu(_ref3, statu) {
     var commit = _ref3.commit;
-    axios["delete"]("/api/status/".concat(post.id)).then(function (res) {
-      if (res.data === 'ok') commit('DELETE_POST', post);
+    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_STATU', statu);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -62585,8 +62759,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  posts: function posts(state) {
-    return state.posts;
+  status: function status(state) {
+    return state.status;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62606,18 +62780,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/status/getters.js");
 /* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/status/mutations.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/status/actions.js");
-// import Vue from 'vue'
-// import Vuex from 'vuex'
 
 
 
- // Vue.use(Vuex);
-// const store = new Vuex.Store({
-//     state,
-//     getters,
-//     mutations,
-//     actions
-// });
 
 var StatusModule = {
   namespaced: true,
@@ -62640,17 +62805,17 @@ var StatusModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  CREATE_POST: function CREATE_POST(state, post) {
-    state.posts.unshift(post);
+  CREATE_STATU: function CREATE_STATU(state, statu) {
+    state.status.unshift(statu);
   },
-  FETCH_POSTS: function FETCH_POSTS(state, posts) {
-    return state.posts = posts;
+  FETCH_STATUS: function FETCH_STATUS(state, status) {
+    return state.status = status;
   },
-  DELETE_POST: function DELETE_POST(state, post) {
-    var index = state.posts.findIndex(function (item) {
-      return item.id === post.id;
+  DELETE_STATU: function DELETE_STATU(state, statu) {
+    var index = state.status.findIndex(function (item) {
+      return item.id === statu.id;
     });
-    state.posts.splice(index, 1);
+    state.status.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -62667,45 +62832,9 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  posts: []
+  users: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/users/actions.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/store/modules/users/actions.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var actions = {
-  create: function create(context, user) {
-    context.commit('create', user);
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (actions);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/users/getters.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/store/modules/users/getters.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var getters = {
-  all_users: function all_users(state) {
-    return state.users;
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (getters);
 
 /***/ }),
 
@@ -62718,67 +62847,22 @@ var getters = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/modules/users/state.js");
-/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/users/getters.js");
-/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/users/mutations.js");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/users/actions.js");
-// import Vue from 'vue'
-// import Vuex from 'vuex'
+/* harmony import */ var _status_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../status/state */ "./resources/js/store/modules/status/state.js");
+/* harmony import */ var _status_getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../status/getters */ "./resources/js/store/modules/status/getters.js");
+/* harmony import */ var _status_mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../status/mutations */ "./resources/js/store/modules/status/mutations.js");
+/* harmony import */ var _status_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../status/actions */ "./resources/js/store/modules/status/actions.js");
 
 
 
- // Vue.use(Vuex);
-// const store = new Vuex.Store({
-//     state,
-//     getters,
-//     mutations,
-//     actions
-// });
 
 var UsersModule = {
   namespaced: true,
-  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
-  getters: _getters__WEBPACK_IMPORTED_MODULE_1__["default"],
-  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
-  actions: _actions__WEBPACK_IMPORTED_MODULE_3__["default"]
+  state: _status_state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _status_getters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _status_mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _status_actions__WEBPACK_IMPORTED_MODULE_3__["default"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (UsersModule);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/users/mutations.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/store/modules/users/mutations.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var mutations = {
-  cerate: function cerate(state, user) {
-    var list = state.users;
-    list.unshift(user);
-    state.users = list;
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (mutations);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/users/state.js":
-/*!***************************************************!*\
-  !*** ./resources/js/store/modules/users/state.js ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var state = {
-  users: []
-};
-/* harmony default export */ __webpack_exports__["default"] = (state);
 
 /***/ }),
 

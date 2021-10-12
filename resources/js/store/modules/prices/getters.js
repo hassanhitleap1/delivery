@@ -1,6 +1,7 @@
-const getters={
-    all_prices:(state)=>{
-        return state.prices;
+let getters = {
+    status: state => {
+        return state.status
     }
 }
-export  default getters;
+
+export default  getters

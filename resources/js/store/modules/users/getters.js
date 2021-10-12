@@ -1,6 +1,7 @@
-const getters={
-    all_users:(state)=>{
-        return state.users;
+let getters = {
+    status: state => {
+        return state.status
     }
 }
-export  default getters;
+
+export default  getters

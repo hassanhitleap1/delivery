@@ -1,6 +1,7 @@
-const getters={
-    all_regions:(state)=>{
-        return state.regions;
+let getters = {
+    status: state => {
+        return state.status
     }
 }
-export  default getters;
+
+export default  getters

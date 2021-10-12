@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="36">
-      <change afterPath="$PROJECT_DIR$/resources/js/store/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/store/getters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/store/mutations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/store/state.js" afterDir="false" />
+    <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="37">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/11.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/11.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/5.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/7.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/7.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/9.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/9.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/shipments/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/shipments/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/shipments/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/shipments/getters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/shipments/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/shipments/mutations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/shipments/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/shipments/state.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/modules/status/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/status/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/modules/status/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/status/getters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/status/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/status/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/modules/status/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/status/mutations.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/modules/status/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/status/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/users/actions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/users/getters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/users/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/users/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/users/mutations.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/users/state.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/areas/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/areas/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/countries/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/countries/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/custmers/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/custmers/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/prices/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/prices/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/regions/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/regions/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/shipments/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/shipments/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/status/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/status/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/users/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/users/Index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +195,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/store/modules/status" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/store/modules/areas" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -191,12 +206,15 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\status" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\shipments" />
+      <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\users" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\status" />
       <recent name="C:\xampp\htdocs\delivery\app\Model\Areas" />
       <recent name="C:\xampp\htdocs\delivery\app\Http\Resources\Area" />
-      <recent name="C:\xampp\htdocs\delivery\app\Http\Controllers\Areas" />
-      <recent name="C:\xampp\htdocs\delivery\resources\js\services" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -278,6 +296,8 @@
       <workItem from="1633871953279" duration="3454000" />
       <workItem from="1633931329429" duration="2702000" />
       <workItem from="1633957696897" duration="1320000" />
+      <workItem from="1634022570677" duration="4000" />
+      <workItem from="1634045542667" duration="1413000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
@@ -558,7 +578,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="6" />
     <MESSAGE value="7" />
     <MESSAGE value="9" />
     <MESSAGE value="10" />
@@ -583,7 +602,8 @@
     <MESSAGE value="34" />
     <MESSAGE value="35" />
     <MESSAGE value="36" />
-    <option name="LAST_COMMIT_MESSAGE" value="36" />
+    <MESSAGE value="37" />
+    <option name="LAST_COMMIT_MESSAGE" value="37" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

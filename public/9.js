@@ -10,7 +10,6 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../globals */ "./resources/js/globals.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -61,7 +60,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
@@ -72,6 +74,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     deletePost: function deletePost(post) {
       this.$store.dispatch('deletePost', post);
+    },
+    edit: function edit(id) {
+      alert(id);
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['posts']))
@@ -111,7 +116,25 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(stat.name))]),
                   _vm._v(" "),
-                  _vm._m(2, true)
+                  _c("td", { staticClass: "action" }, [
+                    _c("span", {
+                      staticClass: "tag tag-success fas fa-edit",
+                      on: {
+                        click: function($event) {
+                          return _vm.edit(stat.id)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "tag tag-success fas fa-trash-alt",
+                      on: {
+                        click: function($event) {
+                          return _vm.deletePost(stat.id)
+                        }
+                      }
+                    })
+                  ])
                 ])
               }),
               0
@@ -171,14 +194,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("action ")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "action" }, [
-      _c("span", { staticClass: "tag tag-success" }, [_vm._v("Approved")])
     ])
   }
 ]

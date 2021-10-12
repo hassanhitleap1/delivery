@@ -1,6 +1,7 @@
-const getters={
-    all_shipments:(state)=>{
-        return state.shipments;
+let getters = {
+    status: state => {
+        return state.status
     }
 }
-export  default getters;
+
+export default  getters

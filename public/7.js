@@ -9,6 +9,13 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -57,31 +64,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Index"
+  name: "Index",
+  mounted: function mounted() {
+    this.$store.dispatch('fetchPosts');
+    console.log(this.posts);
+  },
+  methods: {
+    deletePost: function deletePost(post) {
+      this.$store.dispatch('deletePost', post);
+    },
+    edit: function edit(id) {
+      alert(id);
+    }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['posts']))
 });
 
 /***/ }),
@@ -101,146 +99,100 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "card" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body table-responsive p-0" }, [
+          _c("table", { staticClass: "table table-hover" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.posts, function(stat) {
+                return _c("tr", { key: stat.id }, [
+                  _c("td", [_vm._v(_vm._s(stat.id))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(stat.name))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "action" }, [
+                    _c("span", {
+                      staticClass: "tag tag-success fas fa-edit",
+                      on: {
+                        click: function($event) {
+                          return _vm.edit(stat.id)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "tag tag-success fas fa-trash-alt",
+                      on: {
+                        click: function($event) {
+                          return _vm.deletePost(stat.id)
+                        }
+                      }
+                    })
+                  ])
+                ])
+              }),
+              0
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content" }, [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _c("h3", { staticClass: "card-title" }, [
-                  _vm._v("Bordered Table")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("table", { staticClass: "table table-bordered" }, [
-                  _c("thead", [
-                    _c("tr", [
-                      _c("th", { staticStyle: { width: "10px" } }, [
-                        _vm._v("#")
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Task")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Progress")]),
-                      _vm._v(" "),
-                      _c("th", { staticStyle: { width: "40px" } }, [
-                        _vm._v("Label")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tbody", [
-                    _c("tr", [
-                      _c("td", [_vm._v("1.")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Update software")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("div", { staticClass: "progress progress-xs" }, [
-                          _c("div", {
-                            staticClass: "progress-bar progress-bar-danger",
-                            staticStyle: { width: "55%" }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("span", { staticClass: "badge bg-danger" }, [
-                          _vm._v("55%")
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("2.")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Clean database")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("div", { staticClass: "progress progress-xs" }, [
-                          _c("div", {
-                            staticClass: "progress-bar bg-warning",
-                            staticStyle: { width: "70%" }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("span", { staticClass: "badge bg-warning" }, [
-                          _vm._v("70%")
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("3.")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Cron job running")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "progress progress-xs progress-striped active"
-                          },
-                          [
-                            _c("div", {
-                              staticClass: "progress-bar bg-primary",
-                              staticStyle: { width: "30%" }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("span", { staticClass: "badge bg-primary" }, [
-                          _vm._v("30%")
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [_vm._v("4.")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Fix and squish bugs")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "progress progress-xs progress-striped active"
-                          },
-                          [
-                            _c("div", {
-                              staticClass: "progress-bar bg-success",
-                              staticStyle: { width: "90%" }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("span", { staticClass: "badge bg-success" }, [
-                          _vm._v("90%")
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("users")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-tools" }, [
+        _c(
+          "div",
+          {
+            staticClass: "input-group input-group-sm",
+            staticStyle: { width: "150px" }
+          },
+          [
+            _c("input", {
+              staticClass: "form-control float-right",
+              attrs: {
+                type: "text",
+                name: "table_search",
+                placeholder: "Search"
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group-append" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-default", attrs: { type: "submit" } },
+                [_c("i", { staticClass: "fas fa-search" })]
+              )
             ])
-          ])
-        ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("name   ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("action ")])
       ])
     ])
   }

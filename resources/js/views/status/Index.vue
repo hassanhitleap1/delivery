@@ -30,7 +30,11 @@
                         <tr v-for="stat in posts" :key="stat.id">
                             <td>{{stat.id}}</td>
                             <td>{{stat.name}}</td>
-                            <td class="action"> <span class="tag tag-success">Approved</span></td>
+
+                            <td class="action">
+                                <span class="tag tag-success fas fa-edit" @click="edit(stat.id)"></span>
+                                <span class="tag tag-success fas fa-trash-alt" @click="deletePost(stat.id)"></span>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -44,7 +48,6 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import { site_url, api_url } from '../../globals';
     export default {
         name: "Index",
         mounted() {
@@ -54,6 +57,9 @@
         methods: {
             deletePost(post) {
                 this.$store.dispatch('deletePost',post)
+            },
+            edit(id){
+                alert(id)
             }
 
         },

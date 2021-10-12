@@ -1,31 +1,31 @@
 let actions = {
-    createPost({commit}, post) {
-        axios.post('/api/status', post)
+    createStatu({commit}, statu) {
+        axios.post('/api/status', statu)
             .then(res => {
-                commit('CREATE_POST', res.data)
+                commit('CREATE_STATU', res.data)
             }).catch(err => {
             console.log(err)
         })
 
     },
-    fetchPosts({commit}) {
+    fetchstatus({commit}) {
         axios.get('/api/status')
             .then(res => {
                 console.log( res.data)
-                commit('FETCH_POSTS', res.data.data)
+                commit('FETCH_STATUS', res.data.data)
             }).catch(err => {
             console.log(err)
         })
     },
-    deletePost({commit}, post) {
-        axios.delete(`/api/status/${post.id}`)
+    deleteStatu({commit}, statu) {
+        axios.delete(`/api/status/${statu.id}`)
             .then(res => {
                 if (res.data === 'ok')
-                    commit('DELETE_POST', post)
+                    commit('DELETE_STATU', statu)
             }).catch(err => {
-            console.log(err)
+            console.log(err);
         })
     }
 }
 
-export default actions
+export default actions;

@@ -1,13 +1,13 @@
 let mutations = {
-    CREATE_POST(state, post) {
-        state.posts.unshift(post)
+    CREATE_STATU(state, statu) {
+        state.status.unshift(statu)
     },
-    FETCH_POSTS(state, posts) {
-        return state.posts = posts
+    FETCH_STATUS(state, status) {
+        return state.status = status
     },
-    DELETE_POST(state, post) {
-        let index = state.posts.findIndex(item => item.id === post.id)
-        state.posts.splice(index, 1)
+    DELETE_STATU(state, statu) {
+        let index = state.status.findIndex(item => item.id === statu.id)
+        state.status.splice(index, 1)
     }
 
 }

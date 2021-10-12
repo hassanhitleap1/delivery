@@ -1,9 +1,14 @@
-const  mutations={
-    cerate:(state,region)=>{
-        let list=state.regions;
-        list.unshift(region);
-        state.regions=list;
+let mutations = {
+    CREATE_STATU(state, statu) {
+        state.status.unshift(statu)
     },
+    FETCH_STATUS(state, status) {
+        return state.status = status
+    },
+    DELETE_STATU(state, statu) {
+        let index = state.status.findIndex(item => item.id === statu.id)
+        state.status.splice(index, 1)
+    }
 
-};
-export default mutations;
+}
+export default mutations

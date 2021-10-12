@@ -1,5 +1,5 @@
-const state ={
-    users:[]
+let state = {
+    users: []
 }
 
-export default state;
+export default state
