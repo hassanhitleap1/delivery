@@ -61891,27 +61891,27 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  createStatu: function createStatu(_ref, statu) {
+  createArea: function createArea(_ref, area) {
     var commit = _ref.commit;
-    axios.post('/api/status', statu).then(function (res) {
-      commit('CREATE_STATU', res.data);
+    axios.post('/api/areas', area).then(function (res) {
+      commit('CREATE_AREA', res.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  fetchstatus: function fetchstatus(_ref2) {
+  fetchareas: function fetchareas(_ref2) {
     var commit = _ref2.commit;
-    axios.get('/api/status').then(function (res) {
+    axios.get('/api/areas').then(function (res) {
       console.log(res.data);
-      commit('FETCH_STATUS', res.data.data);
+      commit('FETCH_AREAS', res.data.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  deleteStatu: function deleteStatu(_ref3, statu) {
+  deleteArea: function deleteArea(_ref3, area) {
     var commit = _ref3.commit;
-    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
-      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    axios["delete"]("/api/areas/".concat(area.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_AREA', area);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -61931,8 +61931,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  status: function status(state) {
-    return state.status;
+  areas: function areas(state) {
+    return state.areas;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -61952,18 +61952,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/areas/getters.js");
 /* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/areas/mutations.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/areas/actions.js");
-// import Vue from 'vue'
-// import Vuex from 'vuex'
 
 
 
- // Vue.use(Vuex);
-// const store = new Vuex.Store({
-//     state,
-//     getters,
-//     mutations,
-//     actions
-// });
 
 var AreaModule = {
   namespaced: true,
@@ -61986,17 +61977,17 @@ var AreaModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  CREATE_STATU: function CREATE_STATU(state, statu) {
-    state.status.unshift(statu);
+  CREATE_AREA: function CREATE_AREA(state, area) {
+    state.areas.unshift(area);
   },
-  FETCH_STATUS: function FETCH_STATUS(state, status) {
-    return state.status = status;
+  FETCH_AREAS: function FETCH_AREAS(state, areas) {
+    return state.areas = areas;
   },
-  DELETE_STATU: function DELETE_STATU(state, statu) {
-    var index = state.status.findIndex(function (item) {
-      return item.id === statu.id;
+  DELETE_AREA: function DELETE_AREA(state, area) {
+    var index = state.areas.findIndex(function (item) {
+      return item.id === area.id;
     });
-    state.status.splice(index, 1);
+    state.areas.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -62013,7 +62004,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  status: []
+  areas: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -62029,27 +62020,27 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  createStatu: function createStatu(_ref, statu) {
+  createContry: function createContry(_ref, contry) {
     var commit = _ref.commit;
-    axios.post('/api/status', statu).then(function (res) {
-      commit('CREATE_STATU', res.data);
+    axios.post('/api/contries', contry).then(function (res) {
+      commit('CREATE_CONTRY', res.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  fetchstatus: function fetchstatus(_ref2) {
+  fetchcontries: function fetchcontries(_ref2) {
     var commit = _ref2.commit;
-    axios.get('/api/status').then(function (res) {
+    axios.get('/api/contries').then(function (res) {
       console.log(res.data);
-      commit('FETCH_STATUS', res.data.data);
+      commit('FETCH_CONTRIES', res.data.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  deleteStatu: function deleteStatu(_ref3, statu) {
+  deleteContry: function deleteContry(_ref3, contry) {
     var commit = _ref3.commit;
-    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
-      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    axios["delete"]("/api/contries/".concat(contry.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_CONTRY', contry);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -62069,8 +62060,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  status: function status(state) {
-    return state.status;
+  contries: function contries(state) {
+    return state.contries;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62095,13 +62086,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // Vue.use(Vuex);
-// const store = new Vuex.Store({
-//     state,
-//     getters,
-//     mutations,
-//     actions
-// });
 
 var ContryModule = {
   namespaced: true,

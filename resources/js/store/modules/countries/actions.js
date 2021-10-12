@@ -1,27 +1,27 @@
 let actions = {
-    createStatu({commit}, statu) {
-        axios.post('/api/status', statu)
+    createContry({commit}, contry) {
+        axios.post('/api/contries', contry)
             .then(res => {
-                commit('CREATE_STATU', res.data)
+                commit('CREATE_CONTRY', res.data)
             }).catch(err => {
             console.log(err)
         })
 
     },
-    fetchstatus({commit}) {
-        axios.get('/api/status')
+    fetchcontries({commit}) {
+        axios.get('/api/contries')
             .then(res => {
                 console.log( res.data)
-                commit('FETCH_STATUS', res.data.data)
+                commit('FETCH_CONTRIES', res.data.data)
             }).catch(err => {
             console.log(err)
         })
     },
-    deleteStatu({commit}, statu) {
-        axios.delete(`/api/status/${statu.id}`)
+    deleteContry({commit}, contry) {
+        axios.delete(`/api/contries/${contry.id}`)
             .then(res => {
                 if (res.data === 'ok')
-                    commit('DELETE_STATU', statu)
+                    commit('DELETE_CONTRY', contry)
             }).catch(err => {
             console.log(err);
         })

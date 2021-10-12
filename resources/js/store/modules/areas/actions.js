@@ -1,27 +1,27 @@
 let actions = {
-    createStatu({commit}, statu) {
-        axios.post('/api/status', statu)
+    createArea({commit}, area) {
+        axios.post('/api/areas', area)
             .then(res => {
-                commit('CREATE_STATU', res.data)
+                commit('CREATE_AREA', res.data)
             }).catch(err => {
             console.log(err)
         })
 
     },
-    fetchstatus({commit}) {
-        axios.get('/api/status')
+    fetchareas({commit}) {
+        axios.get('/api/areas')
             .then(res => {
                 console.log( res.data)
-                commit('FETCH_STATUS', res.data.data)
+                commit('FETCH_AREAS', res.data.data)
             }).catch(err => {
             console.log(err)
         })
     },
-    deleteStatu({commit}, statu) {
-        axios.delete(`/api/status/${statu.id}`)
+    deleteArea({commit}, area) {
+        axios.delete(`/api/areas/${area.id}`)
             .then(res => {
                 if (res.data === 'ok')
-                    commit('DELETE_STATU', statu)
+                    commit('DELETE_AREA', area)
             }).catch(err => {
             console.log(err);
         })
