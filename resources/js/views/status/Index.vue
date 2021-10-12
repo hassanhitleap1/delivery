@@ -27,7 +27,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="stat in posts" :key="stat.id">
+                        <tr v-for="stat in status" :key="stat.id">
                             <td>{{stat.id}}</td>
                             <td>{{stat.name}}</td>
 
@@ -51,7 +51,7 @@
     export default {
         name: "Index",
         mounted() {
-            this.$store.dispatch('fetchPosts');
+            this.$store.dispatch('StatusModule/fetchstatus');
             console.log(this.posts)
         },
         methods: {
@@ -64,9 +64,8 @@
 
         },
         computed: {
-            ...mapGetters([
-                'posts'
-            ]),
+            ...mapGetters('StatusModule', ['status'])
+          
 
         }
 

@@ -68,7 +68,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
   mounted: function mounted() {
-    this.$store.dispatch('fetchPosts');
+    this.$store.dispatch('StatusModule/fetchstatus');
     console.log(this.posts);
   },
   methods: {
@@ -79,7 +79,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       alert(id);
     }
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['posts']))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('StatusModule', ['status']))
 });
 
 /***/ }),
@@ -110,7 +110,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.posts, function(stat) {
+              _vm._l(_vm.status, function(stat) {
                 return _c("tr", { key: stat.id }, [
                   _c("td", [_vm._v(_vm._s(stat.id))]),
                   _vm._v(" "),

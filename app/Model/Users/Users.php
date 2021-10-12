@@ -6,8 +6,7 @@ namespace App\Model\Users;
 
 use App\User;
 
-class Customer extends  User
+class Users extends  User
 {
 
-    private $tabel='users';
 }
