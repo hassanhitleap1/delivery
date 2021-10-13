@@ -1,27 +1,27 @@
 let actions = {
-    createcustomer({commit}, customer) {
-        axios.post('/api/user/customers', customer)
+    createdriver({commit}, driver) {
+        axios.post('/api/driver/drivers', driver)
             .then(res => {
-                commit('create_customer', res.data)
+                commit('create_driver', res.data)
             }).catch(err => {
             console.log(err)
         })
 
     },
-    fetchcustomers({commit}) {
-        axios.get('/api/user/customers')
+    fetchdrivers({commit}) {
+        axios.get('/api/driver/drivers')
             .then(res => {
                 console.log( res.data)
-                commit('fatch_customers', res.data.data)
+                commit('fatch_drivers', res.data.data)
             }).catch(err => {
             console.log(err)
         })
     },
-    deletecustomer({commit}, customer) {
-        axios.delete(`/api//user/customers/${customer.id}`)
+    deletedriver({commit}, driver) {
+        axios.delete(`/api/driver/drivers/${driver.id}`)
             .then(res => {
                 if (res.data === 'ok')
-                    commit('delete_customer', customer)
+                    commit('delete_driver', driver)
             }).catch(err => {
             console.log(err);
         })

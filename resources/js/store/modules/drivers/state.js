@@ -1,5 +1,5 @@
 let state = {
-    customers: []
+    drivers: []
 }
 
 export default state

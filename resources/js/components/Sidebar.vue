@@ -24,33 +24,13 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <router-link class="nav-link active" to="/dashboard">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dashboard v1</p></router-link>
+                    <li class="nav-item">
 
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index2.html" class="nav-link">
-                                    <router-link class="nav-link active" to="/dashboard2"> <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v2</p></router-link>
-
-                                </a>
-                            </li>
-                        </ul>
+                        <router-link class="nav-link " to="/">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Dashboard</p>
+                        </router-link>
                     </li>
-
                     <li class="nav-item has-treeview">
 
                         <a href="#" class="nav-link">
@@ -58,33 +38,32 @@
                             <p>
                                 users
                                 <i class="fas fa-angle-left right"></i>
-                                <span class="badge badge-info right">6</span>
+
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
 
 
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/users">
+                                <router-link class="nav-link " to="/user/users">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>user</p>
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/custumer">
+                                <router-link class="nav-link " to="/user/custumers">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>custumer</p>
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/dashboard2">
+                                <router-link class="nav-link " to="/user/drivers">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>users</p>
+                                    <p>drivers</p>
                                 </router-link>
                             </li>
                         </ul>
                     </li>
-
                     <li class="nav-item has-treeview">
 
                         <a href="#" class="nav-link">
@@ -111,7 +90,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
@@ -146,7 +124,6 @@
 
                         </ul>
                     </li>
-
                     <li class="nav-item">
 
                         <router-link class="nav-link " to="/shipments">

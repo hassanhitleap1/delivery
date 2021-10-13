@@ -58,7 +58,7 @@ Route::apiResources([
     'countries'=> \Areas\CountriesController::class,
 ]);
 
-Route::group(['prefix' => 'users'], function () {
+Route::group(['prefix' => 'user'], function () {
     Route::apiResources([
         'customers' => \Users\CustomerController::class,
         'drivers' => \Users\DriverController::class,

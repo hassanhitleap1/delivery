@@ -2374,29 +2374,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Sidebar"
 });
@@ -42283,7 +42260,24 @@ var render = function() {
               }
             },
             [
-              _c("li", { staticClass: "nav-item has-treeview menu-open" }, [
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "nav-link ", attrs: { to: "/" } },
+                    [
+                      _c("i", { staticClass: "far fa-circle nav-icon" }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Dashboard")])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("li", { staticClass: "nav-item has-treeview" }, [
                 _vm._m(1),
                 _vm._v(" "),
                 _c("ul", { staticClass: "nav nav-treeview" }, [
@@ -42294,57 +42288,9 @@ var render = function() {
                       _c(
                         "router-link",
                         {
-                          staticClass: "nav-link active",
-                          attrs: { to: "/dashboard" }
+                          staticClass: "nav-link ",
+                          attrs: { to: "/user/users" }
                         },
-                        [
-                          _c("i", { staticClass: "far fa-circle nav-icon" }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Dashboard v1")])
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { href: "./index2.html" }
-                      },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "nav-link active",
-                            attrs: { to: "/dashboard2" }
-                          },
-                          [
-                            _c("i", { staticClass: "far fa-circle nav-icon" }),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("Dashboard v2")])
-                          ]
-                        )
-                      ],
-                      1
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item has-treeview" }, [
-                _vm._m(2),
-                _vm._v(" "),
-                _c("ul", { staticClass: "nav nav-treeview" }, [
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        { staticClass: "nav-link ", attrs: { to: "/users" } },
                         [
                           _c("i", { staticClass: "far fa-circle nav-icon" }),
                           _vm._v(" "),
@@ -42363,7 +42309,7 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "nav-link ",
-                          attrs: { to: "/custumer" }
+                          attrs: { to: "/user/custumers" }
                         },
                         [
                           _c("i", { staticClass: "far fa-circle nav-icon" }),
@@ -42383,12 +42329,12 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "nav-link ",
-                          attrs: { to: "/dashboard2" }
+                          attrs: { to: "/user/drivers" }
                         },
                         [
                           _c("i", { staticClass: "far fa-circle nav-icon" }),
                           _vm._v(" "),
-                          _c("p", [_vm._v("users")])
+                          _c("p", [_vm._v("drivers")])
                         ]
                       )
                     ],
@@ -42398,7 +42344,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item has-treeview" }, [
-                _vm._m(3),
+                _vm._m(2),
                 _vm._v(" "),
                 _c("ul", { staticClass: "nav nav-treeview" }, [
                   _c(
@@ -42444,7 +42390,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item has-treeview" }, [
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("ul", { staticClass: "nav nav-treeview" }, [
                   _c(
@@ -42542,21 +42488,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "nav-link active", attrs: { href: "#" } }, [
-      _c("i", { staticClass: "nav-icon fas fa-tachometer-alt" }),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "\n                            Dashboard\n                            "
-        ),
-        _c("i", { staticClass: "right fas fa-angle-left" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
       _c("i", { staticClass: "nav-icon fas fa-copy" }),
       _vm._v(" "),
@@ -42564,9 +42495,7 @@ var staticRenderFns = [
         _vm._v(
           "\n                            users\n                            "
         ),
-        _c("i", { staticClass: "fas fa-angle-left right" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "badge badge-info right" }, [_vm._v("6")])
+        _c("i", { staticClass: "fas fa-angle-left right" })
       ])
     ])
   },
@@ -61563,57 +61492,57 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/users',
     name: 'users',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
     },
     children: [{
       name: 'users.create',
       path: 'create',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
       }
     }, {
       path: ':id/edit',
       name: 'users.update',
       components: function components() {
-        return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../views/users/Update */ "./resources/js/views/users/Update.vue"));
+        return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ../views/users/Update */ "./resources/js/views/users/Update.vue"));
       }
     }, {
       path: 'view',
       name: 'users.create',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
       }
     }]
   }, {
     path: '/shipments',
     name: 'shipments',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ../views/shipments/Index */ "./resources/js/views/shipments/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ../views/shipments/Index */ "./resources/js/views/shipments/Index.vue"));
     },
     children: [{
       name: 'shipments.create',
       path: 'create',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
       }
     }, {
       path: ':id/edit',
       name: 'shipments.update',
       components: function components() {
-        return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ../views/shipments/Update */ "./resources/js/views/shipments/Update.vue"));
+        return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/shipments/Update */ "./resources/js/views/shipments/Update.vue"));
       }
     }, {
       path: 'view',
       name: 'shipments.create',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
       }
     }]
   }, {
     path: '/custmers',
     name: 'users',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
     },
     children: [{
       name: 'custmers.create',
@@ -61625,7 +61554,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: ':id/edit',
       name: 'custmers.update',
       components: function components() {
-        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ../views/custmers/Update */ "./resources/js/views/custmers/Update.vue"));
+        return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ../views/custmers/Update */ "./resources/js/views/custmers/Update.vue"));
       }
     }, {
       path: 'view',
@@ -61637,55 +61566,31 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/status',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
     },
     children: [{
       name: 'status.create',
       path: 'create',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
       }
     }, {
       path: ':id/edit',
       name: 'status.update',
       components: function components() {
-        return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ../views/status/Update */ "./resources/js/views/status/Update.vue"));
+        return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ../views/status/Update */ "./resources/js/views/status/Update.vue"));
       }
     }, {
       path: 'view',
       name: 'status.create',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
-      }
-    }]
-  }, {
-    path: '/areas',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../views/areas/Index */ "./resources/js/views/areas/Index.vue"));
-    },
-    children: [{
-      name: 'areas.create',
-      path: 'create',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
-      }
-    }, {
-      path: ':id/edit',
-      name: 'areas.update',
-      components: function components() {
-        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../views/areas/Update */ "./resources/js/views/areas/Update.vue"));
-      }
-    }, {
-      path: 'view',
-      name: 'areas.create',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
       }
     }]
   }, {
     path: '/countries',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../views/countries/Index */ "./resources/js/views/countries/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../views/countries/Index */ "./resources/js/views/countries/Index.vue"));
     },
     children: [{
       name: 'countries.create',
@@ -61697,13 +61602,61 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: ':id/edit',
       name: 'countries.update',
       components: function components() {
-        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../views/countries/Update */ "./resources/js/views/countries/Update.vue"));
+        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ../views/countries/Update */ "./resources/js/views/countries/Update.vue"));
       }
     }, {
       path: 'view',
       name: 'countries.create',
       component: function component() {
         return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../views/countries/Create */ "./resources/js/views/countries/Create.vue"));
+      }
+    }]
+  }, {
+    path: '/regions',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ../views/regions/Index */ "./resources/js/views/regions/Index.vue"));
+    },
+    children: [{
+      name: 'regions.create',
+      path: 'create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
+      }
+    }, {
+      path: ':id/edit',
+      name: 'regions.update',
+      components: function components() {
+        return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../views/regions/Update */ "./resources/js/views/regions/Update.vue"));
+      }
+    }, {
+      path: 'view',
+      name: 'regions.create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
+      }
+    }]
+  }, {
+    path: '/areas',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../views/areas/Index */ "./resources/js/views/areas/Index.vue"));
+    },
+    children: [{
+      name: 'areas.create',
+      path: 'create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
+      }
+    }, {
+      path: ':id/edit',
+      name: 'areas.update',
+      components: function components() {
+        return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../views/areas/Update */ "./resources/js/views/areas/Update.vue"));
+      }
+    }, {
+      path: 'view',
+      name: 'areas.create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
       }
     }]
   }, {
@@ -61871,10 +61824,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_countries_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/countries/index */ "./resources/js/store/modules/countries/index.js");
 /* harmony import */ var _modules_areas_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/areas/index */ "./resources/js/store/modules/areas/index.js");
 /* harmony import */ var _modules_prices_index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/prices/index */ "./resources/js/store/modules/prices/index.js");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./actions */ "./resources/js/store/actions.js");
-/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/mutations.js");
-/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./getters */ "./resources/js/store/getters.js");
-/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./state */ "./resources/js/store/state.js");
+/* harmony import */ var _modules_drivers_index__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/drivers/index */ "./resources/js/store/modules/drivers/index.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./actions */ "./resources/js/store/actions.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/mutations.js");
+/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./getters */ "./resources/js/store/getters.js");
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./state */ "./resources/js/store/state.js");
+
 
 
 
@@ -61896,15 +61851,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     ShipmentModule: _modules_shipments_index__WEBPACK_IMPORTED_MODULE_3__["default"],
     StatusModule: _modules_status_index__WEBPACK_IMPORTED_MODULE_4__["default"],
     UsersModule: _modules_users_index__WEBPACK_IMPORTED_MODULE_5__["default"],
+    DriversModule: _modules_drivers_index__WEBPACK_IMPORTED_MODULE_10__["default"],
     RegionModule: _modules_regions_index__WEBPACK_IMPORTED_MODULE_6__["default"],
     ContryModule: _modules_countries_index__WEBPACK_IMPORTED_MODULE_7__["default"],
     AreaModule: _modules_areas_index__WEBPACK_IMPORTED_MODULE_8__["default"],
     PriceModule: _modules_prices_index__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
-  state: _state__WEBPACK_IMPORTED_MODULE_13__["default"],
-  mutations: _mutations__WEBPACK_IMPORTED_MODULE_11__["default"],
-  getters: _getters__WEBPACK_IMPORTED_MODULE_12__["default"],
-  actions: _actions__WEBPACK_IMPORTED_MODULE_10__["default"]
+  state: _state__WEBPACK_IMPORTED_MODULE_14__["default"],
+  mutations: _mutations__WEBPACK_IMPORTED_MODULE_12__["default"],
+  getters: _getters__WEBPACK_IMPORTED_MODULE_13__["default"],
+  actions: _actions__WEBPACK_IMPORTED_MODULE_11__["default"]
 }));
 
 /***/ }),
@@ -62179,27 +62135,27 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  createStatu: function createStatu(_ref, statu) {
+  createcustomer: function createcustomer(_ref, customer) {
     var commit = _ref.commit;
-    axios.post('/api/status', statu).then(function (res) {
-      commit('CREATE_STATU', res.data);
+    axios.post('/api/user/customers', customer).then(function (res) {
+      commit('create_customer', res.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  fetchstatus: function fetchstatus(_ref2) {
+  fetchcustomers: function fetchcustomers(_ref2) {
     var commit = _ref2.commit;
-    axios.get('/api/status').then(function (res) {
+    axios.get('/api/user/customers').then(function (res) {
       console.log(res.data);
-      commit('FETCH_STATUS', res.data.data);
+      commit('fatch_customers', res.data.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  deleteStatu: function deleteStatu(_ref3, statu) {
+  deletecustomer: function deletecustomer(_ref3, customer) {
     var commit = _ref3.commit;
-    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
-      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    axios["delete"]("/api//user/customers/".concat(customer.id)).then(function (res) {
+      if (res.data === 'ok') commit('delete_customer', customer);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -62219,8 +62175,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  status: function status(state) {
-    return state.status;
+  customers: function customers(state) {
+    return state.customers;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62240,18 +62196,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/custmers/getters.js");
 /* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/custmers/mutations.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/custmers/actions.js");
-// import Vue from 'vue'
-// import Vuex from 'vuex'
 
 
 
- // Vue.use(Vuex);
-// const store = new Vuex.Store({
-//     state,
-//     getters,
-//     mutations,
-//     actions
-// });
 
 var CustmerModule = {
   namespaced: true,
@@ -62274,17 +62221,17 @@ var CustmerModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  CREATE_STATU: function CREATE_STATU(state, statu) {
-    state.status.unshift(statu);
+  create_customer: function create_customer(state, customer) {
+    state.customers.unshift(customer);
   },
-  FETCH_STATUS: function FETCH_STATUS(state, status) {
-    return state.status = status;
+  featch_customers: function featch_customers(state, customers) {
+    return state.customers = customers;
   },
-  DELETE_STATU: function DELETE_STATU(state, statu) {
-    var index = state.status.findIndex(function (item) {
-      return item.id === statu.id;
+  delete_customer: function delete_customer(state, customer) {
+    var index = state.customers.findIndex(function (item) {
+      return item.id === customer.id;
     });
-    state.status.splice(index, 1);
+    state.customers.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -62301,9 +62248,37 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  status: []
+  customers: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/drivers/index.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/store/modules/drivers/index.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _status_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../status/state */ "./resources/js/store/modules/status/state.js");
+/* harmony import */ var _status_getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../status/getters */ "./resources/js/store/modules/status/getters.js");
+/* harmony import */ var _status_mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../status/mutations */ "./resources/js/store/modules/status/mutations.js");
+/* harmony import */ var _status_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../status/actions */ "./resources/js/store/modules/status/actions.js");
+
+
+
+
+var UsersModule = {
+  namespaced: true,
+  state: _status_state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _status_getters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _status_mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _status_actions__WEBPACK_IMPORTED_MODULE_3__["default"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (DriversModule);
 
 /***/ }),
 

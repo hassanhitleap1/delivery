@@ -8,10 +8,13 @@ import RegionModule from './modules/regions/index';
 import ContryModule from './modules/countries/index';
 import AreaModule from './modules/areas/index';
 import PriceModule from './modules/prices/index';
+import DriversModule from './modules/drivers/index';
+
 import actions from './actions'
 import mutations from './mutations'
 import getters from './getters'
 import state from "./state";
+
 Vue.use(Vuex);
 
 
@@ -23,6 +26,7 @@ export default new Vuex.Store({
         ShipmentModule: ShipmentModule,
         StatusModule: StatusModule,
         UsersModule: UsersModule,
+        DriversModule: DriversModule,
         RegionModule:RegionModule,
         ContryModule:ContryModule,
         AreaModule:AreaModule,

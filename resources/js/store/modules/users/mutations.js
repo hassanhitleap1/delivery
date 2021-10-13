@@ -1,13 +1,13 @@
 let mutations = {
-    CREATE_STATU(state, statu) {
-        state.status.unshift(statu)
+    create_customer(state, customer) {
+        state.customers.unshift(customer)
     },
-    FETCH_STATUS(state, status) {
-        return state.status = status
+    featch_customers(state, customers) {
+        return state.customers = customers
     },
-    DELETE_STATU(state, statu) {
-        let index = state.status.findIndex(item => item.id === statu.id)
-        state.status.splice(index, 1)
+    delete_customer(state, customer) {
+        let index = state.customers.findIndex(item => item.id === customer.id)
+        state.customers.splice(index, 1)
     }
 
 }

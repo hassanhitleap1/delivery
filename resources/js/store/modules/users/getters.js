@@ -1,6 +1,6 @@
 let getters = {
-    status: state => {
-        return state.status
+    users: state => {
+        return state.users
     }
 }
 
