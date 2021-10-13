@@ -27,13 +27,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="stat in posts" :key="stat.id">
-                            <td>{{stat.id}}</td>
-                            <td>{{stat.name}}</td>
+                        <tr v-for="user in users" :key="stat.id">
+                            <td>{{user.id}}</td>
+                            <td>{{user.name}}</td>
 
                             <td class="action">
-                                <span class="tag tag-success fas fa-edit" @click="edit(stat.id)"></span>
-                                <span class="tag tag-success fas fa-trash-alt" @click="deletePost(stat.id)"></span>
+                                <span class="tag tag-success fas fa-edit" @click="edit(user.id)"></span>
+                                <span class="tag tag-success fas fa-trash-alt" @click="deletePost(user.id)"></span>
                             </td>
                         </tr>
                         </tbody>
@@ -51,12 +51,12 @@
     export default {
         name: "Index",
         mounted() {
-            this.$store.dispatch('fetchPosts');
-            console.log(this.posts)
+            this.$store.dispatch('UsersModule/fetchusers');
+         
         },
         methods: {
             deletePost(post) {
-                this.$store.dispatch('deletePost',post)
+                this.$store.dispatch('deletePost',user)
             },
             edit(id){
                 alert(id)
@@ -64,9 +64,8 @@
 
         },
         computed: {
-            ...mapGetters([
-                'posts'
-            ]),
+             ...mapGetters('UsersModule', ['users']),
+        
 
         }
 

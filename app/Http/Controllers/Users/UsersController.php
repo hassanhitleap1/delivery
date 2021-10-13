@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Users\UsersResource;
-use App\Model\Users\Customer;
+use App\Model\Users\Users;
 use Illuminate\Http\Request;
 
 class UsersController extends  Controller

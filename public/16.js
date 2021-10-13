@@ -66,20 +66,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  setup: function setup() {
+    console.log("s");
+  },
   name: "Index",
   mounted: function mounted() {
-    this.$store.dispatch('fetchPosts');
-    console.log(this.posts);
+    this.$store.dispatch('ShipmentModule/fetch_shipments');
   },
-  methods: {
-    deletePost: function deletePost(post) {
-      this.$store.dispatch('deletePost', post);
-    },
-    edit: function edit(id) {
-      alert(id);
-    }
-  },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['posts']))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('ShipmentModule', ['shipments']))
 });
 
 /***/ }),
@@ -110,18 +104,18 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.posts, function(stat) {
-                return _c("tr", { key: stat.id }, [
-                  _c("td", [_vm._v(_vm._s(stat.id))]),
+              _vm._l(_vm.shipments, function(shipment) {
+                return _c("tr", { key: shipment.id }, [
+                  _c("td", [_vm._v(_vm._s(shipment.id))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(stat.name))]),
+                  _c("td", [_vm._v(_vm._s(shipment.id))]),
                   _vm._v(" "),
                   _c("td", { staticClass: "action" }, [
                     _c("span", {
                       staticClass: "tag tag-success fas fa-edit",
                       on: {
                         click: function($event) {
-                          return _vm.edit(stat.id)
+                          return _vm.edit(shipment.id)
                         }
                       }
                     }),
@@ -130,7 +124,7 @@ var render = function() {
                       staticClass: "tag tag-success fas fa-trash-alt",
                       on: {
                         click: function($event) {
-                          return _vm.deletePost(stat.id)
+                          return _vm.deletePost(shipment.id)
                         }
                       }
                     })

@@ -62254,6 +62254,64 @@ var state = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/drivers/actions.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/store/modules/drivers/actions.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var actions = {
+  createdriver: function createdriver(_ref, driver) {
+    var commit = _ref.commit;
+    axios.post('/api/driver/drivers', driver).then(function (res) {
+      commit('create_driver', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  fetchdrivers: function fetchdrivers(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/driver/drivers').then(function (res) {
+      console.log(res.data);
+      commit('fatch_drivers', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  deletedriver: function deletedriver(_ref3, driver) {
+    var commit = _ref3.commit;
+    axios["delete"]("/api/driver/drivers/".concat(driver.id)).then(function (res) {
+      if (res.data === 'ok') commit('delete_driver', driver);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (actions);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/drivers/getters.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/store/modules/drivers/getters.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var getters = {
+  drivers: function drivers(state) {
+    return state.drivers;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (getters);
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/drivers/index.js":
 /*!*****************************************************!*\
   !*** ./resources/js/store/modules/drivers/index.js ***!
@@ -62263,22 +62321,65 @@ var state = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _status_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../status/state */ "./resources/js/store/modules/status/state.js");
-/* harmony import */ var _status_getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../status/getters */ "./resources/js/store/modules/status/getters.js");
-/* harmony import */ var _status_mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../status/mutations */ "./resources/js/store/modules/status/mutations.js");
-/* harmony import */ var _status_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../status/actions */ "./resources/js/store/modules/status/actions.js");
+/* harmony import */ var _drivers_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../drivers/state */ "./resources/js/store/modules/drivers/state.js");
+/* harmony import */ var _drivers_getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../drivers/getters */ "./resources/js/store/modules/drivers/getters.js");
+/* harmony import */ var _drivers_mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../drivers/mutations */ "./resources/js/store/modules/drivers/mutations.js");
+/* harmony import */ var _drivers_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../drivers/actions */ "./resources/js/store/modules/drivers/actions.js");
 
 
 
 
-var UsersModule = {
+var DriversModule = {
   namespaced: true,
-  state: _status_state__WEBPACK_IMPORTED_MODULE_0__["default"],
-  getters: _status_getters__WEBPACK_IMPORTED_MODULE_1__["default"],
-  mutations: _status_mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
-  actions: _status_actions__WEBPACK_IMPORTED_MODULE_3__["default"]
+  state: _drivers_state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _drivers_getters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _drivers_mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _drivers_actions__WEBPACK_IMPORTED_MODULE_3__["default"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (DriversModule);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/drivers/mutations.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/store/modules/drivers/mutations.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var mutations = {
+  create_driver: function create_driver(state, driver) {
+    state.drivers.unshift(driver);
+  },
+  featch_drivers: function featch_drivers(state, drivers) {
+    return state.drivers = drivers;
+  },
+  delete_driver: function delete_driver(state, driver) {
+    var index = state.drivers.findIndex(function (item) {
+      return item.id === driver.id;
+    });
+    state.drivers.splice(index, 1);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (mutations);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/drivers/state.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/store/modules/drivers/state.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  drivers: []
+};
+/* harmony default export */ __webpack_exports__["default"] = (state);
 
 /***/ }),
 
@@ -62559,27 +62660,27 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  createStatu: function createStatu(_ref, statu) {
+  create_shipment: function create_shipment(_ref, shipment) {
     var commit = _ref.commit;
-    axios.post('/api/status', statu).then(function (res) {
-      commit('CREATE_STATU', res.data);
+    axios.post('/api/shipment', shipment).then(function (res) {
+      commit('create_shipment', res.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  fetchstatus: function fetchstatus(_ref2) {
+  fetch_shipments: function fetch_shipments(_ref2) {
     var commit = _ref2.commit;
-    axios.get('/api/status').then(function (res) {
+    axios.get('/api/shipments').then(function (res) {
       console.log(res.data);
-      commit('FETCH_STATUS', res.data.data);
+      commit('fetch_shipments', res.data.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  deleteStatu: function deleteStatu(_ref3, statu) {
+  delete_shipment: function delete_shipment(_ref3, user) {
     var commit = _ref3.commit;
-    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
-      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    axios["delete"]("/api/shipments/".concat(shipment.id)).then(function (res) {
+      if (res.data === 'ok') commit('delete_shipment', shipment);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -62599,8 +62700,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  status: function status(state) {
-    return state.status;
+  shipments: function shipments(state) {
+    return state.shipments;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62620,18 +62721,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/shipments/getters.js");
 /* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/shipments/mutations.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/shipments/actions.js");
-// import Vue from 'vue'
-// import Vuex from 'vuex'
 
 
 
- // Vue.use(Vuex);
-// const store = new Vuex.Store({
-//     state,
-//     getters,
-//     mutations,
-//     actions
-// });
 
 var ShipmentModule = {
   namespaced: true,
@@ -62654,17 +62746,18 @@ var ShipmentModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  CREATE_STATU: function CREATE_STATU(state, statu) {
-    state.status.unshift(statu);
+  create_shipment: function create_shipment(state, shipment) {
+    state.status.unshift(shipment);
   },
-  FETCH_STATUS: function FETCH_STATUS(state, status) {
-    return state.status = status;
+  fetch_shipments: function fetch_shipments(state, shipments) {
+    console.log(shipments);
+    return state.shipments = shipments;
   },
-  DELETE_STATU: function DELETE_STATU(state, statu) {
-    var index = state.status.findIndex(function (item) {
-      return item.id === statu.id;
+  delete_shipment: function delete_shipment(state, shipment) {
+    var index = state.shipments.findIndex(function (item) {
+      return item.id === shipment.id;
     });
-    state.status.splice(index, 1);
+    state.shipment.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -62681,7 +62774,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  status: []
+  shipments: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -62815,6 +62908,64 @@ var state = {
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/users/actions.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/store/modules/users/actions.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var actions = {
+  create_shipment: function create_shipment(_ref, shipment) {
+    var commit = _ref.commit;
+    axios.post('/api/shipment', shipment).then(function (res) {
+      commit('create_shipment', res.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  fetch_shipments: function fetch_shipments(_ref2) {
+    var commit = _ref2.commit;
+    axios.get('/api/shipments').then(function (res) {
+      console.log(res.data);
+      commit('fatch_shipments', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  delete_shipment: function delete_shipment(_ref3, user) {
+    var commit = _ref3.commit;
+    axios["delete"]("/api/shipments/".concat(shipment.id)).then(function (res) {
+      if (res.data === 'ok') commit('delete_shipment', shipment);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (actions);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/users/getters.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/store/modules/users/getters.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var getters = {
+  shipments: function shipments(state) {
+    return state.shipments;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (getters);
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/users/index.js":
 /*!***************************************************!*\
   !*** ./resources/js/store/modules/users/index.js ***!
@@ -62824,22 +62975,65 @@ var state = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _status_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../status/state */ "./resources/js/store/modules/status/state.js");
-/* harmony import */ var _status_getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../status/getters */ "./resources/js/store/modules/status/getters.js");
-/* harmony import */ var _status_mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../status/mutations */ "./resources/js/store/modules/status/mutations.js");
-/* harmony import */ var _status_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../status/actions */ "./resources/js/store/modules/status/actions.js");
+/* harmony import */ var _users_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../users/state */ "./resources/js/store/modules/users/state.js");
+/* harmony import */ var _users_getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../users/getters */ "./resources/js/store/modules/users/getters.js");
+/* harmony import */ var _users_mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../users/mutations */ "./resources/js/store/modules/users/mutations.js");
+/* harmony import */ var _users_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../users/actions */ "./resources/js/store/modules/users/actions.js");
 
 
 
 
 var UsersModule = {
   namespaced: true,
-  state: _status_state__WEBPACK_IMPORTED_MODULE_0__["default"],
-  getters: _status_getters__WEBPACK_IMPORTED_MODULE_1__["default"],
-  mutations: _status_mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
-  actions: _status_actions__WEBPACK_IMPORTED_MODULE_3__["default"]
+  state: _users_state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _users_getters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _users_mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
+  actions: _users_actions__WEBPACK_IMPORTED_MODULE_3__["default"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (UsersModule);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/users/mutations.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/store/modules/users/mutations.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var mutations = {
+  create_user: function create_user(state, user) {
+    state.users.unshift(user);
+  },
+  fatch_users: function fatch_users(state, users) {
+    return state.users = users;
+  },
+  delete_user: function delete_user(state, user) {
+    var index = state.users.findIndex(function (item) {
+      return item.id === user.id;
+    });
+    state.users.splice(index, 1);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (mutations);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/users/state.js":
+/*!***************************************************!*\
+  !*** ./resources/js/store/modules/users/state.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  users: []
+};
+/* harmony default export */ __webpack_exports__["default"] = (state);
 
 /***/ }),
 

@@ -1,27 +1,27 @@
 let actions = {
-    createStatu({commit}, statu) {
-        axios.post('/api/status', statu)
+    create_shipment({commit}, shipment) {
+        axios.post('/api/shipment', shipment)
             .then(res => {
-                commit('CREATE_STATU', res.data)
+                commit('create_shipment', res.data)
             }).catch(err => {
             console.log(err)
         })
 
     },
-    fetchstatus({commit}) {
-        axios.get('/api/status')
+    fetch_shipments({commit}) {
+        axios.get('/api/shipments')
             .then(res => {
                 console.log( res.data)
-                commit('FETCH_STATUS', res.data.data)
+                commit('fetch_shipments', res.data.data)
             }).catch(err => {
             console.log(err)
         })
     },
-    deleteStatu({commit}, statu) {
-        axios.delete(`/api/status/${statu.id}`)
+    delete_shipment({commit}, user) {
+        axios.delete(`/api/shipments/${shipment.id}`)
             .then(res => {
                 if (res.data === 'ok')
-                    commit('DELETE_STATU', statu)
+                    commit('delete_shipment', shipment)
             }).catch(err => {
             console.log(err);
         })

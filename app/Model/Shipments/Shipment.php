@@ -2,9 +2,9 @@
 
 
 namespace App\Model\Shipments;
+use Illuminate\Database\Eloquent\Model;
 
-
-class Shipment
+class Shipment extends  Model
 {
     protected  $table='shipments';
 }

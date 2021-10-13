@@ -27,13 +27,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="stat in posts" :key="stat.id">
-                            <td>{{stat.id}}</td>
-                            <td>{{stat.name}}</td>
+                        <tr v-for="shipment in shipments" :key="shipment.id">
+                            <td>{{shipment.id}}</td>
+                            <td>{{shipment.id}}</td>
 
                             <td class="action">
-                                <span class="tag tag-success fas fa-edit" @click="edit(stat.id)"></span>
-                                <span class="tag tag-success fas fa-trash-alt" @click="deletePost(stat.id)"></span>
+                                <span class="tag tag-success fas fa-edit" @click="edit(shipment.id)"></span>
+                                <span class="tag tag-success fas fa-trash-alt" @click="deletePost(shipment.id)"></span>
                             </td>
                         </tr>
                         </tbody>
@@ -49,24 +49,16 @@
 <script>
     import {mapGetters} from 'vuex'
     export default {
+        setup(){
+            console.log("s")
+        },
         name: "Index",
         mounted() {
-            this.$store.dispatch('fetchPosts');
-            console.log(this.posts)
+            this.$store.dispatch('ShipmentModule/fetch_shipments');
         },
-        methods: {
-            deletePost(post) {
-                this.$store.dispatch('deletePost',post)
-            },
-            edit(id){
-                alert(id)
-            }
 
-        },
         computed: {
-            ...mapGetters([
-                'posts'
-            ]),
+            ...mapGetters('ShipmentModule', ['shipments']),
 
         }
 

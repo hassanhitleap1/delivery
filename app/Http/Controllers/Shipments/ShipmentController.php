@@ -2,11 +2,11 @@
 
 
 namespace App\Http\Controllers\Shipments;
-
-
 use App\Model\Shipments\Shipment;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Shipments\ShipmentsResource;
 
-class ShipmentController
+class ShipmentController extends Controller
 {
     public function index(){
         return ShipmentsResource::collection(Shipment::all());
