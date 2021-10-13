@@ -2393,6 +2393,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Sidebar"
 });
@@ -42451,12 +42455,12 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "nav-link ",
-                          attrs: { to: "/dashboard2" }
+                          attrs: { to: "/countries" }
                         },
                         [
                           _c("i", { staticClass: "far fa-circle nav-icon" }),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Top Navigation")])
+                          _c("p", [_vm._v("countries")])
                         ]
                       )
                     ],
@@ -42469,14 +42473,11 @@ var render = function() {
                     [
                       _c(
                         "router-link",
-                        {
-                          staticClass: "nav-link ",
-                          attrs: { to: "/dashboard2" }
-                        },
+                        { staticClass: "nav-link ", attrs: { to: "/regions" } },
                         [
                           _c("i", { staticClass: "far fa-circle nav-icon" }),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Top Navigation")])
+                          _c("p", [_vm._v("regions")])
                         ]
                       )
                     ],
@@ -42489,14 +42490,11 @@ var render = function() {
                     [
                       _c(
                         "router-link",
-                        {
-                          staticClass: "nav-link ",
-                          attrs: { to: "/dashboard2" }
-                        },
+                        { staticClass: "nav-link ", attrs: { to: "/areas" } },
                         [
                           _c("i", { staticClass: "far fa-circle nav-icon" }),
                           _vm._v(" "),
-                          _c("p", [_vm._v("Top Navigation")])
+                          _c("p", [_vm._v("areas")])
                         ]
                       )
                     ],
@@ -61565,120 +61563,150 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/users',
     name: 'users',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
     },
     children: [{
       name: 'users.create',
       path: 'create',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
       }
     }, {
       path: ':id/edit',
       name: 'users.update',
       components: function components() {
-        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ../views/users/Update */ "./resources/js/views/users/Update.vue"));
+        return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../views/users/Update */ "./resources/js/views/users/Update.vue"));
       }
     }, {
       path: 'view',
       name: 'users.create',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
       }
     }]
   }, {
     path: '/shipments',
     name: 'shipments',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../views/shipments/Index */ "./resources/js/views/shipments/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ../views/shipments/Index */ "./resources/js/views/shipments/Index.vue"));
     },
     children: [{
       name: 'shipments.create',
       path: 'create',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
       }
     }, {
       path: ':id/edit',
       name: 'shipments.update',
       components: function components() {
-        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../views/shipments/Update */ "./resources/js/views/shipments/Update.vue"));
+        return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ../views/shipments/Update */ "./resources/js/views/shipments/Update.vue"));
       }
     }, {
       path: 'view',
       name: 'shipments.create',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
       }
     }]
   }, {
     path: '/custmers',
     name: 'users',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
     },
     children: [{
       name: 'custmers.create',
       path: 'create',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../views/custmers/Create */ "./resources/js/views/custmers/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../views/custmers/Create */ "./resources/js/views/custmers/Create.vue"));
       }
     }, {
       path: ':id/edit',
       name: 'custmers.update',
       components: function components() {
-        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../views/custmers/Update */ "./resources/js/views/custmers/Update.vue"));
+        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ../views/custmers/Update */ "./resources/js/views/custmers/Update.vue"));
       }
     }, {
       path: 'view',
       name: 'custmers.create',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../views/custmers/Create */ "./resources/js/views/custmers/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../views/custmers/Create */ "./resources/js/views/custmers/Create.vue"));
       }
     }]
   }, {
     path: '/status',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
     },
     children: [{
       name: 'status.create',
       path: 'create',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
       }
     }, {
       path: ':id/edit',
       name: 'status.update',
       components: function components() {
-        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../views/status/Update */ "./resources/js/views/status/Update.vue"));
+        return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ../views/status/Update */ "./resources/js/views/status/Update.vue"));
       }
     }, {
       path: 'view',
       name: 'status.create',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
       }
     }]
-  }, // {
-  //     path: '/status',
-  //     name: 'status',
-  //     component: ()=>import("../views/status/Index"),
-  //     children: [
-  //         {
-  //             path: '/status/create',
-  //             component: SstatusCreate,
-  //             name:"create_status"
-  //         },
-  //         {
-  //             path: '/status/:id',
-  //             component: ()=>import("../views/status/Update"),
-  //             name:"update_status"
-  //
-  //         }
-  //    ]
-  // },
-  {
+  }, {
+    path: '/areas',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../views/areas/Index */ "./resources/js/views/areas/Index.vue"));
+    },
+    children: [{
+      name: 'areas.create',
+      path: 'create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
+      }
+    }, {
+      path: ':id/edit',
+      name: 'areas.update',
+      components: function components() {
+        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../views/areas/Update */ "./resources/js/views/areas/Update.vue"));
+      }
+    }, {
+      path: 'view',
+      name: 'areas.create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
+      }
+    }]
+  }, {
+    path: '/countries',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ../views/countries/Index */ "./resources/js/views/countries/Index.vue"));
+    },
+    children: [{
+      name: 'countries.create',
+      path: 'create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../views/countries/Create */ "./resources/js/views/countries/Create.vue"));
+      }
+    }, {
+      path: ':id/edit',
+      name: 'countries.update',
+      components: function components() {
+        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../views/countries/Update */ "./resources/js/views/countries/Update.vue"));
+      }
+    }, {
+      path: 'view',
+      name: 'countries.create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ../views/countries/Create */ "./resources/js/views/countries/Create.vue"));
+      }
+    }]
+  }, {
     path: '/login',
     name: 'login',
     component: _views_Login__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -62022,24 +62050,24 @@ __webpack_require__.r(__webpack_exports__);
 var actions = {
   createContry: function createContry(_ref, contry) {
     var commit = _ref.commit;
-    axios.post('/api/contries', contry).then(function (res) {
+    axios.post('/api/countries', contry).then(function (res) {
       commit('CREATE_CONTRY', res.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  fetchcontries: function fetchcontries(_ref2) {
+  fetchcountries: function fetchcountries(_ref2) {
     var commit = _ref2.commit;
-    axios.get('/api/contries').then(function (res) {
+    axios.get('/api/countries').then(function (res) {
       console.log(res.data);
-      commit('FETCH_CONTRIES', res.data.data);
+      commit('FETCH_COUNTRIES', res.data.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
   deleteContry: function deleteContry(_ref3, contry) {
     var commit = _ref3.commit;
-    axios["delete"]("/api/contries/".concat(contry.id)).then(function (res) {
+    axios["delete"]("/api/countries/".concat(contry.id)).then(function (res) {
       if (res.data === 'ok') commit('DELETE_CONTRY', contry);
     })["catch"](function (err) {
       console.log(err);
@@ -62060,8 +62088,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  contries: function contries(state) {
-    return state.contries;
+  countries: function countries(state) {
+    return state.countries;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62108,17 +62136,17 @@ var ContryModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  CREATE_STATU: function CREATE_STATU(state, statu) {
-    state.status.unshift(statu);
+  CREATE_CONTRY: function CREATE_CONTRY(state, statu) {
+    state.countries.unshift(statu);
   },
-  FETCH_STATUS: function FETCH_STATUS(state, status) {
-    return state.status = status;
+  FETCH_COUNTRIES: function FETCH_COUNTRIES(state, countries) {
+    return state.countries = countries;
   },
-  DELETE_STATU: function DELETE_STATU(state, statu) {
-    var index = state.status.findIndex(function (item) {
+  DELETE_CONTRY: function DELETE_CONTRY(state, countrY) {
+    var index = state.countries.findIndex(function (item) {
       return item.id === statu.id;
     });
-    state.status.splice(index, 1);
+    state.countries.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -62135,7 +62163,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  status: []
+  countries: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -62427,27 +62455,27 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  createStatu: function createStatu(_ref, statu) {
+  createregion: function createregion(_ref, statu) {
     var commit = _ref.commit;
-    axios.post('/api/status', statu).then(function (res) {
-      commit('CREATE_STATU', res.data);
+    axios.post('/api/regions', statu).then(function (res) {
+      commit('CREATE_REGION', res.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  fetchstatus: function fetchstatus(_ref2) {
+  fetchregions: function fetchregions(_ref2) {
     var commit = _ref2.commit;
-    axios.get('/api/status').then(function (res) {
+    axios.get('/api/regions').then(function (res) {
       console.log(res.data);
-      commit('FETCH_STATUS', res.data.data);
+      commit('FETCH_REGIONS', res.data.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  deleteStatu: function deleteStatu(_ref3, statu) {
+  deleteregion: function deleteregion(_ref3, statu) {
     var commit = _ref3.commit;
-    axios["delete"]("/api/status/".concat(statu.id)).then(function (res) {
-      if (res.data === 'ok') commit('DELETE_STATU', statu);
+    axios["delete"]("/api/regions/".concat(statu.id)).then(function (res) {
+      if (res.data === 'ok') commit('DELETE_REGION', region);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -62467,8 +62495,8 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  status: function status(state) {
-    return state.status;
+  regions: function regions(state) {
+    return state.regions;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -62488,18 +62516,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/regions/getters.js");
 /* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/regions/mutations.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/regions/actions.js");
-// import Vue from 'vue'
-// import Vuex from 'vuex'
 
 
 
- // Vue.use(Vuex);
-// const store = new Vuex.Store({
-//     state,
-//     getters,
-//     mutations,
-//     actions
-// });
 
 var RegionModule = {
   namespaced: true,
@@ -62522,15 +62541,15 @@ var RegionModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  CREATE_STATU: function CREATE_STATU(state, statu) {
-    state.status.unshift(statu);
+  CREATE_REGION: function CREATE_REGION(state, region) {
+    state.status.unshift(region);
   },
-  FETCH_STATUS: function FETCH_STATUS(state, status) {
-    return state.status = status;
+  FETCH_REGIONS: function FETCH_REGIONS(state, regions) {
+    return state.regions = regions;
   },
-  DELETE_STATU: function DELETE_STATU(state, statu) {
-    var index = state.status.findIndex(function (item) {
-      return item.id === statu.id;
+  DELETE_REGION: function DELETE_REGION(state, regions) {
+    var index = state.regions.findIndex(function (item) {
+      return item.id === region.id;
     });
     state.status.splice(index, 1);
   }
@@ -62549,7 +62568,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  status: []
+  regions: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -62714,7 +62733,6 @@ var actions = {
   fetchstatus: function fetchstatus(_ref2) {
     var commit = _ref2.commit;
     axios.get('/api/status').then(function (res) {
-      console.log(res.data);
       commit('FETCH_STATUS', res.data.data);
     })["catch"](function (err) {
       console.log(err);
@@ -62816,7 +62834,7 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  users: []
+  status: []
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -63049,8 +63067,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\xampp\htdocs\delivery\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\xampp\htdocs\delivery\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\delivery\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\delivery\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

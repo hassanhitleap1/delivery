@@ -1,13 +1,13 @@
 let mutations = {
-    CREATE_STATU(state, statu) {
-        state.status.unshift(statu)
+    CREATE_CONTRY(state, statu) {
+        state.countries.unshift(statu)
     },
-    FETCH_STATUS(state, status) {
-        return state.status = status
+    FETCH_COUNTRIES(state, countries) {
+        return state.countries = countries
     },
-    DELETE_STATU(state, statu) {
-        let index = state.status.findIndex(item => item.id === statu.id)
-        state.status.splice(index, 1)
+    DELETE_CONTRY(state, countrY) {
+        let index = state.countries.findIndex(item => item.id === statu.id)
+        state.countries.splice(index, 1)
     }
 
 }

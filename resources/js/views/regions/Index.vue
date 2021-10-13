@@ -27,13 +27,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="stat in posts" :key="stat.id">
-                            <td>{{stat.id}}</td>
-                            <td>{{stat.name}}</td>
+                        <tr v-for="region in regions" :key="region.id">
+                            <td>{{region.id}}</td>
+                            <td>{{region.name}}</td>
 
                             <td class="action">
-                                <span class="tag tag-success fas fa-edit" @click="edit(stat.id)"></span>
-                                <span class="tag tag-success fas fa-trash-alt" @click="deletePost(stat.id)"></span>
+                                <span class="tag tag-success fas fa-edit" @click="edit(region.id)"></span>
+                                <span class="tag tag-success fas fa-trash-alt" @click="deletePost(region.id)"></span>
                             </td>
                         </tr>
                         </tbody>
@@ -49,24 +49,17 @@
 <script>
     import {mapGetters} from 'vuex'
     export default {
+        setup(){
+            console.log("s")
+        },
         name: "Index",
         mounted() {
-            this.$store.dispatch('fetchPosts');
-            console.log(this.posts)
-        },
-        methods: {
-            deletePost(post) {
-                this.$store.dispatch('deletePost',post)
-            },
-            edit(id){
-                alert(id)
-            }
+            this.$store.dispatch('RegionModule/fetchregions');
 
         },
+
         computed: {
-            ...mapGetters([
-                'posts'
-            ]),
+            ...mapGetters('RegionModule', ['regions']),
 
         }
 

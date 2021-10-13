@@ -4,16 +4,17 @@
 namespace App\Http\Controllers\Areas;
 
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Area\AreaResource;
-use App\Model\Areas\Status;
+use App\Model\Areas\Area;
 use Illuminate\Http\Request;
 
 
-class AreaController
+class AreaController extends Controller
 {
 
     public function index(){
-        return AreaResource::collection(Status::all());
+        return AreaResource::collection(Area::all());
     }
 
     public function create(Request $request){

@@ -31,7 +31,6 @@ const route =  new VueRouter({
                 hideForAuth: false,
             }
         },
-
         {
             path: '/users',
             name: 'users',
@@ -70,7 +69,6 @@ const route =  new VueRouter({
 
             }]
         },
-
         {
             path: '/custmers',
             name: 'users',
@@ -90,7 +88,6 @@ const route =  new VueRouter({
 
             }]
         },
-
         {
             path: '/status',
             component:  ()=>import("../views/status/Index"),
@@ -109,27 +106,60 @@ const route =  new VueRouter({
 
                 }]
             },
+        {
+            path: '/countries',
+            component:  ()=>import("../views/countries/Index"),
+            children: [{
+                name: 'countries.create',
+                path: 'create',
+                component:  ()=>import("../views/countries/Create"),
+            }, {
+                path: ':id/edit',
+                name: 'countries.update',
+                components:  ()=>import("../views/countries/Update"),
+            }, {
+                path: 'view',
+                name: 'countries.create',
+                component:()=>import("../views/countries/Create"),
 
+            }]
+        },
+        {
+            path: '/regions',
+            component:  ()=>import("../views/regions/Index"),
+            children: [{
+                name: 'regions.create',
+                path: 'create',
+                component:  ()=>import("../views/regions/Create"),
+            }, {
+                path: ':id/edit',
+                name: 'regions.update',
+                components:  ()=>import("../views/regions/Update"),
+            }, {
+                path: 'view',
+                name: 'regions.create',
+                component:()=>import("../views/regions/Create"),
 
-        // {
-        //     path: '/status',
-        //     name: 'status',
-        //     component: ()=>import("../views/status/Index"),
-        //     children: [
-        //         {
-        //             path: '/status/create',
-        //             component: SstatusCreate,
-        //             name:"create_status"
-        //         },
-        //         {
-        //             path: '/status/:id',
-        //             component: ()=>import("../views/status/Update"),
-        //             name:"update_status"
-        //
-        //         }
-        //    ]
-        // },
+            }]
+        },
+        {
+            path: '/areas',
+            component:  ()=>import("../views/areas/Index"),
+            children: [{
+                name: 'areas.create',
+                path: 'create',
+                component:  ()=>import("../views/areas/Create"),
+            }, {
+                path: ':id/edit',
+                name: 'areas.update',
+                components:  ()=>import("../views/areas/Update"),
+            }, {
+                path: 'view',
+                name: 'areas.create',
+                component:()=>import("../views/areas/Create"),
 
+            }]
+        },
         {
             path: '/login',
             name: 'login',

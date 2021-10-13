@@ -1,5 +1,5 @@
 let state = {
-    status: []
+    regions: []
 }
 
 export default state

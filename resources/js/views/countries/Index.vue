@@ -27,13 +27,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="stat in posts" :key="stat.id">
-                            <td>{{stat.id}}</td>
-                            <td>{{stat.name}}</td>
+                        <tr v-for="country in countries" :key="country.id">
+                            <td>{{country.id}}</td>
+                            <td>{{country.name}}</td>
 
                             <td class="action">
-                                <span class="tag tag-success fas fa-edit" @click="edit(stat.id)"></span>
-                                <span class="tag tag-success fas fa-trash-alt" @click="deletePost(stat.id)"></span>
+                                <span class="tag tag-success fas fa-edit" @click="edit(country.id)"></span>
+                                <span class="tag tag-success fas fa-trash-alt" @click="deletePost(country.id)"></span>
                             </td>
                         </tr>
                         </tbody>
@@ -51,22 +51,11 @@
     export default {
         name: "Index",
         mounted() {
-            this.$store.dispatch('fetchPosts');
-            console.log(this.posts)
+            this.$store.dispatch('ContryModule/fetchcountries');
         },
-        methods: {
-            deletePost(post) {
-                this.$store.dispatch('deletePost',post)
-            },
-            edit(id){
-                alert(id)
-            }
 
-        },
         computed: {
-            ...mapGetters([
-                'posts'
-            ]),
+            ...mapGetters('ContryModule', ['countries']),
 
         }
 

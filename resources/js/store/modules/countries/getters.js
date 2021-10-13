@@ -1,6 +1,6 @@
 let getters = {
-    contries: state => {
-        return state.contries
+    countries: state => {
+        return state.countries
     }
 }
 

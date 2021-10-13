@@ -55,6 +55,7 @@ Route::apiResources([
 Route::apiResources([
    'areas' => \Areas\AreaController::class,
     'regions' => \Areas\RegionController::class,
+    'countries'=> \Areas\CountriesController::class,
 ]);
 
 Route::group(['prefix' => 'users'], function () {

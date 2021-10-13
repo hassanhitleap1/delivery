@@ -1,12 +1,12 @@
 let mutations = {
-    CREATE_STATU(state, statu) {
-        state.status.unshift(statu)
+    CREATE_REGION(state, region) {
+        state.status.unshift(region)
     },
-    FETCH_STATUS(state, status) {
-        return state.status = status
+    FETCH_REGIONS(state, regions) {
+        return state.regions = regions
     },
-    DELETE_STATU(state, statu) {
-        let index = state.status.findIndex(item => item.id === statu.id)
+    DELETE_REGION(state, regions) {
+        let index = state.regions.findIndex(item => item.id === region.id)
         state.status.splice(index, 1)
     }
 

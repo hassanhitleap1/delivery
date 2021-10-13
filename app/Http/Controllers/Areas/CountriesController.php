@@ -4,12 +4,13 @@
 namespace App\Http\Controllers\Areas;
 
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Area\CountriesResource;
 use App\Model\Areas\Countries;
 use Illuminate\Http\Request;
 
 
-class CountriesController
+class CountriesController extends Controller
 {
 
     public function index(){

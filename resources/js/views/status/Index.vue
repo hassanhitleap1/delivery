@@ -52,20 +52,10 @@
         name: "Index",
         mounted() {
             this.$store.dispatch('StatusModule/fetchstatus');
-            console.log(this.posts)
         },
-        methods: {
-            deletePost(post) {
-                this.$store.dispatch('deletePost',post)
-            },
-            edit(id){
-                alert(id)
-            }
 
-        },
         computed: {
-            ...mapGetters('StatusModule', ['status'])
-          
+            ...mapGetters('StatusModule', ['status']),
 
         }
 

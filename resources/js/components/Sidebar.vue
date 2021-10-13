@@ -123,23 +123,27 @@
                         <ul class="nav nav-treeview">
 
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/dashboard2">
+                                <router-link class="nav-link " to="/countries">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Top Navigation</p>
+                                    <p>countries</p>
                                 </router-link>
                             </li>
+
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/dashboard2">
+                                <router-link class="nav-link " to="/regions">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Top Navigation</p>
+                                    <p>regions</p>
                                 </router-link>
                             </li>
+
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/dashboard2">
+                                <router-link class="nav-link " to="/areas">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Top Navigation</p>
+                                    <p>areas</p>
                                 </router-link>
                             </li>
+
+
                         </ul>
                     </li>
 

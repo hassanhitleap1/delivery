@@ -11,7 +11,6 @@ let actions = {
     fetchstatus({commit}) {
         axios.get('/api/status')
             .then(res => {
-                console.log( res.data)
                 commit('FETCH_STATUS', res.data.data)
             }).catch(err => {
             console.log(err)
