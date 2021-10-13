@@ -1,13 +1,14 @@
 let mutations = {
-    CREATE_STATU(state, statu) {
-        state.status.unshift(statu)
+    create_shipment(state, shipment) {
+        state.status.unshift(shipment)
     },
-    FETCH_STATUS(state, status) {
-        return state.status = status
+    fetch_shipments(state, shipments) {
+        console.log(shipments);
+        return state.shipments = shipments
     },
-    DELETE_STATU(state, statu) {
-        let index = state.status.findIndex(item => item.id === statu.id)
-        state.status.splice(index, 1)
+    delete_shipment(state, shipment) {
+        let index = state.shipments.findIndex(item => item.id === shipment.id)
+        state.shipment.splice(index, 1)
     }
 
 }

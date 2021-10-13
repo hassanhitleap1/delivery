@@ -1,5 +1,5 @@
 let state = {
-    status: []
+    shipments: []
 }
 
 export default state
