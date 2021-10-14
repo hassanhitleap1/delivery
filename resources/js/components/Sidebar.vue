@@ -2,7 +2,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <router-link to="/"  class="brand-link" >
+        <router-link to="#"  class="brand-link" >
 
             <img :src="`${this.$site_url}/AdminLTE/dist/img/AdminLTELogo.png`" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
@@ -43,53 +43,40 @@
                         </a>
                         <ul class="nav nav-treeview">
 
-
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/user/users">
+                                <router-link class="nav-link " :to="{name:'admins'}" exact>
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>admins</p>
+                                </router-link>
+                            </li>
+                            <li class="nav-item">
+                                <router-link class="nav-link " to="/user/users" exact>
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>user</p>
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/user/custumers">
+                                <router-link class="nav-link " to="/user/custumers" exact>
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>custumer</p>
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/user/drivers">
+                                <router-link class="nav-link " to="/user/drivers" exact>
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>drivers</p>
                                 </router-link>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item">
 
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                status
-                                <i class="fas fa-angle-left right"></i>
-                                <span class="badge badge-info right">6</span>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <router-link class="nav-link " to="/status"  exact>
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>status</p>
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-
-                                <router-link class="nav-link "  to="/status/create" exact>
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>create status</p>
-                                </router-link>
-                            </li>
-                        </ul>
+                        <router-link class="nav-link " to="/status">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>status</p>
+                        </router-link>
                     </li>
+
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
@@ -125,8 +112,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-
-                        <router-link class="nav-link " to="/shipments">
+                        <router-link class="nav-link " to="/shipments" exact>
                             <i class="far fa-circle nav-icon"></i>
                             <p>shipments</p>
                         </router-link>

@@ -25,7 +25,7 @@ class CreateShipmentsTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('other_phone');
-            $table->string('required_amount');
+            $table->float('required_amount');
             $table->float('delivery_amount');
             $table->longtext('note');
             $table->timestamps();

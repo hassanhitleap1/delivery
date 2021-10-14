@@ -4,7 +4,10 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">users</h3>
-
+                    <router-link class="btn btn-primary" :to="{name:'create.user'}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>create users</p>
+                    </router-link>
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
                             <input type="text" name="table_search" class="form-control float-right" placeholder="Search">

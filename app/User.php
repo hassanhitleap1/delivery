@@ -9,7 +9,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable,HasApiTokens;
-
+    const ADMIN=1;
+    const USER=2;
+    const DRIVER=3;
+    const CUSTOMER=4;
 
     /**
      * The attributes that are mass assignable.

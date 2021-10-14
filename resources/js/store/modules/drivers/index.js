@@ -1,12 +1,12 @@
-import state from '../drivers/state';
-import getters from '../drivers/getters';
-import mutations from '../drivers/mutations';
-import actions from '../drivers/actions';
-let DriversModule  ={
+import state from './state';
+import getters from './getters';
+import mutations from './mutations';
+import actions from './actions';
+let DriverModule  ={
     namespaced: true,
     state,
     getters,
     mutations,
     actions
 }
-export  default DriversModule;
+export  default DriverModule;

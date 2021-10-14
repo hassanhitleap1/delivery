@@ -54,12 +54,13 @@ Route::apiResources([
 
 Route::apiResources([
    'areas' => \Areas\AreaController::class,
-    'regions' => \Areas\RegionController::class,
-    'countries'=> \Areas\CountriesController::class,
+   'regions' => \Areas\RegionController::class,
+   'countries'=> \Areas\CountriesController::class,
 ]);
 
 Route::group(['prefix' => 'user'], function () {
     Route::apiResources([
+        'admins' => \Users\AdminController::class,
         'customers' => \Users\CustomerController::class,
         'drivers' => \Users\DriverController::class,
         'users' => \Users\UsersController::class,
