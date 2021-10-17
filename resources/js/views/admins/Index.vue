@@ -1,52 +1,59 @@
 <template>
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">admins</h3>
-                    <router-link class="btn btn-primary pull-left" :to="{name:'admins.create'}" >
-                        create users
-                    </router-link>
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title float-left">admins</h3>
+                                <router-link class="btn btn-primary float-right" :to="{name:'admins.create'}" >
+                                    create users
+                                </router-link>
+                            </div>
 
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                            <div class="card-tools mt-4">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-2">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>name   </th>
+                                    <th>action </th>
 
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="admin in admins" :key="admin.id">
+                                    <td>{{admin.id}}</td>
+                                    <td>{{admin.name}}</td>
+
+                                    <td class="action">
+                                        <span class="tag tag-success fas fa-edit" @click="edit(admin.id)"></span>
+                                        <span class="tag tag-success fas fa-trash-alt" @click="delete_admin(admin.id)"></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
+                    <!-- /.card -->
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>name   </th>
-                            <th>action </th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="admin in admins" :key="admin.id">
-                            <td>{{admin.id}}</td>
-                            <td>{{admin.name}}</td>
-
-                            <td class="action">
-                                <span class="tag tag-success fas fa-edit" @click="edit(admin.id)"></span>
-                                <span class="tag tag-success fas fa-trash-alt" @click="delete_admin(admin.id)"></span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card -->
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

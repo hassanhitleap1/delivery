@@ -67,6 +67,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+//
+//
+//
+>>>>>>> 8ab264401b8fc58fc2f7c25394dd353858818def
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   setup: function setup() {
@@ -96,6 +103,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
       _c("div", { staticClass: "card" }, [
@@ -158,6 +166,74 @@ var render = function() {
               }),
               0
             )
+=======
+  return _c("section", { staticClass: "content" }, [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c(
+              "div",
+              { staticClass: "card-header" },
+              [
+                _c("h3", { staticClass: "card-title" }, [_vm._v("users")]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { to: { name: "create.user" } }
+                  },
+                  [
+                    _c("i", { staticClass: "far fa-circle nav-icon" }),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("create users")])
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(0)
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body table-responsive p-0" }, [
+              _c("table", { staticClass: "table table-hover" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.shipments, function(shipment) {
+                    return _c("tr", { key: shipment.id }, [
+                      _c("td", [_vm._v(_vm._s(shipment.id))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(shipment.id))]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "action" }, [
+                        _c("span", {
+                          staticClass: "tag tag-success fas fa-edit",
+                          on: {
+                            click: function($event) {
+                              return _vm.edit(shipment.id)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          staticClass: "tag tag-success fas fa-trash-alt",
+                          on: {
+                            click: function($event) {
+                              return _vm.deletePost(shipment.id)
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ])
+>>>>>>> 8ab264401b8fc58fc2f7c25394dd353858818def
           ])
         ])
       ])

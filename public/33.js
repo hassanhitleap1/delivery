@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[33],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/admins/Create.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
@@ -9,6 +9,8 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -64,18 +66,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Create",
   data: function data() {
     return {
-      errors: null,
+      uiState: "submit not clicked",
+      errors: false,
+      empty: true,
       admin: {
         name: null,
         phone: null,
@@ -86,11 +84,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     create_admin: function create_admin(admin) {
-      // dataform = new FormData();
-      // dataform.append('name', this.admin.name);
-      // dataform.append('email', this.admin.email);
-      // dataform.append('password', this.password.email);
-      this.$store.dispatch('AdminModule/create_admin', admin); // this.empty = !this.$v.admin.$anyDirty;
+      dataform = new FormData();
+      dataform.append('name', this.admin.name);
+      dataform.append('email', this.admin.email);
+      dataform.append('password', this.password.email);
+      this.$store.dispatch('AdminModule/create_admin', dataform); // this.empty = !this.$v.admin.$anyDirty;
       // this.errors = this.$v.admin.$anyError;
       // this.uiState = "submit clicked";
       // if (this.errors === false && this.empty === false) {
@@ -127,33 +125,6 @@ var render = function() {
   return _c("section", { staticClass: "content" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "row" }, [
-        _vm.errors
-          ? _c(
-              "div",
-              {
-                staticClass:
-                  "bg-red-500 text-white py-2 px-4 pr-0 rounded font-bold mb-4 shadow-lg"
-              },
-              _vm._l(_vm.errors, function(v, k) {
-                return _c(
-                  "div",
-                  { key: k },
-                  _vm._l(v, function(error) {
-                    return _c("p", { key: error, staticClass: "text-sm" }, [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(error) +
-                          "\n                    "
-                      )
-                    ])
-                  }),
-                  0
-                )
-              }),
-              0
-            )
-          : _vm._e(),
-        _vm._v(" "),
         _c("div", { staticClass: "col-md-12" }, [
           _c("div", { staticClass: "card card-primary" }, [
             _vm._m(0),
@@ -207,12 +178,6 @@ var render = function() {
                     _c("input", {
                       directives: [
                         {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: _vm.email,
-                          expression: "email"
-                        },
-                        {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.admin.email,
@@ -223,8 +188,7 @@ var render = function() {
                       attrs: {
                         type: "text",
                         id: "email",
-                        placeholder: "Enter email",
-                        "data-rules": "required|email"
+                        placeholder: "Enter email"
                       },
                       domProps: { value: _vm.admin.email },
                       on: {
