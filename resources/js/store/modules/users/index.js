@@ -1,7 +1,7 @@
-import state from '../users/state';
-import getters from '../users/getters';
-import mutations from '../users/mutations';
-import actions from '../users/actions';
+import state from './state';
+import getters from './getters';
+import mutations from './mutations';
+import actions from './actions';
 let UserModule ={
     namespaced: true,
     state,

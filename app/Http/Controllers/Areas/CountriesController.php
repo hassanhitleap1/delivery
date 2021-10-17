@@ -14,7 +14,8 @@ class CountriesController extends Controller
 {
 
     public function index(){
-        return CountriesResource::collection(Countries::all());
+        
+        return CountriesResource::collection(Countries::paginate(5)->items());
     }
 
     public function create(Request $request){

@@ -3,10 +3,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">users</h3>
+                    <h3 class="card-title">contries</h3>
                     <router-link class="btn btn-primary" :to="{name:'create.user'}">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>create users</p>
+                        <p>create contries</p>
                     </router-link>
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -41,6 +41,7 @@
                         </tr>
                         </tbody>
                     </table>
+                 <pagination :data="countries" @pagination-change-page="ContryModule/fetchcountries"></pagination>
                 </div>
                 <!-- /.card-body -->
             </div>
