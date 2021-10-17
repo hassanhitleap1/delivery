@@ -59450,21 +59450,6 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: function component() {
       return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
     }
-<<<<<<< HEAD
-  }, {
-    path: 'areas/:id/edit',
-    name: 'areas.update',
-    components: function components() {
-      return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../views/areas/Update */ "./resources/js/views/areas/Update.vue"));
-    }
-  }, {
-    path: 'areas/view',
-    name: 'areas.create',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ../views/areas/View */ "./resources/js/views/areas/View.vue"));
-    }
-=======
->>>>>>> 8ab264401b8fc58fc2f7c25394dd353858818def
   }, {
     path: 'areas/:id/edit',
     name: 'areas.update',
@@ -61049,8 +61034,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\delivery\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\delivery\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! c:\xampp\htdocs\delivery\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! c:\xampp\htdocs\delivery\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
