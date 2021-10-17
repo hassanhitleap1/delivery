@@ -207,12 +207,6 @@ var render = function() {
                     _c("input", {
                       directives: [
                         {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: _vm.email,
-                          expression: "email"
-                        },
-                        {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.admin.email,
@@ -223,8 +217,7 @@ var render = function() {
                       attrs: {
                         type: "text",
                         id: "email",
-                        placeholder: "Enter email",
-                        "data-rules": "required|email"
+                        placeholder: "Enter email"
                       },
                       domProps: { value: _vm.admin.email },
                       on: {

@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-validate="email" data-rules="required|email"  v-model="admin.email">
+                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>

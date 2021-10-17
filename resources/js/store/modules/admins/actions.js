@@ -5,7 +5,7 @@ let actions = {
                 commit('create_admin', res.data);
                 return [];
             }).catch(err => {
-         return   err.data.errors;
+         
         })
 
     },
