@@ -11,16 +11,6 @@ Vue.use(VueRouter);
 const route =  new VueRouter({
     mode: 'history',
     linkActiveClass: "active",
-    // beforeEnter(to, from, next) {
-    //     let lang = to.params.lang
-    //     if (languages.includes(lang)) {
-    //         if (store.state.locale !== lang) {
-    //             store.dispatch('changeLocale', lang)
-    //         }
-    //         return next()
-    //     }
-    //     return next({ path: store.state.locale })
-    // },
     routes: [
         {
             path: '/',
@@ -68,7 +58,6 @@ const route =  new VueRouter({
             name: 'users.create',
             component:()=>import("../views/users/View"),
         },
-
         {
             path: '/user/admins',
             name: 'admins',
@@ -79,11 +68,13 @@ const route =  new VueRouter({
             name: 'admins.create',
             path: '/user/admins/create',
             component:  ()=>import("../views/admins/Create"),
-        }, {
+        },
+        {
             path: '/user/admins/:id/edit',
             name: 'admins.update',
             components:  ()=>import("../views/admins/Update"),
-        }, {
+        },
+        {
             path: '/user/admins/view',
             name: 'admins.create',
             component:()=>import("../views/admins/View"),
@@ -98,11 +89,13 @@ const route =  new VueRouter({
             name: 'custmers.create',
             path: '/user/custmers/create',
             component:  ()=>import("../views/custmers/Create"),
-        }, {
+        },
+        {
             path: '/user/custmers/:id/edit',
             name: 'custmers.update',
             components:  ()=>import("../views/custmers/Update"),
-        }, {
+        },
+        {
             path: '/user/custmers/view',
             name: 'custmers.create',
             component:()=>import("../views/custmers/View"),
@@ -117,17 +110,18 @@ const route =  new VueRouter({
             name: 'status.create',
             path: 'status/create',
             component:  ()=>import("../views/status/Create"),
-        }, {
+        },
+        {
             path: 'status/:id/edit',
             name: 'status.update',
             components:  ()=>import("../views/status/Update"),
-        }, {
+        },
+        {
             path: 'status/view',
             name: 'status.create',
             component:()=>import("../views/status/View"),
 
         },
-
         {
             path: '/countries',
             component:  ()=>import("../views/countries/Index"),
@@ -137,11 +131,13 @@ const route =  new VueRouter({
             name: 'countries.create',
             path: 'countries/create',
             component:  ()=>import("../views/countries/Create"),
-        }, {
+        },
+        {
             path: 'countries/:id/edit',
             name: 'countries.update',
             components:  ()=>import("../views/countries/Update"),
-        }, {
+        },
+        {
             path: 'countries/view',
             name: 'countries.view',
             component:()=>import("../views/countries/View"),
@@ -155,11 +151,13 @@ const route =  new VueRouter({
             name: 'regions.create',
             path: 'create',
             component:  ()=>import("../views/regions/Create"),
-        }, {
+        },
+        {
             path: 'regions/:id/edit',
             name: 'regions.update',
             components:  ()=>import("../views/regions/Update"),
-        }, {
+        },
+        {
             path: 'regions/view',
             name: 'regions.create',
             component:()=>import("../views/regions/View"),
@@ -173,54 +171,21 @@ const route =  new VueRouter({
             name: 'areas.create',
             path: 'areas/create',
             component:  ()=>import("../views/areas/Create"),
-        }, {
+        },
+        {
             path: 'areas/:id/edit',
             name: 'areas.update',
             components:  ()=>import("../views/areas/Update"),
-        }, {
+        },
+        {
             path: 'areas/view',
             name: 'areas.create',
             component:()=>import("../views/areas/View"),
 
-        },
-
-        {
-            path: '/login',
-            name: 'login',
-            component: Login,
-            meta: {
-                requiresAuth: false,
-                hideForAuth: true,
-            }
-        },
-        {
-            path: '/register',
-            name: 'register',
-            component: Register,
-            meta: {
-                requiresAuth: false,
-                hideForAuth: true,
-            }
         }
     ]
 });
 
-
-// router.beforeEach((to, from, next) => {
-//     if(to.meta.requiresAuth && !store.getters.isAuthenticated){
-//         next('/login');
-//     } else if(to.meta.hideForAuth && store.getters.isAuthenticated){
-//         next('/');
-//     } else {
-//         next();
-//     }
-// });
-
-
-
-// router.beforeEach((to, from, next) =>
-//     Promise.all([store.dispatch("auth/checkAuth")]).then(next)
-// );
 
 
 export default route;

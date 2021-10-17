@@ -2,7 +2,10 @@
     <div>
         <Navbar />
         <Sidebar />
-        <router-view></router-view>
+        <div class="content-wrapper">
+            <Contentheader />
+            <router-view></router-view>
+        </div>
         <Footer />
     </div>
 </template>
@@ -11,10 +14,12 @@
     import  Navbar from "./components/Navbar";
     import  Sidebar from "./components/Sidebar";
     import  Footer from "./components/Footer";
+    import Contentheader from "./components/Contentheader";
 
     export default {
         name: "App",
         components:{
+            Contentheader,
             Navbar,Sidebar,Footer
         }
 
