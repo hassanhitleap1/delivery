@@ -3,10 +3,10 @@ let actions = {
         axios.post('/api/user/admins', admin)
             .then(res => {
                 commit('create_admin', res.data);
-                return [];
+                return res;
             }).catch(err => {
-         
-        })
+                console.log(err);
+            })
 
     },
     fetch_admins({commit}) {
@@ -15,7 +15,7 @@ let actions = {
                 console.log( res.data)
                 commit('fetch_admins', res.data.data)
             }).catch(err => {
-            console.log(err)
+            console.log(err);
         })
     },
     delete_admin({commit}, admin) {

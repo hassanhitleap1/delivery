@@ -76,6 +76,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       errors: null,
+      success: false,
       admin: {
         name: null,
         phone: null,
@@ -86,17 +87,26 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     create_admin: function create_admin(admin) {
+      var _this = this;
+
       // dataform = new FormData();
       // dataform.append('name', this.admin.name);
       // dataform.append('email', this.admin.email);
-      // dataform.append('password', this.password.email);
-      this.$store.dispatch('AdminModule/create_admin', admin); // this.empty = !this.$v.admin.$anyDirty;
-      // this.errors = this.$v.admin.$anyError;
-      // this.uiState = "submit clicked";
-      // if (this.errors === false && this.empty === false) {
-      //     this.$store.dispatch('AdminModule/create_admin', dataform);
-      //     this.uiState = "form submitted";
-      // }
+      console.log("sss");
+      axios.post('/api/user/admins', admin).then(function (response) {
+        console.log(response);
+        _this.errors = [];
+        _this.admin.name = null;
+        _this.admin.email = null;
+        _this.success = true;
+      })["catch"](function (error) {
+        _this.errors = error.response.data.errors;
+        _this.success = false;
+      }); // const res = axios.post('/api/user/admins', admin).catch(err => {
+      //     console.log(err);
+      // });
+      // console.log(JSON.stringify(response.data))
+      // console.log( this.$store.dispatch('AdminModule/create_admin', admin) );
     }
   } // computed: {
   //     isValid() {
@@ -130,22 +140,26 @@ var render = function() {
         _vm.errors
           ? _c(
               "div",
-              {
-                staticClass:
-                  "bg-red-500 text-white py-2 px-4 pr-0 rounded font-bold mb-4 shadow-lg"
-              },
               _vm._l(_vm.errors, function(v, k) {
                 return _c(
                   "div",
                   { key: k },
                   _vm._l(v, function(error) {
-                    return _c("p", { key: error, staticClass: "text-sm" }, [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(error) +
-                          "\n                    "
-                      )
-                    ])
+                    return _c(
+                      "p",
+                      {
+                        key: error,
+                        staticClass: "alert alert-danger",
+                        attrs: { role: "alert" }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(error) +
+                            "\n                    "
+                        )
+                      ]
+                    )
                   }),
                   0
                 )

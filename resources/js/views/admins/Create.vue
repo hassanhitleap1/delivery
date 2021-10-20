@@ -3,9 +3,9 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- left column -->
-                <div v-if="errors" class="bg-red-500 text-white py-2 px-4 pr-0 rounded font-bold mb-4 shadow-lg">
+                <div v-if="errors">
                     <div v-for="(v, k) in errors" :key="k">
-                        <p v-for="error in v" :key="error" class="text-sm">
+                        <p v-for="error in v" :key="error" class="alert alert-danger" role="alert">
                             {{ error }}
                         </p>
                     </div>
@@ -67,6 +67,7 @@
         data(){
             return {
                 errors: null,
+                success : false,
                 admin:{
                     name:null,
                     phone:null,
@@ -79,21 +80,30 @@
 
         methods:{
             create_admin(admin) {
-
                 // dataform = new FormData();
                 // dataform.append('name', this.admin.name);
                 // dataform.append('email', this.admin.email);
-                // dataform.append('password', this.password.email);
-                this.$store.dispatch('AdminModule/create_admin', admin);
+                console.log("sss");
+                axios.post('/api/user/admins', admin).then( response => {
+                    console.log(response);
+                    this.errors = [];
+                    this.admin.name = null;
+                    this.admin.email = null;
+                    this.success = true;
+                } ).catch((error) => {
+                    this.errors = error.response.data.errors;
+                    this.success = false;
+                });
 
 
-                // this.empty = !this.$v.admin.$anyDirty;
-                // this.errors = this.$v.admin.$anyError;
-                // this.uiState = "submit clicked";
-                // if (this.errors === false && this.empty === false) {
-                //     this.$store.dispatch('AdminModule/create_admin', dataform);
-                //     this.uiState = "form submitted";
-                // }
+
+                // const res = axios.post('/api/user/admins', admin).catch(err => {
+                //     console.log(err);
+                // });
+                // console.log(JSON.stringify(response.data))
+
+                // console.log( this.$store.dispatch('AdminModule/create_admin', admin) );
+
 
             }
         },
