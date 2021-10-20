@@ -59549,12 +59549,7 @@ __webpack_require__.r(__webpack_exports__);
 var actions = {
   create_admin: function create_admin(_ref, admin) {
     var commit = _ref.commit;
-    axios.post('/api/user/admins', admin).then(function (res) {
-      commit('create_admin', res.data);
-      return res;
-    })["catch"](function (err) {
-      console.log(err);
-    });
+    commit('create_admin', admin);
   },
   fetch_admins: function fetch_admins(_ref2) {
     var commit = _ref2.commit;

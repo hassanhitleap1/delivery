@@ -71,6 +71,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Create",
   data: function data() {
@@ -89,16 +93,18 @@ __webpack_require__.r(__webpack_exports__);
     create_admin: function create_admin(admin) {
       var _this = this;
 
-      // dataform = new FormData();
-      // dataform.append('name', this.admin.name);
-      // dataform.append('email', this.admin.email);
-      console.log("sss");
       axios.post('/api/user/admins', admin).then(function (response) {
         console.log(response);
         _this.errors = [];
         _this.admin.name = null;
         _this.admin.email = null;
         _this.success = true;
+
+        _this.$store.dispatch('AdminModule/create_admin', admin);
+
+        _this.$router.push({
+          name: 'admins'
+        });
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
         _this.success = false;
@@ -106,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
       //     console.log(err);
       // });
       // console.log(JSON.stringify(response.data))
-      // console.log( this.$store.dispatch('AdminModule/create_admin', admin) );
+      // console.log( );
     }
   } // computed: {
   //     isValid() {
@@ -210,6 +216,36 @@ var render = function() {
                             return
                           }
                           _vm.$set(_vm.admin, "name", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "phone" } }, [_vm._v("phone")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.admin.phone,
+                          expression: "admin.phone"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "phone",
+                        placeholder: "Enter phone"
+                      },
+                      domProps: { value: _vm.admin.phone },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.admin, "phone", $event.target.value)
                         }
                       }
                     })

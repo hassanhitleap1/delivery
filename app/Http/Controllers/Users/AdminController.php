@@ -8,7 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\AdminRequest;
 use App\Http\Resources\Users\AdminResource;
 use App\Model\Users\Admin;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class AdminController extends  Controller
 {
@@ -17,7 +19,18 @@ class AdminController extends  Controller
     }
 
     public function store(AdminRequest $request){
-        Admin::cerate($request->all());
+
+       $admin= Admin::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+            'password'=>bcrypt($request->password),
+            'type'=>User::ADMIN,
+            'address'=>$request->address
+        ]);
+
+        return new AdminResource($admin);
+
     }
 
     public function edit(){

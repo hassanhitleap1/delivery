@@ -27,6 +27,10 @@
                                     <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="admin.name">
                                 </div>
                                 <div class="form-group">
+                                    <label for="phone">phone</label>
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="admin.phone">
+                                </div>
+                                <div class="form-group">
                                     <label for="email">email</label>
                                     <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">
                                 </div>
@@ -80,16 +84,14 @@
 
         methods:{
             create_admin(admin) {
-                // dataform = new FormData();
-                // dataform.append('name', this.admin.name);
-                // dataform.append('email', this.admin.email);
-                console.log("sss");
                 axios.post('/api/user/admins', admin).then( response => {
                     console.log(response);
                     this.errors = [];
                     this.admin.name = null;
                     this.admin.email = null;
                     this.success = true;
+                    this.$store.dispatch('AdminModule/create_admin', admin);
+                    this.$router.push({ name: 'admins' });
                 } ).catch((error) => {
                     this.errors = error.response.data.errors;
                     this.success = false;
@@ -102,7 +104,7 @@
                 // });
                 // console.log(JSON.stringify(response.data))
 
-                // console.log( this.$store.dispatch('AdminModule/create_admin', admin) );
+                // console.log( );
 
 
             }

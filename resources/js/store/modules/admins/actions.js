@@ -1,13 +1,6 @@
 let actions = {
     create_admin({commit}, admin) {
-        axios.post('/api/user/admins', admin)
-            .then(res => {
-                commit('create_admin', res.data);
-                return res;
-            }).catch(err => {
-                console.log(err);
-            })
-
+        commit('create_admin', admin);
     },
     fetch_admins({commit}) {
         axios.get('/api/user/admins')

@@ -27,7 +27,7 @@ class AdminRequest extends \App\Http\Requests\Api\FormRequest
         return [
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users,email',
-            'phone' => 'required|numeric',
+            'phone' => 'required|numeric|unique:users,phone',
         ];
     }
 
