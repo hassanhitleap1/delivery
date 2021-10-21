@@ -66,7 +66,7 @@
         },
         methods: {
             delete_admin(admin) {
-                this.$store.dispatch('delete_admin',admin)
+                this.$store.dispatch('AdminModule/delete_admin',admin)
             }
         },
         computed: {

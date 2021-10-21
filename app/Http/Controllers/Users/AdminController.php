@@ -10,6 +10,7 @@ use App\Http\Resources\Users\AdminResource;
 use App\Model\Users\Admin;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Crypt;
 
 class AdminController extends  Controller
@@ -44,6 +45,12 @@ class AdminController extends  Controller
             'address'=>$request->address
         ]);
         return new AdminResource($admin);
+    }
+
+
+    public function destroy(Admin $admin){
+        $admin->delete();
+        return Response('',201);
     }
 
 

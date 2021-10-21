@@ -25,8 +25,7 @@ let actions = {
     delete_admin({commit}, admin) {
         axios.delete(`/api/user/admins/${admin.id}`)
             .then(res => {
-                if (res.data === 'ok')
-                    commit('delete_admin', admin)
+                commit('delete_admin', admin)
             }).catch(err => {
             console.log(err);
         })

@@ -83,7 +83,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     delete_admin: function delete_admin(admin) {
-      this.$store.dispatch('delete_admin', admin);
+      this.$store.dispatch('AdminModule/delete_admin', admin);
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('AdminModule', ['admins']))

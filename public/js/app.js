@@ -59569,7 +59569,7 @@ var actions = {
   delete_admin: function delete_admin(_ref5, admin) {
     var commit = _ref5.commit;
     axios["delete"]("/api/user/admins/".concat(admin.id)).then(function (res) {
-      if (res.data === 'ok') commit('delete_admin', admin);
+      commit('delete_admin', admin);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -59654,7 +59654,7 @@ var mutations = {
   fetch_admin: function fetch_admin(state, admin) {
     return state.admin = admin;
   },
-  delete_admin: function delete_admin(state, driver) {
+  delete_admin: function delete_admin(state, admin) {
     var index = state.admins.findIndex(function (item) {
       return item.id === admin.id;
     });
