@@ -4,9 +4,11 @@
 namespace App\Http\Controllers\Users;
 
 
+use App\Events\UserEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\AdminRequest;
 use App\Http\Resources\Users\AdminResource;
+use App\Listeners\UserListener;
 use App\Model\Users\Admin;
 use App\User;
 
@@ -26,6 +28,9 @@ class AdminController extends  Controller
             'type'=>User::ADMIN,
             'address'=>$request->address
         ]);
+
+        UserEvent::dispatch($admin);
+
         return new AdminResource($admin);
     }
 
