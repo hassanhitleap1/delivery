@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="with validtion">
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/User/CustomerRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/User/DriverRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/User/UserRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Users/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/admins/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/admins/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/admins/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/admins/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/admins/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/admins/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Users/CustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/DriverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Users/DriverController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Users/UsersController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +175,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Requests/User" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -183,15 +186,15 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\status" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\app\Http\Requests\User" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\views\admins" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\services" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\views\users" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\views\status" />
-      <recent name="C:\xampp\htdocs\delivery\resources\js\views\shipments" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\status" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -289,7 +292,7 @@
       <workItem from="1634561446584" duration="4941000" />
       <workItem from="1634720510096" duration="9682000" />
       <workItem from="1634803570760" duration="6616000" />
-      <workItem from="1634816492739" duration="306000" />
+      <workItem from="1634816492739" duration="2454000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
