@@ -1,27 +1,31 @@
 let actions = {
-    createcustomer({commit}, customer) {
-        axios.post('/api/user/customers', customer)
-            .then(res => {
-                commit('create_customer', res.data)
-            }).catch(err => {
-            console.log(err)
-        })
-
+    create_custmer({commit}, custmer) {
+        commit('create_custmer', custmer);
     },
-    fetchcustomers({commit}) {
-        axios.get('/api/user/customers')
+    update_custmer({commit}, admin) {
+        commit('update_custmer', admin);
+    },
+    fetch_custmers({commit}) {
+        axios.get('/api/user/custmers')
             .then(res => {
                 console.log( res.data)
-                commit('fatch_customers', res.data.data)
+                commit('fetch_custmers', res.data.data)
             }).catch(err => {
-            console.log(err)
+            console.log(err);
         })
     },
-    deletecustomer({commit}, customer) {
-        axios.delete(`/api//user/customers/${customer.id}`)
+    fetch_custmer({commit},id) {
+        axios.get('/api/user/custmers/'+id)
             .then(res => {
-                if (res.data === 'ok')
-                    commit('delete_customer', customer)
+                commit('fetch_custmer', res.data.data)
+            }).catch(err => {
+            console.log(err);
+        })
+    },
+    delete_custmer({commit}, custmer) {
+        axios.delete(`/api/user/custmers/${custmer.id}`)
+            .then(res => {
+                commit('delete_custmer', custmer)
             }).catch(err => {
             console.log(err);
         })

@@ -1,5 +1,6 @@
 let state = {
-    customers: []
+    customers: [],
+    custmer:null
 }
 
 export default state

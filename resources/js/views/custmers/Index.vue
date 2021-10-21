@@ -5,12 +5,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">users</h3>
-                            <router-link class="btn btn-primary" :to="{name:'create.user'}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>create users</p>
-                            </router-link>
-                            <div class="card-tools">
+                            <div>
+                                <h3 class="card-title float-left">custmers</h3>
+                                <router-link class="btn btn-primary float-right" :to="{name:'custmers.create'}" >
+                                    create users
+                                </router-link>
+                            </div>
+
+                            <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
@@ -18,10 +20,11 @@
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
+                        <div class="card-body table-responsive p-2">
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
@@ -32,13 +35,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="stat in posts" :key="stat.id">
-                                    <td>{{stat.id}}</td>
-                                    <td>{{stat.name}}</td>
+                                <tr v-for="custmer in custmers" :key="custmer.id">
+                                    <td>{{custmer.id}}</td>
+                                    <td>{{custmer.name}}</td>
 
                                     <td class="action">
-                                        <span class="tag tag-success fas fa-edit" @click="edit(stat.id)"></span>
-                                        <span class="tag tag-success fas fa-trash-alt" @click="deletePost(stat.id)"></span>
+                                        <router-link class="tag tag-success fas fa-edit" :to="{name:'custmers.edit',params:{'id':custmer.id}}" >
+                                        </router-link>
+                                        <span class="tag tag-success fas fa-trash-alt" @click="delete_custmer(custmer.id)"></span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -54,19 +58,19 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import {mapGetters} from 'vuex';
     export default {
-        setup(){
-            console.log("s")
-        },
         name: "Index",
         mounted() {
-            this.$store.dispatch('RegionModule/fetchregions');
-
+            this.$store.dispatch('CustmerModule/fetch_custmers');
         },
-
+        methods: {
+            delete_custmer(custmer) {
+                this.$store.dispatch('CustmerModule/delete_custmer',custmer)
+            }
+        },
         computed: {
-            ...mapGetters('RegionModule', ['regions']),
+            ...mapGetters('CustmerModule', ['custmers']),
 
         }
 

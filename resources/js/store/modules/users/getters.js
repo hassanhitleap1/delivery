@@ -1,7 +1,10 @@
 let getters = {
-    shipments: state => {
-        return state.shipments
-    }
+    users: state => {
+        return state.users
+    },
+    user: state => {
+        return state.user
+    },
 }
 
 export default  getters

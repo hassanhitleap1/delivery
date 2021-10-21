@@ -5,12 +5,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">users</h3>
-                            <router-link class="btn btn-primary" :to="{name:'create.user'}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>create users</p>
-                            </router-link>
-                            <div class="card-tools">
+                            <div>
+                                <h3 class="card-title float-left">drivers</h3>
+                                <router-link class="btn btn-primary float-right" :to="{name:'drivers.create'}" >
+                                    create users
+                                </router-link>
+                            </div>
+
+                            <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
@@ -18,10 +20,11 @@
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
+                        <div class="card-body table-responsive p-2">
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
@@ -32,13 +35,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="area in areas" :key="area.id">
-                                    <td>{{area.id}}</td>
-                                    <td>{{area.name}}</td>
+                                <tr v-for="driver in drivers" :key="driver.id">
+                                    <td>{{driver.id}}</td>
+                                    <td>{{driver.name}}</td>
 
                                     <td class="action">
-                                        <span class="tag tag-success fas fa-edit" @click="edit(area.id)"></span>
-                                        <span class="tag tag-success fas fa-trash-alt" @click="deletePost(area.id)"></span>
+                                        <router-link class="tag tag-success fas fa-edit" :to="{name:'drivers.edit',params:{'id':driver.id}}" >
+                                        </router-link>
+                                        <span class="tag tag-success fas fa-trash-alt" @click="delete_driver(driver.id)"></span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -54,15 +58,19 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import {mapGetters} from 'vuex';
     export default {
         name: "Index",
         mounted() {
-            this.$store.dispatch('AreaModule/fetchareas');
+            this.$store.dispatch('AdminModule/fetch_drivers');
         },
-
+        methods: {
+            delete_driver(driver) {
+                this.$store.dispatch('DriverModule/delete_driver',driver)
+            }
+        },
         computed: {
-            ...mapGetters('AreaModule', ['areas']),
+            ...mapGetters('DriverModule', ['drivers']),
 
         }
 

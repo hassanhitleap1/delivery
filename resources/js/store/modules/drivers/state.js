@@ -1,5 +1,6 @@
 let state = {
-    drivers: []
+    drivers: [],
+    driver:null
 }
 
 export default state

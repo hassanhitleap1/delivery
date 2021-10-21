@@ -59952,27 +59952,35 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  createcustomer: function createcustomer(_ref, customer) {
+  create_custmer: function create_custmer(_ref, custmer) {
     var commit = _ref.commit;
-    axios.post('/api/user/customers', customer).then(function (res) {
-      commit('create_customer', res.data);
-    })["catch"](function (err) {
-      console.log(err);
-    });
+    commit('create_custmer', custmer);
   },
-  fetchcustomers: function fetchcustomers(_ref2) {
+  update_custmer: function update_custmer(_ref2, admin) {
     var commit = _ref2.commit;
-    axios.get('/api/user/customers').then(function (res) {
+    commit('update_custmer', admin);
+  },
+  fetch_custmers: function fetch_custmers(_ref3) {
+    var commit = _ref3.commit;
+    axios.get('/api/user/custmers').then(function (res) {
       console.log(res.data);
-      commit('fatch_customers', res.data.data);
+      commit('fetch_custmers', res.data.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  deletecustomer: function deletecustomer(_ref3, customer) {
-    var commit = _ref3.commit;
-    axios["delete"]("/api//user/customers/".concat(customer.id)).then(function (res) {
-      if (res.data === 'ok') commit('delete_customer', customer);
+  fetch_custmer: function fetch_custmer(_ref4, id) {
+    var commit = _ref4.commit;
+    axios.get('/api/user/custmers/' + id).then(function (res) {
+      commit('fetch_custmer', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  delete_custmer: function delete_custmer(_ref5, custmer) {
+    var commit = _ref5.commit;
+    axios["delete"]("/api/user/custmers/".concat(custmer.id)).then(function (res) {
+      commit('delete_custmer', custmer);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -60038,17 +60046,27 @@ var CustmerModule = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var mutations = {
-  create_customer: function create_customer(state, customer) {
-    state.customers.unshift(customer);
+  create_custmer: function create_custmer(state, custmer) {
+    state.custmer.unshift(custmer);
   },
-  featch_customers: function featch_customers(state, customers) {
-    return state.customers = customers;
+  fetch_custmers: function fetch_custmers(state, custmers) {
+    return state.custmers = custmers;
   },
-  delete_customer: function delete_customer(state, customer) {
-    var index = state.customers.findIndex(function (item) {
-      return item.id === customer.id;
+  update_custmer: function update_custmer(state, custmer) {
+    var index = state.custmers.findIndex(function (item) {
+      return item.id === custmer.id;
     });
-    state.customers.splice(index, 1);
+    state.custmers[index] = custmers;
+    return admin;
+  },
+  fetch_custmer: function fetch_custmer(state, admin) {
+    return state.admin = admin;
+  },
+  delete_custmer: function delete_custmer(state, custmer) {
+    var index = state.custmers.findIndex(function (item) {
+      return item.id === custmer.id;
+    });
+    state.custmers.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -60065,7 +60083,8 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  customers: []
+  customers: [],
+  custmer: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -60081,27 +60100,35 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  createdriver: function createdriver(_ref, driver) {
+  create_driver: function create_driver(_ref, driver) {
     var commit = _ref.commit;
-    axios.post('/api/driver/drivers', driver).then(function (res) {
-      commit('create_driver', res.data);
-    })["catch"](function (err) {
-      console.log(err);
-    });
+    commit('create_driver', driver);
   },
-  fetchdrivers: function fetchdrivers(_ref2) {
+  update_driver: function update_driver(_ref2, driver) {
     var commit = _ref2.commit;
-    axios.get('/api/driver/drivers').then(function (res) {
+    commit('update_driver', driver);
+  },
+  fetch_drivers: function fetch_drivers(_ref3) {
+    var commit = _ref3.commit;
+    axios.get('/api/user/drivers').then(function (res) {
       console.log(res.data);
-      commit('fatch_drivers', res.data.data);
+      commit('fetch_drivers', res.data.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  deletedriver: function deletedriver(_ref3, driver) {
-    var commit = _ref3.commit;
-    axios["delete"]("/api/driver/drivers/".concat(driver.id)).then(function (res) {
-      if (res.data === 'ok') commit('delete_driver', driver);
+  fetch_driver: function fetch_driver(_ref4, id) {
+    var commit = _ref4.commit;
+    axios.get('/api/user/drivers/' + id).then(function (res) {
+      commit('fetch_driver', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  delete_driver: function delete_driver(_ref5, driver) {
+    var commit = _ref5.commit;
+    axios["delete"]("/api/user/drivers/".concat(driver.id)).then(function (res) {
+      commit('delete_driver', driver);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -60123,6 +60150,9 @@ __webpack_require__.r(__webpack_exports__);
 var getters = {
   drivers: function drivers(state) {
     return state.drivers;
+  },
+  driver: function driver(state) {
+    return state.driver;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -60170,8 +60200,18 @@ var mutations = {
   create_driver: function create_driver(state, driver) {
     state.drivers.unshift(driver);
   },
-  featch_drivers: function featch_drivers(state, drivers) {
+  fetch_drivers: function fetch_drivers(state, drivers) {
     return state.drivers = drivers;
+  },
+  update_driver: function update_driver(state, driver) {
+    var index = state.drivers.findIndex(function (item) {
+      return item.id === driver.id;
+    });
+    state.drivers[index] = drivers;
+    return driver;
+  },
+  fetch_driver: function fetch_driver(state, driver) {
+    return state.driver = driver;
   },
   delete_driver: function delete_driver(state, driver) {
     var index = state.drivers.findIndex(function (item) {
@@ -60194,7 +60234,8 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  drivers: []
+  drivers: [],
+  driver: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -60735,27 +60776,35 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var actions = {
-  create_shipment: function create_shipment(_ref, shipment) {
+  create_user: function create_user(_ref, user) {
     var commit = _ref.commit;
-    axios.post('/api/shipment', shipment).then(function (res) {
-      commit('create_shipment', res.data);
-    })["catch"](function (err) {
-      console.log(err);
-    });
+    commit('create_user', user);
   },
-  fetch_shipments: function fetch_shipments(_ref2) {
+  update_user: function update_user(_ref2, user) {
     var commit = _ref2.commit;
-    axios.get('/api/shipments').then(function (res) {
+    commit('update_user', user);
+  },
+  fetch_users: function fetch_users(_ref3) {
+    var commit = _ref3.commit;
+    axios.get('/api/user/users').then(function (res) {
       console.log(res.data);
-      commit('fatch_shipments', res.data.data);
+      commit('fetch_users', res.data.data);
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  delete_shipment: function delete_shipment(_ref3, user) {
-    var commit = _ref3.commit;
-    axios["delete"]("/api/shipments/".concat(shipment.id)).then(function (res) {
-      if (res.data === 'ok') commit('delete_shipment', shipment);
+  fetch_user: function fetch_user(_ref4, id) {
+    var commit = _ref4.commit;
+    axios.get('/api/user/users/' + id).then(function (res) {
+      commit('fetch_user', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  delete_user: function delete_user(_ref5, user) {
+    var commit = _ref5.commit;
+    axios["delete"]("/api/user/users/".concat(user.id)).then(function (res) {
+      commit('delete_user', user);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -60775,8 +60824,11 @@ var actions = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var getters = {
-  shipments: function shipments(state) {
-    return state.shipments;
+  users: function users(state) {
+    return state.users;
+  },
+  user: function user(state) {
+    return state.user;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -60824,8 +60876,18 @@ var mutations = {
   create_user: function create_user(state, user) {
     state.users.unshift(user);
   },
-  fatch_users: function fatch_users(state, users) {
+  fetch_users: function fetch_users(state, users) {
     return state.users = users;
+  },
+  update_user: function update_user(state, user) {
+    var index = state.users.findIndex(function (item) {
+      return item.id === user.id;
+    });
+    state.users[index] = users;
+    return user;
+  },
+  fetch_user: function fetch_user(state, user) {
+    return state.user = user;
   },
   delete_user: function delete_user(state, user) {
     var index = state.users.findIndex(function (item) {
@@ -60848,7 +60910,8 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  users: []
+  admins: [],
+  admin: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 

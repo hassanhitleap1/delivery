@@ -1,5 +1,6 @@
 let state = {
-    users: []
+    admins: [],
+    admin:null
 }
 
 export default state
