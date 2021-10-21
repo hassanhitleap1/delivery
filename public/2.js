@@ -74,6 +74,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
@@ -149,25 +150,31 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(admin.name))]),
                       _vm._v(" "),
-                      _c("td", { staticClass: "action" }, [
-                        _c("span", {
-                          staticClass: "tag tag-success fas fa-edit",
-                          on: {
-                            click: function($event) {
-                              return _vm.edit(admin.id)
+                      _c(
+                        "td",
+                        { staticClass: "action" },
+                        [
+                          _c("router-link", {
+                            staticClass: "tag tag-success fas fa-edit",
+                            attrs: {
+                              to: {
+                                name: "admins.edit",
+                                params: { id: admin.id }
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", {
-                          staticClass: "tag tag-success fas fa-trash-alt",
-                          on: {
-                            click: function($event) {
-                              return _vm.delete_admin(admin.id)
+                          }),
+                          _vm._v(" "),
+                          _c("span", {
+                            staticClass: "tag tag-success fas fa-trash-alt",
+                            on: {
+                              click: function($event) {
+                                return _vm.delete_admin(admin.id)
+                              }
                             }
-                          }
-                        })
-                      ])
+                          })
+                        ],
+                        1
+                      )
                     ])
                   }),
                   0

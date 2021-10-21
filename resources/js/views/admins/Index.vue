@@ -40,7 +40,8 @@
                                     <td>{{admin.name}}</td>
 
                                     <td class="action">
-                                        <span class="tag tag-success fas fa-edit" @click="edit(admin.id)"></span>
+                                        <router-link class="tag tag-success fas fa-edit" :to="{name:'admins.edit',params:{'id':admin.id}}" >
+                                        </router-link>
                                         <span class="tag tag-success fas fa-trash-alt" @click="delete_admin(admin.id)"></span>
                                     </td>
                                 </tr>
@@ -57,7 +58,7 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import {mapGetters} from 'vuex';
     export default {
         name: "Index",
         mounted() {

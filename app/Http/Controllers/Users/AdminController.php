@@ -19,7 +19,6 @@ class AdminController extends  Controller
     }
 
     public function store(AdminRequest $request){
-
        $admin= Admin::create([
             'name'=>$request->name,
             'email'=>$request->email,
@@ -28,21 +27,25 @@ class AdminController extends  Controller
             'type'=>User::ADMIN,
             'address'=>$request->address
         ]);
-
         return new AdminResource($admin);
-
-    }
-
-    public function edit(){
-
-    }
-
-    public function update(){
-
     }
 
 
-    public function delete(){
-
+    public function show(Admin $admin){
+        return new AdminResource($admin);
     }
+
+    public function update(Admin $admin,AdminRequest $request){
+        $admin= $admin->update([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+            'type'=>User::ADMIN,
+            'address'=>$request->address
+        ]);
+        return new AdminResource($admin);
+    }
+
+
+
 }

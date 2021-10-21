@@ -59295,16 +59295,10 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ../views/admins/Create */ "./resources/js/views/admins/Create.vue"));
     }
   }, {
+    name: 'admins.edit',
     path: '/user/admins/:id/edit',
-    name: 'admins.update',
-    components: function components() {
-      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../views/admins/Update */ "./resources/js/views/admins/Update.vue"));
-    }
-  }, {
-    path: '/user/admins/view',
-    name: 'admins.create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../views/admins/View */ "./resources/js/views/admins/View.vue"));
+      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../views/admins/Update */ "./resources/js/views/admins/Update.vue"));
     }
   }, {
     path: '/user/custmers',
@@ -59551,8 +59545,12 @@ var actions = {
     var commit = _ref.commit;
     commit('create_admin', admin);
   },
-  fetch_admins: function fetch_admins(_ref2) {
+  update_admin: function update_admin(_ref2, admin) {
     var commit = _ref2.commit;
+    commit('update_admin', admin);
+  },
+  fetch_admins: function fetch_admins(_ref3) {
+    var commit = _ref3.commit;
     axios.get('/api/user/admins').then(function (res) {
       console.log(res.data);
       commit('fetch_admins', res.data.data);
@@ -59560,8 +59558,16 @@ var actions = {
       console.log(err);
     });
   },
-  delete_admin: function delete_admin(_ref3, admin) {
-    var commit = _ref3.commit;
+  fetch_admin: function fetch_admin(_ref4, id) {
+    var commit = _ref4.commit;
+    axios.get('/api/user/admins/' + id).then(function (res) {
+      commit('fetch_admin', res.data.data);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  delete_admin: function delete_admin(_ref5, admin) {
+    var commit = _ref5.commit;
     axios["delete"]("/api/user/admins/".concat(admin.id)).then(function (res) {
       if (res.data === 'ok') commit('delete_admin', admin);
     })["catch"](function (err) {
@@ -59585,6 +59591,9 @@ __webpack_require__.r(__webpack_exports__);
 var getters = {
   admins: function admins(state) {
     return state.admins;
+  },
+  admin: function admin(state) {
+    return state.admin;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -59635,6 +59644,16 @@ var mutations = {
   fetch_admins: function fetch_admins(state, admins) {
     return state.admins = admins;
   },
+  update_admin: function update_admin(state, admin) {
+    var index = state.admins.findIndex(function (item) {
+      return item.id === admin.id;
+    });
+    state.admins[index] = admins;
+    return admin;
+  },
+  fetch_admin: function fetch_admin(state, admin) {
+    return state.admin = admin;
+  },
   delete_admin: function delete_admin(state, driver) {
     var index = state.admins.findIndex(function (item) {
       return item.id === admin.id;
@@ -59656,7 +59675,8 @@ var mutations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var state = {
-  admins: []
+  admins: [],
+  admin: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 

@@ -70,16 +70,11 @@ const route =  new VueRouter({
             component:  ()=>import("../views/admins/Create"),
         },
         {
+            name: 'admins.edit',
             path: '/user/admins/:id/edit',
-            name: 'admins.update',
-            components:  ()=>import("../views/admins/Update"),
+            component:  ()=>import("../views/admins/Update"),
         },
-        {
-            path: '/user/admins/view',
-            name: 'admins.create',
-            component:()=>import("../views/admins/View"),
 
-        },
         {
             path: '/user/custmers',
             name: 'custmers',

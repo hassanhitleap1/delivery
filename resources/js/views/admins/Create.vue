@@ -20,7 +20,7 @@
 
 
 
-                        <form role="form" action=""  @submit.prevent="create_admin(admin)">
+                        <form role="form"   @submit.prevent="create_admin(admin)">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="name">name</label>
@@ -65,6 +65,7 @@
 </template>
 
 <script>
+    import  * as services from '../../services/admin';
 
     export default {
         name: "Create",
@@ -83,39 +84,21 @@
 
 
         methods:{
-            create_admin(admin) {
-                axios.post('/api/user/admins', admin).then( response => {
-                    console.log(response);
-                    this.errors = [];
-                    this.admin.name = null;
-                    this.admin.email = null;
-                    this.success = true;
-                    this.$store.dispatch('AdminModule/create_admin', admin);
-                    this.$router.push({ name: 'admins' });
-                } ).catch((error) => {
-                    this.errors = error.response.data.errors;
-                    this.success = false;
-                });
-
-
-
-                // const res = axios.post('/api/user/admins', admin).catch(err => {
-                //     console.log(err);
-                // });
-                // console.log(JSON.stringify(response.data))
-
-                // console.log( );
-
+           create_admin(admin) {
+                services.create_admin(admin).then( response => {
+                        this.errors = [];
+                        this.admin.name = null;
+                        this.admin.email = null;
+                        this.success = true;
+                        this.$store.dispatch('AdminModule/create_admin', admin);
+                        this.$router.push({ name: 'admins' });
+               }).catch((error) => {
+                        this.errors = error.response.data.errors;
+                        this.success = false;
+               });
 
             }
         },
-        // computed: {
-        //     isValid() {
-        //         return this.admin.name !== '' && this.admin.email !== '' && this.admin.password !== '' && this.admin.address !== ''  && this.admin.address !== ''
-        //             && this.admin.password_confirm !== ''
-        //     }
-        // }
-
 
     }
 </script>

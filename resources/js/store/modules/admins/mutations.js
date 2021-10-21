@@ -5,6 +5,16 @@ let mutations = {
     fetch_admins(state, admins) {
         return state.admins = admins
     },
+
+    update_admin(state, admin) {
+        let index =state.admins.findIndex(item => item.id === admin.id);
+        state.admins[index]=admins
+        return  admin
+    },
+
+    fetch_admin(state, admin) {
+        return state.admin = admin
+    },
     delete_admin(state, driver) {
         let index = state.admins.findIndex(item => item.id === admin.id)
         state.admins.splice(index, 1)
