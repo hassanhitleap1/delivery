@@ -416,14 +416,14 @@ render._withStripped = true
 /*!****************************************!*\
   !*** ./resources/js/services/admin.js ***!
   \****************************************/
-/*! exports provided: get_custmer, create_custmer, update_custmer */
+/*! exports provided: get_admin, create_admin, update_admin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_custmer", function() { return get_custmer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create_custmer", function() { return create_custmer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update_custmer", function() { return update_custmer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_admin", function() { return get_admin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create_admin", function() { return create_admin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update_admin", function() { return update_admin; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../globals */ "./resources/js/globals.js");
@@ -434,12 +434,12 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
-function get_custmer() {
-  return _get_custmer.apply(this, arguments);
+function get_admin() {
+  return _get_admin.apply(this, arguments);
 }
 
-function _get_custmer() {
-  _get_custmer = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+function _get_admin() {
+  _get_admin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
     var res;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
@@ -462,15 +462,15 @@ function _get_custmer() {
       }
     }, _callee);
   }));
-  return _get_custmer.apply(this, arguments);
+  return _get_admin.apply(this, arguments);
 }
 
-function create_custmer(_x) {
-  return _create_custmer.apply(this, arguments);
+function create_admin(_x) {
+  return _create_admin.apply(this, arguments);
 }
 
-function _create_custmer() {
-  _create_custmer = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(admin) {
+function _create_admin() {
+  _create_admin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(admin) {
     var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
@@ -486,15 +486,15 @@ function _create_custmer() {
       }
     }, _callee2);
   }));
-  return _create_custmer.apply(this, arguments);
+  return _create_admin.apply(this, arguments);
 }
 
-function update_custmer(_x2, _x3) {
-  return _update_custmer.apply(this, arguments);
+function update_admin(_x2, _x3) {
+  return _update_admin.apply(this, arguments);
 }
 
-function _update_custmer() {
-  _update_custmer = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(custmer, id) {
+function _update_admin() {
+  _update_admin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(custmer, id) {
     var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
@@ -510,7 +510,7 @@ function _update_custmer() {
       }
     }, _callee3);
   }));
-  return _update_custmer.apply(this, arguments);
+  return _update_admin.apply(this, arguments);
 }
 
 /***/ }),

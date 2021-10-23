@@ -66,7 +66,7 @@
 
 <script>
     import {mapGetters} from 'vuex';
-    import  * as services from '../../services/admin';
+     import  * as services from '../../services/admin';
     export default {
         name: "Update",
         data(){
