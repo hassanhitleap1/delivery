@@ -452,7 +452,7 @@ function _get_admin() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/custmers")).then(function (response) {
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/admins")).then(function (response) {
               console.log(response);
             })["catch"](function (error) {
               console.log(error);
@@ -482,7 +482,7 @@ function _create_admin() {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            response = axios.post('/api/user/custmers', admin);
+            response = axios.post('/api/user/admins', admin);
             return _context2.abrupt("return", response);
 
           case 2:
@@ -500,13 +500,13 @@ function update_admin(_x2, _x3) {
 }
 
 function _update_admin() {
-  _update_admin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(custmer, id) {
+  _update_admin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(admin, id) {
     var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            response = axios.put('/api/user/custmers/' + id, custmer);
+            response = axios.put('/api/user/admins/' + id, admin);
             return _context3.abrupt("return", response);
 
           case 2:

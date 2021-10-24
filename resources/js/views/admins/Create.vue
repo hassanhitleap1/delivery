@@ -40,11 +40,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="password_confirm">password confirm</label>
-                                    <input type="password" class="form-control" id="password_confirm" placeholder="password confirm" v-model="admin.password_confirm" >
-                                </div>
-
-                                <div class="form-group">
                                     <label for="name">address</label>
                                     <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="admin.address">
                                 </div>
@@ -76,6 +71,7 @@
                 admin:{
                     name:null,
                     phone:null,
+                    email:null,
                     address:null,
                     password:null
                 }
@@ -89,12 +85,14 @@
                         this.errors = [];
                         this.admin.name = null;
                         this.admin.email = null;
+                        this.admin.phone = null;
                         this.success = true;
                         this.$store.dispatch('AdminModule/create_admin', admin);
                         this.$router.push({ name: 'admins' });
                }).catch((error) => {
                         this.errors = error.response.data.errors;
                         this.success = false;
+
                });
 
             }

@@ -10,7 +10,7 @@ class AdminRequest extends \App\Http\Requests\Api\FormRequest
 
     protected $createRules = [
         'name' => 'required|max:255',
-        'email' => 'required|email|unique:users,email',
+        'email' => 'email|unique:users,email',
         'phone' => 'required|numeric|unique:users,phone',
     ];
 
@@ -23,14 +23,13 @@ class AdminRequest extends \App\Http\Requests\Api\FormRequest
 
     protected $rules = [];
 
-    public function createValidate($data){
+    public function createValidate(){
         $this->rules = $this->createRules;
         return $this->rules;
-        return $this->validate($data);
     }
 
     public function updateValidate(){
-        $this->updateRules['email'] = "required|email|unique:users,email,$this->id";
+        $this->updateRules['email'] = "email|unique:users,email,$this->id";
         $this->updateRules['phone'] = "required|unique:phone,phone,$this->id";
         return $this->rules;
         $this->rules = $this->updateRules;
@@ -54,17 +53,12 @@ class AdminRequest extends \App\Http\Requests\Api\FormRequest
      */
     public function rules()
     {
-
         if (in_array($this->method(), ['PUT', 'PATCH'])) {
             return  $this->updateValidate();
         }else{
             return  $this->createValidate();
         }
-        return [
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users,email',
-            'phone' => 'required|numeric|unique:users,phone',
-        ];
+
     }
 
 

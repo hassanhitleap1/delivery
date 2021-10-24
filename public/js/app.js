@@ -59286,7 +59286,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/admins',
     name: 'admins',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(32)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
     }
   }, {
     name: 'admins.create',

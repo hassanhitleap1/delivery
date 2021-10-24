@@ -29,7 +29,8 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>name   </th>
+                                    <th>name</th>
+                                    <th>phone</th>
                                     <th>action </th>
 
                                 </tr>
@@ -37,12 +38,13 @@
                                 <tbody>
                                 <tr v-for="admin in admins" :key="admin.id">
                                     <td>{{admin.id}}</td>
+                                    <td>{{admin.phone}}</td>
                                     <td>{{admin.name}}</td>
 
                                     <td class="action">
                                         <router-link class="tag tag-success fas fa-edit" :to="{name:'admins.edit',params:{'id':admin.id}}" >
                                         </router-link>
-                                        <span class="tag tag-success fas fa-trash-alt" @click="delete_admin(admin.id)"></span>
+                                        <span class="tag tag-success fas fa-trash-alt" @click="delete_admin(admin)"></span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -59,6 +61,8 @@
 
 <script>
     import {mapGetters} from 'vuex';
+        import Swal from 'sweetalert2';
+    import AWN from "awesome-notifications";
     export default {
         name: "Index",
         mounted() {
@@ -66,12 +70,26 @@
         },
         methods: {
             delete_admin(admin) {
-                this.$store.dispatch('AdminModule/delete_admin',admin)
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.$store.dispatch('AdminModule/delete_admin',admin);
+                        new AWN().success()
+
+                    }
+                })
+
             }
         },
         computed: {
             ...mapGetters('AdminModule', ['admins']),
-
         }
 
     }
