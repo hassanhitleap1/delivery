@@ -76,12 +76,11 @@
 
         },methods:{
 
-            update_admin(admin,id) {
-
-                services.update_admin(admin,id).then( response => {
+            update_custmer(admin,id) {
+                services.update_custmer(admin,id).then( response => {
                     this.errors = [];
                     this.success = true;
-                    this.$store.dispatch('AdminModule/update_admin', admin);
+                    this.$store.dispatch('CustmerModule/update_custmer', admin);
                     this.$router.push({ name: 'admins' });
                 }).catch((error) => {
                     this.errors = error.response.data.errors;

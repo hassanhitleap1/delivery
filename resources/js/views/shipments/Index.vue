@@ -5,11 +5,12 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">users</h3>
-                            <router-link class="btn btn-primary" :to="{name:'create.user'}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>create users</p>
-                            </router-link>
+                            <div>
+                                <h3 class="card-title float-left">shipments</h3>
+                                <router-link class="btn btn-primary float-right" :to="{name:'shipments.create'}" >
+                                    create shipment
+                                </router-link>
+                            </div>
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -37,7 +38,8 @@
                                     <td>{{shipment.id}}</td>
 
                                     <td class="action">
-                                        <span class="tag tag-success fas fa-edit" @click="edit(shipment.id)"></span>
+                                        <router-link class="tag tag-success fas fa-edit" :to="{name:'shipments.edit',params:{'id':shipment.id}}" >
+                                        </router-link>
                                         <span class="tag tag-success fas fa-trash-alt" @click="deletePost(shipment.id)"></span>
                                     </td>
                                 </tr>
@@ -54,20 +56,24 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import  * as services from '../../services/shipments';
     export default {
-        setup(){
-            console.log("s")
-        },
         name: "Index",
+        data(){
+            return {
+                shipments:[]
+            }
+        },
         mounted() {
-            this.$store.dispatch('ShipmentModule/fetch_shipments');
+            services.get_shipments().then( response => {
+                this.shipments=response.data;
+                console.log(response.data)
+            }).catch((error) => {
+              console.log(error)
+            });
         },
 
-        computed: {
-            ...mapGetters('ShipmentModule', ['shipments']),
 
-        }
 
     }
 </script>
