@@ -81,6 +81,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -147,7 +150,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "btn btn-primary float-right",
-                      attrs: { to: { name: "admins.create" } }
+                      attrs: { to: { name: "admins.edit" } }
                     },
                     [
                       _vm._v(
@@ -172,9 +175,11 @@ var render = function() {
                     return _c("tr", { key: admin.id }, [
                       _c("td", [_vm._v(_vm._s(admin.id))]),
                       _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(admin.name))]),
+                      _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(admin.phone))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(admin.name))]),
+                      _c("td", [_vm._v(_vm._s(admin.email))]),
                       _vm._v(" "),
                       _c(
                         "td",
@@ -253,6 +258,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("name")]),
         _vm._v(" "),
         _c("th", [_vm._v("phone")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("email ")]),
         _vm._v(" "),
         _c("th", [_vm._v("action ")])
       ])
