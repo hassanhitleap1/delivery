@@ -34,15 +34,7 @@
                                     <label for="email">email</label>
                                     <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="password" v-model="admin.password">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password_confirm">password confirm</label>
-                                    <input type="password" class="form-control" id="password_confirm" placeholder="password confirm" v-model="admin.password_confirm" >
-                                </div>
+                               
 
                                 <div class="form-group">
                                     <label for="name">address</label>
@@ -68,21 +60,21 @@
     import {mapGetters} from 'vuex';
      import  * as services from '../../services/admin';
     export default {
-        name: "Update",
+        name: "Edit",
         data(){
-            return {
-                errors: [],
-                success : false,
-                id:null,
-            }
-        },
+                return {
+                    errors: [],
+                    success : false,
+                    id:null,
+                }
+            },
         mounted() {
             this.$store.dispatch('AdminModule/fetch_admin',this.$route.params.id);
             this.id=this.$route.params.id;
 
         },computed: {
-            ...mapGetters('AdminModule', ['admin']),
 
+            // ...mapGetters('AdminModule', ['admin']),
         },methods:{
 
             update_admin(admin,id) {

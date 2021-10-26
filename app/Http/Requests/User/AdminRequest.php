@@ -10,14 +10,14 @@ class AdminRequest extends \App\Http\Requests\Api\FormRequest
 
     protected $createRules = [
         'name' => 'required|max:255',
-        'email' => 'email|unique:users,email',
+        // 'email' => 'email|unique:users,email',
         'phone' => 'required|numeric|unique:users,phone',
     ];
 
 
     protected $updateRules = [
         'name' => 'required|max:255',
-        'email' => 'required|email|unique:users,email',
+        // 'email' => 'email|unique:users,email',
         'phone' => 'required|numeric|unique:users,phone',
     ];
 

@@ -15,6 +15,7 @@ export  async  function create_admin(admin) {
 
 export  async  function update_admin(admin,id) {
     const response= axios.put('/api/user/admins/'+id, admin);
+    console.log("response",response)
     return  response;
 }
 

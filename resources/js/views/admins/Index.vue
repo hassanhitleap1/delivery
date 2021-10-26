@@ -7,7 +7,7 @@
                         <div class="card-header">
                             <div>
                                 <h3 class="card-title float-left">admins</h3>
-                                <router-link class="btn btn-primary float-right" :to="{name:'admins.create'}" >
+                                <router-link class="btn btn-primary float-right" :to="{'name':'admins.edit'}" >
                                     create users
                                 </router-link>
                             </div>
@@ -31,6 +31,7 @@
                                     <th>ID</th>
                                     <th>name</th>
                                     <th>phone</th>
+                                    <th>email </th>
                                     <th>action </th>
 
                                 </tr>
@@ -38,8 +39,10 @@
                                 <tbody>
                                 <tr v-for="admin in admins" :key="admin.id">
                                     <td>{{admin.id}}</td>
-                                    <td>{{admin.phone}}</td>
                                     <td>{{admin.name}}</td>
+                                    <td>{{admin.phone}}</td>
+                                    <td>{{admin.email}}</td>
+                                    
 
                                     <td class="action">
                                         <router-link class="tag tag-success fas fa-edit" :to="{name:'admins.edit',params:{'id':admin.id}}" >

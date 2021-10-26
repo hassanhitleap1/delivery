@@ -29,7 +29,7 @@ class AdminController extends  Controller
             'address'=>$request->address
         ]);
 
-        UserEvent::dispatch($admin);
+//        UserEvent::dispatch($admin);
 
         return new AdminResource($admin);
     }
@@ -40,13 +40,15 @@ class AdminController extends  Controller
     }
 
     public function update(Admin $admin,AdminRequest $request){
-        $admin= $admin->update([
+     
+        $admin= tap($admin)->update([
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,
-            'type'=>User::ADMIN,
+            // 'type'=>User::ADMIN,
             'address'=>$request->address
         ]);
+       
         return new AdminResource($admin);
     }
 
