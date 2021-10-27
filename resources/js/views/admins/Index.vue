@@ -7,7 +7,7 @@
                         <div class="card-header">
                             <div>
                                 <h3 class="card-title float-left">admins</h3>
-                                <router-link class="btn btn-primary float-right" :to="{'name':'admins.edit'}" >
+                                <router-link class="btn btn-primary float-right" :to="{'name':'admins.create'}" >
                                     create users
                                 </router-link>
                             </div>
@@ -42,10 +42,10 @@
                                     <td>{{admin.name}}</td>
                                     <td>{{admin.phone}}</td>
                                     <td>{{admin.email}}</td>
-                                    
+
 
                                     <td class="action">
-                                        <router-link class="tag tag-success fas fa-edit" :to="{name:'admins.edit',params:{'id':admin.id}}" >
+                                        <router-link class="tag tag-success fas fa-edit"  :to="{'name':'admins.edit',params:{'id':admin.id}}" >
                                         </router-link>
                                         <span class="tag tag-success fas fa-trash-alt" @click="delete_admin(admin)"></span>
                                     </td>
@@ -63,13 +63,18 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
-        import Swal from 'sweetalert2';
+    import  * as services from '../../services/admin';
+   import Swal from 'sweetalert2';
     import AWN from "awesome-notifications";
     export default {
         name: "Index",
+        data(){
+            return {
+                admins: [],
+            }
+        },
         mounted() {
-            this.$store.dispatch('AdminModule/fetch_admins');
+            this.get_admins()
         },
         methods: {
             delete_admin(admin) {
@@ -83,16 +88,25 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        this.$store.dispatch('AdminModule/delete_admin',admin);
-                        new AWN().success()
-
+                        services.delete_admin(admin.id).then( response => {
+                            this.get_admins();
+                            new AWN().success();
+                        }).catch((error) => {
+                            console.log("error",error)
+                        });
                     }
                 })
 
+            },
+            get_admins(){
+                services.get_admins().then( response => {
+                    this.admins =response.data.data;
+                    console.log("response.data.data",response.data.data)
+                }).catch((error) => {
+                    console.log("error",error)
+                });
             }
-        },
-        computed: {
-            ...mapGetters('AdminModule', ['admins']),
+
         }
 
     }

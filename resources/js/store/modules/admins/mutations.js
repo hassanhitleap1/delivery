@@ -7,7 +7,9 @@ let mutations = {
     },
 
     update_admin(state, admin) {
+
         let index =state.admins.findIndex(item => item.id === admin.id);
+        console.log("state.admins",state.admins[index])
         state.admins[index]=admins
 
     },

@@ -14,39 +14,34 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title float-left">create new admin</h3>
+                            <h3 class="card-title float-left">create new user</h3>
                         </div>
                         <!-- /.card-header -->
 
 
 
-                        <form role="form"   @submit.prevent="create_admin(admin)">
+                        <form role="form"   @submit.prevent="create(user)">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="name">name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="admin.name">
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="user.name">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="admin.phone">
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="user.phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">
+                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="user.email">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="password" v-model="admin.password">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password_confirm">password confirm</label>
-                                    <input type="password" class="form-control" id="password_confirm" placeholder="password confirm" v-model="admin.password_confirm" >
+                                    <input type="password" class="form-control" id="password" placeholder="password" v-model="user.password">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="name">address</label>
-                                    <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="admin.address">
+                                    <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="user.address">
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -65,7 +60,7 @@
 </template>
 
 <script>
-    import  * as services from '../../services/admin';
+    import  * as services from '../../services/users';
 
     export default {
         name: "Create",
@@ -73,9 +68,10 @@
             return {
                 errors: null,
                 success : false,
-                admin:{
+                user:{
                     name:null,
                     phone:null,
+                    email:null,
                     address:null,
                     password:null
                 }
@@ -84,18 +80,19 @@
 
 
         methods:{
-           create_admin(admin) {
-                services.create_admin(admin).then( response => {
-                        this.errors = [];
-                        this.admin.name = null;
-                        this.admin.email = null;
-                        this.success = true;
-                        this.$store.dispatch('AdminModule/create_admin', admin);
-                        this.$router.push({ name: 'admins' });
-               }).catch((error) => {
-                        this.errors = error.response.data.errors;
-                        this.success = false;
-               });
+            create(user) {
+                services.create(user).then( response => {
+                    this.errors = [];
+                    this.user.name = null;
+                    this.user.email = null;
+                    this.user.phone = null;
+                    this.success = true;
+                    this.$router.push({ name: 'users' });
+                }).catch((error) => {
+                    this.errors = error.response.data.errors;
+                    this.success = false;
+
+                });
 
             }
         },

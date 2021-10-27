@@ -34,7 +34,7 @@
                                     <label for="email">email</label>
                                     <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">
                                 </div>
-                               
+
 
                                 <div class="form-group">
                                     <label for="name">address</label>
@@ -57,35 +57,37 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
+
      import  * as services from '../../services/admin';
     export default {
-        name: "Edit",
+        name: "admins.edit",
         data(){
                 return {
                     errors: [],
                     success : false,
                     id:null,
+                    admin:{},
                 }
             },
         mounted() {
-            this.$store.dispatch('AdminModule/fetch_admin',this.$route.params.id);
             this.id=this.$route.params.id;
+            services.get_admin(this.id).then( response => {
+                this.admin=response.data.data;
+                console.log("response.data.data",response.data.data)
+            }).catch((error) => {
+                console.log("error",error)
+            });
 
-        },computed: {
-
-            // ...mapGetters('AdminModule', ['admin']),
         },methods:{
 
             update_admin(admin,id) {
-
                 services.update_admin(admin,id).then( response => {
                     this.errors = [];
                     this.success = true;
-                    this.$store.dispatch('AdminModule/update_admin', admin);
-                    this.$router.push({ name: 'admins' });
+                    this.$router.push({ 'name': 'admins.index' });
                 }).catch((error) => {
-                    this.errors = error.response.data.errors;
+                    console.log(error)
+                    this.errors = error;
                     this.success = false;
                 });
 

@@ -1,20 +1,26 @@
 import { site_url, api_url } from '../globals'
-export  async  function get_user() {
-    const res = await axios.get(`${api_url}/user/users`).then(function (response) {
-        console.log(response);
-    }).catch(function (error) {
-        console.log(error);
-    });
-
+export  async  function get_all() {
+    const response = await axios.get(`${api_url}/user/users`);
+    return  response;
 }
 
-export  async  function create_user(user) {
+export  async  function create(user) {
     const response= axios.post('/api/user/users', user);
     return  response;
 }
 
-export  async  function update_user(user,id) {
-    const response= axios.put('/api/user/users/'+id, user);
+export  async  function update(user,id) {
+    const response= axios.put('/api/user/users/'+id, admin);
+    return  response;
+}
+
+export  async  function get_one(id) {
+    const response = await axios.get(`${api_url}/user/users/${id}`);
+    return  response;
+}
+
+export  async  function delete_user(id) {
+    const response = await axios.delete(`${api_url}/user/users/${id}`);
     return  response;
 }
 

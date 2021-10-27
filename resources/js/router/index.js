@@ -59,6 +59,13 @@ const route =  new VueRouter({
             component: ()=>import("../views/admins/Index"),
 
         },
+
+        {
+            path: '/user/admins',
+            name: 'admins.index',
+            component: ()=>import("../views/admins/Index"),
+
+        },
         {
             name: 'admins.create',
             path: '/user/admins/create',

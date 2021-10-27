@@ -87,7 +87,6 @@
                         this.admin.email = null;
                         this.admin.phone = null;
                         this.success = true;
-                        this.$store.dispatch('AdminModule/create_admin', admin);
                         this.$router.push({ name: 'admins' });
                }).catch((error) => {
                         this.errors = error.response.data.errors;

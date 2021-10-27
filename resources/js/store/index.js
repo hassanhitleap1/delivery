@@ -9,7 +9,6 @@ import ContryModule from './modules/countries/index';
 import AreaModule from './modules/areas/index';
 import PriceModule from './modules/prices/index';
 import DriverModule from './modules/drivers/index';
-import AdminModule from "./modules/admins";
 
 Vue.use(Vuex);
 export default new Vuex.Store({
@@ -23,6 +22,5 @@ export default new Vuex.Store({
         ContryModule:ContryModule,
         AreaModule:AreaModule,
         PriceModule:PriceModule,
-        AdminModule:AdminModule
     }
 })

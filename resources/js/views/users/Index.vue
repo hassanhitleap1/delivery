@@ -6,8 +6,8 @@
                     <div class="card">
                         <div class="card-header">
                             <div>
-                                <h3 class="card-title float-left">admins</h3>
-                                <router-link class="btn btn-primary float-right" :to="{name:'admins.create'}" >
+                                <h3 class="card-title float-left">users</h3>
+                                <router-link class="btn btn-primary float-right" :to="{'name':'users.create'}" >
                                     create users
                                 </router-link>
                             </div>
@@ -29,20 +29,25 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>name   </th>
+                                    <th>name</th>
+                                    <th>phone</th>
+                                    <th>email </th>
                                     <th>action </th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="admin in admins" :key="admin.id">
-                                    <td>{{admin.id}}</td>
-                                    <td>{{admin.name}}</td>
+                                <tr v-for="user in users" :key="admin.id">
+                                    <td>{{user.id}}</td>
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.phone}}</td>
+                                    <td>{{user.email}}</td>
+
 
                                     <td class="action">
-                                        <router-link class="tag tag-success fas fa-edit" :to="{name:'admins.edit',params:{'id':admin.id}}" >
+                                        <router-link class="tag tag-success fas fa-edit"  :to="{'name':'users.edit',params:{'id':user.id}}" >
                                         </router-link>
-                                        <span class="tag tag-success fas fa-trash-alt" @click="delete_admin(admin.id)"></span>
+                                        <span class="tag tag-success fas fa-trash-alt" @click="_delete(user)"></span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -58,19 +63,48 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
+    import  * as services from '../../services/users';
+    import Swal from 'sweetalert2';
+    import AWN from "awesome-notifications";
     export default {
         name: "Index",
-        mounted() {
-            this.$store.dispatch('AdminModule/fetch_admins');
-        },
-        methods: {
-            delete_admin(admin) {
-                this.$store.dispatch('AdminModule/delete_admin',admin)
+        data(){
+            return {
+                users: [],
             }
         },
-        computed: {
-            ...mapGetters('AdminModule', ['admins']),
+        mounted() {
+            this.get_all()
+        },
+        methods: {
+            _delete(user) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        services.delete_admin(admin.id).then( response => {
+                            this.get_all();
+                            new AWN().success();
+                        }).catch((error) => {
+                            console.log("error",error)
+                        });
+                    }
+                })
+
+            },
+            get_all(){
+                services.get_all().then( response => {
+                    this.users =response.data.data;
+                }).catch((error) => {
+                    console.log("error",error)
+                });
+            }
 
         }
 
