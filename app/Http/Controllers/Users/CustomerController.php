@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Users;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\CustomerRequest;
 use App\Http\Resources\Users\CustomerResource;
 use App\Model\Users\Customer;
 use App\User;
@@ -17,15 +18,15 @@ class CustomerController extends  Controller
     }
 
     public function store(CustomerRequest $request){
-        $admin= Admin::create([
+        $customer= Customer::create([
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,
             'password'=>bcrypt($request->password),
-            'type'=>User::ADMIN,
+            'type'=>User::CUSTOMER,
             'address'=>$request->address
         ]);
-        return new AdminResource($admin);
+        return new CustomerResource($customer);
     }
 
 
@@ -34,14 +35,14 @@ class CustomerController extends  Controller
     }
 
     public function update(Customer $customer,CustomerRequest $request){
-        $customer= $customer->update([
+        $customer= tap($customer)->update([
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,
             'type'=>User::CUSTOMER,
             'address'=>$request->address
         ]);
-        return new AdminResource($customer);
+        return new CustomerResource($customer);
     }
 
 

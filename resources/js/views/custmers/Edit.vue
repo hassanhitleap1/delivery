@@ -14,39 +14,31 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title float-left">create new driver</h3>
+                            <h3 class="card-title float-left">create new custmer</h3>
                         </div>
                         <!-- /.card-header -->
 
 
 
-                        <form role="form" @submit.prevent="update_driver(driver,id)" >
+                        <form role="form" @submit.prevent="update(custmer,id)" >
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="name">name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="driver.name">
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="custmer.name">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="driver.phone">
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="custmer.phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="driver.email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="password" v-model="driver.password">
+                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="custmer.email">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="password_confirm">password confirm</label>
-                                    <input type="password" class="form-control" id="password_confirm" placeholder="password confirm" v-model="driver.password_confirm" >
-                                </div>
 
                                 <div class="form-group">
                                     <label for="name">address</label>
-                                    <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="driver.address">
+                                    <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="custmer.address">
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -65,35 +57,37 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
-    import  * as services from '../../services/driver';
+
+    import  * as services from '../../services/custmers';
     export default {
-        name: "Update",
+        name: "custmers.edit",
         data(){
             return {
                 errors: [],
                 success : false,
                 id:null,
+                custmer:{},
             }
         },
         mounted() {
-            this.$store.dispatch('DriverModule/fetch_driver',this.$route.params.id);
             this.id=this.$route.params.id;
-
-        },computed: {
-            ...mapGetters('DriverModule', ['driver']),
+            services.get_one(this.id).then( response => {
+                this.custmer=response.data.data;
+                console.log("response.data.data",response.data.data)
+            }).catch((error) => {
+                console.log("error",error)
+            });
 
         },methods:{
 
-            update_driver(driver,id) {
-
-                services.update_driver(driver,id).then( response => {
+            update(custmer,id) {
+                services.update(custmer,id).then( response => {
                     this.errors = [];
                     this.success = true;
-                    this.$store.dispatch('AdminModule/update_driver', driver);
-                    this.$router.push({ name: 'drivers' });
+                    this.$router.push({ 'name': 'custmers.index' });
                 }).catch((error) => {
-                    this.errors = error.response.data.errors;
+                    console.log(error)
+                    this.errors = error;
                     this.success = false;
                 });
 

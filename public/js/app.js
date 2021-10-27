@@ -39251,7 +39251,7 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "nav-link ",
-                          attrs: { to: "/user/custumers", exact: "" }
+                          attrs: { to: { name: "custmers" }, exact: "" }
                         },
                         [
                           _c("i", { staticClass: "far fa-circle nav-icon" }),
@@ -56523,199 +56523,199 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/',
     name: 'home',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ../views/Home */ "./resources/js/views/Home.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ../views/Home */ "./resources/js/views/Home.vue"));
     }
   }, {
     path: '/shipments',
     name: 'shipments',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ../views/shipments/Index */ "./resources/js/views/shipments/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ../views/shipments/Index */ "./resources/js/views/shipments/Index.vue"));
     }
   }, {
     name: 'shipments.create',
     path: 'shipments/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
     }
   }, {
     path: 'shipments/:id/edit',
     name: 'shipments.update',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ../views/shipments/Update */ "./resources/js/views/shipments/Update.vue"));
+      return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ../views/shipments/Update */ "./resources/js/views/shipments/Update.vue"));
     }
   }, {
     path: 'shipments/view',
     name: 'shipments.view',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ../views/shipments/View */ "./resources/js/views/shipments/View.vue"));
+      return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ../views/shipments/View */ "./resources/js/views/shipments/View.vue"));
     }
   }, {
     path: '/user/users',
     name: 'users',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(10), __webpack_require__.e(34)]).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
     }
   }, {
     path: '/user/users',
     name: 'users.index',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(10), __webpack_require__.e(34)]).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
     }
   }, {
     name: 'users.create',
     path: '/user/users/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
     }
   }, {
     name: 'users.edit',
     path: '/user/users/:id/edit',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ../views/users/Edit */ "./resources/js/views/users/Edit.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ../views/users/Edit */ "./resources/js/views/users/Edit.vue"));
     }
   }, {
     path: '/user/admins',
     name: 'admins',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(10), __webpack_require__.e(35)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
     }
   }, {
     path: '/user/admins',
     name: 'admins.index',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(10), __webpack_require__.e(35)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
     }
   }, {
     name: 'admins.create',
     path: '/user/admins/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../views/admins/Create */ "./resources/js/views/admins/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ../views/admins/Create */ "./resources/js/views/admins/Create.vue"));
     }
   }, {
     name: 'admins.edit',
     path: '/user/admins/:id/edit',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../views/admins/Edit */ "./resources/js/views/admins/Edit.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ../views/admins/Edit */ "./resources/js/views/admins/Edit.vue"));
     }
   }, {
     path: '/user/custmers',
     name: 'custmers',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
+    }
+  }, {
+    path: '/user/custmers',
+    name: 'custmers.index',
+    component: function component() {
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
     }
   }, {
     name: 'custmers.create',
     path: '/user/custmers/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Create */ "./resources/js/views/custmers/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Create */ "./resources/js/views/custmers/Create.vue"));
     }
   }, {
+    name: 'custmers.edit',
     path: '/user/custmers/:id/edit',
-    name: 'custmers.update',
-    components: function components() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Update */ "./resources/js/views/custmers/Update.vue"));
-    }
-  }, {
-    path: '/user/custmers/view',
-    name: 'custmers.create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ../views/custmers/View */ "./resources/js/views/custmers/View.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Edit */ "./resources/js/views/custmers/Edit.vue"));
     }
   }, {
     path: '/status',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
     },
     name: 'status'
   }, {
     name: 'status.create',
     path: 'status/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(28)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(29)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
     }
   }, {
     path: 'status/:id/edit',
     name: 'status.update',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ../views/status/Update */ "./resources/js/views/status/Update.vue"));
+      return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ../views/status/Update */ "./resources/js/views/status/Update.vue"));
     }
   }, {
     path: 'status/view',
     name: 'status.create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ../views/status/View */ "./resources/js/views/status/View.vue"));
+      return __webpack_require__.e(/*! import() */ 32).then(__webpack_require__.bind(null, /*! ../views/status/View */ "./resources/js/views/status/View.vue"));
     }
   }, {
     path: '/countries',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ../views/countries/Index */ "./resources/js/views/countries/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ../views/countries/Index */ "./resources/js/views/countries/Index.vue"));
     },
     name: 'countries'
   }, {
     name: 'countries.create',
     path: 'countries/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../views/countries/Create */ "./resources/js/views/countries/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../views/countries/Create */ "./resources/js/views/countries/Create.vue"));
     }
   }, {
     path: 'countries/:id/edit',
     name: 'countries.update',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/countries/Update */ "./resources/js/views/countries/Update.vue"));
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ../views/countries/Update */ "./resources/js/views/countries/Update.vue"));
     }
   }, {
     path: 'countries/view',
     name: 'countries.view',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../views/countries/View */ "./resources/js/views/countries/View.vue"));
+      return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ../views/countries/View */ "./resources/js/views/countries/View.vue"));
     }
   }, {
     path: '/regions',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ../views/regions/Index */ "./resources/js/views/regions/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ../views/regions/Index */ "./resources/js/views/regions/Index.vue"));
     },
     name: 'regions'
   }, {
     name: 'regions.create',
     path: 'create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
     }
   }, {
     path: 'regions/:id/edit',
     name: 'regions.update',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ../views/regions/Update */ "./resources/js/views/regions/Update.vue"));
+      return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ../views/regions/Update */ "./resources/js/views/regions/Update.vue"));
     }
   }, {
     path: 'regions/view',
     name: 'regions.create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ../views/regions/View */ "./resources/js/views/regions/View.vue"));
+      return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ../views/regions/View */ "./resources/js/views/regions/View.vue"));
     }
   }, {
     path: '/areas',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ../views/areas/Index */ "./resources/js/views/areas/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../views/areas/Index */ "./resources/js/views/areas/Index.vue"));
     },
     name: 'areas'
   }, {
     name: 'areas.create',
     path: 'areas/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
     }
   }, {
     path: 'areas/:id/edit',
     name: 'areas.update',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ../views/areas/Update */ "./resources/js/views/areas/Update.vue"));
+      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ../views/areas/Update */ "./resources/js/views/areas/Update.vue"));
     }
   }, {
     path: 'areas/view',
     name: 'areas.create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ../views/areas/View */ "./resources/js/views/areas/View.vue"));
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/areas/View */ "./resources/js/views/areas/View.vue"));
     }
   }]
 });
@@ -56735,18 +56735,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _modules_custmers_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/custmers/index */ "./resources/js/store/modules/custmers/index.js");
-/* harmony import */ var _modules_shipments_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/shipments/index */ "./resources/js/store/modules/shipments/index.js");
-/* harmony import */ var _modules_status_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/status/index */ "./resources/js/store/modules/status/index.js");
-/* harmony import */ var _modules_users_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/users/index */ "./resources/js/store/modules/users/index.js");
-/* harmony import */ var _modules_regions_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/regions/index */ "./resources/js/store/modules/regions/index.js");
-/* harmony import */ var _modules_countries_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/countries/index */ "./resources/js/store/modules/countries/index.js");
-/* harmony import */ var _modules_areas_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/areas/index */ "./resources/js/store/modules/areas/index.js");
-/* harmony import */ var _modules_prices_index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/prices/index */ "./resources/js/store/modules/prices/index.js");
-/* harmony import */ var _modules_drivers_index__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/drivers/index */ "./resources/js/store/modules/drivers/index.js");
-
-
-
+/* harmony import */ var _modules_shipments_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/shipments/index */ "./resources/js/store/modules/shipments/index.js");
+/* harmony import */ var _modules_status_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/status/index */ "./resources/js/store/modules/status/index.js");
+/* harmony import */ var _modules_regions_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/regions/index */ "./resources/js/store/modules/regions/index.js");
+/* harmony import */ var _modules_countries_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/countries/index */ "./resources/js/store/modules/countries/index.js");
+/* harmony import */ var _modules_areas_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/areas/index */ "./resources/js/store/modules/areas/index.js");
+/* harmony import */ var _modules_prices_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/prices/index */ "./resources/js/store/modules/prices/index.js");
 
 
 
@@ -56758,15 +56752,12 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
-    CustmerModule: _modules_custmers_index__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ShipmentModule: _modules_shipments_index__WEBPACK_IMPORTED_MODULE_3__["default"],
-    StatusModule: _modules_status_index__WEBPACK_IMPORTED_MODULE_4__["default"],
-    UserModule: _modules_users_index__WEBPACK_IMPORTED_MODULE_5__["default"],
-    DriverModule: _modules_drivers_index__WEBPACK_IMPORTED_MODULE_10__["default"],
-    RegionModule: _modules_regions_index__WEBPACK_IMPORTED_MODULE_6__["default"],
-    ContryModule: _modules_countries_index__WEBPACK_IMPORTED_MODULE_7__["default"],
-    AreaModule: _modules_areas_index__WEBPACK_IMPORTED_MODULE_8__["default"],
-    PriceModule: _modules_prices_index__WEBPACK_IMPORTED_MODULE_9__["default"]
+    ShipmentModule: _modules_shipments_index__WEBPACK_IMPORTED_MODULE_2__["default"],
+    StatusModule: _modules_status_index__WEBPACK_IMPORTED_MODULE_3__["default"],
+    RegionModule: _modules_regions_index__WEBPACK_IMPORTED_MODULE_4__["default"],
+    ContryModule: _modules_countries_index__WEBPACK_IMPORTED_MODULE_5__["default"],
+    AreaModule: _modules_areas_index__WEBPACK_IMPORTED_MODULE_6__["default"],
+    PriceModule: _modules_prices_index__WEBPACK_IMPORTED_MODULE_7__["default"]
   }
 }));
 
@@ -57027,305 +57018,6 @@ var mutations = {
 __webpack_require__.r(__webpack_exports__);
 var state = {
   countries: []
-};
-/* harmony default export */ __webpack_exports__["default"] = (state);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/custmers/actions.js":
-/*!********************************************************!*\
-  !*** ./resources/js/store/modules/custmers/actions.js ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var actions = {
-  create_custmer: function create_custmer(_ref, custmer) {
-    var commit = _ref.commit;
-    commit('create_custmer', custmer);
-  },
-  update_custmer: function update_custmer(_ref2, admin) {
-    var commit = _ref2.commit;
-    commit('update_custmer', admin);
-  },
-  fetch_custmers: function fetch_custmers(_ref3) {
-    var commit = _ref3.commit;
-    axios.get('/api/user/custmers').then(function (res) {
-      console.log(res.data);
-      commit('fetch_custmers', res.data.data);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  },
-  fetch_custmer: function fetch_custmer(_ref4, id) {
-    var commit = _ref4.commit;
-    axios.get('/api/user/custmers/' + id).then(function (res) {
-      commit('fetch_custmer', res.data.data);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  },
-  delete_custmer: function delete_custmer(_ref5, custmer) {
-    var commit = _ref5.commit;
-    axios["delete"]("/api/user/custmers/".concat(custmer.id)).then(function (res) {
-      commit('delete_custmer', custmer);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (actions);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/custmers/getters.js":
-/*!********************************************************!*\
-  !*** ./resources/js/store/modules/custmers/getters.js ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var getters = {
-  customers: function customers(state) {
-    return state.customers;
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (getters);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/custmers/index.js":
-/*!******************************************************!*\
-  !*** ./resources/js/store/modules/custmers/index.js ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/modules/custmers/state.js");
-/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/custmers/getters.js");
-/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/custmers/mutations.js");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/custmers/actions.js");
-
-
-
-
-var CustmerModule = {
-  namespaced: true,
-  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
-  getters: _getters__WEBPACK_IMPORTED_MODULE_1__["default"],
-  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
-  actions: _actions__WEBPACK_IMPORTED_MODULE_3__["default"]
-};
-/* harmony default export */ __webpack_exports__["default"] = (CustmerModule);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/custmers/mutations.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/store/modules/custmers/mutations.js ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var mutations = {
-  create_custmer: function create_custmer(state, custmer) {
-    state.custmer.unshift(custmer);
-  },
-  fetch_custmers: function fetch_custmers(state, custmers) {
-    return state.custmers = custmers;
-  },
-  update_custmer: function update_custmer(state, custmer) {
-    var index = state.custmers.findIndex(function (item) {
-      return item.id === custmer.id;
-    });
-    state.custmers[index] = custmers;
-    return admin;
-  },
-  fetch_custmer: function fetch_custmer(state, admin) {
-    return state.admin = admin;
-  },
-  delete_custmer: function delete_custmer(state, custmer) {
-    var index = state.custmers.findIndex(function (item) {
-      return item.id === custmer.id;
-    });
-    state.custmers.splice(index, 1);
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (mutations);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/custmers/state.js":
-/*!******************************************************!*\
-  !*** ./resources/js/store/modules/custmers/state.js ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var state = {
-  customers: [],
-  custmer: null
-};
-/* harmony default export */ __webpack_exports__["default"] = (state);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/drivers/actions.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/store/modules/drivers/actions.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var actions = {
-  create_driver: function create_driver(_ref, driver) {
-    var commit = _ref.commit;
-    commit('create_driver', driver);
-  },
-  update_driver: function update_driver(_ref2, driver) {
-    var commit = _ref2.commit;
-    commit('update_driver', driver);
-  },
-  fetch_drivers: function fetch_drivers(_ref3) {
-    var commit = _ref3.commit;
-    axios.get('/api/user/drivers').then(function (res) {
-      console.log(res.data);
-      commit('fetch_drivers', res.data.data);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  },
-  fetch_driver: function fetch_driver(_ref4, id) {
-    var commit = _ref4.commit;
-    axios.get('/api/user/drivers/' + id).then(function (res) {
-      commit('fetch_driver', res.data.data);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  },
-  delete_driver: function delete_driver(_ref5, driver) {
-    var commit = _ref5.commit;
-    axios["delete"]("/api/user/drivers/".concat(driver.id)).then(function (res) {
-      commit('delete_driver', driver);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (actions);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/drivers/getters.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/store/modules/drivers/getters.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var getters = {
-  drivers: function drivers(state) {
-    return state.drivers;
-  },
-  driver: function driver(state) {
-    return state.driver;
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (getters);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/drivers/index.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/store/modules/drivers/index.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/modules/drivers/state.js");
-/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/drivers/getters.js");
-/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/drivers/mutations.js");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/drivers/actions.js");
-
-
-
-
-var DriverModule = {
-  namespaced: true,
-  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
-  getters: _getters__WEBPACK_IMPORTED_MODULE_1__["default"],
-  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
-  actions: _actions__WEBPACK_IMPORTED_MODULE_3__["default"]
-};
-/* harmony default export */ __webpack_exports__["default"] = (DriverModule);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/drivers/mutations.js":
-/*!*********************************************************!*\
-  !*** ./resources/js/store/modules/drivers/mutations.js ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var mutations = {
-  create_driver: function create_driver(state, driver) {
-    state.drivers.unshift(driver);
-  },
-  fetch_drivers: function fetch_drivers(state, drivers) {
-    return state.drivers = drivers;
-  },
-  update_driver: function update_driver(state, driver) {
-    var index = state.drivers.findIndex(function (item) {
-      return item.id === driver.id;
-    });
-    state.drivers[index] = drivers;
-    return driver;
-  },
-  fetch_driver: function fetch_driver(state, driver) {
-    return state.driver = driver;
-  },
-  delete_driver: function delete_driver(state, driver) {
-    var index = state.drivers.findIndex(function (item) {
-      return item.id === driver.id;
-    });
-    state.drivers.splice(index, 1);
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (mutations);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/drivers/state.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/store/modules/drivers/state.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var state = {
-  drivers: [],
-  driver: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 
@@ -57851,157 +57543,6 @@ var mutations = {
 __webpack_require__.r(__webpack_exports__);
 var state = {
   status: []
-};
-/* harmony default export */ __webpack_exports__["default"] = (state);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/users/actions.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/store/modules/users/actions.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var actions = {
-  create_user: function create_user(_ref, user) {
-    var commit = _ref.commit;
-    commit('create_user', user);
-  },
-  update_user: function update_user(_ref2, user) {
-    var commit = _ref2.commit;
-    commit('update_user', user);
-  },
-  fetch_users: function fetch_users(_ref3) {
-    var commit = _ref3.commit;
-    axios.get('/api/user/users').then(function (res) {
-      console.log(res.data);
-      commit('fetch_users', res.data.data);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  },
-  fetch_user: function fetch_user(_ref4, id) {
-    var commit = _ref4.commit;
-    axios.get('/api/user/users/' + id).then(function (res) {
-      commit('fetch_user', res.data.data);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  },
-  delete_user: function delete_user(_ref5, user) {
-    var commit = _ref5.commit;
-    axios["delete"]("/api/user/users/".concat(user.id)).then(function (res) {
-      commit('delete_user', user);
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (actions);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/users/getters.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/store/modules/users/getters.js ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var getters = {
-  users: function users(state) {
-    return state.users;
-  },
-  user: function user(state) {
-    return state.user;
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (getters);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/users/index.js":
-/*!***************************************************!*\
-  !*** ./resources/js/store/modules/users/index.js ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/modules/users/state.js");
-/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/users/getters.js");
-/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/users/mutations.js");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/users/actions.js");
-
-
-
-
-var UserModule = {
-  namespaced: true,
-  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
-  getters: _getters__WEBPACK_IMPORTED_MODULE_1__["default"],
-  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"],
-  actions: _actions__WEBPACK_IMPORTED_MODULE_3__["default"]
-};
-/* harmony default export */ __webpack_exports__["default"] = (UserModule);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/users/mutations.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/store/modules/users/mutations.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var mutations = {
-  create_user: function create_user(state, user) {
-    state.users.unshift(user);
-  },
-  fetch_users: function fetch_users(state, users) {
-    return state.users = users;
-  },
-  update_user: function update_user(state, user) {
-    var index = state.users.findIndex(function (item) {
-      return item.id === user.id;
-    });
-    state.users[index] = users;
-    return user;
-  },
-  fetch_user: function fetch_user(state, user) {
-    return state.user = user;
-  },
-  delete_user: function delete_user(state, user) {
-    var index = state.users.findIndex(function (item) {
-      return item.id === user.id;
-    });
-    state.users.splice(index, 1);
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = (mutations);
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/users/state.js":
-/*!***************************************************!*\
-  !*** ./resources/js/store/modules/users/state.js ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var state = {
-  admins: [],
-  admin: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 

@@ -53,19 +53,12 @@ const route =  new VueRouter({
             path: '/user/users/:id/edit',
             component:  ()=>import("../views/users/Edit"),
         },
-
-
-
-
-
-
         {
             path: '/user/admins',
             name: 'admins',
             component: ()=>import("../views/admins/Index"),
 
         },
-
         {
             path: '/user/admins',
             name: 'admins.index',
@@ -83,10 +76,18 @@ const route =  new VueRouter({
             component:  ()=>import("../views/admins/Edit"),
         },
 
+
         {
             path: '/user/custmers',
             name: 'custmers',
             component: ()=>import("../views/custmers/Index"),
+
+        },
+        {
+            path: '/user/custmers',
+            name: 'custmers.index',
+            component: ()=>import("../views/custmers/Index"),
+
         },
         {
             name: 'custmers.create',
@@ -94,16 +95,11 @@ const route =  new VueRouter({
             component:  ()=>import("../views/custmers/Create"),
         },
         {
+            name: 'custmers.edit',
             path: '/user/custmers/:id/edit',
-            name: 'custmers.update',
-            components:  ()=>import("../views/custmers/Update"),
+            component:  ()=>import("../views/custmers/Edit"),
         },
-        {
-            path: '/user/custmers/view',
-            name: 'custmers.create',
-            component:()=>import("../views/custmers/View"),
 
-        },
         {
             path: '/status',
             component:  ()=>import("../views/status/Index"),

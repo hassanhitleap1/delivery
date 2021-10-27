@@ -7,8 +7,8 @@
                         <div class="card-header">
                             <div>
                                 <h3 class="card-title float-left">drivers</h3>
-                                <router-link class="btn btn-primary float-right" :to="{name:'drivers.create'}" >
-                                    create users
+                                <router-link class="btn btn-primary float-right" :to="{'name':'drivers.create'}" >
+                                    create drivers
                                 </router-link>
                             </div>
 
@@ -29,7 +29,9 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>name   </th>
+                                    <th>name</th>
+                                    <th>phone</th>
+                                    <th>email </th>
                                     <th>action </th>
 
                                 </tr>
@@ -38,11 +40,14 @@
                                 <tr v-for="driver in drivers" :key="driver.id">
                                     <td>{{driver.id}}</td>
                                     <td>{{driver.name}}</td>
+                                    <td>{{driver.phone}}</td>
+                                    <td>{{driver.email}}</td>
+
 
                                     <td class="action">
-                                        <router-link class="tag tag-success fas fa-edit" :to="{name:'drivers.edit',params:{'id':driver.id}}" >
+                                        <router-link class="tag tag-success fas fa-edit"  :to="{'name':'drivers.edit',params:{'id':driver.id}}" >
                                         </router-link>
-                                        <span class="tag tag-success fas fa-trash-alt" @click="delete_driver(driver.id)"></span>
+                                        <span class="tag tag-success fas fa-trash-alt" @click="_delete(driver)"></span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -58,25 +63,51 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
+    import  * as services from '../../services/drivers';
+    import Swal from 'sweetalert2';
+    import AWN from "awesome-notifications";
     export default {
         name: "Index",
-        mounted() {
-            this.$store.dispatch('AdminModule/fetch_drivers');
-        },
-        methods: {
-            delete_driver(driver) {
-                this.$store.dispatch('DriverModule/delete_driver',driver)
+        data(){
+            return {
+                drivers: [],
             }
         },
-        computed: {
-            ...mapGetters('DriverModule', ['drivers']),
+        mounted() {
+            this.get_all()
+        },
+        methods: {
+            _delete(driver) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        services.delete_driver(driver.id).then( response => {
+                            this.get_all();
+                            new AWN().success();
+                        }).catch((error) => {
+                            console.log("error",error)
+                        });
+                    }
+                })
+
+            },
+            get_all(){
+                services.get_all().then( response => {
+                    this.drivers =response.data.data;
+                }).catch((error) => {
+                    console.log("error",error)
+                });
+            }
 
         }
 
     }
 </script>
 
-<style scoped>
-
-</style>

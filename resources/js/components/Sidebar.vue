@@ -56,7 +56,7 @@
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link class="nav-link " to="/user/custumers" exact>
+                                <router-link class="nav-link " :to="{'name':'custmers'}"  exact>
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>custumer</p>
                                 </router-link>

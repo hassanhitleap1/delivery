@@ -65,8 +65,8 @@
 </template>
 
 <script>
-    import  * as services from '../../services/custmer';
- 
+    import  * as services from '../../services/custmers';
+
     export default {
         name: "Create",
         data(){
@@ -84,13 +84,12 @@
 
 
         methods:{
-           create_custmer(admin) {
-                services.create_custmer(custmer).then( response => {
+           create(custmer) {
+                services.create(custmer).then( response => {
                         this.errors = [];
                         this.custmer.name = null;
                         this.custmer.email = null;
                         this.success = true;
-                        this.$store.dispatch('CustmerModule/create_custmer', custmer);
                         this.$router.push({ name: 'custmers' });
                }).catch((error) => {
                         this.errors = error.response.data.errors;

@@ -6,8 +6,11 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Users\CustomerResource;
+use App\Http\Resources\Users\DriverResource;
 use App\Model\Users\Customer;
 use App\Model\Users\Driver;
+use App\Model\Users\Users;
+use App\User;
 
 class DriverController extends Controller
 {
@@ -16,15 +19,15 @@ class DriverController extends Controller
     }
 
     public function store(DriverRequest $request){
-        $admin= Admin::create([
+        $driver= Driver::create([
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,
             'password'=>bcrypt($request->password),
-            'type'=>User::ADMIN,
+            'type'=>User::DRIVER,
             'address'=>$request->address
         ]);
-        return new AdminResource($admin);
+        return new DriverResource($driver);
     }
 
 
@@ -33,7 +36,7 @@ class DriverController extends Controller
     }
 
     public function update(Driver $driver,DriverRequest $request){
-        $driver= $driver->update([
+        $driver= tap($driver)->update([
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,

@@ -8,7 +8,7 @@ export  async  function get_driver() {
 
 }
 
-export  async  function create_driver(driver) {
+export  async  function create(driver) {
     const response= axios.post('/api/user/drivers', driver);
     return  response;
 }

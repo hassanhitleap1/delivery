@@ -20,7 +20,7 @@
 
 
 
-                        <form role="form"   @submit.prevent="create_driver(driver)">
+                        <form role="form"   @submit.prevent="create(driver)">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="name">name</label>
@@ -37,11 +37,6 @@
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control" id="password" placeholder="password" v-model="driver.password">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password_confirm">password confirm</label>
-                                    <input type="password" class="form-control" id="password_confirm" placeholder="password confirm" v-model="driver.password_confirm" >
                                 </div>
 
                                 <div class="form-group">
@@ -65,7 +60,7 @@
 </template>
 
 <script>
-    import  * as services from '../../services/driver';
+    import  * as services from '../../services/drivers';
 
     export default {
         name: "Create",
@@ -76,6 +71,7 @@
                 driver:{
                     name:null,
                     phone:null,
+                    email:null,
                     address:null,
                     password:null
                 }
@@ -84,18 +80,19 @@
 
 
         methods:{
-           create_driver(driver) {
-                services.create_driver(driver).then( response => {
-                        this.errors = [];
-                        this.driver.name = null;
-                        this.driver.email = null;
-                        this.success = true;
-                        this.$store.dispatch('DriverModule/create_driver', driver);
-                        this.$router.push({ name: 'drivers' });
-               }).catch((error) => {
-                        this.errors = error.response.data.errors;
-                        this.success = false;
-               });
+            create(driver) {
+                services.create(driver).then( response => {
+                    this.errors = [];
+                    this.driver.name = null;
+                    this.driver.email = null;
+                    this.driver.phone = null;
+                    this.success = true;
+                    this.$router.push({ name: 'drivers' });
+                }).catch((error) => {
+                    this.errors = error.response.data.errors;
+                    this.success = false;
+
+                });
 
             }
         },

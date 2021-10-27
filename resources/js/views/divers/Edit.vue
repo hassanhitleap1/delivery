@@ -14,30 +14,31 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title float-left">create new admin</h3>
+                            <h3 class="card-title float-left">create new driver</h3>
                         </div>
                         <!-- /.card-header -->
 
 
 
-                        <form role="form" @submit.prevent="update_custmer(custmer,id)" >
+                        <form role="form" @submit.prevent="update(driver,id)" >
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="name">name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="custmer.name">
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="driver.name">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="custmer.phone">
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="driver.phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="custmer.email">
+                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="driver.email">
                                 </div>
+
 
                                 <div class="form-group">
                                     <label for="name">address</label>
-                                    <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="custmer.address">
+                                    <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="driver.address">
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -56,34 +57,37 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
-    import  * as services from '../../services/custmer';
+
+    import  * as services from '../../services/drivers';
     export default {
-        name: "Update",
+        name: "drivers.edit",
         data(){
             return {
                 errors: [],
                 success : false,
                 id:null,
+                driver:{},
             }
         },
         mounted() {
-            this.$store.dispatch('CustmerModule/fetch_custmer',this.$route.params.id);
             this.id=this.$route.params.id;
-
-        },computed: {
-            ...mapGetters('CustmerModule', ['custmer']),
+            services.get_one(this.id).then( response => {
+                this.driver=response.data.data;
+                console.log("response.data.data",response.data.data)
+            }).catch((error) => {
+                console.log("error",error)
+            });
 
         },methods:{
 
-            update_custmer(admin,id) {
-                services.update_custmer(admin,id).then( response => {
+            update(driver,id) {
+                services.update(driver,id).then( response => {
                     this.errors = [];
                     this.success = true;
-                    this.$store.dispatch('CustmerModule/update_custmer', admin);
-                    this.$router.push({ name: 'admins' });
+                    this.$router.push({ 'name': 'drivers.index' });
                 }).catch((error) => {
-                    this.errors = error.response.data.errors;
+                    console.log(error)
+                    this.errors = error;
                     this.success = false;
                 });
 
