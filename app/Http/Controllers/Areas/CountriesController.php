@@ -14,26 +14,21 @@ class CountriesController extends Controller
 {
 
     public function index(){
-        
         return CountriesResource::collection(Countries::paginate(5)->items());
     }
 
-    public function create(Request $request){
-        $request->validate([
-            'title' => 'required|max:255',
-        ]);
-        Countries::cerate($request->all());
+    public function create(CountriesRequest $request){
+        $contry= Countries::cerate($request->all());
+        return new CountriesResource($contry);
     }
 
     public function edit(){
 
     }
 
-    public function update(Countries $country, Request $request){
-        $request->validate([
-            'title' => 'required|max:255',
-        ]);
-        $country->update([$request->all()]);
+    public function update(Countries $country, CountriesRequest $request){
+        $country=tap($country)->update([$request->all()]);
+        return new CountriesResource($country);
     }
 
 

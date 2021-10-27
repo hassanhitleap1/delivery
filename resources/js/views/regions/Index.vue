@@ -26,7 +26,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>name   </th>
+                                    <th>name  </th>
                                     <th>action </th>
 
                                 </tr>
@@ -62,12 +62,9 @@
         name: "Index",
         mounted() {
             this.$store.dispatch('RegionModule/fetchregions');
-
         },
-
         computed: {
             ...mapGetters('RegionModule', ['regions']),
-
         }
 
     }
