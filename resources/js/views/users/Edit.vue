@@ -14,39 +14,31 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title float-left">create new admin</h3>
+                            <h3 class="card-title float-left">create new user</h3>
                         </div>
                         <!-- /.card-header -->
 
 
 
-                        <form role="form" @submit.prevent="update_admin(admin,id)" >
+                        <form role="form" @submit.prevent="update(user,id)" >
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="name">name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="admin.name">
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="user.name">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="admin.phone">
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="user.phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="password" v-model="admin.password">
+                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="user.email">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="password_confirm">password confirm</label>
-                                    <input type="password" class="form-control" id="password_confirm" placeholder="password confirm" v-model="admin.password_confirm" >
-                                </div>
 
                                 <div class="form-group">
                                     <label for="name">address</label>
-                                    <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="admin.address">
+                                    <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="user.address">
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -65,35 +57,37 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
-    import  * as services from '../../services/admin';
+
+    import  * as services from '../../services/users';
     export default {
-        name: "Update",
+        name: "users.edit",
         data(){
             return {
                 errors: [],
                 success : false,
                 id:null,
+                user:{},
             }
         },
         mounted() {
-            this.$store.dispatch('AdminModule/fetch_admin',this.$route.params.id);
             this.id=this.$route.params.id;
-
-        },computed: {
-            ...mapGetters('AdminModule', ['admin']),
+            services.get_one(this.id).then( response => {
+                this.user=response.data.data;
+                console.log("response.data.data",response.data.data)
+            }).catch((error) => {
+                console.log("error",error)
+            });
 
         },methods:{
 
-            update_admin(admin,id) {
-
-                services.update_admin(admin,id).then( response => {
+            update(user,id) {
+                services.update(user,id).then( response => {
                     this.errors = [];
                     this.success = true;
-                    this.$store.dispatch('AdminModule/update_admin', admin);
-                    this.$router.push({ name: 'admins' });
+                    this.$router.push({ 'name': 'users.index' });
                 }).catch((error) => {
-                    this.errors = error.response.data.errors;
+                    console.log(error)
+                    this.errors = error;
                     this.success = false;
                 });
 

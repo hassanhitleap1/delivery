@@ -56550,28 +56550,28 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ../views/shipments/View */ "./resources/js/views/shipments/View.vue"));
     }
   }, {
-    path: 'user/users',
+    path: '/user/users',
     name: 'users',
     component: function component() {
       return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(10), __webpack_require__.e(34)]).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
     }
   }, {
+    path: '/user/users',
+    name: 'users.index',
+    component: function component() {
+      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(10), __webpack_require__.e(34)]).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
+    }
+  }, {
     name: 'users.create',
-    path: 'user/users/create',
+    path: '/user/users/create',
     component: function component() {
       return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
     }
   }, {
-    path: 'users/:id/edit',
-    name: 'users.update',
-    components: function components() {
-      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ../views/users/Update */ "./resources/js/views/users/Update.vue"));
-    }
-  }, {
-    path: 'user/users/view',
-    name: 'users.create',
+    name: 'users.edit',
+    path: '/user/users/:id/edit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ../views/users/View */ "./resources/js/views/users/View.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(32), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ../views/users/Edit */ "./resources/js/views/users/Edit.vue"));
     }
   }, {
     path: '/user/admins',

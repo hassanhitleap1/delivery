@@ -105,7 +105,7 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Yes, delete it!'
       }).then(function (result) {
         if (result.isConfirmed) {
-          _services_users__WEBPACK_IMPORTED_MODULE_0__["delete_admin"](admin.id).then(function (response) {
+          _services_users__WEBPACK_IMPORTED_MODULE_0__["delete_user"](user.id).then(function (response) {
             _this.get_all();
 
             new awesome_notifications__WEBPACK_IMPORTED_MODULE_2___default.a().success();
@@ -183,7 +183,7 @@ var render = function() {
                 _c(
                   "tbody",
                   _vm._l(_vm.users, function(user) {
-                    return _c("tr", { key: _vm.admin.id }, [
+                    return _c("tr", { key: user.id }, [
                       _c("td", [_vm._v(_vm._s(user.id))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(user.name))]),
@@ -386,7 +386,7 @@ function _update() {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            response = axios.put('/api/user/users/' + id, admin);
+            response = axios.put('/api/user/users/' + id, user);
             return _context3.abrupt("return", response);
 
           case 2:

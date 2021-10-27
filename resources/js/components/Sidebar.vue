@@ -50,7 +50,7 @@
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link class="nav-link " :to="{name:'users'}" exact>
+                                <router-link class="nav-link " :to="{'name':'users'}" exact>
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>user</p>
                                 </router-link>

@@ -7,30 +7,30 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UserRequest extends \App\Http\Requests\Api\FormRequest
 {
-
     protected $createRules = [
         'name' => 'required|max:255',
-        'email' => 'required|email|unique:users,email',
+        // 'email' => 'email|unique:users,email',
         'phone' => 'required|numeric|unique:users,phone',
     ];
 
 
     protected $updateRules = [
         'name' => 'required|max:255',
-        'email' => 'required|email|unique:users,email',
+        // 'email' => 'email|unique:users,email',
         'phone' => 'required|numeric|unique:users,phone',
     ];
 
     protected $rules = [];
 
-    public function createValidate($data){
+    public function createValidate(){
         $this->rules = $this->createRules;
-        return $this->validate($data);
+        return $this->rules;
     }
 
-    public function updateValidate($data, $id){
-        $this->updateRules['email'] = "required|email|unique:users,email,$id";
-        $this->updateRules['phone'] = "required|unique:phone,phone,$id";
+    public function updateValidate(){
+        $this->updateRules['email'] = "email|unique:users,email,$this->id";
+        $this->updateRules['phone'] = "required|unique:phone,phone,$this->id";
+        return $this->rules;
         $this->rules = $this->updateRules;
         return $this->validate($data);
     }
@@ -52,11 +52,12 @@ class UserRequest extends \App\Http\Requests\Api\FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users,email',
-            'phone' => 'required|numeric|unique:users,phone',
-        ];
+        if (in_array($this->method(), ['PUT', 'PATCH'])) {
+            return  $this->updateValidate();
+        }else{
+            return  $this->createValidate();
+        }
+
     }
 
 

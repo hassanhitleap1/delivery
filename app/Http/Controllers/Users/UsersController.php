@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Users;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\UserRequest;
 use App\Http\Resources\Users\UsersResource;
 use App\Model\Users\Users;
 use App\User;
@@ -34,7 +35,7 @@ class UsersController extends  Controller
     }
 
     public function update(Users $user,UserRequest $request){
-        $user= $user->update([
+        $user= tap($user)->update([
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,

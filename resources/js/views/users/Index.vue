@@ -37,7 +37,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="user in users" :key="admin.id">
+                                <tr v-for="user in users" :key="user.id">
                                     <td>{{user.id}}</td>
                                     <td>{{user.name}}</td>
                                     <td>{{user.phone}}</td>
@@ -88,7 +88,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        services.delete_admin(admin.id).then( response => {
+                        services.delete_user(user.id).then( response => {
                             this.get_all();
                             new AWN().success();
                         }).catch((error) => {

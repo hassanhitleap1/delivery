@@ -474,7 +474,7 @@ function _update() {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            response = axios.put('/api/user/users/' + id, admin);
+            response = axios.put('/api/user/users/' + id, user);
             return _context3.abrupt("return", response);
 
           case 2:

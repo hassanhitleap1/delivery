@@ -10,7 +10,7 @@ export  async  function create(user) {
 }
 
 export  async  function update(user,id) {
-    const response= axios.put('/api/user/users/'+id, admin);
+    const response= axios.put('/api/user/users/'+id, user);
     return  response;
 }
 

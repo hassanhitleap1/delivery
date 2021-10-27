@@ -33,26 +33,32 @@ const route =  new VueRouter({
             component:()=>import("../views/shipments/View"),
         },
         {
-            path: 'user/users',
+            path: '/user/users',
             name: 'users',
             component: ()=>import("../views/users/Index"),
 
         },
         {
+            path: '/user/users',
+            name: 'users.index',
+            component: ()=>import("../views/users/Index"),
+        },
+        {
             name: 'users.create',
-            path: 'user/users/create',
+            path: '/user/users/create',
             component:  ()=>import("../views/users/Create"),
         },
         {
-            path: 'users/:id/edit',
-            name: 'users.update',
-            components:  ()=>import("../views/users/Update"),
+            name: 'users.edit',
+            path: '/user/users/:id/edit',
+            component:  ()=>import("../views/users/Edit"),
         },
-        {
-            path: 'user/users/view',
-            name: 'users.create',
-            component:()=>import("../views/users/View"),
-        },
+
+
+
+
+
+
         {
             path: '/user/admins',
             name: 'admins',
