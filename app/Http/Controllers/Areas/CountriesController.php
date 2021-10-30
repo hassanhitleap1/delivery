@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Area\CountriesResource;
 use App\Model\Areas\Countries;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\Areas\CountriesRequest;
 
 class CountriesController extends Controller
 {
@@ -17,8 +17,8 @@ class CountriesController extends Controller
         return CountriesResource::collection(Countries::paginate(5)->items());
     }
 
-    public function create(CountriesRequest $request){
-        $contry= Countries::cerate($request->all());
+    public function store(CountriesRequest $request){
+        $contry= Countries::create(['name'=>$request->name]);
         return new CountriesResource($contry);
     }
 
