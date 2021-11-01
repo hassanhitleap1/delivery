@@ -81,7 +81,6 @@ __webpack_require__.r(__webpack_exports__);
       admin: {
         name: null,
         phone: null,
-        email: null,
         address: null,
         password: null
       }
@@ -94,7 +93,6 @@ __webpack_require__.r(__webpack_exports__);
       _services_admin__WEBPACK_IMPORTED_MODULE_0__["create_admin"](admin).then(function (response) {
         _this.errors = [];
         _this.admin.name = null;
-        _this.admin.email = null;
         _this.admin.phone = null;
         _this.success = true;
 
@@ -146,9 +144,9 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                        " +
+                          "\n                            " +
                             _vm._s(error) +
-                            "\n                    "
+                            "\n                        "
                         )
                       ]
                     )
@@ -223,7 +221,8 @@ var render = function() {
                       attrs: {
                         type: "text",
                         id: "phone",
-                        placeholder: "Enter phone"
+                        placeholder: "Enter phone",
+                        autocomplete: "off"
                       },
                       domProps: { value: _vm.admin.phone },
                       on: {
@@ -232,36 +231,6 @@ var render = function() {
                             return
                           }
                           _vm.$set(_vm.admin, "phone", $event.target.value)
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "email" } }, [_vm._v("email")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.admin.email,
-                          expression: "admin.email"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        id: "email",
-                        placeholder: "Enter email"
-                      },
-                      domProps: { value: _vm.admin.email },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.admin, "email", $event.target.value)
                         }
                       }
                     })
@@ -285,7 +254,8 @@ var render = function() {
                       attrs: {
                         type: "password",
                         id: "password",
-                        placeholder: "password"
+                        placeholder: "password",
+                        autocomplete: "off"
                       },
                       domProps: { value: _vm.admin.password },
                       on: {

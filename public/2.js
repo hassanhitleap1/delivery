@@ -78,6 +78,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -88,8 +90,11 @@ __webpack_require__.r(__webpack_exports__);
       admins: []
     };
   },
-  mounted: function mounted() {
+  created: function created() {
     this.get_admins();
+    console.log("this.admins", this.admins);
+  },
+  mounted: function mounted() {// this.get_admins()
   },
   methods: {
     delete_admin: function delete_admin(admin) {
@@ -119,8 +124,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       _services_admin__WEBPACK_IMPORTED_MODULE_0__["get_admins"]().then(function (response) {
-        _this2.admins = response.data.data;
-        console.log("response.data.data", response.data.data);
+        _this2.admins = response;
       })["catch"](function (error) {
         console.log("error", error);
       });
@@ -145,90 +149,100 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "content" }, [
-    _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _c(
-                "div",
-                [
-                  _c("h3", { staticClass: "card-title float-left" }, [
-                    _vm._v("admins")
-                  ]),
+  return _c(
+    "section",
+    { staticClass: "content" },
+    [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c(
+                  "div",
+                  [
+                    _c("h3", { staticClass: "card-title float-left" }, [
+                      _vm._v("admins")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary float-right",
+                        attrs: { to: { name: "admins.create" } }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                create users\n                            "
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(0)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body table-responsive p-2" }, [
+                _c("table", { staticClass: "table table-hover" }, [
+                  _vm._m(1),
                   _vm._v(" "),
                   _c(
-                    "router-link",
-                    {
-                      staticClass: "btn btn-primary float-right",
-                      attrs: { to: { name: "admins.create" } }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                create users\n                            "
-                      )
-                    ]
+                    "tbody",
+                    _vm._l(_vm.admins.data.data, function(admin) {
+                      return _c("tr", { key: admin.id }, [
+                        _c("td", [_vm._v(_vm._s(admin.id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(admin.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(admin.phone))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(admin.email))]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "action" },
+                          [
+                            _c("router-link", {
+                              staticClass: "tag tag-success fas fa-edit",
+                              attrs: {
+                                to: {
+                                  name: "admins.edit",
+                                  params: { id: admin.id }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass: "tag tag-success fas fa-trash-alt",
+                              on: {
+                                click: function($event) {
+                                  return _vm.delete_admin(admin)
+                                }
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    }),
+                    0
                   )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._m(0)
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body table-responsive p-2" }, [
-              _c("table", { staticClass: "table table-hover" }, [
-                _vm._m(1),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.admins, function(admin) {
-                    return _c("tr", { key: admin.id }, [
-                      _c("td", [_vm._v(_vm._s(admin.id))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(admin.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(admin.phone))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(admin.email))]),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "action" },
-                        [
-                          _c("router-link", {
-                            staticClass: "tag tag-success fas fa-edit",
-                            attrs: {
-                              to: {
-                                name: "admins.edit",
-                                params: { id: admin.id }
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", {
-                            staticClass: "tag tag-success fas fa-trash-alt",
-                            on: {
-                              click: function($event) {
-                                return _vm.delete_admin(admin)
-                              }
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ])
-                  }),
-                  0
-                )
+                ])
               ])
             ])
           ])
         ])
-      ])
-    ])
-  ])
+      ]),
+      _vm._v(" "),
+      _c("pagination", {
+        attrs: { data: _vm.admins.data },
+        on: { "pagination-change-page": _vm.get_admins }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

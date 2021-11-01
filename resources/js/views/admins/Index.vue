@@ -37,7 +37,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="admin in admins" :key="admin.id">
+                                <tr v-for="admin in admins.data.data" :key="admin.id">
                                     <td>{{admin.id}}</td>
                                     <td>{{admin.name}}</td>
                                     <td>{{admin.phone}}</td>
@@ -52,6 +52,7 @@
                                 </tr>
                                 </tbody>
                             </table>
+
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -59,6 +60,7 @@
                 </div>
             </div>
         </div>
+        <pagination :data="admins.data" @pagination-change-page="get_admins"></pagination>
     </section>
 </template>
 
@@ -66,15 +68,21 @@
     import  * as services from '../../services/admin';
    import Swal from 'sweetalert2';
     import AWN from "awesome-notifications";
+
     export default {
         name: "Index",
         data(){
             return {
                 admins: [],
+
             }
         },
+        created() {
+            this.get_admins();
+            console.log("this.admins",this.admins);
+        },
         mounted() {
-            this.get_admins()
+            // this.get_admins()
         },
         methods: {
             delete_admin(admin) {
@@ -98,10 +106,10 @@
                 })
 
             },
+
             get_admins(){
                 services.get_admins().then( response => {
-                    this.admins =response.data.data;
-                    console.log("response.data.data",response.data.data)
+                    this.admins =response;
                 }).catch((error) => {
                     console.log("error",error)
                 });

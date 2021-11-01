@@ -28,15 +28,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="admin.phone">
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="admin.phone"   autocomplete="off" >
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">
-                                </div>
+<!--                                <div class="form-group">-->
+<!--                                    <label for="email">email</label>-->
+<!--                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">-->
+<!--                                </div>-->
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="password" v-model="admin.password">
+                                    <input type="password" class="form-control" id="password" placeholder="password" v-model="admin.password" autocomplete="off">
                                 </div>
 
                                 <div class="form-group">
@@ -71,7 +71,6 @@
                 admin:{
                     name:null,
                     phone:null,
-                    email:null,
                     address:null,
                     password:null
                 }
@@ -84,7 +83,6 @@
                 services.create_admin(admin).then( response => {
                         this.errors = [];
                         this.admin.name = null;
-                        this.admin.email = null;
                         this.admin.phone = null;
                         this.success = true;
                         this.$router.push({ name: 'admins' });

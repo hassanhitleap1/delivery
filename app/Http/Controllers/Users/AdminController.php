@@ -16,7 +16,7 @@ use App\User;
 class AdminController extends  Controller
 {
     public function index(){
-        return AdminResource::collection(Admin::all());
+        return AdminResource::collection(Admin::paginate(10));
     }
 
     public function store(AdminRequest $request){
@@ -40,7 +40,7 @@ class AdminController extends  Controller
     }
 
     public function update(Admin $admin,AdminRequest $request){
-     
+
         $admin= tap($admin)->update([
             'name'=>$request->name,
             'email'=>$request->email,
@@ -48,7 +48,7 @@ class AdminController extends  Controller
             // 'type'=>User::ADMIN,
             'address'=>$request->address
         ]);
-       
+
         return new AdminResource($admin);
     }
 
