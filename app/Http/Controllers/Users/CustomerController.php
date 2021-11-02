@@ -29,11 +29,14 @@ class CustomerController extends  Controller
     }
 
 
-    public function show(Customer $customer){
+    public function show($id){
+        $customer=Customer::find($id);
         return new CustomerResource($customer);
     }
 
-    public function update(Customer $customer,CustomerRequest $request){
+
+    public function update($id,CustomerRequest $request){
+        $customer=Customer::find($id);
         $customer= tap($customer)->update([
             'name'=>$request->name,
             'email'=>$request->email,
@@ -45,7 +48,8 @@ class CustomerController extends  Controller
     }
 
 
-    public function destroy(Customer $customer){
+    public function destroy($id){
+        $customer=Customer::find($id);
         $customer->delete();
         return Response('',201);
     }

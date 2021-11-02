@@ -15,9 +15,7 @@ class Customer extends  User
     protected static function boot()
     {
         parent::boot();
-
-        static::addGlobalScope(new CustomerScope
-        );
+        static::addGlobalScope(new CustomerScope);
         static::addGlobalScope(new Filters());
     }
 

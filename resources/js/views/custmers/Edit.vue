@@ -30,10 +30,10 @@
                                     <label for="phone">phone</label>
                                     <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="custmer.phone">
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="custmer.email">
-                                </div>
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <label for="email">email</label>-->
+                                <!--                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="user.email">-->
+                                <!--                                </div>-->
 
 
                                 <div class="form-group">
@@ -58,44 +58,44 @@
 
 <script>
 
-    import  * as services from '../../services/custmers';
-    export default {
-        name: "custmers.edit",
-        data(){
-            return {
-                errors: [],
-                success : false,
-                id:null,
-                custmer:{},
-            }
-        },
-        mounted() {
-            this.id=this.$route.params.id;
-            services.get_one(this.id).then( response => {
-                this.custmer=response.data.data;
-                console.log("response.data.data",response.data.data)
+import  * as services from '../../services/custmers';
+export default {
+    name: "users.edit",
+    data(){
+        return {
+            errors: [],
+            success : false,
+            id:null,
+            custmer:{},
+        }
+    },
+    mounted() {
+        this.id=this.$route.params.id;
+        services.get_one(this.id).then( response => {
+            this.custmer=response.data.data;
+            console.log("response.data.data",response.data.data)
+        }).catch((error) => {
+            console.log("error",error)
+        });
+
+    },methods:{
+
+        update(user,id) {
+            services.update(user,id).then( response => {
+                this.errors = [];
+                this.success = true;
+                this.$router.push({ 'name': 'custmers.index' });
             }).catch((error) => {
-                console.log("error",error)
+                console.log(error)
+                this.errors = error.response.data.errors;
+                this.success = false;
             });
 
-        },methods:{
-
-            update(custmer,id) {
-                services.update(custmer,id).then( response => {
-                    this.errors = [];
-                    this.success = true;
-                    this.$router.push({ 'name': 'custmers.index' });
-                }).catch((error) => {
-                    console.log(error)
-                    this.errors = error;
-                    this.success = false;
-                });
-
-            }
-        },
+        }
+    },
 
 
-    }
+}
 </script>
 
 

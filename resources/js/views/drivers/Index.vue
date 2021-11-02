@@ -14,7 +14,7 @@
 
                             <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search" v-model="keywords" @keyup="search">
 
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
@@ -37,7 +37,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="driver in drivers" :key="driver.id">
+                                <tr v-for="driver in drivers.data" :key="driver.id">
                                     <td>{{driver.id}}</td>
                                     <td>{{driver.name}}</td>
                                     <td>{{driver.phone}}</td>
@@ -52,6 +52,7 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            <pagination align="center" :data="drivers" @pagination-change-page="get_all"></pagination>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -63,51 +64,67 @@
 </template>
 
 <script>
-    import  * as services from '../../services/drivers';
-    import Swal from 'sweetalert2';
-    import AWN from "awesome-notifications";
-    export default {
-        name: "Index",
-        data(){
-            return {
-                drivers: [],
-            }
-        },
-        mounted() {
-            this.get_all()
-        },
-        methods: {
-            _delete(driver) {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        services.delete_driver(driver.id).then( response => {
-                            this.get_all();
-                            new AWN().success();
-                        }).catch((error) => {
-                            console.log("error",error)
-                        });
-                    }
-                })
+import  * as services from '../../services/drivers';
+import Swal from 'sweetalert2';
+import AWN from "awesome-notifications";
+import pagination from 'laravel-vue-pagination';
 
+
+export default {
+    name: "Index",
+    components:{
+        pagination
+    },
+    data(){
+        return {
+            drivers:{
+                type:Object,
+                default:null
             },
-            get_all(){
-                services.get_all().then( response => {
-                    this.drivers =response.data.data;
-                }).catch((error) => {
-                    console.log("error",error)
-                });
-            }
+            keywords:null,
+        }
+    },
+    mounted(){
+        this.get_all();
+    },
+    methods: {
+        _delete(driver) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    services._delete(driver.id).then( response => {
+                        this.get_all();
+                        new AWN().success();
+                    }).catch((error) => {
+                        console.log("error",error)
+                    });
+                }
+            })
 
+        },
+        search(){
+            this.get_all();
+        },
+        get_all(page=1){
+            services.get_all(page ,this.keywords).then(({data})=>{
+                this.drivers = data
+            }).catch((error) => {
+                console.log("error",error)
+            });
         }
 
     }
+
+}
 </script>
 
+<style scoped>
+
+</style>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Users;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\DriverRequest;
 use App\Http\Resources\Users\CustomerResource;
 use App\Http\Resources\Users\DriverResource;
 use App\Model\Users\Customer;
@@ -40,7 +41,6 @@ class DriverController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,
-            'type'=>User::CUSTOMER,
             'address'=>$request->address
         ]);
         return new DriverResource($driver);

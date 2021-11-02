@@ -14,6 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var awesome_notifications__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! awesome-notifications */ "./node_modules/awesome-notifications/dist/index.js");
 /* harmony import */ var awesome_notifications__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(awesome_notifications__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js");
+/* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -78,14 +80,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
+  components: {
+    pagination: laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3___default.a
+  },
   data: function data() {
     return {
-      custmers: []
+      custmers: {
+        type: Object,
+        "default": null
+      },
+      keywords: null
     };
   },
   mounted: function mounted() {
@@ -105,7 +116,7 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Yes, delete it!'
       }).then(function (result) {
         if (result.isConfirmed) {
-          _services_custmers__WEBPACK_IMPORTED_MODULE_0__["delete_custmer"](custmer.id).then(function (response) {
+          _services_custmers__WEBPACK_IMPORTED_MODULE_0__["_delete"](custmer.id).then(function (response) {
             _this.get_all();
 
             new awesome_notifications__WEBPACK_IMPORTED_MODULE_2___default.a().success();
@@ -115,11 +126,16 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    search: function search() {
+      this.get_all();
+    },
     get_all: function get_all() {
       var _this2 = this;
 
-      _services_custmers__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (response) {
-        _this2.users = response.data.data;
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      _services_custmers__WEBPACK_IMPORTED_MODULE_0__["get_all"](page, this.keywords).then(function (_ref) {
+        var data = _ref.data;
+        _this2.custmers = data;
       })["catch"](function (error) {
         console.log("error", error);
       });
@@ -165,7 +181,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                                create custmer\n                            "
+                        "\n                                create custmers\n                            "
                       )
                     ]
                   )
@@ -173,56 +189,104 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(0)
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body table-responsive p-2" }, [
-              _c("table", { staticClass: "table table-hover" }, [
-                _vm._m(1),
-                _vm._v(" "),
+              _c("div", { staticClass: "card-tools mt-4" }, [
                 _c(
-                  "tbody",
-                  _vm._l(_vm.custmers, function(custmer) {
-                    return _c("tr", { key: custmer.id }, [
-                      _c("td", [_vm._v(_vm._s(custmer.id))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(custmer.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(custmer.phone))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(custmer.email))]),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "action" },
-                        [
-                          _c("router-link", {
-                            staticClass: "tag tag-success fas fa-edit",
-                            attrs: {
-                              to: {
-                                name: "custmer.edit",
-                                params: { id: custmer.id }
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", {
-                            staticClass: "tag tag-success fas fa-trash-alt",
-                            on: {
-                              click: function($event) {
-                                return _vm._delete(custmer)
-                              }
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ])
-                  }),
-                  0
+                  "div",
+                  {
+                    staticClass: "input-group input-group-sm",
+                    staticStyle: { width: "150px" }
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.keywords,
+                          expression: "keywords"
+                        }
+                      ],
+                      staticClass: "form-control float-right",
+                      attrs: {
+                        type: "text",
+                        name: "table_search",
+                        placeholder: "Search"
+                      },
+                      domProps: { value: _vm.keywords },
+                      on: {
+                        keyup: _vm.search,
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.keywords = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ]
                 )
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-body table-responsive p-2" },
+              [
+                _c("table", { staticClass: "table table-hover" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.custmers.data, function(custmer) {
+                      return _c("tr", { key: custmer.id }, [
+                        _c("td", [_vm._v(_vm._s(custmer.id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(custmer.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(custmer.phone))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(custmer.email))]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "action" },
+                          [
+                            _c("router-link", {
+                              staticClass: "tag tag-success fas fa-edit",
+                              attrs: {
+                                to: {
+                                  name: "custmers.edit",
+                                  params: { id: custmer.id }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass: "tag tag-success fas fa-trash-alt",
+                              on: {
+                                click: function($event) {
+                                  return _vm._delete(custmer)
+                                }
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("pagination", {
+                  attrs: { align: "center", data: _vm.custmers },
+                  on: { "pagination-change-page": _vm.get_all }
+                })
+              ],
+              1
+            )
           ])
         ])
       ])
@@ -234,27 +298,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-tools mt-4" }, [
+    return _c("div", { staticClass: "input-group-append" }, [
       _c(
-        "div",
-        {
-          staticClass: "input-group input-group-sm",
-          staticStyle: { width: "150px" }
-        },
-        [
-          _c("input", {
-            staticClass: "form-control float-right",
-            attrs: { type: "text", name: "table_search", placeholder: "Search" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group-append" }, [
-            _c(
-              "button",
-              { staticClass: "btn btn-default", attrs: { type: "submit" } },
-              [_c("i", { staticClass: "fas fa-search" })]
-            )
-          ])
-        ]
+        "button",
+        { staticClass: "btn btn-default", attrs: { type: "submit" } },
+        [_c("i", { staticClass: "fas fa-search" })]
       )
     ])
   },
@@ -303,7 +351,7 @@ var api_url = "http://localhost:8080/api";
 /*!*******************************************!*\
   !*** ./resources/js/services/custmers.js ***!
   \*******************************************/
-/*! exports provided: get_all, create, update, get_one, delete_custmer */
+/*! exports provided: get_all, create, update, get_one, _delete */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -312,7 +360,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_one", function() { return get_one; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "delete_custmer", function() { return delete_custmer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_delete", function() { return _delete; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../globals */ "./resources/js/globals.js");
@@ -329,12 +377,17 @@ function get_all() {
 
 function _get_all() {
   _get_all = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-    var response;
+    var page,
+        keywords,
+        response,
+        _args = arguments;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
+            page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+            keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
+            _context.next = 4;
             return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/custmers"), {
               params: {
                 page: page,
@@ -342,11 +395,11 @@ function _get_all() {
               }
             });
 
-          case 2:
+          case 4:
             response = _context.sent;
             return _context.abrupt("return", response);
 
-          case 4:
+          case 6:
           case "end":
             return _context.stop();
         }
@@ -432,12 +485,12 @@ function _get_one() {
   return _get_one.apply(this, arguments);
 }
 
-function delete_custmer(_x5) {
-  return _delete_custmer.apply(this, arguments);
+function _delete(_x5) {
+  return _delete2.apply(this, arguments);
 }
 
-function _delete_custmer() {
-  _delete_custmer = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+function _delete2() {
+  _delete2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
     var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
       while (1) {
@@ -457,7 +510,7 @@ function _delete_custmer() {
       }
     }, _callee5);
   }));
-  return _delete_custmer.apply(this, arguments);
+  return _delete2.apply(this, arguments);
 }
 
 /***/ }),

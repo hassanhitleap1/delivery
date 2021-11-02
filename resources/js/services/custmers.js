@@ -1,5 +1,5 @@
 import { site_url, api_url } from '../globals'
-export  async  function get_all() {
+export  async  function get_all(page = 1,keywords=null)  {
     const response = await axios.get(`${api_url}/user/custmers` ,
         { params: { page: page , keywords:keywords}
         });
@@ -21,7 +21,7 @@ export  async  function get_one(id) {
     return  response;
 }
 
-export  async  function delete_custmer(id) {
+export  async  function _delete(id) {
     const response = await axios.delete(`${api_url}/user/custmers/${id}`);
     return  response;
 }

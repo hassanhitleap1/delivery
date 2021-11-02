@@ -14,7 +14,7 @@
 
                             <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search" v-model="keywords" @keyup="search">
 
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
@@ -37,7 +37,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="user in users" :key="user.id">
+                                <tr v-for="user in users.data" :key="user.id">
                                     <td>{{user.id}}</td>
                                     <td>{{user.name}}</td>
                                     <td>{{user.phone}}</td>
@@ -52,6 +52,7 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            <pagination align="center" :data="users" @pagination-change-page="get_all"></pagination>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -66,15 +67,24 @@
     import  * as services from '../../services/users';
     import Swal from 'sweetalert2';
     import AWN from "awesome-notifications";
+    import pagination from 'laravel-vue-pagination';
+
     export default {
         name: "Index",
+        components:{
+            pagination
+        },
         data(){
             return {
-                users: [],
+                users:{
+                    type:Object,
+                    default:null
+                },
+                keywords:null,
             }
         },
-        mounted() {
-            this.get_all()
+        mounted(){
+            this.get_all();
         },
         methods: {
             _delete(user) {
@@ -98,9 +108,12 @@
                 })
 
             },
-            get_all(){
-                services.get_all().then( response => {
-                    this.users =response.data.data;
+            search(){
+                this.get_all();
+            },
+            get_all(page=1){
+                services.get_all(page ,this.keywords).then(({data})=>{
+                    this.users = data
                 }).catch((error) => {
                     console.log("error",error)
                 });

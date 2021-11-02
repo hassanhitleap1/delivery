@@ -33,6 +33,28 @@ const route =  new VueRouter({
             component:()=>import("../views/shipments/View"),
         },
         {
+            path: '/user/drivers',
+            name: 'drivers',
+            component: ()=>import("../views/drivers/Index"),
+
+        },
+        {
+            path: '/user/drivers',
+            name: 'drivers.index',
+            component: ()=>import("../views/drivers/Index"),
+        },
+        {
+            name: 'drivers.create',
+            path: '/user/drivers/create',
+            component:  ()=>import("../views/drivers/Create"),
+        },
+        {
+            name: 'drivers.edit',
+            path: '/user/drivers/:id/edit',
+            component:  ()=>import("../views/drivers/Edit"),
+        },
+
+        {
             path: '/user/users',
             name: 'users',
             component: ()=>import("../views/users/Index"),
@@ -53,6 +75,8 @@ const route =  new VueRouter({
             path: '/user/users/:id/edit',
             component:  ()=>import("../views/users/Edit"),
         },
+
+
         {
             path: '/user/admins',
             name: 'admins',
