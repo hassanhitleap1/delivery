@@ -14,7 +14,7 @@
 
                             <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search" v-model="keywords" @keyup="search">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
@@ -42,6 +42,8 @@
                                     <td>{{admin.name}}</td>
                                     <td>{{admin.phone}}</td>
                                     <td>{{admin.email}}</td>
+
+
                                     <td class="action">
                                         <router-link class="tag tag-success fas fa-edit"  :to="{'name':'admins.edit',params:{'id':admin.id}}" >
                                         </router-link>
@@ -51,7 +53,7 @@
                                 </tbody>
                             </table>
 
-                            <pagination align="center" :data="admins" @pagination-change-page="get_admins"></pagination>
+                            <pagination align="center" :data="admins" @pagination-change-page="list"></pagination>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -81,25 +83,33 @@ export default {
             admins:{
                 type:Object,
                 default:null
-            },
-            keywords:null,
-
+            }
         }
     },
     mounted(){
-        this.get_admins();
+        this.list()
+        // this.get_admins();
     },
     methods:{
+
+        async list(page=1){
+            await axios.get(`/api/user/admins?page=${page}`).then(({data})=>{
+                this.admins = data
+            }).catch(({ response })=>{
+                console.error(response)
+            })
+        },
+
         get_admins(page=1){
-            services.get_admins(page ,this.keywords).then(({data})=>{
+            services.get_admins().then(({data})=>{
                 this.admins = data
             }).catch((error) => {
                 console.log("error",error)
             });
         },
-        search(){
-            this.get_admins();
-        },
+
+
+
         delete_admin(admin) {
             Swal.fire({
                 title: 'Are you sure?',
@@ -121,6 +131,8 @@ export default {
             })
 
         },
+
+
     }
 }
 </script>

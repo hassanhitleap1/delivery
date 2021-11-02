@@ -5,6 +5,7 @@ namespace App\Model\Users;
 
 
 use App\Scopes\Users\AdminScope;
+use App\Scopes\Users\Filters;
 use App\User;
 
 class Admin extends  User
@@ -15,6 +16,9 @@ class Admin extends  User
     {
         parent::boot();
         static::addGlobalScope(new AdminScope());
+        static::addGlobalScope(new Filters());
     }
+
+
 
 }

@@ -387,19 +387,29 @@ function get_admins() {
 
 function _get_admins() {
   _get_admins = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-    var response;
+    var page,
+        keywords,
+        response,
+        _args = arguments;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/admins"));
+            page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+            keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
+            _context.next = 4;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/admins"), {
+              params: {
+                page: page,
+                keywords: keywords
+              }
+            });
 
-          case 2:
+          case 4:
             response = _context.sent;
             return _context.abrupt("return", response);
 
-          case 4:
+          case 6:
           case "end":
             return _context.stop();
         }

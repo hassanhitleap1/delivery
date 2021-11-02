@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-class AdminScope implements Scope
+class Filters implements Scope
 {
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -18,7 +18,15 @@ class AdminScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('type', '=', User::ADMIN);
+        if(isset($_GET['keywords']) && $_GET['keywords'] !=''){
+            $keywords=$_GET['keywords'];
+            $builder->where(function ($q)use ($keywords){
+                $q->orwhere('name', 'like', "%$keywords%");
+                $q->orwhere('phone', 'like', "%$keywords%");
+                $q->orwhere('email', 'like', "%$keywords%");
+            });
+
+        }
 
     }
 }
