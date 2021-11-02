@@ -30,10 +30,10 @@
                                     <label for="phone">phone</label>
                                     <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="admin.phone">
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">
-                                </div>
+<!--                                <div class="form-group">-->
+<!--                                    <label for="email">email</label>-->
+<!--                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">-->
+<!--                                </div>-->
 
 
                                 <div class="form-group">
@@ -86,8 +86,7 @@
                     this.success = true;
                     this.$router.push({ 'name': 'admins.index' });
                 }).catch((error) => {
-                    console.log(error)
-                    this.errors = error;
+                    this.errors = error.response.data.errors;
                     this.success = false;
                 });
 

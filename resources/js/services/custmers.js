@@ -1,6 +1,8 @@
 import { site_url, api_url } from '../globals'
 export  async  function get_all() {
-    const response = await axios.get(`${api_url}/user/custmers`);
+    const response = await axios.get(`${api_url}/user/custmers` ,
+        { params: { page: page , keywords:keywords}
+        });
     return  response;
 }
 

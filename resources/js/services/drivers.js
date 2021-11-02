@@ -1,10 +1,9 @@
 import { site_url, api_url } from '../globals'
-export  async  function get_driver() {
-    const res = await axios.get(`${api_url}/user/drivers`).then(function (response) {
-        console.log(response);
-    }).catch(function (error) {
-        console.log(error);
-    });
+export  async  function get_all() {
+    const response = await axios.get(`${api_url}/user/drivers` ,
+        { params: { page: page , keywords:keywords}
+        });
+    return  response;
 
 }
 

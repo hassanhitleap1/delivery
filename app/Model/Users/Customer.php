@@ -5,6 +5,7 @@ namespace App\Model\Users;
 
 
 use App\Scopes\Users\CustomerScope;
+use App\Scopes\Users\Filters;
 use App\User;
 
 class Customer extends  User
@@ -17,6 +18,7 @@ class Customer extends  User
 
         static::addGlobalScope(new CustomerScope
         );
+        static::addGlobalScope(new Filters());
     }
 
 

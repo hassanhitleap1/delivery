@@ -102,8 +102,7 @@ __webpack_require__.r(__webpack_exports__);
           'name': 'admins.index'
         });
       })["catch"](function (error) {
-        console.log(error);
-        _this2.errors = error;
+        _this2.errors = error.response.data.errors;
         _this2.success = false;
       });
     }
@@ -147,9 +146,9 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                        " +
+                          "\n                            " +
                             _vm._s(error) +
-                            "\n                    "
+                            "\n                        "
                         )
                       ]
                     )
@@ -233,36 +232,6 @@ var render = function() {
                             return
                           }
                           _vm.$set(_vm.admin, "phone", $event.target.value)
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "email" } }, [_vm._v("email")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.admin.email,
-                          expression: "admin.email"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        id: "email",
-                        placeholder: "Enter email"
-                      },
-                      domProps: { value: _vm.admin.email },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.admin, "email", $event.target.value)
                         }
                       }
                     })

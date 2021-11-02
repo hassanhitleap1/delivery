@@ -15,7 +15,7 @@ use App\User;
 class DriverController extends Controller
 {
     public function index(){
-        return DriverResource::collection(Driver::all());
+        return DriverResource::collection(Driver::paginate(10));
     }
 
     public function store(DriverRequest $request){

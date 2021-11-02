@@ -23,16 +23,13 @@ class UserRequest extends \App\Http\Requests\Api\FormRequest
     protected $rules = [];
 
     public function createValidate(){
-        $this->rules = $this->createRules;
-        return $this->rules;
+        return $this->createRules;
     }
 
     public function updateValidate(){
-        $this->updateRules['email'] = "email|unique:users,email,$this->id";
-        $this->updateRules['phone'] = "required|unique:phone,phone,$this->id";
-        return $this->rules;
-        $this->rules = $this->updateRules;
-        return $this->validate($data);
+//        $this->updateRules['email'] = "email|unique:users,email,$this->id";
+        $this->updateRules['phone'] = "required|unique:users,phone,$this->id";
+        return $this->updateRules;
     }
 
     /**
@@ -59,9 +56,6 @@ class UserRequest extends \App\Http\Requests\Api\FormRequest
         }
 
     }
-
-
-
 
     /**
      * Returns validations errors.

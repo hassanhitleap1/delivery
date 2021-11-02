@@ -4,6 +4,7 @@
 namespace App\Model\Users;
 
 
+use App\Scopes\Users\Filters;
 use App\Scopes\Users\UserScope;
 use App\User;
 
@@ -16,6 +17,7 @@ class Users extends  User
         parent::boot();
 
         static::addGlobalScope(new UserScope());
+        static::addGlobalScope(new Filters());
     }
 
 }

@@ -9,12 +9,11 @@ use App\Http\Requests\User\CustomerRequest;
 use App\Http\Resources\Users\CustomerResource;
 use App\Model\Users\Customer;
 use App\User;
-use Illuminate\Http\Request;
 
 class CustomerController extends  Controller
 {
     public function index(){
-        return CustomerResource::collection(Customer::all());
+        return CustomerResource::collection(Customer::paginate(10));
     }
 
     public function store(CustomerRequest $request){
