@@ -2385,6 +2385,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Sidebar"
 });
@@ -39380,6 +39393,46 @@ var render = function() {
                   )
                 ],
                 1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link ",
+                      attrs: { to: { name: "login" }, exact: "" }
+                    },
+                    [
+                      _c("i", { staticClass: "far fa-circle nav-icon" }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("login")])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link ",
+                      attrs: { to: { name: "register" }, exact: "" }
+                    },
+                    [
+                      _c("i", { staticClass: "far fa-circle nav-icon" }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("register")])
+                    ]
+                  )
+                ],
+                1
               )
             ]
           )
@@ -56535,19 +56588,19 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'shipments.create',
     path: 'shipments/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
     }
   }, {
     path: 'shipments/:id/edit',
     name: 'shipments.update',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ../views/shipments/Update */ "./resources/js/views/shipments/Update.vue"));
+      return __webpack_require__.e(/*! import() */ 32).then(__webpack_require__.bind(null, /*! ../views/shipments/Update */ "./resources/js/views/shipments/Update.vue"));
     }
   }, {
     path: 'shipments/view',
     name: 'shipments.view',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ../views/shipments/View */ "./resources/js/views/shipments/View.vue"));
+      return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ../views/shipments/View */ "./resources/js/views/shipments/View.vue"));
     }
   }, {
     path: '/user/drivers',
@@ -56601,145 +56654,202 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/admins',
     name: 'admins',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(36)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(38)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     path: '/user/admins',
     name: 'admins.index',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(36)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(38)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     name: 'admins.create',
     path: '/user/admins/create',
     component: function component() {
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ../views/admins/Create */ "./resources/js/views/admins/Create.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     name: 'admins.edit',
     path: '/user/admins/:id/edit',
     component: function component() {
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ../views/admins/Edit */ "./resources/js/views/admins/Edit.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     path: '/user/custmers',
     name: 'custmers',
     component: function component() {
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     path: '/user/custmers',
     name: 'custmers.index',
     component: function component() {
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     name: 'custmers.create',
     path: '/user/custmers/create',
     component: function component() {
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Create */ "./resources/js/views/custmers/Create.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     name: 'custmers.edit',
     path: '/user/custmers/:id/edit',
     component: function component() {
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Edit */ "./resources/js/views/custmers/Edit.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     path: '/status',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
     },
-    name: 'status'
+    name: 'status',
+    meta: {
+      auth: true
+    }
   }, {
     name: 'status.create',
     path: 'status/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(6), __webpack_require__.e(32)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(6), __webpack_require__.e(34)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     path: 'status/:id/edit',
     name: 'status.update',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 34).then(__webpack_require__.bind(null, /*! ../views/status/Update */ "./resources/js/views/status/Update.vue"));
+      return __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ../views/status/Update */ "./resources/js/views/status/Update.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     path: 'status/view',
     name: 'status.create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ../views/status/View */ "./resources/js/views/status/View.vue"));
+      return __webpack_require__.e(/*! import() */ 37).then(__webpack_require__.bind(null, /*! ../views/status/View */ "./resources/js/views/status/View.vue"));
+    },
+    meta: {
+      auth: true
     }
   }, {
     path: '/countries',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ../views/countries/Index */ "./resources/js/views/countries/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ../views/countries/Index */ "./resources/js/views/countries/Index.vue"));
     },
-    name: 'countries'
+    name: 'countries',
+    meta: {
+      auth: true
+    }
   }, {
     name: 'countries.create',
     path: 'countries/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ../views/countries/Create */ "./resources/js/views/countries/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ../views/countries/Create */ "./resources/js/views/countries/Create.vue"));
     }
   }, {
     path: 'countries/:id/edit',
     name: 'countries.update',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ../views/countries/Update */ "./resources/js/views/countries/Update.vue"));
+      return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ../views/countries/Update */ "./resources/js/views/countries/Update.vue"));
     }
   }, {
     path: 'countries/view',
     name: 'countries.view',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ../views/countries/View */ "./resources/js/views/countries/View.vue"));
+      return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ../views/countries/View */ "./resources/js/views/countries/View.vue"));
     }
   }, {
     path: '/regions',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ../views/regions/Index */ "./resources/js/views/regions/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ../views/regions/Index */ "./resources/js/views/regions/Index.vue"));
     },
     name: 'regions'
   }, {
     name: 'regions.create',
     path: 'create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
     }
   }, {
     path: 'regions/:id/edit',
     name: 'regions.update',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ../views/regions/Update */ "./resources/js/views/regions/Update.vue"));
+      return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ../views/regions/Update */ "./resources/js/views/regions/Update.vue"));
     }
   }, {
     path: 'regions/view',
     name: 'regions.create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ../views/regions/View */ "./resources/js/views/regions/View.vue"));
+      return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ../views/regions/View */ "./resources/js/views/regions/View.vue"));
     }
   }, {
     path: '/areas',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../views/areas/Index */ "./resources/js/views/areas/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ../views/areas/Index */ "./resources/js/views/areas/Index.vue"));
     },
     name: 'areas'
   }, {
     name: 'areas.create',
     path: 'areas/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
     }
   }, {
     path: 'areas/:id/edit',
     name: 'areas.update',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ../views/areas/Update */ "./resources/js/views/areas/Update.vue"));
+      return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ../views/areas/Update */ "./resources/js/views/areas/Update.vue"));
     }
   }, {
     path: 'areas/view',
     name: 'areas.create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ../views/areas/View */ "./resources/js/views/areas/View.vue"));
+      return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ../views/areas/View */ "./resources/js/views/areas/View.vue"));
+    }
+  }, {
+    path: 'login',
+    name: 'login',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/Login */ "./resources/js/views/Login.vue"));
+    },
+    meta: {
+      auth: false
+    }
+  }, {
+    path: 'register',
+    name: 'register',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../views/Register */ "./resources/js/views/Register.vue"));
+    },
+    meta: {
+      auth: false
     }
   }]
 });

@@ -7,8 +7,6 @@ Vue.prototype.$api_url ="http://localhost:8080/api";
 import store from './store/index';
 Vue.component('pagination', require('laravel-vue-pagination'));
 
-
-
 const app = new Vue({
     router,
     store,

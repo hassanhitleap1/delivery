@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Requests;
+use App\Http\Requests\Request;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class LoginRequest extends FormRequest
+class LoginRequest extends \App\Http\Requests\Api\FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -23,15 +25,27 @@ class LoginRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'login' => [
-                'required',
-                'between:3,254',
-            ],
-            'password' => [
-                'required',
-                'between:8,36',
-            ]
+        return  [
+            'phone' => 'required',
+            'password' => 'required|string|min:6|max:50'
         ];
+
+    }
+
+
+    /*
+     * Returns validations errors.
+     *
+     * @param Validator $validator
+     * @throws  HttpResponseException
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'errors' => $validator->errors(),
+            'status' => 422
+        ], 422));
+
+        parent::failedValidation($validator);
     }
 }

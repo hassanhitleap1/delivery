@@ -117,6 +117,19 @@
                             <p>shipments</p>
                         </router-link>
                     </li>
+
+                    <li class="nav-item">
+                        <router-link class="nav-link " :to="{name:'login'}" exact>
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>login</p>
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link " :to="{name:'register'}" exact>
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>register</p>
+                        </router-link>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

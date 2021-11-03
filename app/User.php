@@ -2,13 +2,17 @@
 
 namespace App;
 
-use Laravel\Passport\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+use Tymon\JWTAuth\Contracts\JWTSubject;
+
+
+
+class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable,HasApiTokens;
+    use  Notifiable;
     const ADMIN=1;
     const USER=2;
     const DRIVER=3;
@@ -32,88 +36,27 @@ class User extends Authenticatable
         'password'
     ];
 
-    /**
-     * Laravel passport - identity custom column selection
-     *
-     * @var string
-     * @return User
-     */
-    public function findForPassport($identity) {
-        $columnName = filter_var($identity, FILTER_VALIDATE_EMAIL)
-            ? 'email' : 'login';
-        return $this->where($columnName, $identity)->first();
-    }
 
-    public function messages(){
-        return $this->hasMany('App\Message');
-    }
 
-    public function chats(){
-        return $this->hasMany('App\Chat');
-    }
+    // Rest omitted for brevity
 
     /**
-     * The attributes that should be casted to array
+     * Get the identifier that will be stored in the subject claim of the JWT.
      *
-     * @var array
-     */
-    protected $casts = [
-        'roles' => 'array',
-    ];
-
-    /***
-     * Adds a new role for the current user
-     *
-     * @param string $role
-     * @return $this
-     */
-    public function addRole(string $role)
-    {
-        $roles = $this->getRoles();
-        $roles[] = $role;
-        return $this->setRoles(array_unique($roles));
-    }
-
-    /**
-     * @param array $roles
-     * @return $this
-     */
-    public function setRoles(array $roles)
-    {
-        $this->setAttribute('roles', $roles);
-        return $this;
-    }
-
-    /***
-     * Check if the current role available in user roles
-     *
-     * @param $role
      * @return mixed
      */
-    public function hasRole($role)
+    public function getJWTIdentifier()
     {
-        return in_array($role, $this->getRoles());
-    }
-
-    /***
-     * @param $roles
-     * @return mixed
-     */
-    public function hasRoles($roles)
-    {
-        $currentRoles = $this->getRoles();
-        foreach($roles as $role) {
-            if (!in_array($role, $currentRoles)) return false;
-        }
-        return true;
+        return $this->getKey();
     }
 
     /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
      * @return array
      */
-    public function getRoles()
+    public function getJWTCustomClaims()
     {
-        $roles = $this->getAttribute('roles');
-        return is_null($roles) ? [] : $roles;
+        return [];
     }
 }

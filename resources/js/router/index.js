@@ -81,23 +81,35 @@ const route =  new VueRouter({
             path: '/user/admins',
             name: 'admins',
             component: ()=>import("../views/admins/Index"),
+            meta: {
+                auth: true
+            }
 
         },
         {
             path: '/user/admins',
             name: 'admins.index',
             component: ()=>import("../views/admins/Index"),
+            meta: {
+                auth: true
+            }
 
         },
         {
             name: 'admins.create',
             path: '/user/admins/create',
             component:  ()=>import("../views/admins/Create"),
+            meta: {
+                auth: true
+            }
         },
         {
             name: 'admins.edit',
             path: '/user/admins/:id/edit',
             component:  ()=>import("../views/admins/Edit"),
+            meta: {
+                auth: true
+            }
         },
 
 
@@ -105,50 +117,77 @@ const route =  new VueRouter({
             path: '/user/custmers',
             name: 'custmers',
             component: ()=>import("../views/custmers/Index"),
+            meta: {
+                auth: true
+            }
 
         },
         {
             path: '/user/custmers',
             name: 'custmers.index',
             component: ()=>import("../views/custmers/Index"),
+            meta: {
+                auth: true
+            }
 
         },
         {
             name: 'custmers.create',
             path: '/user/custmers/create',
             component:  ()=>import("../views/custmers/Create"),
+            meta: {
+                auth: true
+            }
         },
         {
             name: 'custmers.edit',
             path: '/user/custmers/:id/edit',
             component:  ()=>import("../views/custmers/Edit"),
+            meta: {
+                auth: true
+            }
         },
 
         {
             path: '/status',
             component:  ()=>import("../views/status/Index"),
-            name:'status'
+            name:'status',
+            meta: {
+                auth: true
+            }
         },
         {
             name: 'status.create',
             path: 'status/create',
             component:  ()=>import("../views/status/Create"),
+            meta: {
+                auth: true
+            }
         },
         {
             path: 'status/:id/edit',
             name: 'status.update',
             components:  ()=>import("../views/status/Update"),
+            meta: {
+                auth: true
+            }
         },
         {
             path: 'status/view',
             name: 'status.create',
             component:()=>import("../views/status/View"),
+            meta: {
+                auth: true
+            }
 
         },
         {
             path: '/countries',
             component:  ()=>import("../views/countries/Index"),
-            name:'countries'
+            name:'countries',
+            meta: {
+                auth: true
+            }
         },
         {
             name: 'countries.create',
@@ -205,10 +244,26 @@ const route =  new VueRouter({
             name: 'areas.create',
             component:()=>import("../views/areas/View"),
 
+        },
+        {
+            path: 'login',
+            name: 'login',
+            component:()=>import("../views/Login"),
+            meta: {
+                auth: false
+            }
+
+        },
+        {
+            path: 'register',
+            name: 'register',
+            component:()=>import("../views/Register"),
+            meta: {
+                auth: false
+            }
+
         }
     ]
 });
-
-
 
 export default route;
