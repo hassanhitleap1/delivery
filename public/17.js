@@ -71,17 +71,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     login: function login() {
-      var _this = this;
-
-      axios.post('/api/auth/login', {
-        phone: this.phone,
-        password: this.password
-      }).then(function (response) {
-        console.log(response.data);
-      })["catch"](function (error) {
-        _this.errors = error.response.data.errors;
-        console.log(response);
-        _this.success = false;
+      // get the redirect object
+      var redirect = this.$auth.redirect();
+      var app = this;
+      this.$auth.login({
+        params: {
+          phone: app.phone,
+          password: app.password
+        },
+        success: function success() {
+          // handle redirection
+          console.log(this.$auth.user()); // const redirectTo = redirect ? redirect.from.name : this.$auth.user().type === 2 ? 'admin' : 'admin'
+          // this.$router.push({name: redirectTo})
+        },
+        error: function error() {
+          app.has_error = true;
+        },
+        rememberMe: true,
+        fetchUser: true
       });
     }
   }
