@@ -31,19 +31,9 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
 
-
-        $credentials = request(['phone', 'password']);
-
-        if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
-        return $this->respondWithToken($token);
-
-
        $credentials = $request->only('phone', 'password');
         try {
-            if (! $token =  auth('api')->attempt($credentials)) {
+            if (! $token = auth('api-jwt')->attempt($credentials)) {
                 return response()->json([
                     'success' => false,
                     'errors'=>['credentials'=>['Login credentials are invalid']]
@@ -56,11 +46,7 @@ class AuthController extends Controller
                 'errors'=>[$credentials]
             ], 500);
         }
-
-        return response()->json([
-            'success' => true,
-            'token' => $token,
-        ]);
+        return $this->respondWithToken($token);
 
     }
 
@@ -133,7 +119,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60
+            'expires_in' => auth('api-jwt')->factory()->getTTL() * 60
         ]);
     }
 }

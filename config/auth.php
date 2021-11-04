@@ -40,17 +40,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
         'api' => [
             'driver' => 'jwt',
             'provider' => 'users',
             'hash' => false,
         ],
-//        'api2' => [
-//            'driver' => 'jwt',
-//            'provider' => 'users',
-//            'hash' => false,
-//        ],
+        'api-jwt' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+            'hash' => false,
+        ],
     ],
 
     /*
