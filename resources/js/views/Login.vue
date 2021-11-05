@@ -52,36 +52,23 @@
 <script>
 
 
+
 export default {
     name: "Login",
     data(){
         return {
-            phone: null,
-            password: null,
-            errors: []
+            password:null,
+            phone:null,
+            errors:[]
         }
     },
     methods: {
         login() {
-            // get the redirect object
-            var redirect = this.$auth.redirect()
-            var app = this
-            this.$auth.login({
-                params: {
-                    phone: app.phone,
-                    password: app.password
-                },
-                success: function() {
-                    // handle redirection
-                    console.log(this.$auth.user());
-                    // const redirectTo = redirect ? redirect.from.name : this.$auth.user().type === 2 ? 'admin' : 'admin'
-                    // this.$router.push({name: redirectTo})
-                },
-                error: function() {
-                    app.has_error = true
-                },
-                rememberMe: true,
-                fetchUser: true
+            axios.post('api/auth/login', {phone:this.phone,password:this.password}).then((response) => {
+                localStorage.setItem('token', response.data)
+                this.$router.push('/')
+            }).catch((errors) => {
+                this.errors = errors.response.data.errors
             })
         }
     }

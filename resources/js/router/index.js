@@ -85,9 +85,7 @@ const route =  new VueRouter({
             path: '/user/admins',
             name: 'admins',
             component: ()=>import("../views/admins/Index"),
-            meta: {
-                auth: true
-            }
+            meta: {requiresAuth: true}
 
         },
         {
@@ -247,24 +245,19 @@ const route =  new VueRouter({
             path: 'areas/view',
             name: 'areas.create',
             component:()=>import("../views/areas/View"),
-
         },
         {
             path: 'login',
             name: 'login',
             component:()=>import("../views/Login"),
-            meta: {
-                auth: false
-            }
-
+            // meta: {guest: true}
         },
         {
             path: 'register',
             name: 'register',
             component:()=>import("../views/Register"),
-            meta: {
-                auth: false
-            }
+            meta: {guest: true}
+
 
         }
     ]
@@ -276,7 +269,7 @@ route.beforeEach((to, from, next) => {
         // if not, redirect to login page.
         if (!loggedIn()) {
             next({
-                path: '/login',
+                name: 'login',
                 query: { redirect: to.fullPath }
             })
         } else {

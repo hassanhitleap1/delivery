@@ -64,31 +64,24 @@ __webpack_require__.r(__webpack_exports__);
   name: "Login",
   data: function data() {
     return {
-      phone: null,
       password: null,
+      phone: null,
       errors: []
     };
   },
   methods: {
     login: function login() {
-      // get the redirect object
-      var redirect = this.$auth.redirect();
-      var app = this;
-      this.$auth.login({
-        params: {
-          phone: app.phone,
-          password: app.password
-        },
-        success: function success() {
-          // handle redirection
-          console.log(this.$auth.user()); // const redirectTo = redirect ? redirect.from.name : this.$auth.user().type === 2 ? 'admin' : 'admin'
-          // this.$router.push({name: redirectTo})
-        },
-        error: function error() {
-          app.has_error = true;
-        },
-        rememberMe: true,
-        fetchUser: true
+      var _this = this;
+
+      axios.post('api/auth/login', {
+        phone: this.phone,
+        password: this.password
+      }).then(function (response) {
+        localStorage.setItem('token', response.data);
+
+        _this.$router.push('/');
+      })["catch"](function (errors) {
+        _this.errors = errors.response.data.errors;
       });
     }
   }

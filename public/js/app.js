@@ -56670,7 +56670,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(38)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     path: '/user/admins',
@@ -56851,10 +56851,8 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'login',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/Login */ "./resources/js/views/Login.vue"));
-    },
-    meta: {
-      auth: false
-    }
+    } // meta: {guest: true}
+
   }, {
     path: 'register',
     name: 'register',
@@ -56862,7 +56860,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../views/Register */ "./resources/js/views/Register.vue"));
     },
     meta: {
-      auth: false
+      guest: true
     }
   }]
 });
@@ -56874,7 +56872,7 @@ route.beforeEach(function (to, from, next) {
     // if not, redirect to login page.
     if (!loggedIn()) {
       next({
-        path: '/login',
+        name: 'login',
         query: {
           redirect: to.fullPath
         }
