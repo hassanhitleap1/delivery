@@ -56667,7 +56667,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/admins',
     name: 'admins',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(38)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56676,10 +56676,10 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/admins',
     name: 'admins.index',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(38)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     name: 'admins.create',
@@ -56688,7 +56688,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ../views/admins/Create */ "./resources/js/views/admins/Create.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     name: 'admins.edit',
@@ -56697,7 +56697,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ../views/admins/Edit */ "./resources/js/views/admins/Edit.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     path: '/user/custmers',
@@ -56706,7 +56706,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     path: '/user/custmers',
@@ -56715,7 +56715,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     name: 'custmers.create',
@@ -56724,7 +56724,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Create */ "./resources/js/views/custmers/Create.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     name: 'custmers.edit',
@@ -56733,7 +56733,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Edit */ "./resources/js/views/custmers/Edit.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     path: '/status',
@@ -56742,7 +56742,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     },
     name: 'status',
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     name: 'status.create',
@@ -56751,7 +56751,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return Promise.all(/*! import() */[__webpack_require__.e(6), __webpack_require__.e(34)]).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     path: 'status/:id/edit',
@@ -56760,7 +56760,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ../views/status/Update */ "./resources/js/views/status/Update.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     path: 'status/view',
@@ -56769,7 +56769,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       return __webpack_require__.e(/*! import() */ 37).then(__webpack_require__.bind(null, /*! ../views/status/View */ "./resources/js/views/status/View.vue"));
     },
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     path: '/countries',
@@ -56778,81 +56778,113 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     },
     name: 'countries',
     meta: {
-      auth: true
+      requiresAuth: true
     }
   }, {
     name: 'countries.create',
     path: 'countries/create',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ../views/countries/Create */ "./resources/js/views/countries/Create.vue"));
+    },
+    meta: {
+      requiresAuth: true
     }
   }, {
     path: 'countries/:id/edit',
     name: 'countries.update',
     components: function components() {
       return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ../views/countries/Update */ "./resources/js/views/countries/Update.vue"));
+    },
+    meta: {
+      requiresAuth: true
     }
   }, {
     path: 'countries/view',
     name: 'countries.view',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ../views/countries/View */ "./resources/js/views/countries/View.vue"));
+    },
+    meta: {
+      requiresAuth: true
     }
   }, {
     path: '/regions',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ../views/regions/Index */ "./resources/js/views/regions/Index.vue"));
     },
-    name: 'regions'
+    name: 'regions',
+    meta: {
+      requiresAuth: true
+    }
   }, {
     name: 'regions.create',
     path: 'create',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
+    },
+    meta: {
+      requiresAuth: true
     }
   }, {
     path: 'regions/:id/edit',
     name: 'regions.update',
     components: function components() {
       return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ../views/regions/Update */ "./resources/js/views/regions/Update.vue"));
+    },
+    meta: {
+      requiresAuth: true
     }
   }, {
     path: 'regions/view',
     name: 'regions.create',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ../views/regions/View */ "./resources/js/views/regions/View.vue"));
+    },
+    meta: {
+      requiresAuth: true
     }
   }, {
     path: '/areas',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ../views/areas/Index */ "./resources/js/views/areas/Index.vue"));
     },
-    name: 'areas'
+    name: 'areas',
+    meta: {
+      requiresAuth: true
+    }
   }, {
     name: 'areas.create',
     path: 'areas/create',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
+    },
+    meta: {
+      requiresAuth: true
     }
   }, {
     path: 'areas/:id/edit',
     name: 'areas.update',
     components: function components() {
       return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ../views/areas/Update */ "./resources/js/views/areas/Update.vue"));
+    },
+    meta: {
+      requiresAuth: true
     }
   }, {
     path: 'areas/view',
     name: 'areas.create',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ../views/areas/View */ "./resources/js/views/areas/View.vue"));
+    },
+    meta: {
+      requiresAuth: true
     }
   }, {
     path: 'login',
     name: 'login',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/Login */ "./resources/js/views/Login.vue"));
-    } // meta: {guest: true}
-
+    }
   }, {
     path: 'register',
     name: 'register',
@@ -56870,6 +56902,8 @@ route.beforeEach(function (to, from, next) {
   })) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
+    console.log(loggedIn());
+
     if (!loggedIn()) {
       next({
         name: 'login',

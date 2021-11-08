@@ -71,6 +71,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
@@ -102,67 +108,124 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12" }, [
           _c("div", { staticClass: "card" }, [
-            _c(
-              "div",
-              { staticClass: "card-header" },
-              [
-                _c("h3", { staticClass: "card-title" }, [_vm._v("users")]),
-                _vm._v(" "),
+            _c("div", { staticClass: "card-header" }, [
+              _c(
+                "div",
+                [
+                  _c("h3", { staticClass: "card-title float-left" }, [
+                    _vm._v("status")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-primary float-right",
+                      attrs: { to: { name: "admins.create" } }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                create status\n                            "
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-tools mt-4" }, [
                 _c(
-                  "router-link",
+                  "div",
                   {
-                    staticClass: "btn btn-primary",
-                    attrs: { to: { name: "create.user" } }
+                    staticClass: "input-group input-group-sm",
+                    staticStyle: { width: "150px" }
                   },
                   [
-                    _c("i", { staticClass: "far fa-circle nav-icon" }),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.keywords,
+                          expression: "keywords"
+                        }
+                      ],
+                      staticClass: "form-control float-right",
+                      attrs: {
+                        type: "text",
+                        name: "table_search",
+                        placeholder: "Search"
+                      },
+                      domProps: { value: _vm.keywords },
+                      on: {
+                        keyup: _vm.search,
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.keywords = $event.target.value
+                        }
+                      }
+                    }),
                     _vm._v(" "),
-                    _c("p", [_vm._v("create users")])
+                    _vm._m(0)
                   ]
-                ),
-                _vm._v(" "),
-                _vm._m(0)
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body table-responsive p-0" }, [
-              _c("table", { staticClass: "table table-hover" }, [
-                _vm._m(1),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.status, function(stat) {
-                    return _c("tr", { key: stat.id }, [
-                      _c("td", [_vm._v(_vm._s(stat.id))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(stat.name))]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "action" }, [
-                        _c("span", {
-                          staticClass: "tag tag-success fas fa-edit",
-                          on: {
-                            click: function($event) {
-                              return _vm.edit(stat.id)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", {
-                          staticClass: "tag tag-success fas fa-trash-alt",
-                          on: {
-                            click: function($event) {
-                              return _vm.deletePost(stat.id)
-                            }
-                          }
-                        })
-                      ])
-                    ])
-                  }),
-                  0
                 )
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-body table-responsive p-2" },
+              [
+                _c("table", { staticClass: "table table-hover" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.status, function(statu, index) {
+                      return _c("tr", { key: index }, [
+                        _c("td", [_vm._v(_vm._s(statu.id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(_vm.admin.name))]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "action" },
+                          [
+                            _c("router-link", {
+                              staticClass: "tag tag-success fas fa-edit",
+                              attrs: {
+                                to: {
+                                  name: "status.edit",
+                                  params: { id: statu.id }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass: "tag tag-success fas fa-trash-alt",
+                              on: {
+                                click: function($event) {
+                                  return _vm._delete(statu)
+                                }
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("pagination", {
+                  attrs: { align: "center", data: _vm.admins },
+                  on: { "pagination-change-page": _vm.get_admins }
+                })
+              ],
+              1
+            )
           ])
         ])
       ])
@@ -174,27 +237,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-tools" }, [
+    return _c("div", { staticClass: "input-group-append" }, [
       _c(
-        "div",
-        {
-          staticClass: "input-group input-group-sm",
-          staticStyle: { width: "150px" }
-        },
-        [
-          _c("input", {
-            staticClass: "form-control float-right",
-            attrs: { type: "text", name: "table_search", placeholder: "Search" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group-append" }, [
-            _c(
-              "button",
-              { staticClass: "btn btn-default", attrs: { type: "submit" } },
-              [_c("i", { staticClass: "fas fa-search" })]
-            )
-          ])
-        ]
+        "button",
+        { staticClass: "btn btn-default", attrs: { type: "submit" } },
+        [_c("i", { staticClass: "fas fa-search" })]
       )
     ])
   },
@@ -206,9 +253,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
-        _c("th", [_vm._v("name   ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("action ")])
+        _c("th", [_vm._v("name")])
       ])
     ])
   }

@@ -5,44 +5,47 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">users</h3>
-                            <router-link class="btn btn-primary" :to="{name:'create.user'}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>create users</p>
-                            </router-link>
-                            <div class="card-tools">
+                            <div>
+                                <h3 class="card-title float-left">status</h3>
+                                <router-link class="btn btn-primary float-right" :to="{'name':'admins.create'}" >
+                                    create status
+                                </router-link>
+                            </div>
+
+                            <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search" v-model="keywords" @keyup="search">
 
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
+                        <div class="card-body table-responsive p-2">
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>name   </th>
-                                    <th>action </th>
-
+                                    <th>name</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="stat in status" :key="stat.id">
-                                    <td>{{stat.id}}</td>
-                                    <td>{{stat.name}}</td>
+                                <tr v-for="(statu,index) in status" :key="index">
+                                    <td>{{statu.id}}</td>
+                                    <td>{{admin.name}}</td>
 
                                     <td class="action">
-                                        <span class="tag tag-success fas fa-edit" @click="edit(stat.id)"></span>
-                                        <span class="tag tag-success fas fa-trash-alt" @click="deletePost(stat.id)"></span>
+                                        <router-link class="tag tag-success fas fa-edit"  :to="{'name':'status.edit',params:{'id':statu.id}}" />
+                                        <span class="tag tag-success fas fa-trash-alt" @click="_delete(statu)"></span>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
+
+                            <pagination align="center" :data="admins" @pagination-change-page="get_admins"></pagination>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -50,7 +53,10 @@
                 </div>
             </div>
         </div>
+
     </section>
+
+
 </template>
 
 <script>

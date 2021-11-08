@@ -77,7 +77,10 @@ __webpack_require__.r(__webpack_exports__);
         phone: this.phone,
         password: this.password
       }).then(function (response) {
-        localStorage.setItem('token', response.data);
+        console.log(response);
+        localStorage.setItem('token', response.data.access_token);
+        localStorage.setItem('token_type', response.data.token_type);
+        localStorage.setItem('expires_in', response.data.expires_in);
 
         _this.$router.push('/');
       })["catch"](function (errors) {
