@@ -14,7 +14,7 @@
 
                             <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search" v-model="keywords" @keyup="search">
 
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
@@ -37,13 +37,11 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="admin in admins" :key="admin.id">
+                                <tr v-for="(admin,index) in admins.data" :key="index">
                                     <td>{{admin.id}}</td>
                                     <td>{{admin.name}}</td>
                                     <td>{{admin.phone}}</td>
                                     <td>{{admin.email}}</td>
-
-
                                     <td class="action">
                                         <router-link class="tag tag-success fas fa-edit"  :to="{'name':'admins.edit',params:{'id':admin.id}}" >
                                         </router-link>
@@ -52,6 +50,8 @@
                                 </tr>
                                 </tbody>
                             </table>
+
+                            <pagination align="center" :data="admins" @pagination-change-page="get_admins"></pagination>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -59,59 +59,74 @@
                 </div>
             </div>
         </div>
+
     </section>
+
+
 </template>
 
 <script>
-    import  * as services from '../../services/admin';
-   import Swal from 'sweetalert2';
-    import AWN from "awesome-notifications";
-    export default {
-        name: "Index",
-        data(){
-            return {
-                admins: [],
-            }
-        },
-        mounted() {
-            this.get_admins()
-        },
-        methods: {
-            delete_admin(admin) {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        services.delete_admin(admin.id).then( response => {
-                            this.get_admins();
-                            new AWN().success();
-                        }).catch((error) => {
-                            console.log("error",error)
-                        });
-                    }
-                })
+import pagination from 'laravel-vue-pagination'
+import  * as services from '../../services/admin';
+import Swal from 'sweetalert2';
+import AWN from "awesome-notifications";
 
+export default {
+    name:"users",
+    components:{
+        pagination
+    },
+    data(){
+        return {
+            admins:{
+                type:Object,
+                default:null
             },
-            get_admins(){
-                services.get_admins().then( response => {
-                    this.admins =response.data.data;
-                    console.log("response.data.data",response.data.data)
-                }).catch((error) => {
-                    console.log("error",error)
-                });
-            }
+            keywords:null,
 
         }
+    },
+    mounted(){
+        this.get_admins();
+    },
+    methods:{
+        get_admins(page=1){
+            services.get_admins(page ,this.keywords).then(({data})=>{
+                this.admins = data
+            }).catch((error) => {
+                console.log("error",error)
+            });
+        },
+        search(){
+            this.get_admins();
+        },
+        delete_admin(admin) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    services.delete_admin(admin.id).then( response => {
+                        this.get_admins();
+                        new AWN().success();
+                    }).catch((error) => {
+                        console.log("error",error)
+                    });
+                }
+            })
 
+        },
     }
+}
 </script>
 
 <style scoped>
-
+.pagination{
+    margin-bottom: 0;
+}
 </style>

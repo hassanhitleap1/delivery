@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Status;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Status\StatusRequest;
 use App\Http\Resources\Status\StatusResource;
 use App\Model\Status\Status;
-use Illuminate\Http\Request;
+
 
 class StatusController extends Controller
 {
@@ -16,26 +17,19 @@ class StatusController extends Controller
         return StatusResource::collection(Status::all());
     }
 
-    public function create(Request $request){
-        $request->validate([
-            'title' => 'required|max:255',
-        ]);
-        Status::cerate($request->all());
+    public function store(StatusRequest $request){
+        $status=Status::create(['name'=>$request->name]);
+        return new StatusResource($status);
     }
 
-    public function edit(){
-
-    }
-
-    public function update(Status $status, Request $request){
-        $request->validate([
-            'title' => 'required|max:255',
-        ]);
-        $status->update([$request->all()]);
+    public function update(Status $status, StatusRequest $request){
+        $status=tap($status)->update([$request->all()]);
+        return new StatusResource($status);
     }
 
 
-    public function delete(Status $status){
+    public function destroy(Status $status){
         $status->delete();
+        return Response('',201);
     }
 }

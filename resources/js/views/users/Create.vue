@@ -30,10 +30,10 @@
                                     <label for="phone">phone</label>
                                     <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="user.phone">
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="user.email">
-                                </div>
+<!--                                <div class="form-group">-->
+<!--                                    <label for="email">email</label>-->
+<!--                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="user.email">-->
+<!--                                </div>-->
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control" id="password" placeholder="password" v-model="user.password">
@@ -77,8 +77,6 @@
                 }
             }
         },
-
-
         methods:{
             create(user) {
                 services.create(user).then( response => {

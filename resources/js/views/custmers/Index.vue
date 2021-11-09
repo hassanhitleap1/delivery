@@ -8,13 +8,13 @@
                             <div>
                                 <h3 class="card-title float-left">custmers</h3>
                                 <router-link class="btn btn-primary float-right" :to="{'name':'custmers.create'}" >
-                                    create custmer
+                                    create custmers
                                 </router-link>
                             </div>
 
                             <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search" v-model="keywords" @keyup="search">
 
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
@@ -37,7 +37,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="custmer in custmers" :key="custmer.id">
+                                <tr v-for="custmer in custmers.data" :key="custmer.id">
                                     <td>{{custmer.id}}</td>
                                     <td>{{custmer.name}}</td>
                                     <td>{{custmer.phone}}</td>
@@ -45,13 +45,14 @@
 
 
                                     <td class="action">
-                                        <router-link class="tag tag-success fas fa-edit"  :to="{'name':'custmer.edit',params:{'id':custmer.id}}" >
+                                        <router-link class="tag tag-success fas fa-edit"  :to="{'name':'custmers.edit',params:{'id':custmer.id}}" >
                                         </router-link>
                                         <span class="tag tag-success fas fa-trash-alt" @click="_delete(custmer)"></span>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
+                            <pagination align="center" :data="custmers" @pagination-change-page="get_all"></pagination>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -63,52 +64,65 @@
 </template>
 
 <script>
-    import  * as services from '../../services/custmers';
-    import Swal from 'sweetalert2';
-    import AWN from "awesome-notifications";
-    export default {
-        name: "Index",
-        data(){
-            return {
-                custmers: [],
-            }
-        },
-        mounted() {
-            this.get_all()
-        },
-        methods: {
-            _delete(custmer) {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        services.delete_custmer(custmer.id).then( response => {
-                            this.get_all();
-                            new AWN().success();
-                        }).catch((error) => {
-                            console.log("error",error)
-                        });
-                    }
-                })
+import  * as services from '../../services/custmers';
+import Swal from 'sweetalert2';
+import AWN from "awesome-notifications";
+import pagination from 'laravel-vue-pagination';
 
+
+export default {
+    name: "Index",
+    components:{
+        pagination
+    },
+    data(){
+        return {
+            custmers:{
+                type:Object,
+                default:null
             },
-            get_all(){
-                services.get_all().then( response => {
-                    this.users =response.data.data;
-                }).catch((error) => {
-                    console.log("error",error)
-                });
-            }
+            keywords:null,
+        }
+    },
+    mounted(){
+        this.get_all();
+    },
+    methods: {
+        _delete(custmer) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    services._delete(custmer.id).then( response => {
+                        this.get_all();
+                        new AWN().success();
+                    }).catch((error) => {
+                        console.log("error",error)
+                    });
+                }
+            })
 
+        },
+        search(){
+            this.get_all();
+        },
+        get_all(page=1){
+            services.get_all(page ,this.keywords).then(({data})=>{
+                this.custmers = data
+            }).catch((error) => {
+                console.log("error",error)
+            });
         }
 
     }
+
+}
 </script>
 
 <style scoped>

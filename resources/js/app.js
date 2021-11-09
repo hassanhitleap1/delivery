@@ -2,10 +2,11 @@ require('./bootstrap');
 window.Vue = require('vue');
 import router from "./router";
 import App from "./App.vue";
+import store from './store/index';
 Vue.prototype.$site_url ="http://localhost:8080";
 Vue.prototype.$api_url ="http://localhost:8080/api";
-import store from './store/index';
 Vue.component('pagination', require('laravel-vue-pagination'));
+
 
 
 

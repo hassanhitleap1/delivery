@@ -3,10 +3,12 @@
 
 namespace App\Http\Controllers\AuthJwt;
 
+use App\Http\Requests\LoginRequest;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\JWTAuth;
 use Validator;
 
 class AuthController extends Controller
@@ -26,15 +28,26 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(LoginRequest $request)
     {
-        $credentials = request(['email', 'password']);
 
-        if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+       $credentials = $request->only('phone', 'password');
+        try {
+            if (! $token = auth('api-jwt')->attempt($credentials)) {
+                return response()->json([
+                    'success' => false,
+                    'errors'=>['credentials'=>['Login credentials are invalid']]
+                ], 402);
+            }
+        } catch (JWTException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Could not create token.',
+                'errors'=>[$credentials]
+            ], 500);
         }
-
         return $this->respondWithToken($token);
+
     }
 
     /**
@@ -106,7 +119,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth('api-jwt')->factory()->getTTL() * 60
         ]);
     }
 }

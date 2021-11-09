@@ -14,6 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var awesome_notifications__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! awesome-notifications */ "./node_modules/awesome-notifications/dist/index.js");
 /* harmony import */ var awesome_notifications__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(awesome_notifications__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js");
+/* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -78,14 +80,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
+  components: {
+    pagination: laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3___default.a
+  },
   data: function data() {
     return {
-      users: []
+      users: {
+        type: Object,
+        "default": null
+      },
+      keywords: null
     };
   },
   mounted: function mounted() {
@@ -115,11 +126,16 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    search: function search() {
+      this.get_all();
+    },
     get_all: function get_all() {
       var _this2 = this;
 
-      _services_users__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (response) {
-        _this2.users = response.data.data;
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      _services_users__WEBPACK_IMPORTED_MODULE_0__["get_all"](page, this.keywords).then(function (_ref) {
+        var data = _ref.data;
+        _this2.users = data;
       })["catch"](function (error) {
         console.log("error", error);
       });
@@ -173,56 +189,104 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm._m(0)
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body table-responsive p-2" }, [
-              _c("table", { staticClass: "table table-hover" }, [
-                _vm._m(1),
-                _vm._v(" "),
+              _c("div", { staticClass: "card-tools mt-4" }, [
                 _c(
-                  "tbody",
-                  _vm._l(_vm.users, function(user) {
-                    return _c("tr", { key: user.id }, [
-                      _c("td", [_vm._v(_vm._s(user.id))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.phone))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.email))]),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "action" },
-                        [
-                          _c("router-link", {
-                            staticClass: "tag tag-success fas fa-edit",
-                            attrs: {
-                              to: {
-                                name: "users.edit",
-                                params: { id: user.id }
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", {
-                            staticClass: "tag tag-success fas fa-trash-alt",
-                            on: {
-                              click: function($event) {
-                                return _vm._delete(user)
-                              }
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ])
-                  }),
-                  0
+                  "div",
+                  {
+                    staticClass: "input-group input-group-sm",
+                    staticStyle: { width: "150px" }
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.keywords,
+                          expression: "keywords"
+                        }
+                      ],
+                      staticClass: "form-control float-right",
+                      attrs: {
+                        type: "text",
+                        name: "table_search",
+                        placeholder: "Search"
+                      },
+                      domProps: { value: _vm.keywords },
+                      on: {
+                        keyup: _vm.search,
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.keywords = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ]
                 )
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-body table-responsive p-2" },
+              [
+                _c("table", { staticClass: "table table-hover" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.users.data, function(user) {
+                      return _c("tr", { key: user.id }, [
+                        _c("td", [_vm._v(_vm._s(user.id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(user.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(user.phone))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(user.email))]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "action" },
+                          [
+                            _c("router-link", {
+                              staticClass: "tag tag-success fas fa-edit",
+                              attrs: {
+                                to: {
+                                  name: "users.edit",
+                                  params: { id: user.id }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass: "tag tag-success fas fa-trash-alt",
+                              on: {
+                                click: function($event) {
+                                  return _vm._delete(user)
+                                }
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("pagination", {
+                  attrs: { align: "center", data: _vm.users },
+                  on: { "pagination-change-page": _vm.get_all }
+                })
+              ],
+              1
+            )
           ])
         ])
       ])
@@ -234,27 +298,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-tools mt-4" }, [
+    return _c("div", { staticClass: "input-group-append" }, [
       _c(
-        "div",
-        {
-          staticClass: "input-group input-group-sm",
-          staticStyle: { width: "150px" }
-        },
-        [
-          _c("input", {
-            staticClass: "form-control float-right",
-            attrs: { type: "text", name: "table_search", placeholder: "Search" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group-append" }, [
-            _c(
-              "button",
-              { staticClass: "btn btn-default", attrs: { type: "submit" } },
-              [_c("i", { staticClass: "fas fa-search" })]
-            )
-          ])
-        ]
+        "button",
+        { staticClass: "btn btn-default", attrs: { type: "submit" } },
+        [_c("i", { staticClass: "fas fa-search" })]
       )
     ])
   },
@@ -280,22 +328,6 @@ var staticRenderFns = [
 render._withStripped = true
 
 
-
-/***/ }),
-
-/***/ "./resources/js/globals.js":
-/*!*********************************!*\
-  !*** ./resources/js/globals.js ***!
-  \*********************************/
-/*! exports provided: site_url, api_url */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "site_url", function() { return site_url; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "api_url", function() { return api_url; });
-var site_url = "http://localhost:8080";
-var api_url = "http://localhost:8080/api";
 
 /***/ }),
 
@@ -329,19 +361,29 @@ function get_all() {
 
 function _get_all() {
   _get_all = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-    var response;
+    var page,
+        keywords,
+        response,
+        _args = arguments;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/users"));
+            page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+            keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
+            _context.next = 4;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/users"), {
+              params: {
+                page: page,
+                keywords: keywords
+              }
+            });
 
-          case 2:
+          case 4:
             response = _context.sent;
             return _context.abrupt("return", response);
 
-          case 4:
+          case 6:
           case "end":
             return _context.stop();
         }

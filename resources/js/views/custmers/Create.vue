@@ -14,13 +14,13 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title float-left">create new custmers</h3>
+                            <h3 class="card-title float-left">create new custmer</h3>
                         </div>
                         <!-- /.card-header -->
 
 
 
-                        <form role="form"   @submit.prevent="create_custmer(custmer)">
+                        <form role="form"   @submit.prevent="create(custmer)">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="name">name</label>
@@ -30,18 +30,13 @@
                                     <label for="phone">phone</label>
                                     <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="custmer.phone">
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="custmer.email">
-                                </div>
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <label for="email">email</label>-->
+                                <!--                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="user.email">-->
+                                <!--                                </div>-->
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control" id="password" placeholder="password" v-model="custmer.password">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password_confirm">password confirm</label>
-                                    <input type="password" class="form-control" id="password_confirm" placeholder="password confirm" v-model="custmer.password_confirm" >
                                 </div>
 
                                 <div class="form-group">
@@ -65,41 +60,41 @@
 </template>
 
 <script>
-    import  * as services from '../../services/custmers';
+import  * as services from '../../services/custmers';
 
-    export default {
-        name: "Create",
-        data(){
-            return {
-                errors: null,
-                success : false,
-                custmer:{
-                    name:null,
-                    phone:null,
-                    address:null,
-                    password:null
-                }
+export default {
+    name: "Create",
+    data(){
+        return {
+            errors: null,
+            success : false,
+            custmer:{
+                name:null,
+                phone:null,
+                address:null,
+                password:null
             }
-        },
+        }
+    },
+    methods:{
+        create(custmer) {
+            services.create(custmer).then( response => {
+                this.errors = [];
+                this.custmer.name = null;
+                this.custmer.email = null;
+                this.custmer.phone = null;
+                this.success = true;
+                this.$router.push({ name: 'custmers' });
+            }).catch((error) => {
+                this.errors = error.response.data.errors;
+                this.success = false;
 
+            });
 
-        methods:{
-           create(custmer) {
-                services.create(custmer).then( response => {
-                        this.errors = [];
-                        this.custmer.name = null;
-                        this.custmer.email = null;
-                        this.success = true;
-                        this.$router.push({ name: 'custmers' });
-               }).catch((error) => {
-                        this.errors = error.response.data.errors;
-                        this.success = false;
-               });
+        }
+    },
 
-            }
-        },
-
-    }
+}
 </script>
 
 

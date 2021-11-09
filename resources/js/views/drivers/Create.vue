@@ -20,7 +20,7 @@
 
 
 
-                        <form role="form" @submit.prevent="update(driver,id)" >
+                        <form role="form"   @submit.prevent="create(driver)">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="name">name</label>
@@ -30,11 +30,14 @@
                                     <label for="phone">phone</label>
                                     <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="driver.phone">
                                 </div>
+<!--                                <div class="form-group">-->
+<!--                                    <label for="email">email</label>-->
+<!--                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="driver.email">-->
+<!--                                </div>-->
                                 <div class="form-group">
-                                    <label for="email">email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="driver.email">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="password" v-model="driver.password">
                                 </div>
-
 
                                 <div class="form-group">
                                     <label for="name">address</label>
@@ -57,43 +60,41 @@
 </template>
 
 <script>
-
     import  * as services from '../../services/drivers';
+
     export default {
-        name: "drivers.edit",
+        name: "Create",
         data(){
             return {
-                errors: [],
+                errors: null,
                 success : false,
-                id:null,
-                driver:{},
+                driver:{
+                    name:null,
+                    phone:null,
+                    address:null,
+                    password:null
+                }
             }
         },
-        mounted() {
-            this.id=this.$route.params.id;
-            services.get_one(this.id).then( response => {
-                this.driver=response.data.data;
-                console.log("response.data.data",response.data.data)
-            }).catch((error) => {
-                console.log("error",error)
-            });
 
-        },methods:{
 
-            update(driver,id) {
-                services.update(driver,id).then( response => {
+        methods:{
+            create(driver) {
+                services.create(driver).then( response => {
                     this.errors = [];
+                    this.driver.name = null;
+                    this.driver.email = null;
+                    this.driver.phone = null;
                     this.success = true;
-                    this.$router.push({ 'name': 'drivers.index' });
+                    this.$router.push({ name: 'drivers' });
                 }).catch((error) => {
-                    console.log(error)
-                    this.errors = error;
+                    this.errors = error.response.data.errors;
                     this.success = false;
+
                 });
 
             }
         },
-
 
     }
 </script>

@@ -1,6 +1,8 @@
 import { site_url, api_url } from '../globals'
-export  async  function get_admins() {
-    const response = await axios.get(`${api_url}/user/admins`);
+export  async  function get_admins(page = 1,keywords=null) {
+    const response = await axios.get(`${api_url}/user/admins` ,
+        { params: { page: page , keywords:keywords}
+        });
     return  response;
 }
 

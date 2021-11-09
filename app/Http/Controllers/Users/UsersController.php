@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 class UsersController extends  Controller
 {
     public function index(){
-        return UsersResource::collection(Users::all());
+        return UsersResource::collection(Users::paginate(10));
     }
 
     public function store(UserRequest $request){

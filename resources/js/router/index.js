@@ -1,6 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+function loggedIn(){
+    return localStorage.getItem('token')
+}
+
 Vue.use(VueRouter);
 
 const route =  new VueRouter({
@@ -33,6 +37,28 @@ const route =  new VueRouter({
             component:()=>import("../views/shipments/View"),
         },
         {
+            path: '/user/drivers',
+            name: 'drivers',
+            component: ()=>import("../views/drivers/Index"),
+
+        },
+        {
+            path: '/user/drivers',
+            name: 'drivers.index',
+            component: ()=>import("../views/drivers/Index"),
+        },
+        {
+            name: 'drivers.create',
+            path: '/user/drivers/create',
+            component:  ()=>import("../views/drivers/Create"),
+        },
+        {
+            name: 'drivers.edit',
+            path: '/user/drivers/:id/edit',
+            component:  ()=>import("../views/drivers/Edit"),
+        },
+
+        {
             path: '/user/users',
             name: 'users',
             component: ()=>import("../views/users/Index"),
@@ -53,27 +79,33 @@ const route =  new VueRouter({
             path: '/user/users/:id/edit',
             component:  ()=>import("../views/users/Edit"),
         },
+
+
         {
             path: '/user/admins',
             name: 'admins',
             component: ()=>import("../views/admins/Index"),
+            meta: {requiresAuth: true}
 
         },
         {
             path: '/user/admins',
             name: 'admins.index',
             component: ()=>import("../views/admins/Index"),
+            meta: {requiresAuth: true}
 
         },
         {
             name: 'admins.create',
             path: '/user/admins/create',
             component:  ()=>import("../views/admins/Create"),
+            meta: {requiresAuth: true}
         },
         {
             name: 'admins.edit',
             path: '/user/admins/:id/edit',
             component:  ()=>import("../views/admins/Edit"),
+            meta: {requiresAuth: true}
         },
 
 
@@ -81,110 +113,167 @@ const route =  new VueRouter({
             path: '/user/custmers',
             name: 'custmers',
             component: ()=>import("../views/custmers/Index"),
+            meta: {requiresAuth: true}
 
         },
         {
             path: '/user/custmers',
             name: 'custmers.index',
             component: ()=>import("../views/custmers/Index"),
+            meta: {requiresAuth: true}
 
         },
         {
             name: 'custmers.create',
             path: '/user/custmers/create',
             component:  ()=>import("../views/custmers/Create"),
+            meta: {requiresAuth: true}
         },
         {
             name: 'custmers.edit',
             path: '/user/custmers/:id/edit',
             component:  ()=>import("../views/custmers/Edit"),
+            meta: {requiresAuth: true}
         },
 
         {
             path: '/status',
             component:  ()=>import("../views/status/Index"),
-            name:'status'
+            name:'status',
+            meta: {requiresAuth: true}
         },
         {
             name: 'status.create',
-            path: 'status/create',
+            path: '/status/create',
             component:  ()=>import("../views/status/Create"),
+            meta: {requiresAuth: true}
         },
         {
             path: 'status/:id/edit',
             name: 'status.update',
             components:  ()=>import("../views/status/Update"),
+            meta: {requiresAuth: true}
         },
         {
             path: 'status/view',
             name: 'status.create',
             component:()=>import("../views/status/View"),
+            meta: {requiresAuth: true}
 
         },
         {
             path: '/countries',
             component:  ()=>import("../views/countries/Index"),
-            name:'countries'
+            name:'countries',
+            meta: {requiresAuth: true}
         },
         {
             name: 'countries.create',
             path: 'countries/create',
             component:  ()=>import("../views/countries/Create"),
+            meta: {requiresAuth: true}
         },
         {
             path: 'countries/:id/edit',
             name: 'countries.update',
             components:  ()=>import("../views/countries/Update"),
+            meta: {requiresAuth: true}
         },
         {
             path: 'countries/view',
             name: 'countries.view',
             component:()=>import("../views/countries/View"),
+            meta: {requiresAuth: true}
         },
         {
             path: '/regions',
             component:  ()=>import("../views/regions/Index"),
             name:'regions',
+            meta: {requiresAuth: true}
         },
         {
             name: 'regions.create',
             path: 'create',
             component:  ()=>import("../views/regions/Create"),
+            meta: {requiresAuth: true}
         },
         {
             path: 'regions/:id/edit',
             name: 'regions.update',
             components:  ()=>import("../views/regions/Update"),
+            meta: {requiresAuth: true}
         },
         {
             path: 'regions/view',
             name: 'regions.create',
             component:()=>import("../views/regions/View"),
+            meta: {requiresAuth: true}
         },
         {
             path: '/areas',
             component:  ()=>import("../views/areas/Index"),
-            name:'areas'
+            name:'areas',
+            meta: {requiresAuth: true}
         },
         {
             name: 'areas.create',
             path: 'areas/create',
             component:  ()=>import("../views/areas/Create"),
+            meta: {requiresAuth: true}
         },
         {
             path: 'areas/:id/edit',
             name: 'areas.update',
             components:  ()=>import("../views/areas/Update"),
+            meta: {requiresAuth: true}
         },
         {
             path: 'areas/view',
             name: 'areas.create',
             component:()=>import("../views/areas/View"),
+            meta: {requiresAuth: true}
+        },
+        {
+            path: 'login',
+            name: 'login',
+            component:()=>import("../views/Login"),
+        },
+        {
+            path: 'register',
+            name: 'register',
+            component:()=>import("../views/Register"),
+            meta: {guest: true}
+
 
         }
     ]
 });
 
+route.beforeEach((to, from, next) => {
 
-
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        // this route requires auth, check if logged in
+        // if not, redirect to login page.
+        console.log(loggedIn());
+        if (!loggedIn()) {
+            next({
+                name: 'login',
+                query: { redirect: to.fullPath }
+            })
+        } else {
+            next()
+        }
+    } else if(to.matched.some(record => record.meta.guest)) {
+        if (loggedIn()) {
+            next({
+                path: '/',
+                query: { redirect: to.fullPath }
+            })
+        } else {
+            next()
+        }
+    } else {
+        next() // make sure to always call next()!
+    }
+});
 export default route;
