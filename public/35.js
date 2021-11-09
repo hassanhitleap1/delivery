@@ -75,15 +75,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
+  data: function data() {
+    return {
+      keywords: null
+    };
+  },
   mounted: function mounted() {
     this.$store.dispatch('StatusModule/fetchstatus');
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('StatusModule', ['status']))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('StatusModule', ['status'])),
+  methods: {
+    _delete: function _delete(statu) {
+      this.$store.dispatch('StatusModule/deleteStatu', statu);
+    },
+    search: function search() {}
+  }
 });
 
 /***/ }),
@@ -120,7 +129,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "btn btn-primary float-right",
-                      attrs: { to: { name: "admins.create" } }
+                      attrs: { to: { name: "status.create" } }
                     },
                     [
                       _vm._v(
@@ -173,59 +182,49 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-body table-responsive p-2" },
-              [
-                _c("table", { staticClass: "table table-hover" }, [
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.status, function(statu, index) {
-                      return _c("tr", { key: index }, [
-                        _c("td", [_vm._v(_vm._s(statu.id))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(_vm.admin.name))]),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          { staticClass: "action" },
-                          [
-                            _c("router-link", {
-                              staticClass: "tag tag-success fas fa-edit",
-                              attrs: {
-                                to: {
-                                  name: "status.edit",
-                                  params: { id: statu.id }
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("span", {
-                              staticClass: "tag tag-success fas fa-trash-alt",
-                              on: {
-                                click: function($event) {
-                                  return _vm._delete(statu)
-                                }
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ])
-                    }),
-                    0
-                  )
-                ]),
+            _c("div", { staticClass: "card-body table-responsive p-2" }, [
+              _c("table", { staticClass: "table table-hover" }, [
+                _vm._m(1),
                 _vm._v(" "),
-                _c("pagination", {
-                  attrs: { align: "center", data: _vm.admins },
-                  on: { "pagination-change-page": _vm.get_admins }
-                })
-              ],
-              1
-            )
+                _c(
+                  "tbody",
+                  _vm._l(_vm.status, function(statu, index) {
+                    return _c("tr", { key: index }, [
+                      _c("td", [_vm._v(_vm._s(statu.id))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(statu.name))]),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        { staticClass: "action" },
+                        [
+                          _c("router-link", {
+                            staticClass: "tag tag-success fas fa-edit",
+                            attrs: {
+                              to: {
+                                name: "status.edit",
+                                params: { id: statu.id }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span", {
+                            staticClass: "tag tag-success fas fa-trash-alt",
+                            on: {
+                              click: function($event) {
+                                return _vm._delete(statu)
+                              }
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ])
           ])
         ])
       ])

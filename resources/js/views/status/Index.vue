@@ -7,7 +7,7 @@
                         <div class="card-header">
                             <div>
                                 <h3 class="card-title float-left">status</h3>
-                                <router-link class="btn btn-primary float-right" :to="{'name':'admins.create'}" >
+                                <router-link class="btn btn-primary float-right" :to="{'name':'status.create'}" >
                                     create status
                                 </router-link>
                             </div>
@@ -35,7 +35,7 @@
                                 <tbody>
                                 <tr v-for="(statu,index) in status" :key="index">
                                     <td>{{statu.id}}</td>
-                                    <td>{{admin.name}}</td>
+                                    <td>{{statu.name}}</td>
 
                                     <td class="action">
                                         <router-link class="tag tag-success fas fa-edit"  :to="{'name':'status.edit',params:{'id':statu.id}}" />
@@ -44,8 +44,6 @@
                                 </tr>
                                 </tbody>
                             </table>
-
-                            <pagination align="center" :data="admins" @pagination-change-page="get_admins"></pagination>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -63,14 +61,26 @@
     import {mapGetters} from 'vuex'
     export default {
         name: "Index",
+        data(){
+            return {
+                keywords:null,
+            }
+        },
         mounted() {
             this.$store.dispatch('StatusModule/fetchstatus');
         },
-
         computed: {
             ...mapGetters('StatusModule', ['status']),
+        },
+        methods:{
+            _delete(statu){
+                this.$store.dispatch('StatusModule/deleteStatu',statu);
+            },
+            search(){
 
+            },
         }
+
 
     }
 </script>

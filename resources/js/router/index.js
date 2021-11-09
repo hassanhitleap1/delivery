@@ -144,7 +144,7 @@ const route =  new VueRouter({
         },
         {
             name: 'status.create',
-            path: 'status/create',
+            path: '/status/create',
             component:  ()=>import("../views/status/Create"),
             meta: {requiresAuth: true}
         },

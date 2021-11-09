@@ -1,46 +1,70 @@
 <template>
-    <div>
-        <div class="form-group" :class="{ 'form-group--error': $v.name.$error }">
-            <label class="form__label">Name</label>
-            <input class="form__input" v-model.trim="$v.name.$model"/>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div v-if="errors">
+                    <div v-for="(v, k) in errors" :key="k">
+                        <p v-for="error in v" :key="error" class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title float-left">create new status</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <form role="form"   @submit.prevent="create(statu)">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="name">name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="statu.name">
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="error" v-if="!$v.name.required">Field is required</div>
-        <div class="error" v-if="!$v.name.minLength">Name must have at least {{$v.name.$params.minLength.min}} letters.</div>
-        <tree-view :data="$v.name" :options="{rootObjectKey: '$v.name', maxDepth: 2}"></tree-view>
-        <div class="form-group" :class="{ 'form-group--error': $v.age.$error }">
-            <label class="form__label">Age</label>
-            <input class="form__input" v-model.trim.lazy="$v.age.$model"/>
-        </div>
-        <div class="error" v-if="!$v.age.between">Must be between {{$v.age.$params.between.min}} and {{$v.age.$params.between.max}}</div><span tabindex="0">Blur to see changes</span>
-        <tree-view :data="$v.age" :options="{rootObjectKey: '$v.age', maxDepth: 2}"></tree-view>
-    </div>
+    </section>
 </template>
 
 <script>
-    import { required, minLength, between } from 'vuelidate/lib/validators'
-    export default {
-        name: "Create",
-        data() {
-            return {
-                name: '',
-                age: 0
+import  * as services from '../../services/status';
+export default {
+    name: "Create",
+    data(){
+        return {
+            errors: null,
+            success : false,
+            statu:{
+                name:null,
             }
-        },
-        validations: {
-            name: {
-                required,
-                minLength: minLength(4)
-            },
-            age: {
-                between: between(20, 30)
-            }
-        },
-        mounted() {
-            console.log("sssssssss");
         }
-    }
+    },
+    methods:{
+        create(statu) {
+            services.create({'name':statu.name}).then( response => {
+                this.$store.dispatch('StatusModule/createStatu',statu);
+                this.errors = [];
+                this.statu.name = null;
+                this.success = true;
+                this.$router.push({ name: 'status' });
+            }).catch((error) => {
+                console.log("error.response.data.errors",error.response.data.errors)
+                this.errors = error.response.data.errors;
+                this.success = false;
+            });
+        }
+    },
+
+}
 </script>
 
-<style scoped>
 
-</style>
