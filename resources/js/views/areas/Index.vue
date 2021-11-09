@@ -5,40 +5,41 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">users</h3>
-                            <router-link class="btn btn-primary" :to="{name:'create.user'}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>create users</p>
-                            </router-link>
-                            <div class="card-tools">
+                            <div>
+                                <h3 class="card-title float-left">areas</h3>
+                                <router-link class="btn btn-primary float-right" :to="{'name':'areas.create'}" >
+                                    create area
+                                </router-link>
+                            </div>
+
+                            <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search" v-model="keywords" @keyup="search">
 
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
+                        <div class="card-body table-responsive p-2">
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>name   </th>
-                                    <th>action </th>
-
+                                    <th>name</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="area in areas" :key="area.id">
+                                <tr v-for="(area,index) in areas" :key="index">
                                     <td>{{area.id}}</td>
                                     <td>{{area.name}}</td>
 
                                     <td class="action">
-                                        <span class="tag tag-success fas fa-edit" @click="edit(area.id)"></span>
-                                        <span class="tag tag-success fas fa-trash-alt" @click="deletePost(area.id)"></span>
+                                        <router-link class="tag tag-success fas fa-edit"  :to="{'name':'areas.edit',params:{'id':area.id}}" />
+                                        <span class="tag tag-success fas fa-trash-alt" @click="_delete(area)"></span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -50,13 +51,21 @@
                 </div>
             </div>
         </div>
+
     </section>
+
+
 </template>
 
 <script>
     import {mapGetters} from 'vuex'
     export default {
         name: "Index",
+        data(){
+            return {
+                keywords:null,
+            }
+        },
         mounted() {
             this.$store.dispatch('AreaModule/fetchareas');
         },
@@ -64,6 +73,13 @@
         computed: {
             ...mapGetters('AreaModule', ['areas']),
 
+        }, methods:{
+            _delete(area){
+                this.$store.dispatch('AreaModule/_delete',area);
+            },
+            search(){
+
+            },
         }
 
     }
