@@ -14,16 +14,11 @@ class CountriesController extends Controller
 {
 
     public function index(){
-        return CountriesResource::collection(Countries::paginate(5)->items());
+        return CountriesResource::collection(Countries::all());
     }
-
     public function store(CountriesRequest $request){
         $contry= Countries::create(['name'=>$request->name]);
         return new CountriesResource($contry);
-    }
-
-    public function edit(){
-
     }
 
     public function update(Countries $country, CountriesRequest $request){

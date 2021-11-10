@@ -62,8 +62,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-<<<<<<< HEAD
-=======
 //
 //
 //
@@ -78,26 +76,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
->>>>>>> 8a41fea5b2c0d3bbaf2edb21d21f46fab29982ff
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
   data: function data() {
     return {
-<<<<<<< HEAD
-      errors: [],
-      contery: {
-        name: null
-      }
-    };
-  },
-  methods: {
-    create_contery: function create_contery(contery) {
-      this.$store.dispatch('ContryModule/createContry', contery);
-      this.$router.push({
-        name: 'countries'
-      });
-    }
-=======
       keywords: null
     };
   },
@@ -110,7 +92,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$store.dispatch('AreaModule/_delete', area);
     },
     search: function search() {}
->>>>>>> 8a41fea5b2c0d3bbaf2edb21d21f46fab29982ff
   }
 });
 
@@ -134,90 +115,6 @@ var render = function() {
   return _c("section", { staticClass: "content" }, [
     _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "row" }, [
-<<<<<<< HEAD
-        _vm.errors
-          ? _c(
-              "div",
-              _vm._l(_vm.errors, function(v, k) {
-                return _c(
-                  "div",
-                  { key: k },
-                  _vm._l(v, function(error) {
-                    return _c(
-                      "p",
-                      {
-                        key: error,
-                        staticClass: "alert alert-danger",
-                        attrs: { role: "alert" }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(error) +
-                            "\n                    "
-                        )
-                      ]
-                    )
-                  }),
-                  0
-                )
-              }),
-              0
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card card-primary" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "form",
-              {
-                attrs: { role: "form" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.create_contery(_vm.contery)
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "name" } }, [_vm._v("name")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.contery.name,
-                          expression: "contery.name"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        id: "name",
-                        placeholder: "Enter name"
-                      },
-                      domProps: { value: _vm.contery.name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.contery, "name", $event.target.value)
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(1)
-              ]
-            )
-=======
         _c("div", { staticClass: "col-12" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header" }, [
@@ -328,7 +225,6 @@ var render = function() {
                 )
               ])
             ])
->>>>>>> 8a41fea5b2c0d3bbaf2edb21d21f46fab29982ff
           ])
         ])
       ])
@@ -340,40 +236,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-<<<<<<< HEAD
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title float-left" }, [
-        _vm._v("create new contery")
-      ])
-=======
     return _c("div", { staticClass: "input-group-append" }, [
       _c(
         "button",
         { staticClass: "btn btn-default", attrs: { type: "submit" } },
         [_c("i", { staticClass: "fas fa-search" })]
       )
->>>>>>> 8a41fea5b2c0d3bbaf2edb21d21f46fab29982ff
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-<<<<<<< HEAD
-    return _c("div", { staticClass: "card-footer" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
-      )
-=======
     return _c("thead", [
       _c("tr", [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
         _c("th", [_vm._v("name")])
       ])
->>>>>>> 8a41fea5b2c0d3bbaf2edb21d21f46fab29982ff
     ])
   }
 ]

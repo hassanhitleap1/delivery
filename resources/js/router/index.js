@@ -169,7 +169,7 @@ const route =  new VueRouter({
         },
         {
             name: 'countries.create',
-            path: 'countries/create',
+            path: '/countries/create',
             component:  ()=>import("../views/countries/Create"),
             meta: {requiresAuth: true}
         },
@@ -177,12 +177,6 @@ const route =  new VueRouter({
             path: 'countries/:id/edit',
             name: 'countries.update',
             components:  ()=>import("../views/countries/Update"),
-            meta: {requiresAuth: true}
-        },
-        {
-            path: 'countries/view',
-            name: 'countries.view',
-            component:()=>import("../views/countries/View"),
             meta: {requiresAuth: true}
         },
         {

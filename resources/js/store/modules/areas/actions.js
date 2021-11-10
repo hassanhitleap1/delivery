@@ -1,11 +1,6 @@
 let actions = {
     createArea({commit}, area) {
-        axios.post('/api/areas', area)
-            .then(res => {
-                commit('CREATE_AREA', res.data)
-            }).catch(err => {
-            console.log(err)
-        })
+        commit('CREATE_AREA', area)
 
     },
     fetchareas({commit}) {

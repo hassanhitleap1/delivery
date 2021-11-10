@@ -43,26 +43,21 @@ export default {
         return {
             errors: null,
             success : false,
-            statu:{
+            country:{
                 name:null,
             }
-        },methods:{
-           create_contery(contery){
-              this.$store.dispatch('ContryModule/createContry',contery);
-              this.$router.push({ name: 'countries' });
-           } 
         }
     },
     methods:{
         create(country) {
             services.create({'name':country.name}).then( response => {
-                this.$store.dispatch('CountryModule/createStatu',country);
+                console.log(response.data.data)
+                this.$store.dispatch('ContryModule/createContry',response.data.data);
                 this.errors = [];
                 this.statu.name = null;
                 this.success = true;
-                this.$router.push({ name: 'countries' });
+                this.$router.push({ 'name': 'countries' });
             }).catch((error) => {
-                console.log("error.response.data.errors",error.response.data.errors)
                 this.errors = error.response.data.errors;
                 this.success = false;
             });

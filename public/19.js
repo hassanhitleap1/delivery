@@ -70,9 +70,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
-
-=======
 //
 //
 //
@@ -274,7 +271,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
->>>>>>> 8a41fea5b2c0d3bbaf2edb21d21f46fab29982ff
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Update"
 });
@@ -296,43 +292,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
-  return _c("section", { staticClass: "content" }, [
-    _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _c(
-                "div",
-                [
-                  _c("h3", { staticClass: "card-title float-left" }, [
-                    _vm._v("countries")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "btn btn-primary float-right",
-                      attrs: { to: { name: "countries.create" } }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                create country\n                            "
-                      )
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._m(0)
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body table-responsive p-2" }, [
-              _c("table", { staticClass: "table table-hover" }, [
-                _vm._m(1),
-=======
   return _vm._m(0)
 }
 var staticRenderFns = [
@@ -541,7 +500,6 @@ var staticRenderFns = [
                     ])
                   ])
                 ]),
->>>>>>> 8a41fea5b2c0d3bbaf2edb21d21f46fab29982ff
                 _vm._v(" "),
                 _c("div", { staticClass: "input-group" }, [
                   _c("div", { staticClass: "input-group-prepend" }, [
@@ -637,33 +595,6 @@ var staticRenderFns = [
                         ])
                       ]),
                       _vm._v(" "),
-<<<<<<< HEAD
-                      _c(
-                        "td",
-                        { staticClass: "action" },
-                        [
-                          _c("router-link", {
-                            staticClass: "tag tag-success fas fa-edit",
-                            attrs: {
-                              to: {
-                                name: "countries.edit",
-                                params: { id: country.id }
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", {
-                            staticClass: "tag tag-success fas fa-trash-alt",
-                            on: {
-                              click: function($event) {
-                                return _vm.delete_countries(country)
-                              }
-                            }
-                          })
-                        ],
-                        1
-                      )
-=======
                       _c("input", {
                         staticClass: "form-control",
                         attrs: { type: "text" }
@@ -844,7 +775,6 @@ var staticRenderFns = [
                           [_vm._v("Remember me")]
                         )
                       ])
->>>>>>> 8a41fea5b2c0d3bbaf2edb21d21f46fab29982ff
                     ])
                   ])
                 ]),
@@ -871,51 +801,6 @@ var staticRenderFns = [
         ])
       ])
     ])
-<<<<<<< HEAD
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-tools mt-4" }, [
-      _c(
-        "div",
-        {
-          staticClass: "input-group input-group-sm",
-          staticStyle: { width: "150px" }
-        },
-        [
-          _c("input", {
-            staticClass: "form-control float-right",
-            attrs: { type: "text", name: "table_search", placeholder: "Search" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group-append" }, [
-            _c(
-              "button",
-              { staticClass: "btn btn-default", attrs: { type: "submit" } },
-              [_c("i", { staticClass: "fas fa-search" })]
-            )
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("ID")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("name")])
-      ])
-    ])
-=======
->>>>>>> 8a41fea5b2c0d3bbaf2edb21d21f46fab29982ff
   }
 ]
 render._withStripped = true

@@ -1,17 +1,12 @@
 let actions = {
     createContry({commit}, contry) {
-        axios.post('/api/countries', contry)
-            .then(res => {
-                commit('CREATE_CONTRY', res.data)
-            }).catch(err => {
-            console.log(err)
-        })
-
+        commit('CREATE_CONTRY', contry)
     },
     fetchcountries({commit}) {
         axios.get('/api/countries')
             .then(res => {
-                console.log( res.data)
+                console.log("FETCH_COUNTRIES",res.data.data)
+
                 commit('FETCH_COUNTRIES', res.data.data)
             }).catch(err => {
             console.log(err)

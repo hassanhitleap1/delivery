@@ -50,7 +50,7 @@ export default {
     },
     methods:{
         create(area) {
-            services.create({'name':country.name}).then( response => {
+            services.create({'name':area.name}).then( response => {
                 this.$store.dispatch('AreaModule/createArea',area);
                 this.errors = [];
                 this.statu.name = null;

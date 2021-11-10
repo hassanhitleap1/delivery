@@ -14,7 +14,7 @@
 
                             <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search" v-model="keywords" @keyup="search">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search" >
 
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
@@ -36,7 +36,7 @@
                                 <tr v-for="(country,index) in countries" :key="index">
                                     <td>{{country.id}}</td>
                                     <td>{{country.name}}</td>
-                                   
+
 
 
                                     <td class="action">
@@ -63,31 +63,17 @@
     import {mapGetters} from 'vuex'
     export default {
         name: "Index",
-        data(){
-            return {
-                keywords:null,
-            }
-        },
         mounted() {
             this.$store.dispatch('ContryModule/fetchcountries');
         },
-
         computed: {
             ...mapGetters('ContryModule', ['countries']),
-
-        },
-        methods:{
+        },methods:{
             _delete(country){
-                this.$store.dispatch('ContryModule/_delete',country);
-            },
-            search(){
-
+                this.$store.dispatch('ContryModule/deleteContry',country);
             },
         }
 
     }
 </script>
 
-<style scoped>
-
-</style>
