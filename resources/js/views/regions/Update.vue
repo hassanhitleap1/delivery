@@ -51,7 +51,7 @@ import  * as apicountries from '../../services/countries';
 import Select2 from 'v-select2-component';
 
 export default {
-    name: "Edit",
+    name: "Update",
     components: {Select2},
     data(){
         return {

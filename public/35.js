@@ -63,7 +63,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Edit",
+  name: "Update",
   components: {
     Select2: v_select2_component__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
