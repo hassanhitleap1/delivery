@@ -36,12 +36,9 @@
                                 <tr v-for="(country,index) in countries" :key="index">
                                     <td>{{country.id}}</td>
                                     <td>{{country.name}}</td>
-
-
-
                                     <td class="action">
-                                        <router-link class="tag tag-success fas fa-edit"  :to="{'name':'countries.edit',params:{'id':country.id}}" />
-                                        <span class="tag tag-success fas fa-trash-alt" @click="_delete(country)"></span>
+                                        <router-link class="tag tag-success fas fa-edit"  :to="{ name:'countries.edit',params:{'id':country.id}}" />
+                                        <span class="tag tag-success fas fa-trash-alt" @click="_delete(country.id)"></span>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -61,6 +58,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
+    import * as services from "../../services/countries";
     export default {
         name: "Index",
         mounted() {
@@ -69,8 +67,12 @@
         computed: {
             ...mapGetters('ContryModule', ['countries']),
         },methods:{
-            _delete(country){
-                this.$store.dispatch('ContryModule/deleteContry',country);
+            _delete(id){
+                services._delete(id).then( response => {
+                    this.$store.dispatch('ContryModule/deleteContry',country);
+                }).catch((error) => {
+                    console.log("error",error)
+                });
             },
         }
 

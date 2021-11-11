@@ -2,6 +2,9 @@ let actions = {
     createContry({commit}, contry) {
         commit('CREATE_CONTRY', contry)
     },
+    updateContry({commit}, contry) {
+        commit('UPDATE_CONTRY', contry)
+    },
     fetchcountries({commit}) {
         axios.get('/api/countries')
             .then(res => {
@@ -13,13 +16,7 @@ let actions = {
         })
     },
     deleteContry({commit}, contry) {
-        axios.delete(`/api/countries/${contry.id}`)
-            .then(res => {
-                if (res.data === 'ok')
-                    commit('DELETE_CONTRY', contry)
-            }).catch(err => {
-            console.log(err);
-        })
+        commit('DELETE_CONTRY', contry)
     }
 }
 

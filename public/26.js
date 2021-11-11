@@ -79,6 +79,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
+  data: function data() {
+    return {
+      keywords: null
+    };
+  },
   mounted: function mounted() {
     this.$store.dispatch('RegionModule/fetchregions');
   },

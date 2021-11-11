@@ -14,7 +14,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title float-left">create new admin</h3>
+                            <h3 class="card-title float-left">create new country</h3>
                         </div>
                         <!-- /.card-header -->
                         <form role="form" @submit.prevent="update(country,id)" >

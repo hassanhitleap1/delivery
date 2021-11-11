@@ -174,9 +174,9 @@ const route =  new VueRouter({
             meta: {requiresAuth: true}
         },
         {
-            path: 'countries/:id/edit',
-            name: 'countries.update',
-            components:  ()=>import("../views/countries/Update"),
+            name: 'countries.edit',
+            path: '/countries/:id/edit',
+            component:  ()=>import("../views/countries/Edit"),
             meta: {requiresAuth: true}
         },
         {
@@ -187,7 +187,7 @@ const route =  new VueRouter({
         },
         {
             name: 'regions.create',
-            path: 'create',
+            path: '/regions/create',
             component:  ()=>import("../views/regions/Create"),
             meta: {requiresAuth: true}
         },

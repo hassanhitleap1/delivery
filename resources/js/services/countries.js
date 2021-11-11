@@ -14,7 +14,7 @@ export  async  function update(statu,id) {
     return  response;
 }
 
-export  async  function get_statu(id) {
+export  async  function get_country(id) {
     const response = await axios.get(`${api_url}/countries/${id}`);
     return  response;
 }

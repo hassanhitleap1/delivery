@@ -25,7 +25,9 @@ class CountriesController extends Controller
         $country=tap($country)->update([$request->all()]);
         return new CountriesResource($country);
     }
-
+    public function show(Countries $country){
+        return new CountriesResource($country);
+    }
 
     public function delete(Countries $country){
         $country->delete();

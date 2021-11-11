@@ -62,6 +62,11 @@
     import {mapGetters} from 'vuex'
     export default {
         name: "Index",
+        data(){
+            return {
+                keywords:null,
+            }
+        },
         mounted() {
             this.$store.dispatch('RegionModule/fetchregions');
         },
