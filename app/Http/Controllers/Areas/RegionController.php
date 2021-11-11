@@ -3,13 +3,10 @@
 
 namespace App\Http\Controllers\Areas;
 
-
-
-
-
+use App\Http\Requests\Areas\RegionRequest;
 use App\Http\Resources\Area\RegionResource;
 use App\Model\Areas\Region;
-use Illuminate\Http\Request;
+
 
 class RegionController
 {
@@ -17,31 +14,23 @@ class RegionController
         return RegionResource::collection(Region::all());
     }
 
-    public function create(Request $request){
-        $request->validate([
-            'name' => 'required',
-            'price' => 'number',
-        ]);
-        Region::cerate($request->all());
-
+    public function store(RegionRequest $request){
+        $region = Region::create([
+            'name'=>$request->name,
+            'country'=>$request->country,
+            'price'=>$request->price,
+            ]);
+        return new RegionResource($region);
     }
 
-    public function update(Region $region,Request $request){
-        $request->validate([
-            'name' => 'required',
-            'price' => 'number',
-        ]);
-        $region->update([$request->all()]);
-
+    public function update(Region $region,RegionRequest $request){
+        $region=tap($region)->update([$request->all()]);
+        return new RegionResource($region);
     }
-
-    public function edit(){
-
-    }
-
 
     public function delete(Region $region){
         $region->delete();
+        return Response('',201);
     }
 
 }

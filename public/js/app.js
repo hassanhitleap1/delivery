@@ -57598,7 +57598,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'regions.create',
     path: '/regions/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(35), __webpack_require__.e(16)]).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(16), __webpack_require__.e(37)]).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -58333,7 +58333,7 @@ var actions = {
   fetchregions: function fetchregions(_ref2) {
     var commit = _ref2.commit;
     axios.get('/api/regions').then(function (res) {
-      console.log(res.data);
+      console.log(res.data.data);
       commit('FETCH_REGIONS', res.data.data);
     })["catch"](function (err) {
       console.log(err);

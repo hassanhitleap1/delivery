@@ -12,7 +12,6 @@ use App\Http\Requests\Areas\CountriesRequest;
 
 class CountriesController extends Controller
 {
-
     public function index(){
         return CountriesResource::collection(Countries::all());
     }
@@ -31,6 +30,7 @@ class CountriesController extends Controller
 
     public function delete(Countries $country){
         $country->delete();
+        return Response('',201);
     }
 
 

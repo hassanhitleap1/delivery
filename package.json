@@ -36,6 +36,7 @@
         "lodash": "^4.17.19",
         "select2": "^4.1.0-rc.0",
         "sweetalert2": "^11.1.9",
+        "v-select2-component": "^0.4.7",
         "vee-validate": "^4.5.3",
         "vee-validate-laravel": "^1.1.0",
         "vue": "^2.6.11",

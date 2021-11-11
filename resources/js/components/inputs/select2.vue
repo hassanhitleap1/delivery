@@ -1,5 +1,5 @@
 <template>
-    <select>
+    <select class="className">
         <slot></slot>
     </select>
 </template>
@@ -8,7 +8,7 @@
 import $ from "jquery";
 import select from 'select2';
 export default {
-    props: ['options', 'value'],
+    props: ['options', 'value','className'],
 
     mounted: function () {
         var vm = this

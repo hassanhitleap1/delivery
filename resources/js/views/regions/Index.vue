@@ -37,7 +37,7 @@
                                 <tr v-for="(region,index) in regions" :key="index">
                                     <td>{{region.id}}</td>
                                     <td>{{region.name}}</td>
-                                    <td>{{region.contries.name}}</td>
+                                    <td>{{region.country.name}}</td>
                                     <td class="action">
                                         <router-link class="tag tag-success fas fa-edit"  :to="{'name':'regions.edit',params:{'id':region.id}}" />
                                         <span class="tag tag-success fas fa-trash-alt" @click="_delete(region)"></span>
@@ -85,6 +85,3 @@
     }
 </script>
 
-<style scoped>
-
-</style>

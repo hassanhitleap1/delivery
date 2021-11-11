@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Areas;
 use App\Http\Requests\Request;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -9,32 +9,19 @@ class RegionRequest extends \App\Http\Requests\Api\FormRequest
 {
 
     protected $createRules = [
-        'name' => 'required|max:255',
-        // 'email' => 'email|unique:users,email',
-        'phone' => 'required|numeric|unique:users,phone',
+        'name' => 'required|string',
+        'price' => ' numeric|required',
+        'country_id'=>'numeric|required',
     ];
 
 
     protected $updateRules = [
-        'name' => 'required|max:255',
-        // 'email' => 'email|unique:users,email',
-        'phone' => 'required|numeric|unique:users,phone',
+        'name' => 'required|string',
+        'price' => 'numeric|required',
+        'country_id'=>'numeric|required',
     ];
 
-    protected $rules = [];
 
-    public function createValidate(){
-        $this->rules = $this->createRules;
-        return $this->rules;
-    }
-
-    public function updateValidate(){
-        $this->updateRules['email'] = "email|unique:users,email,$this->id";
-        $this->updateRules['phone'] = "required|unique:phone,phone,$this->id";
-        return $this->rules;
-        $this->rules = $this->updateRules;
-        return $this->validate($data);
-    }
 
     /**
      * Determine if the user is authorized to make this request.
@@ -54,9 +41,9 @@ class RegionRequest extends \App\Http\Requests\Api\FormRequest
     public function rules()
     {
         if (in_array($this->method(), ['PUT', 'PATCH'])) {
-            return  $this->updateValidate();
+            return  $this->updateRules;
         }else{
-            return  $this->createValidate();
+            return  $this->createRules;
         }
 
     }

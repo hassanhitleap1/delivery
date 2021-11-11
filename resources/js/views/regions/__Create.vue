@@ -23,15 +23,15 @@
                                     <label for="name">name</label>
                                     <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="region.name">
                                 </div>
-                                <div class="form-group">
-                                    <label for="name">price</label>
-                                    <input type="text" class="form-control" id="price" placeholder="Enter name" v-model="region.price">
-                                </div>
+
 
                                 <div class="form-group">
                                     <label for="name">name</label>
-                                        <Select2 v-model="region.country_id" :options="countries" :settings="{ settingOption: countries.id , settingOption:  countries.name}" @change="myChangeEvent($event)" @select="mySelectEvent($event)" />
+                                    <select2  :className="'form-control'" name="select1" :options="options1" :value="result1" />
+
                                 </div>
+
+
 
                             </div>
                             <div class="card-footer">
@@ -47,58 +47,43 @@
 
 <script>
 import  * as services from '../../services/regions';
-import  * as apicountries from '../../services/countries';
-import Select2 from 'v-select2-component';
+import  select2  from '../../components/inputs/select2';
 
 export default {
     name: "Create",
-    components: {Select2},
+    components: {
+        select2 :select2
+    },
     data(){
         return {
             errors: null,
             success : false,
-            countries:["amman"],
+
             region:{
                 name:null,
-                price:null,
-                country_id: null,
             },
+            options1: [
+                "value1",
+                "value2",
+                "value3"
+            ],
+            result1: "",
+
+
         }
     },
     mounted() {
-        this.get_contrires()
-
+        console.log("select2")
+        console.log(select2)
     },
     methods:{
-        get_contrires(){
-            apicountries.get_all().then(res => {
-                   console.log(res.data.data)
-                this.countries=res.data.data.map( function(country) {
-                    return {id:country.id,text:country.name};
-                });
-                }).catch(err => {
-                console.log(err)
-            })
-        },
-        saprot(contry){
-            return {id: contry.id,text :contry.name}
-        },
-        myChangeEvent(val){
-            console.log(val);
-        },
-        mySelectEvent({id, text}){
-            this.country_id =id;
-            console.log({id, text})
-        },
         create(region) {
-            services.create({name:region.name,country_id:region.country_id,price:region.price}).then( response => {
+            services.create({'name':region.name}).then( response => {
                 this.$store.dispatch('StatusModule/createStatu',region);
                 this.errors = [];
-                this.region.name = null;
-                this.region.country_id = null;
-                this.region.price = null;
+                this.statu.name = null;
                 this.success = true;
-                this.$router.push({ name: 'regions' });
+                this.$router.push({ name: 'status' });
             }).catch((error) => {
                 console.log("error.response.data.errors",error.response.data.errors)
                 this.errors = error.response.data.errors;

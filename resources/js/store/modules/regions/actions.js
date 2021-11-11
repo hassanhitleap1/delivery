@@ -11,8 +11,9 @@ let actions = {
     fetchregions({commit}) {
         axios.get('/api/regions')
             .then(res => {
-                console.log( res.data)
-                commit('FETCH_REGIONS', res.data.data)
+                console.log(res.data.data)
+                commit('FETCH_REGIONS', res.data.data);
+
             }).catch(err => {
             console.log(err)
         })

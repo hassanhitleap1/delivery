@@ -5,51 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="27">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/inputs/select2.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/countries/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/regions/__Create.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Areas/CountriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Areas/CountriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Areas/RegionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Areas/RegionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Areas/RegionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Areas/RegionRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Area/RegionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Area/RegionResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Areas/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Areas/Region.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_27_083133_create_regions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_27_083133_create_regions_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/10.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/10.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/11.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/11.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/12.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/12.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/13.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/13.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/14.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/14.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/15.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/15.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/16.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/16.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/17.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/17.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/18.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/18.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/19.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/19.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/20.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/20.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/21.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/21.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/22.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/22.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/23.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/23.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/24.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/24.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/25.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/25.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/26.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/26.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/27.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/27.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/28.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/28.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/29.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/29.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/30.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/30.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/31.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/31.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/32.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/32.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/33.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/33.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/34.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/34.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/35.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/35.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/9.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/9.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/37.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/37.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/countries.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/countries.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/regions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/regions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/countries/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/countries/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/countries/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/countries/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/countries/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/countries/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/countries/Update.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/inputs/select2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/inputs/select2.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/regions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/regions/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/regions/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/regions/Create.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/regions/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/regions/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/regions/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/regions/Update.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +194,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/views/regions" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -233,11 +207,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\resources\js\views\regions" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\views\countries" />
       <recent name="C:\xampp\htdocs\delivery\app\Http\Requests\Status" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\services" />
       <recent name="C:\xampp\htdocs\delivery\resources\js" />
-      <recent name="C:\xampp\htdocs\delivery\app\Scopes\Users" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\delivery\resources\js\services" />
@@ -377,7 +351,7 @@
       <workItem from="1636445220808" duration="8419000" />
       <workItem from="1636467040435" duration="1347000" />
       <workItem from="1636538493370" duration="13333000" />
-      <workItem from="1636621402702" duration="3012000" />
+      <workItem from="1636621402702" duration="14678000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
