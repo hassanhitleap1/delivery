@@ -192,8 +192,8 @@ const route =  new VueRouter({
             meta: {requiresAuth: true}
         },
         {
-            path: 'regions/:id/edit',
-            name: 'regions.update',
+            path: '/regions/:id/edit',
+            name: 'regions.edit',
             components:  ()=>import("../views/regions/Update"),
             meta: {requiresAuth: true}
         },

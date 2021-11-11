@@ -57604,10 +57604,10 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       requiresAuth: true
     }
   }, {
-    path: 'regions/:id/edit',
-    name: 'regions.update',
+    path: '/regions/:id/edit',
+    name: 'regions.edit',
     components: function components() {
-      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/regions/Update */ "./resources/js/views/regions/Update.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(16), __webpack_require__.e(35)]).then(__webpack_require__.bind(null, /*! ../views/regions/Update */ "./resources/js/views/regions/Update.vue"));
     },
     meta: {
       requiresAuth: true
