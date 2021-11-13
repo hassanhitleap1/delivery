@@ -17,7 +17,7 @@ class RegionController
     public function store(RegionRequest $request){
         $region = Region::create([
             'name'=>$request->name,
-            'country'=>$request->country,
+            'country_id'=>$request->country_id,
             'price'=>$request->price,
             ]);
         return new RegionResource($region);

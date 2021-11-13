@@ -27,6 +27,9 @@ class StatusController extends Controller
         return new StatusResource($status);
     }
 
+    public function show(Status $status){
+        return new StatusResource($status);
+    }
 
     public function destroy(Status $status){
         $status->delete();

@@ -148,19 +148,14 @@ const route =  new VueRouter({
             component:  ()=>import("../views/status/Create"),
             meta: {requiresAuth: true}
         },
+    
         {
-            path: 'status/:id/edit',
-            name: 'status.update',
-            components:  ()=>import("../views/status/Update"),
+            name: 'status.edit',
+            path: '/status/:id/edit',
+            component:  ()=>import("../views/status/Edit"),
             meta: {requiresAuth: true}
         },
-        {
-            path: 'status/view',
-            name: 'status.create',
-            component:()=>import("../views/status/View"),
-            meta: {requiresAuth: true}
-
-        },
+        
         {
             path: '/countries',
             component:  ()=>import("../views/countries/Index"),
@@ -246,9 +241,7 @@ const route =  new VueRouter({
 route.beforeEach((to, from, next) => {
 
     if (to.matched.some(record => record.meta.requiresAuth)) {
-        // this route requires auth, check if logged in
-        // if not, redirect to login page.
-        console.log(loggedIn());
+      
         if (!loggedIn()) {
             next({
                 name: 'login',

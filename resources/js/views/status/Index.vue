@@ -38,7 +38,7 @@
                                     <td>{{statu.name}}</td>
 
                                     <td class="action">
-                                        <router-link class="tag tag-success fas fa-edit"  :to="{'name':'status.edit',params:{'id':statu.id}}" />
+                                        <router-link class="tag tag-success fas fa-edit"  :to="{name:'status.edit',params:{'id':statu.id}}" />
                                         <span class="tag tag-success fas fa-trash-alt" @click="_delete(statu)"></span>
                                     </td>
                                 </tr>
