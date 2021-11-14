@@ -66,7 +66,7 @@ export default {
     },methods:{
         update(statu,id) {
             services.update({name:statu.name},this.id).then( response => {
-                this.$store.dispatch('StatusModule/updateStatuStatu',statu);
+                this.$store.dispatch('StatusModule/updateStatu',statu);
                 this.errors = [];
                 this.success = true;
                 this.$router.push({ 'name': 'status' });

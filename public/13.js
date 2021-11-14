@@ -76,7 +76,9 @@ __webpack_require__.r(__webpack_exports__);
     update: function update(country, id) {
       var _this2 = this;
 
-      _services_countries__WEBPACK_IMPORTED_MODULE_0__["update"](country, id).then(function (response) {
+      _services_countries__WEBPACK_IMPORTED_MODULE_0__["update"]({
+        'name': country.name
+      }, id).then(function (response) {
         _this2.$store.dispatch('ContryModule/updateContry', response.data.data);
 
         _this2.errors = [];
@@ -321,7 +323,7 @@ function update(_x2, _x3) {
 }
 
 function _update() {
-  _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(statu, id) {
+  _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(country, id) {
     var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {

@@ -148,14 +148,14 @@ const route =  new VueRouter({
             component:  ()=>import("../views/status/Create"),
             meta: {requiresAuth: true}
         },
-    
+
         {
             name: 'status.edit',
             path: '/status/:id/edit',
             component:  ()=>import("../views/status/Edit"),
             meta: {requiresAuth: true}
         },
-        
+
         {
             path: '/countries',
             component:  ()=>import("../views/countries/Index"),
@@ -186,10 +186,11 @@ const route =  new VueRouter({
             component:  ()=>import("../views/regions/Create"),
             meta: {requiresAuth: true}
         },
+
         {
-            path: '/regions/:id/edit',
             name: 'regions.edit',
-            components:  ()=>import("../views/regions/Update"),
+            path: '/regions/:id/edit',
+            component:  ()=>import("../views/regions/Edit"),
             meta: {requiresAuth: true}
         },
         {
@@ -212,7 +213,7 @@ const route =  new VueRouter({
         },
         {
             path: 'areas/:id/edit',
-            name: 'areas.update',
+            name: 'areas.edit',
             components:  ()=>import("../views/areas/Update"),
             meta: {requiresAuth: true}
         },
@@ -241,7 +242,7 @@ const route =  new VueRouter({
 route.beforeEach((to, from, next) => {
 
     if (to.matched.some(record => record.meta.requiresAuth)) {
-      
+
         if (!loggedIn()) {
             next({
                 name: 'login',

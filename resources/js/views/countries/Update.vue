@@ -59,10 +59,10 @@ export default {
         }).catch((error) => {
             console.log("error",error)
         });
-
     },methods:{
         update(country,id) {
             services.update(country,id).then( response => {
+
                 this.$store.dispatch('ContryModule/updateContry',response.data.data);
                 this.errors = [];
                 this.success = true;

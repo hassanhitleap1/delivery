@@ -57454,7 +57454,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/admins',
     name: 'admins',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(36)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(35)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -57463,7 +57463,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/admins',
     name: 'admins.index',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(36)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(35)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -57525,7 +57525,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/status',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 34).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
     },
     name: 'status',
     meta: {
@@ -57544,7 +57544,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'status.edit',
     path: '/status/:id/edit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../views/status/Edit */ "./resources/js/views/status/Edit.vue"));
+      return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ../views/status/Edit */ "./resources/js/views/status/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -57589,16 +57589,16 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'regions.create',
     path: '/regions/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(6), __webpack_require__.e(37)]).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(6), __webpack_require__.e(36)]).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
     },
     meta: {
       requiresAuth: true
     }
   }, {
-    path: '/regions/:id/edit',
     name: 'regions.edit',
-    components: function components() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(6), __webpack_require__.e(38)]).then(__webpack_require__.bind(null, /*! ../views/regions/Update */ "./resources/js/views/regions/Update.vue"));
+    path: '/regions/:id/edit',
+    component: function component() {
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(6), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../views/regions/Edit */ "./resources/js/views/regions/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -57632,7 +57632,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     }
   }, {
     path: 'areas/:id/edit',
-    name: 'areas.update',
+    name: 'areas.edit',
     components: function components() {
       return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ../views/areas/Update */ "./resources/js/views/areas/Update.vue"));
     },
@@ -57792,7 +57792,7 @@ function _update() {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            response = axios.put('/api/status/' + id, statu);
+            response = axios.patch('/api/status/' + id, statu);
             return _context3.abrupt("return", response);
 
           case 2:
@@ -58317,8 +58317,12 @@ var actions = {
       console.log(err);
     });
   },
-  fetchregions: function fetchregions(_ref2) {
+  updateRegion: function updateRegion(_ref2, region) {
     var commit = _ref2.commit;
+    commit('UPDATE_REGION', region);
+  },
+  fetchregions: function fetchregions(_ref3) {
+    var commit = _ref3.commit;
     axios.get('/api/regions').then(function (res) {
       console.log(res.data.data);
       commit('FETCH_REGIONS', res.data.data);
@@ -58326,9 +58330,9 @@ var actions = {
       console.log(err);
     });
   },
-  deleteregion: function deleteregion(_ref3, statu) {
-    var commit = _ref3.commit;
-    axios["delete"]("/api/regions/".concat(statu.id)).then(function (res) {
+  deleteregion: function deleteregion(_ref4, region) {
+    var commit = _ref4.commit;
+    axios["delete"]("/api/regions/".concat(region.id)).then(function (res) {
       if (res.data === 'ok') commit('DELETE_REGION', region);
     })["catch"](function (err) {
       console.log(err);
@@ -58401,11 +58405,17 @@ var mutations = {
   FETCH_REGIONS: function FETCH_REGIONS(state, regions) {
     return state.regions = regions;
   },
+  UPDATE_REGION: function UPDATE_REGION(state, region) {
+    var index = state.regions.findIndex(function (item) {
+      return item.id === region.id;
+    });
+    state.regions[index] = region;
+  },
   DELETE_REGION: function DELETE_REGION(state, regions) {
     var index = state.regions.findIndex(function (item) {
       return item.id === region.id;
     });
-    state.status.splice(index, 1);
+    state.regions.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);

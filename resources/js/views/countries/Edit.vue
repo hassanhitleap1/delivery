@@ -62,7 +62,7 @@ export default {
 
     },methods:{
         update(country,id) {
-            services.update(country,id).then( response => {
+            services.update({'name':country.name},id).then( response => {
                 this.$store.dispatch('ContryModule/updateContry',response.data.data);
                 this.errors = [];
                 this.success = true;

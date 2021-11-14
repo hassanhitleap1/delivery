@@ -9,7 +9,7 @@ export  async  function create(country) {
     return  response;
 }
 
-export  async  function update(statu,id) {
+export  async  function update(country,id) {
     const response= axios.put('/api/countries/'+id, country);
     return  response;
 }

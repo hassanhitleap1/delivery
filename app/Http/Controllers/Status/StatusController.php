@@ -23,7 +23,9 @@ class StatusController extends Controller
     }
 
     public function update(Status $status, StatusRequest $request){
-        $status=tap($status)->update([$request->all()]);
+        $status=tap($status)->update([
+            'name'=>$request->name,
+        ]);
         return new StatusResource($status);
     }
 

@@ -54,7 +54,7 @@ export default {
                 console.log(response.data.data)
                 this.$store.dispatch('ContryModule/createContry',response.data.data);
                 this.errors = [];
-                this.statu.name = null;
+                this.country.name = null;
                 this.success = true;
                 this.$router.push({ 'name': 'countries' });
             }).catch((error) => {

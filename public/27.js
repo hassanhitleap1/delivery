@@ -90,7 +90,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('RegionModule', ['regions'])),
   methods: {
     _delete: function _delete(region) {
-      this.$store.dispatch('StatusModule/deleteregion', region);
+      this.$store.dispatch('RegionModule/deleteregion', region);
     },
     search: function search() {}
   }

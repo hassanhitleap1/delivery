@@ -8,6 +8,9 @@ let actions = {
         })
 
     },
+    updateRegion({commit}, region) {
+        commit('UPDATE_REGION', region)
+    },
     fetchregions({commit}) {
         axios.get('/api/regions')
             .then(res => {
@@ -18,8 +21,8 @@ let actions = {
             console.log(err)
         })
     },
-    deleteregion({commit}, statu) {
-        axios.delete(`/api/regions/${statu.id}`)
+    deleteregion({commit}, region) {
+        axios.delete(`/api/regions/${region.id}`)
             .then(res => {
                 if (res.data === 'ok')
                     commit('DELETE_REGION', region)

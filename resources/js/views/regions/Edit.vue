@@ -24,7 +24,15 @@
                                     <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="region.name">
                                 </div>
                             </div>
-                            <!-- /.card-body -->
+                            <div class="form-group">
+                                <label for="name">price</label>
+                                <input type="text" class="form-control" id="price" placeholder="Enter name" v-model="region.price">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">name</label>
+                                <Select2 v-model="region.country_id" :options="countries" :settings="{ settingOption: countries.id , settingOption:  countries.name}" @change="myChangeEvent($event)" @select="mySelectEvent($event)" />
+                            </div>
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -45,7 +53,7 @@ import  * as apicountries from '../../services/countries';
 import Select2 from 'v-select2-component';
 
 export default {
-    name: "Update",
+    name: "Edit",
     components: {Select2},
     data(){
         return {
@@ -86,13 +94,11 @@ export default {
             this.country_id =id;
             console.log({id, text})
         },
-        update(region) {
-            services.update({name:region.name,country_id:region.country_id,price:region.price}).then( response => {
+        update(region,id) {
+
+            services.update({name:region.name,country_id:region.country_id,price:region.price},id).then( response => {
                 this.$store.dispatch('RegionModule/updateRegion',region);
                 this.errors = [];
-                this.region.name = null;
-                this.region.country_id = null;
-                this.region.price = null;
                 this.success = true;
                 this.$router.push({ name: 'regions' });
             }).catch((error) => {

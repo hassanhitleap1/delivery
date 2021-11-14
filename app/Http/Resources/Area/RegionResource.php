@@ -18,6 +18,7 @@ class RegionResource extends JsonResource
             'id'=> $this->id,
             'name'=> $this->name,
             'price'=> $this->price,
+            'country_id'=> $this->country_id,
             'created_at'=> $this->created_at,
             'country'=> $this->country,
         ];

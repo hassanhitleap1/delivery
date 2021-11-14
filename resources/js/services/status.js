@@ -10,7 +10,7 @@ export  async  function create(statu) {
 }
 
 export  async  function update(statu,id) {
-    const response= axios.put('/api/status/'+id, statu);
+    const response= axios.patch('/api/status/'+id, statu);
     return  response;
 }
 
