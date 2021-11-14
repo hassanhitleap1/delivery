@@ -75,7 +75,7 @@
 
         }, methods:{
             _delete(area){
-                this.$store.dispatch('AreaModule/_delete',area);
+                this.$store.dispatch('AreaModule/deleteArea',area);
             },
             search(){
 

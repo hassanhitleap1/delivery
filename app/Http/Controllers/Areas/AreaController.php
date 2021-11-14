@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\AreasRequest;
 use App\Http\Resources\Area\AreaResource;
 use App\Model\Areas\Area;
-use Illuminate\Http\Request;
+
 
 
 class AreaController extends Controller
@@ -24,13 +24,13 @@ class AreaController extends Controller
     }
 
 
-    public function update(Status $area, AreasRequest  $request){
+    public function update(Area $area, AreasRequest  $request){
         $area= tap($area)->update([$request->all()]);
         return new AreaResource($area);
     }
 
 
-    public function delete(Status $area){
+    public function delete(Area $area){
         $area->delete();
         return Response('',201);
     }

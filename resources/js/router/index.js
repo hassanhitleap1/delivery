@@ -207,7 +207,7 @@ const route =  new VueRouter({
         },
         {
             name: 'areas.create',
-            path: 'areas/create',
+            path: '/areas/create',
             component:  ()=>import("../views/areas/Create"),
             meta: {requiresAuth: true}
         },

@@ -57623,9 +57623,9 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     }
   }, {
     name: 'areas.create',
-    path: 'areas/create',
+    path: '/areas/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(6), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
     },
     meta: {
       requiresAuth: true
