@@ -75,6 +75,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
@@ -194,6 +200,12 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(area.name))]),
                       _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(area.region_id))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(area.region.name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(area.country.name))]),
+                      _vm._v(" "),
                       _c(
                         "td",
                         { staticClass: "action" },
@@ -252,7 +264,13 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
-        _c("th", [_vm._v("name")])
+        _c("th", [_vm._v("name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("region id")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("region")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("country")])
       ])
     ])
   }

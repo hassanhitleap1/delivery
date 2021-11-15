@@ -43,7 +43,7 @@
 <script>
 import  * as services from '../../services/areas';
 import  * as apiregions from '../../services/regions';
-import Select2 from 'v-select2-component';
+import Select2 from '../../components/inputs/select2';
 
 export default {
     name: "Create",

@@ -30,13 +30,19 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>name</th>
+                                    <th>region id</th>
+                                    <th>region</th>
+                                    <th>country</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr v-for="(area,index) in areas" :key="index">
                                     <td>{{area.id}}</td>
                                     <td>{{area.name}}</td>
-
+                                    <td>{{area.region_id}}</td>
+                                    <td>{{area.region.name}}</td>
+                                    <td>{{area.country.name}}</td>
                                     <td class="action">
                                         <router-link class="tag tag-success fas fa-edit"  :to="{'name':'areas.edit',params:{'id':area.id}}" />
                                         <span class="tag tag-success fas fa-trash-alt" @click="_delete(area)"></span>

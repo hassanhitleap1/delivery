@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Areas;
 use App\Http\Requests\Request;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -9,13 +9,13 @@ class AreasRequest extends \App\Http\Requests\Api\FormRequest
 {
 
     protected $createRules = [
-        'title' => 'required|max:255',
+        'name' => 'required|max:255',
         'region_id'=>'required|numeric'
     ];
 
 
     protected $updateRules = [
-        'title' => 'required|max:255',
+        'name' => 'required|max:255',
         'region_id'=>'required|numeric'
     ];
 

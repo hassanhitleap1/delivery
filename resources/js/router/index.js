@@ -194,12 +194,6 @@ const route =  new VueRouter({
             meta: {requiresAuth: true}
         },
         {
-            path: 'regions/view',
-            name: 'regions.create',
-            component:()=>import("../views/regions/View"),
-            meta: {requiresAuth: true}
-        },
-        {
             path: '/areas',
             component:  ()=>import("../views/areas/Index"),
             name:'areas',
@@ -212,9 +206,9 @@ const route =  new VueRouter({
             meta: {requiresAuth: true}
         },
         {
-            path: 'areas/:id/edit',
             name: 'areas.edit',
-            components:  ()=>import("../views/areas/Update"),
+            path: '/areas/:id/edit',
+            component:  ()=>import("../views/areas/Edit"),
             meta: {requiresAuth: true}
         },
         {
