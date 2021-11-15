@@ -1,60 +1,90 @@
 <template>
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- left column -->
-                <div v-if="errors">
-                    <div v-for="(v, k) in errors" :key="k">
-                        <p v-for="error in v" :key="error" class="alert alert-danger" role="alert">
-                            {{ error }}
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <!-- general form elements -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title float-left">login</h3>
+    <layout name="LayoutEmpty">
+        <div class="login-box">
+            <div class="login-logo">
+                <a href="../../index2.html"><b>Admin</b>LTE</a>
+            </div>
+            <!-- /.login-logo -->
+            <div class="card">
+                <div class="card-body login-card-body">
+                    <div v-if="errors">
+                        <div v-for="(v, k) in errors" :key="k">
+                            <p v-for="error in v" :key="error" class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </p>
                         </div>
-                        <!-- /.card-header -->
-
-
-
-                        <form role="form"   @submit.prevent="login()">
-                            <div class="card-body">
-
-                                <div class="form-group">
-                                    <label for="phone">phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="phone"   autocomplete="off" >
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="password" v-model="password" autocomplete="off">
-                                </div>
-
-                            </div>
-                            <!-- /.card-body -->
-
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
                     </div>
-                    <!-- /.card -->
+                    <p class="login-box-msg">Sign in to start your session</p>
 
+                    <form  @submit.prevent="login()">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="phone"  v-model="phone"   autocomplete="off" >
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="Password"  v-model="password"   autocomplete="off" >
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="remember">
+                                    <label for="remember">
+                                        Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+
+                    <div class="social-auth-links text-center mb-3">
+                        <p>- OR -</p>
+                        <a href="#" class="btn btn-block btn-primary">
+                            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                        </a>
+                        <a href="#" class="btn btn-block btn-danger">
+                            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                        </a>
+                    </div>
+                    <!-- /.social-auth-links -->
+
+                    <p class="mb-1">
+                        <a href="#">I forgot my password</a>
+                    </p>
+                    <p class="mb-0">
+                        <a href="register.html" class="text-center">Register a new membership</a>
+                    </p>
                 </div>
+                <!-- /.login-card-body -->
             </div>
         </div>
-    </section>
+
+    </layout>
+
 </template>
 
 <script>
 
-
+import Layout from '../views/layouts/Layout';
 
 export default {
     name: "Login",
+    components: {
+        Layout,
+    },
     data(){
         return {
             password:null,

@@ -227,9 +227,11 @@ const route =  new VueRouter({
             name: 'register',
             component:()=>import("../views/Register"),
             meta: {guest: true}
-
-
-        }
+        } ,{
+            name: 'about',
+            path: '/about',
+            component:  ()=>import("../views/About")
+        },
     ]
 });
 

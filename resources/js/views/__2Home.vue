@@ -1,5 +1,6 @@
 <template>
-    <layout name="LayoutDefault">
+
+    <div >
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -587,18 +588,19 @@
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
-    </layout>
+    </div>
 </template>
 
 <script>
-import Layout from '../views/layouts/Layout';
-import {get_dara_dashboard} from "../services/home";
-export default {
-    name: `Home`,
-    components: {
-        Layout,
-    },mounted() {
-        get_dara_dashboard();
+    import {get_dara_dashboard} from  "../services/home";
+    export default {
+        name: "Index",
+        mounted() {
+            get_dara_dashboard();
+        }
     }
-};
 </script>
+
+<style scoped>
+
+</style>
