@@ -14,7 +14,7 @@
                             </p>
                         </div>
                     </div>
-                    <p class="login-box-msg">Sign in to start your session</p>
+                    <p class="login-box-msg">forget password</p>
 
                     <form  @submit.prevent="login()">
                         <div class="input-group mb-3">
@@ -25,51 +25,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="input-group mb-3">
-                            <input type="password" class="form-control" placeholder="Password"  v-model="password"   autocomplete="off" >
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="icheck-primary">
-                                    <input type="checkbox" id="remember">
-                                    <label for="remember">
-                                        Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block btn-flat">register</button>
-                            </div>
-                            <!-- /.col -->
-                        </div>
+                   
+                        
                     </form>
 
-                    <div class="social-auth-links text-center mb-3">
-                        <p>- OR -</p>
-                        <a href="#" class="btn btn-block btn-primary">
-                            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                        </a>
-                        <a href="#" class="btn btn-block btn-danger">
-                            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                        </a>
-                    </div>
-                    <!-- /.social-auth-links -->
-
-                    <p class="mb-1">
-                      <router-link class="nav-link " :to="{name:'forgot_password'}" exact>
-                           I forgot my password
-                     </router-link>
-                       
-                    </p>
+                
                     <p class="mb-0">
                      <router-link class="nav-link " :to="{name:'register'}" exact>
                             Register a new membership
+                     </router-link>
+                   
+                    </p>
+                     <p class="mb-0">
+                     <router-link class="nav-link " :to="{name:'login'}" exact>
+                          login
                      </router-link>
                    
                     </p>
@@ -87,7 +56,7 @@
 import Layout from '../views/layouts/Layout';
 
 export default {
-    name: "Login",
+    name: "Forgot_password",
     components: {
         Layout,
     },

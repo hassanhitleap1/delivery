@@ -88,6 +88,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Login",
@@ -286,7 +292,7 @@ var render = function() {
                       staticClass: "btn btn-primary btn-block btn-flat",
                       attrs: { type: "submit" }
                     },
-                    [_vm._v("Sign In")]
+                    [_vm._v("register")]
                   )
                 ])
               ])
@@ -318,17 +324,45 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "mb-1" }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("I forgot my password")])
-          ]),
+          _c(
+            "p",
+            { staticClass: "mb-1" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "nav-link ",
+                  attrs: { to: { name: "forgot_password" }, exact: "" }
+                },
+                [
+                  _vm._v(
+                    "\n                       I forgot my password\n                 "
+                  )
+                ]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("p", { staticClass: "mb-0" }, [
-            _c(
-              "a",
-              { staticClass: "text-center", attrs: { href: "register.html" } },
-              [_vm._v("Register a new membership")]
-            )
-          ])
+          _c(
+            "p",
+            { staticClass: "mb-0" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "nav-link ",
+                  attrs: { to: { name: "register" }, exact: "" }
+                },
+                [
+                  _vm._v(
+                    "\n                        Register a new membership\n                 "
+                  )
+                ]
+              )
+            ],
+            1
+          )
         ])
       ])
     ])
@@ -420,11 +454,11 @@ __webpack_require__.r(__webpack_exports__);
 var map = {
 	"./AppLayout": [
 		"./resources/js/views/layouts/AppLayout.vue",
-		7
+		38
 	],
 	"./AppLayout.vue": [
 		"./resources/js/views/layouts/AppLayout.vue",
-		7
+		38
 	],
 	"./Layout": [
 		"./resources/js/views/layouts/Layout.js"
@@ -434,19 +468,19 @@ var map = {
 	],
 	"./LayoutDefault": [
 		"./resources/js/views/layouts/LayoutDefault.vue",
-		1
+		35
 	],
 	"./LayoutDefault.vue": [
 		"./resources/js/views/layouts/LayoutDefault.vue",
-		1
+		35
 	],
 	"./LayoutEmpty": [
 		"./resources/js/views/layouts/LayoutEmpty.vue",
-		0
+		36
 	],
 	"./LayoutEmpty.vue": [
 		"./resources/js/views/layouts/LayoutEmpty.vue",
-		0
+		36
 	]
 };
 function webpackAsyncContext(req) {

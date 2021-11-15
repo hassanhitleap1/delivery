@@ -119,17 +119,12 @@
                     </li>
 
                     <li class="nav-item">
-                        <router-link class="nav-link " :to="{name:'login'}" exact>
+                        <li class="nav-link " @click="logout" exact>
                             <i class="far fa-circle nav-icon"></i>
-                            <p>login</p>
-                        </router-link>
+                            <p>logout</p>
+                        </li>
                     </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link " :to="{name:'register'}" exact>
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>register</p>
-                        </router-link>
-                    </li>
+                 
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -141,7 +136,15 @@
 
 <script>
     export default {
-        name: "Sidebar"
+        name: "Sidebar",
+        methods:{
+            logout (){
+                localStorage.removeItem("expires_in");
+                localStorage.removeItem("token_type");
+                  localStorage.removeItem("token");
+                  this.$router.push({ name: 'login' });
+            }
+        }
     }
 </script>
 

@@ -558,11 +558,11 @@ __webpack_require__.r(__webpack_exports__);
 var map = {
 	"./AppLayout": [
 		"./resources/js/views/layouts/AppLayout.vue",
-		7
+		38
 	],
 	"./AppLayout.vue": [
 		"./resources/js/views/layouts/AppLayout.vue",
-		7
+		38
 	],
 	"./Layout": [
 		"./resources/js/views/layouts/Layout.js"
@@ -572,19 +572,19 @@ var map = {
 	],
 	"./LayoutDefault": [
 		"./resources/js/views/layouts/LayoutDefault.vue",
-		1
+		35
 	],
 	"./LayoutDefault.vue": [
 		"./resources/js/views/layouts/LayoutDefault.vue",
-		1
+		35
 	],
 	"./LayoutEmpty": [
 		"./resources/js/views/layouts/LayoutEmpty.vue",
-		0
+		36
 	],
 	"./LayoutEmpty.vue": [
 		"./resources/js/views/layouts/LayoutEmpty.vue",
-		0
+		36
 	]
 };
 function webpackAsyncContext(req) {

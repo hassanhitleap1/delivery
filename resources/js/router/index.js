@@ -15,69 +15,95 @@ const route =  new VueRouter({
             path: '/',
             name: 'home',
             component: ()=>import("../views/Home"),
+            meta: {requiresAuth: true}
+
         },
         {
             path: '/shipments',
             name: 'shipments',
             component: ()=>import("../views/shipments/Index"),
+            meta: {requiresAuth: true}
+
         },
         {
             name: 'shipments.create',
             path: 'shipments/create',
             component:  ()=>import("../views/shipments/Create"),
+            meta: {requiresAuth: true}
+
         },
         {
             path: 'shipments/:id/edit',
             name: 'shipments.update',
             components:  ()=>import("../views/shipments/Update"),
+            meta: {requiresAuth: true}
+
         },
         {
             path: 'shipments/view',
             name: 'shipments.view',
             component:()=>import("../views/shipments/View"),
+            meta: {requiresAuth: true}
+
         },
         {
             path: '/user/drivers',
             name: 'drivers',
             component: ()=>import("../views/drivers/Index"),
+            meta: {requiresAuth: true}
+
 
         },
         {
             path: '/user/drivers',
             name: 'drivers.index',
             component: ()=>import("../views/drivers/Index"),
+            meta: {requiresAuth: true}
+
         },
         {
             name: 'drivers.create',
             path: '/user/drivers/create',
             component:  ()=>import("../views/drivers/Create"),
+            meta: {requiresAuth: true}
+
         },
         {
             name: 'drivers.edit',
             path: '/user/drivers/:id/edit',
             component:  ()=>import("../views/drivers/Edit"),
+            meta: {requiresAuth: true}
+
         },
 
         {
             path: '/user/users',
             name: 'users',
             component: ()=>import("../views/users/Index"),
+            meta: {requiresAuth: true}
+
 
         },
         {
             path: '/user/users',
             name: 'users.index',
             component: ()=>import("../views/users/Index"),
+            meta: {requiresAuth: true}
+
         },
         {
             name: 'users.create',
             path: '/user/users/create',
             component:  ()=>import("../views/users/Create"),
+            meta: {requiresAuth: true}
+
         },
         {
             name: 'users.edit',
             path: '/user/users/:id/edit',
             component:  ()=>import("../views/users/Edit"),
+            meta: {requiresAuth: true}
+
         },
 
 
@@ -218,16 +244,24 @@ const route =  new VueRouter({
             meta: {requiresAuth: true}
         },
         {
-            path: 'login',
+            path: '/login',
             name: 'login',
             component:()=>import("../views/Login"),
         },
         {
-            path: 'register',
+            path: '/register',
             name: 'register',
             component:()=>import("../views/Register"),
             meta: {guest: true}
-        } ,{
+        } ,
+        
+        {
+            path: '/forgot-password',
+            name: 'Forgot_password',
+            component:()=>import("../views/Forgot_password"),
+            meta: {guest: true}
+        } ,
+        {
             name: 'about',
             path: '/about',
             component:  ()=>import("../views/About")
@@ -242,6 +276,7 @@ route.beforeEach((to, from, next) => {
         if (!loggedIn()) {
             next({
                 name: 'login',
+                path:'/login',
                 query: { redirect: to.fullPath }
             })
         } else {
