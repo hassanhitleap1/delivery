@@ -18,7 +18,7 @@ class AreaController extends Controller
         return AreaResource::collection(Area::all());
     }
 
-    public function create(AreasRequest $request){+
+    public function store(AreasRequest $request){
             $area = Area::create([
                 'name'=>$request->name,
                 'region_id'=>$request->region_id,

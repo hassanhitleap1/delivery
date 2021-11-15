@@ -81,6 +81,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       _services_regions__WEBPACK_IMPORTED_MODULE_1__["get_all"]().then(function (res) {
+        console.log(res.data.data);
         _this.regions = res.data.data.map(function (region) {
           return {
             id: region.id,
@@ -91,10 +92,10 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    saprot: function saprot(contry) {
+    saprot: function saprot(region) {
       return {
-        id: contry.id,
-        text: contry.name
+        id: region.id,
+        text: region.name
       };
     },
     myChangeEvent: function myChangeEvent(val) {
@@ -237,16 +238,14 @@ var render = function() {
                     "div",
                     { staticClass: "form-group" },
                     [
-                      _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("region")
-                      ]),
+                      _c("label", { attrs: { for: "name" } }, [_vm._v("name")]),
                       _vm._v(" "),
                       _c("Select2", {
                         attrs: {
                           options: _vm.regions,
                           settings: {
-                            settingOption: _vm.region.id,
-                            settingOption: _vm.region.name
+                            settingOption: _vm.regions.id,
+                            settingOption: _vm.regions.name
                           }
                         },
                         on: {

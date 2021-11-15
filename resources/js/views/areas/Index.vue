@@ -65,6 +65,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
+    import * as services from "../../services/areas";
     export default {
         name: "Index",
         data(){
@@ -81,7 +82,12 @@
 
         }, methods:{
             _delete(area){
-                this.$store.dispatch('AreaModule/deleteArea',area);
+                services._delete(area.id).then( response => {
+                    this.$store.dispatch('AreaModule/deleteArea',area);
+                }).catch((error) => {
+                    console.log("error",error)
+                });
+
             },
             search(){
 

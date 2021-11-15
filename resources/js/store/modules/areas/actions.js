@@ -16,13 +16,7 @@ let actions = {
         commit('UPDATE_AREA', area)
     },
     deleteArea({commit}, area) {
-        axios.delete(`/api/areas/${area.id}`)
-            .then(res => {
-                if (res.data === 'ok')
-                    commit('DELETE_AREA', area)
-            }).catch(err => {
-            console.log(err);
-        })
+        commit('DELETE_AREA', area)
     }
 }
 

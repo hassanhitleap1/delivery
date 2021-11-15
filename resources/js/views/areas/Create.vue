@@ -24,8 +24,8 @@
                                     <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="area.name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">region</label>
-                                    <Select2 v-model="area.region_id" :options="regions" :settings="{ settingOption: region.id , settingOption:  region.name}" @change="myChangeEvent($event)" @select="mySelectEvent($event)" />
+                                    <label for="name">name</label>
+                                    <Select2 v-model="area.region_id" :options="regions" :settings="{ settingOption: regions.id , settingOption:  regions.name}" @change="myChangeEvent($event)" @select="mySelectEvent($event)" />
                                 </div>
 
                             </div>
@@ -43,7 +43,7 @@
 <script>
 import  * as services from '../../services/areas';
 import  * as apiregions from '../../services/regions';
-import Select2 from '../../components/inputs/select2';
+import Select2 from 'v-select2-component';
 
 export default {
     name: "Create",
@@ -74,8 +74,8 @@ export default {
                 console.log(err)
             })
         },
-        saprot(contry){
-            return {id: contry.id,text :contry.name}
+        saprot(region){
+            return {id: region.id,text :region.name}
         },
         myChangeEvent(val){
             console.log(val);
