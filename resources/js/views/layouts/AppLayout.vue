@@ -1,13 +1,18 @@
 <template>
-
+    <component :is="layout">
+        <slot />
+    </component>
 </template>
 
 <script>
+const defaultLayout = 'AppLayoutDefault'
 export default {
-name: "LayoutDefault"
+    name: "AppLayout",
+    computed: {
+        layout() {
+            const layout = this.$route.meta.layout || defaultLayout
+            return () => import(`../../views/layouts/${layout}.vue`)
+        }
+    }
 }
 </script>
-
-<style scoped>
-
-</style>
