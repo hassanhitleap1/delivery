@@ -1,5 +1,6 @@
 <template>
-    <section class="content">
+    <layout name="LayoutDefault">
+        <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <!-- left column -->
@@ -54,13 +55,17 @@
             </div>
         </div>
     </section>
+    </layout>
 </template>
 
 <script>
-
      import  * as services from '../../services/admin';
+     import Layout from "../layouts/Layout";
     export default {
         name: "admins.edit",
+        components:{
+            Layout,
+        },
         data(){
                 return {
                     errors: [],

@@ -1,5 +1,6 @@
 <template>
-    <section class="content">
+    <layout name="LayoutDefault">
+        <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <!-- left column -->
@@ -38,16 +39,18 @@
             </div>
         </div>
     </section>
+    </layout>
 </template>
 
 <script>
 import  * as services from '../../services/areas';
 import  * as apiregions from '../../services/regions';
 import Select2 from 'v-select2-component';
+import Layout from "../layouts/Layout";
 
 export default {
     name: "Create",
-    components: {Select2},
+    components: {Select2, Layout},
     data(){
         return {
             errors: null,

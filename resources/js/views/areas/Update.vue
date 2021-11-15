@@ -1,5 +1,6 @@
 <template>
-    <section class="content">
+    <layout-default name="LayoutDefault">
+        <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <!-- left column -->
@@ -258,11 +259,14 @@
             </div>
         </div>
     </section>
+    </layout-default>
 </template>
 
 <script>
+    import LayoutDefault from "../layouts/LayoutDefault";
     export default {
-        name: "Update"
+        name: "Update",
+        components: {LayoutDefault}
     }
 </script>
 

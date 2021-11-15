@@ -1,5 +1,6 @@
 <template>
-    <section class="content">
+    <layout name="LayoutDefault">
+         <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -61,6 +62,7 @@
             </div>
         </div>
     </section>
+    </layout>
 </template>
 
 <script>
@@ -68,12 +70,15 @@
     import Swal from 'sweetalert2';
     import AWN from "awesome-notifications";
     import pagination from 'laravel-vue-pagination';
+    import Layout from "../layouts/Layout";
 
     export default {
         name: "Index",
         components:{
-            pagination
+            pagination,
+            Layout,
         },
+
         data(){
             return {
                 users:{

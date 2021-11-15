@@ -9,6 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _layouts_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/Layout */ "./resources/js/views/layouts/Layout.js");
 //
 //
 //
@@ -271,8 +272,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Create",
+  components: {
+    Layout: _layouts_Layout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       form: {
@@ -302,14 +309,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content" }, [
+  return _c("layout", { attrs: { name: "LayoutDefault" } }, [
+    _c("section", { staticClass: "content" }, [
       _c("div", { staticClass: "container-fluid" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-6" }, [
@@ -811,8 +812,9 @@ var staticRenderFns = [
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -885,6 +887,108 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_View_vue_vue_type_template_id_3cd9a626_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/views/layouts lazy recursive ^\\.\\/.*$":
+/*!*******************************************************************!*\
+  !*** ./resources/js/views/layouts lazy ^\.\/.*$ namespace object ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./AppLayout": [
+		"./resources/js/views/layouts/AppLayout.vue",
+		7
+	],
+	"./AppLayout.vue": [
+		"./resources/js/views/layouts/AppLayout.vue",
+		7
+	],
+	"./Layout": [
+		"./resources/js/views/layouts/Layout.js"
+	],
+	"./Layout.js": [
+		"./resources/js/views/layouts/Layout.js"
+	],
+	"./LayoutDefault": [
+		"./resources/js/views/layouts/LayoutDefault.vue",
+		1
+	],
+	"./LayoutDefault.vue": [
+		"./resources/js/views/layouts/LayoutDefault.vue",
+		1
+	],
+	"./LayoutEmpty": [
+		"./resources/js/views/layouts/LayoutEmpty.vue",
+		0
+	],
+	"./LayoutEmpty.vue": [
+		"./resources/js/views/layouts/LayoutEmpty.vue",
+		0
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(function() {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(id);
+	});
+}
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = "./resources/js/views/layouts lazy recursive ^\\.\\/.*$";
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ "./resources/js/views/layouts/Layout.js":
+/*!**********************************************!*\
+  !*** ./resources/js/views/layouts/Layout.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Layout",
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    // Check if layout component
+    // has already been registered.
+    if (!vue__WEBPACK_IMPORTED_MODULE_0___default.a.options.components[this.name]) {
+      vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(this.name, function () {
+        return __webpack_require__("./resources/js/views/layouts lazy recursive ^\\.\\/.*$")("./".concat(_this.name));
+      } // `../views/layouts/layouts/${this.name}.vue`
+      );
+    }
+
+    this.$parent.$emit("update:layout", this.name);
+  },
+  render: function render() {
+    return this.$slots["default"][0];
+  }
+});
 
 /***/ })
 

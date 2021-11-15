@@ -1,5 +1,6 @@
 <template>
-    <section class="content">
+    <layout name="LayoutDefault">
+        <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -59,15 +60,19 @@
         </div>
 
     </section>
-
+    </layout>
 
 </template>
 
 <script>
     import {mapGetters} from 'vuex'
     import * as services from "../../services/areas";
+    import Layout from "../layouts/Layout";
     export default {
         name: "Index",
+        components:{
+            Layout,
+        },
         data(){
             return {
                 keywords:null,
