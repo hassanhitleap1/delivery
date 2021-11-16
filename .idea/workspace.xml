@@ -5,21 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="29">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/JwtMiddleware.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Areas/AreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Areas/AreaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Areas/CountriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Areas/CountriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Areas/RegionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Areas/RegionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/Dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shipments/DelayController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shipments/DelayController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shipments/ShipmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shipments/ShipmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Status/HistoryStatusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Status/HistoryStatusController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Status/StatusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Status/StatusController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Users/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Users/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/DriverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Users/DriverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Users/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/common/jwt.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/common/jwt.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/areas.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/areas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/countries.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/countries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/custmers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/custmers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/drivers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/drivers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/regions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/regions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/status.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/services/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -354,7 +350,7 @@
       <workItem from="1636979587883" duration="6528000" />
       <workItem from="1637051167037" duration="4327000" />
       <workItem from="1637057351045" duration="9000" />
-      <workItem from="1637057369092" duration="1179000" />
+      <workItem from="1637057369092" duration="3912000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
