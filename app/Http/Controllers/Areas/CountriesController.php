@@ -12,6 +12,12 @@ use App\Http\Requests\Areas\CountriesRequest;
 
 class CountriesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('jwt.verify')->only(['index','store','update','show','destroy']);
+    }
+
     public function index(){
         return CountriesResource::collection(Countries::all());
     }

@@ -8,6 +8,10 @@ use App\Http\Resources\Shipments\ShipmentsResource;
 
 class ShipmentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('jwt.verify');
+    }
     public function index(){
         return ShipmentsResource::collection(Shipment::all());
     }

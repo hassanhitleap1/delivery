@@ -3,13 +3,20 @@
 
 namespace App\Http\Controllers\Areas;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Areas\RegionRequest;
 use App\Http\Resources\Area\RegionResource;
 use App\Model\Areas\Region;
 
 
-class RegionController
+class RegionController  extends  Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('jwt.verify')->only(['index','store','update','show','destroy']);
+    }
+
     public function index(){
         return RegionResource::collection(Region::all());
     }

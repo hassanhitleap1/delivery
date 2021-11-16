@@ -12,6 +12,10 @@ use App\User;
 
 class CustomerController extends  Controller
 {
+    public function __construct()
+    {
+        $this->middleware('jwt.verify')->only(['index','store','update','show','destroy']);
+    }
     public function index(){
         return CustomerResource::collection(Customer::paginate(10));
     }

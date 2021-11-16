@@ -15,6 +15,10 @@ use App\User;
 
 class DriverController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('jwt.verify')->only(['index','store','update','show','destroy']);
+    }
     public function index(){
         return DriverResource::collection(Driver::paginate(10));
     }

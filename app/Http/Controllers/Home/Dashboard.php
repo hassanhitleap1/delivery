@@ -11,7 +11,10 @@ use Illuminate\Support\Facades\DB;
 
 class Dashboard extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('jwt.verify');
+    }
 
     public function index(){
         $data=User::select(DB::raw('count(*) as count_user'),
