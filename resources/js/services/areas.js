@@ -31,6 +31,12 @@ export  async  function _delete(id) {
 }
 
 
+export  async  function get_areas_region(region_id) {
+    const response = await axios.get(`${api_url}/areas`,options );
+    return  response;
+}
+
+
 
 
 

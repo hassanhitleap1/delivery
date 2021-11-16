@@ -30,6 +30,10 @@ export  async  function _delete(id) {
 }
 
 
+export  async  function get()  {
+    const response = await axios.get(`${api_url}/user/drivers/get`,options);
+    return  response;
+}
 
 
 

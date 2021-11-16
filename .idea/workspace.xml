@@ -6,16 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="29">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/common/jwt.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/common/jwt.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/_App.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/services/areas.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/areas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/countries.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/countries.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/custmers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/custmers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/services/drivers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/drivers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/regions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/regions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/status.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/services/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/services/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/__2Home.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/__Login.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/regions/__Create.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/shipments/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/shipments/Create.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -350,7 +347,7 @@
       <workItem from="1636979587883" duration="6528000" />
       <workItem from="1637051167037" duration="4327000" />
       <workItem from="1637057351045" duration="9000" />
-      <workItem from="1637057369092" duration="3912000" />
+      <workItem from="1637057369092" duration="12485000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
