@@ -7,7 +7,6 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DashboardResource;
 use App\User;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class Dashboard extends Controller
@@ -15,11 +14,18 @@ class Dashboard extends Controller
 
 
     public function index(){
-//        $date=Carbon::now()->toDateString();
-//        $data=User::select("count(*) as count_user",
-//            DB::row("(select (*) from orders where date(orders.cerated_at)='$date') as count_order"))
-//            ->first();
-        $data=[];
+        $data=User::select(DB::raw('count(*) as count_user'),
+            DB::raw('
+                ( CASE
+                    WHEN users.type = 1 THEN "admins"
+                    WHEN users.type = 2 THEN "users"
+                    WHEN users.type = 3 THEN "drivers"
+                    ELSE "customers"
+                END)
+            as
+             type_name'),
+            'users.type')
+            ->groupBy('users.type')->get();
         return new DashboardResource($data);
     }
 }
