@@ -1,20 +1,28 @@
 import { site_url, api_url } from '../globals'
-import {options} from "../common/jwt.service";
+import {JSON_HEADERS} from "../common/jwt.service";
+
 export  async  function get_all(page = 1,keywords=null)  {
-    const response = await axios.get(`${api_url}/user/users` ,
-        { params: { page: page , keywords:keywords}
-        },options);
+    let options = {
+        headers :JSON_HEADERS,
+        params: { page: page , keywords:keywords}};
+    const response = await axios.get(`${api_url}/user/users` ,options);
     return  response;
 }
 
 export  async  function create(user) {
-    options.push({data:user});
+    let options = {
+        headers :JSON_HEADERS,
+        data: user
+    };
     const response= axios.post('/api/user/users', options);
     return  response;
 }
 
 export  async  function update(user,id) {
-    options.push({data:user});
+    let options = {
+        headers :JSON_HEADERS,
+        data: user
+    };
     const response= axios.put('/api/user/users/'+id, options);
     return  response;
 }

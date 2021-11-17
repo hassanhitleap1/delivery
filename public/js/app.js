@@ -55884,24 +55884,21 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!********************************************!*\
   !*** ./resources/js/common/jwt.service.js ***!
   \********************************************/
-/*! exports provided: header, getToken, setToken, unsetToken, default */
+/*! exports provided: JSON_HEADERS, getToken, setToken, unsetToken, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "header", function() { return header; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JSON_HEADERS", function() { return JSON_HEADERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getToken", function() { return getToken; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setToken", function() { return setToken; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unsetToken", function() { return unsetToken; });
 var ID_API_TOKEN = 'token';
-function header() {
-  return {
-    headers: {
-      'Authorization': "Bearer ".concat(getToken())
-    }
-  };
-}
-;
+var JSON_HEADERS = {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json; charset=utf-8',
+  'Authorization': "Bearer ".concat(getToken())
+};
 function getToken() {
   return localStorage.getItem(ID_API_TOKEN);
 }
@@ -55915,7 +55912,7 @@ var unsetToken = function unsetToken() {
   getToken: getToken,
   setToken: setToken,
   unsetToken: unsetToken,
-  header: header
+  JSON_HEADERS: JSON_HEADERS
 });
 
 /***/ }),
@@ -56376,7 +56373,9 @@ function _get_all() {
             page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
             keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
             _context.next = 4;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/status"), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/status"), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 4:
             response = _context.sent;
@@ -56398,15 +56397,16 @@ function create(_x) {
 
 function _create() {
   _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(statu) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: statu
-            });
-            response = axios.post('/api/status', _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            };
+            response = axios.post('/api/status', options);
             return _context2.abrupt("return", response);
 
           case 3:
@@ -56425,15 +56425,16 @@ function update(_x2, _x3) {
 
 function _update() {
   _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(statu, id) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: statu
-            });
-            response = axios.patch('/api/status/' + id, _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            };
+            response = axios.patch('/api/status/' + id, options);
             return _context3.abrupt("return", response);
 
           case 3:
@@ -56458,7 +56459,9 @@ function _get_statu() {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/status/").concat(id), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/status/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context4.sent;
@@ -56486,7 +56489,9 @@ function _delete2() {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.next = 2;
-            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/status/").concat(id), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/status/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context5.sent;

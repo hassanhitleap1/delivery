@@ -163,7 +163,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.pagination[data-v-20b66ae6]{\r\n    margin-bottom: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.pagination[data-v-20b66ae6]{\n    margin-bottom: 0;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -422,24 +422,20 @@ function _get_admins() {
             page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
             keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
             options = {
-              header: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["header"],
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               params: {
                 page: page,
                 keywords: keywords
               }
-            }; // let options_data=options;
-            // options.params = { page: page , keywords:keywords};
-
-            console.log(options); //  optionss.push({params: { page: page , keywords:keywords}});
-
-            _context.next = 6;
+            };
+            _context.next = 5;
             return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/admins"), options);
 
-          case 6:
+          case 5:
             response = _context.sent;
             return _context.abrupt("return", response);
 
-          case 8:
+          case 7:
           case "end":
             return _context.stop();
         }
@@ -455,14 +451,15 @@ function create_admin(_x) {
 
 function _create_admin() {
   _create_admin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(admin) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            options.push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: admin
-            });
+            };
             response = axios.post('/api/user/admins', options);
             return _context2.abrupt("return", response);
 
@@ -482,14 +479,15 @@ function update_admin(_x2, _x3) {
 
 function _update_admin() {
   _update_admin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(admin, id) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            options.push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: admin
-            });
+            };
             response = axios.put('/api/user/admins/' + id, options);
             return _context3.abrupt("return", response);
 
@@ -515,7 +513,9 @@ function _get_admin() {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/admins/").concat(id), options);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/admins/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context4.sent;
@@ -543,7 +543,9 @@ function _delete_admin() {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.next = 2;
-            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/admins/").concat(id), options);
+            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/admins/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context5.sent;

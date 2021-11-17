@@ -174,7 +174,9 @@ function _get_dara_dashboard() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/dashboard"), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/dashboard"), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             res = _context.sent;

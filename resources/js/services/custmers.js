@@ -1,21 +1,29 @@
 import { site_url, api_url } from '../globals'
-import {options} from "../common/jwt.service";
+import {JSON_HEADERS} from "../common/jwt.service";
+
 export  async  function get_all(page = 1,keywords=null)  {
-    const response = await axios.get(`${api_url}/user/custmers` ,
-        { params: { page: page , keywords:keywords}
-        },options);
+    let options = {
+        headers :JSON_HEADERS,
+        params: { page: page , keywords:keywords}};
+    const response = await axios.get(`${api_url}/user/custmers` ,options);
     return  response;
 }
 
 export  async  function create(custmer) {
-    options.push({data:custmer});
+    let options = {
+        headers :JSON_HEADERS,
+        data: custmer
+    };
     const response= axios.post('/api/user/custmers', options);
     return  response;
 }
 
 export  async  function update(custmer,id) {
-    options.push({data:custmer});
-    const response= axios.put('/api/user/custmers/'+id, options);
+    let options = {
+        headers :JSON_HEADERS,
+        data: custmer
+    };
+    const response= axios.put('/api/user/custmers/'+id,options);
     return  response;
 }
 

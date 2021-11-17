@@ -276,7 +276,9 @@ function _get_all() {
             page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
             keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
             _context.next = 4;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/countries"), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/countries"), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 4:
             response = _context.sent;
@@ -298,16 +300,17 @@ function create(_x) {
 
 function _create() {
   _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(country) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: country
-            });
+            };
             _context2.next = 3;
-            return axios.post('/api/countries', _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.post('/api/countries', options);
 
           case 3:
             response = _context2.sent;
@@ -329,15 +332,16 @@ function update(_x2, _x3) {
 
 function _update() {
   _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(country, id) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: country
-            });
-            response = axios.put('/api/countries/' + id, _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            };
+            response = axios.put('/api/countries/' + id, options);
             return _context3.abrupt("return", response);
 
           case 3:
@@ -362,7 +366,9 @@ function _get_country() {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/countries/").concat(id), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/countries/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context4.sent;
@@ -390,7 +396,9 @@ function _delete2() {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.next = 2;
-            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/countries/").concat(id), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/countries/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context5.sent;

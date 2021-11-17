@@ -1035,6 +1035,7 @@ function _get_all() {
   _get_all = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
     var page,
         keywords,
+        options,
         response,
         _args = arguments;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -1043,14 +1044,21 @@ function _get_all() {
           case 0:
             page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
             keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
-            _context.next = 4;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas"), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
+              params: {
+                page: page,
+                keywords: keywords
+              }
+            };
+            _context.next = 5;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas"), options);
 
-          case 4:
+          case 5:
             response = _context.sent;
             return _context.abrupt("return", response);
 
-          case 6:
+          case 7:
           case "end":
             return _context.stop();
         }
@@ -1066,15 +1074,16 @@ function create(_x) {
 
 function _create() {
   _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(area) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: area
-            });
-            response = axios.post('/api/areas', area);
+            };
+            response = axios.post('/api/areas', options);
             return _context2.abrupt("return", response);
 
           case 3:
@@ -1093,15 +1102,16 @@ function update(_x2, _x3) {
 
 function _update() {
   _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(area, id) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: area
-            });
-            response = axios.put('/api/areas/' + id, _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            };
+            response = axios.put('/api/areas/' + id, options);
             return _context3.abrupt("return", response);
 
           case 3:
@@ -1125,17 +1135,16 @@ function _get_area() {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
-              data: area
+            _context4.next = 2;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
             });
-            _context4.next = 3;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas/").concat(id), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
 
-          case 3:
+          case 2:
             response = _context4.sent;
             return _context4.abrupt("return", response);
 
-          case 5:
+          case 4:
           case "end":
             return _context4.stop();
         }
@@ -1156,17 +1165,16 @@ function _delete2() {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
-              data: area
+            _context5.next = 2;
+            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
             });
-            _context5.next = 3;
-            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas/").concat(id), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
 
-          case 3:
+          case 2:
             response = _context5.sent;
             return _context5.abrupt("return", response);
 
-          case 5:
+          case 4:
           case "end":
             return _context5.stop();
         }
@@ -1188,7 +1196,9 @@ function _get_areas_region() {
         switch (_context6.prev = _context6.next) {
           case 0:
             _context6.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas"), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas"), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context6.sent;
@@ -1241,6 +1251,7 @@ function _get_all() {
   _get_all = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
     var page,
         keywords,
+        options,
         response,
         _args = arguments;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -1249,19 +1260,21 @@ function _get_all() {
           case 0:
             page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
             keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
-            _context.next = 4;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/drivers"), {
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               params: {
                 page: page,
                 keywords: keywords
               }
-            }, _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            };
+            _context.next = 5;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/drivers"), options);
 
-          case 4:
+          case 5:
             response = _context.sent;
             return _context.abrupt("return", response);
 
-          case 6:
+          case 7:
           case "end":
             return _context.stop();
         }
@@ -1277,15 +1290,16 @@ function create(_x) {
 
 function _create() {
   _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(driver) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: driver
-            });
-            response = axios.post('/api/user/drivers', _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            };
+            response = axios.post('/api/user/drivers', options);
             return _context2.abrupt("return", response);
 
           case 3:
@@ -1304,15 +1318,16 @@ function update(_x2, _x3) {
 
 function _update() {
   _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(driver, id) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: driver
-            });
-            response = axios.put('/api/user/drivers/' + id, _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            };
+            response = axios.put('/api/user/drivers/' + id, options);
             return _context3.abrupt("return", response);
 
           case 3:
@@ -1337,7 +1352,7 @@ function _get_one() {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/drivers/").concat(id), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/drivers/").concat(id), options);
 
           case 2:
             response = _context4.sent;
@@ -1365,7 +1380,7 @@ function _delete2() {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.next = 2;
-            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/drivers/").concat(id), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/drivers/").concat(id), options);
 
           case 2:
             response = _context5.sent;
@@ -1393,7 +1408,7 @@ function _get() {
         switch (_context6.prev = _context6.next) {
           case 0:
             _context6.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/drivers/get"), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/drivers/get"), options);
 
           case 2:
             response = _context6.sent;
@@ -1454,7 +1469,9 @@ function _get_all() {
             page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
             keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
             _context.next = 4;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/regions"), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/regions"), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 4:
             response = _context.sent;
@@ -1476,16 +1493,17 @@ function create(_x) {
 
 function _create() {
   _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(region) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: region
-            });
+            };
             _context2.next = 3;
-            return axios.post('/api/regions', _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.post('/api/regions', options);
 
           case 3:
             response = _context2.sent;
@@ -1507,15 +1525,16 @@ function update(_x2, _x3) {
 
 function _update() {
   _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(region, id) {
-    var response;
+    var options, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"].push({
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
               data: region
-            });
-            response = axios.put('/api/regions/' + id, _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            };
+            response = axios.put('/api/regions/' + id, options);
             return _context3.abrupt("return", response);
 
           case 3:
@@ -1540,7 +1559,9 @@ function _get_region() {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/regions/").concat(id), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/regions/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context4.sent;
@@ -1568,7 +1589,9 @@ function _delete2() {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.next = 2;
-            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/regions/").concat(id), _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["options"]);
+            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/regions/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context5.sent;
