@@ -4,7 +4,7 @@ export  async  function get_shipments() {
     return  res;
 }
 
-export  async  function create_shipment(shipment) {
+export  async  function create(shipment) {
     const response= axios.post('/api/user/shipments', shipment);
     return  response;
 }

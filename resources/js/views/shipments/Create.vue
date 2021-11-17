@@ -130,7 +130,7 @@
 </template>
 
 <script>
-import  * as services from '../../services/admin';
+import  * as services from '../../services/shipments';
 import Layout from "../layouts/Layout";
 import {get}   from "../../services/drivers";
 import * as apiregions from "../../services/regions";

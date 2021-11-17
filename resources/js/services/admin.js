@@ -1,9 +1,17 @@
 import { site_url, api_url } from '../globals'
-import {options} from "../common/jwt.service";
+import {header} from "../common/jwt.service";
+
 export  async  function get_admins(page = 1,keywords=null) {
-    const response = await axios.get(`${api_url}/user/admins` ,
-        { params: { page: page , keywords:keywords}
-        },options);
+    let options = {
+        header,
+        params: { page: page , keywords:keywords}};
+    // let options_data=options;
+    // options.params = { page: page , keywords:keywords};
+
+    console.log(options)
+    //  optionss.push({params: { page: page , keywords:keywords}});
+
+    const response = await axios.get(`${api_url}/user/admins` ,options);
     return  response;
 }
 
