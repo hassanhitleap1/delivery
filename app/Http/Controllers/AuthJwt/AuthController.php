@@ -8,7 +8,6 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\JWTAuth;
 use Validator;
 
 class AuthController extends Controller
@@ -79,7 +78,8 @@ class AuthController extends Controller
      */
     public function refresh()
     {
-        return $this->respondWithToken(auth()->refresh());
+        dd('sss');
+        return $this->respondWithToken(auth('api-jwt')->refresh());
     }
 
 

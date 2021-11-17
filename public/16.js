@@ -365,14 +365,38 @@ function _get_admins() {
 
           case 5:
             response = _context.sent;
+
+            if (!(response.data.code == 601)) {
+              _context.next = 13;
+              break;
+            }
+
+            Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["refreshToken"])();
+            _context.next = 10;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/admins"), options);
+
+          case 10:
+            response = _context.sent;
+            _context.next = 14;
+            break;
+
+          case 13:
+            if (response.data.code == 600 || response.data.code == 600) {
+              //redirect to login
+              this.$router.push({
+                'name': 'login'
+              });
+            }
+
+          case 14:
             return _context.abrupt("return", response);
 
-          case 7:
+          case 15:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee);
+    }, _callee, this);
   }));
   return _get_admins.apply(this, arguments);
 }

@@ -1,11 +1,20 @@
 import { site_url, api_url } from '../globals'
-import {JSON_HEADERS} from "../common/jwt.service";
+import {JSON_HEADERS,refreshToken} from "../common/jwt.service";
 
 export  async  function get_admins(page = 1,keywords=null) {
     let options = {
         headers :JSON_HEADERS,
         params: { page: page , keywords:keywords}};
-    const response = await axios.get(`${api_url}/user/admins` ,options);
+    let  response = await axios.get(`${api_url}/user/admins` ,options);
+
+    if(response.data.code==601){
+        refreshToken()
+        response = await axios.get(`${api_url}/user/admins` ,options);
+    }else if(response.data.code==600 || response.data.code==600 ){
+        //redirect to login
+        this.$router.push({ 'name': 'login' });
+    }
+
     return  response;
 }
 
