@@ -95,6 +95,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -106,13 +112,15 @@ __webpack_require__.r(__webpack_exports__);
     return {
       password: null,
       phone: null,
-      errors: []
+      errors: [],
+      loader: false
     };
   },
   methods: {
     login: function login() {
       var _this = this;
 
+      this.loader = true;
       axios.post('api/auth/login', {
         phone: this.phone,
         password: this.password
@@ -124,6 +132,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       })["catch"](function (errors) {
         _this.errors = errors.response.data.errors;
+        _this.loader = false;
       });
     }
   }
@@ -296,6 +305,26 @@ var render = function() {
                     [_vm._v("login")]
                   )
                 ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.loader,
+                  expression: "loader"
+                }
+              ],
+              staticClass: "overlay"
+            },
+            [
+              _c("i", { staticClass: "fa fa-refresh fa-spin" }, [
+                _vm._v("loader")
               ])
             ]
           ),

@@ -68,7 +68,7 @@ __webpack_require__.r(__webpack_exports__);
 
     Object(_services_home__WEBPACK_IMPORTED_MODULE_1__["get_dara_dashboard"])().then(function (_ref) {
       var data = _ref.data;
-      _this.usersDate = data;
+      _this.usersDate = data.data;
     })["catch"](function (_ref2) {
       var response = _ref2.response;
 

@@ -1,6 +1,8 @@
 <template>
     <layout name="LayoutEmpty">
+
         <div class="login-box">
+
             <div class="login-logo">
                 <a href="../../index2.html"><b>Admin</b>LTE</a>
             </div>
@@ -49,7 +51,9 @@
                             <!-- /.col -->
                         </div>
                     </form>
-
+                    <div v-show="loader" class="overlay">
+                        <i class="fa fa-refresh fa-spin">loader</i>
+                    </div>
                     <div class="social-auth-links text-center mb-3">
                         <p>- OR -</p>
                         <a href="#" class="btn btn-block btn-primary">
@@ -76,6 +80,8 @@
                 </div>
                 <!-- /.login-card-body -->
             </div>
+
+
         </div>
 
     </layout>
@@ -96,16 +102,19 @@ export default {
         return {
             password:null,
             phone:null,
-            errors:[]
+            errors:[],
+            loader:false
         }
     },
     methods: {
         login() {
+            this.loader=true;
             axios.post('api/auth/login', {phone:this.phone,password:this.password}).then((response) => {
                 setAuthStorge(response.data);
                 this.$router.push({name:'home'});
             }).catch((errors) => {
                 this.errors = errors.response.data.errors
+                this.loader=false;
             })
         }
     }

@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div v-for="(data,index ) in usersDate" class="col-lg-3 col-6" :key="index">
+                    <div v-for="(data ,index ) in usersDate" class="col-lg-3 col-6" :key="index">
                         <!-- small box -->
                         <div :class="['small-box',classBux[index]]">
                             <div class="inner">
@@ -53,7 +53,7 @@ export default {
     mounted() {
         get_dara_dashboard()
             .then(({data}) => {
-                 this.usersDate= data;
+                 this.usersDate= data.data;
             }).catch(({response}) => {
                 if(chkeckedAuthApi(response)){
                     this.get_dara_dashboard();
