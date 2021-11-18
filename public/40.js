@@ -163,7 +163,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.pagination[data-v-20b66ae6]{\n    margin-bottom: 0;\n}\n", ""]);
+exports.push([module.i, "\n.pagination[data-v-20b66ae6]{\r\n    margin-bottom: 0;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 

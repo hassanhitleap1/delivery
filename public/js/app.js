@@ -55898,6 +55898,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -55906,10 +55908,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var ID_API_TOKEN = 'token';
 
+
 var JSON_HEADERS = {
   'Accept': 'application/json',
   'Content-Type': 'application/json; charset=utf-8',
-  'Authorization': "Bearer ".concat(getToken())
+  'Authorization': "Bearer ".concat(getToken()),
+  'X-CSRF-TOKEN': jquery__WEBPACK_IMPORTED_MODULE_2___default()('meta[name="csrf-token"]').attr('content')
 };
 function getToken() {
   return localStorage.getItem(ID_API_TOKEN);
@@ -55923,26 +55927,30 @@ function refreshToken() {
 
 function _refreshToken() {
   _refreshToken = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-    var response;
+    var data, response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('api/auth/refresh', {
-              headers: JSON_HEADERS
+            data = {
+              _method: "POST",
+              _token: jquery__WEBPACK_IMPORTED_MODULE_2___default()('meta[name="csrf-token"]').attr('content')
+            };
+            _context.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/auth/refresh', {
+              headers: JSON_HEADERS,
+              data: data
             }).then(function (_ref) {
               var data = _ref.data;
-              console.log(response);
               localStorage.setItem('token', data.access_token);
               localStorage.setItem('token_type', data.token_type);
               localStorage.setItem('expires_in', data.expires_in);
             });
 
-          case 2:
+          case 3:
             response = _context.sent;
 
-          case 3:
+          case 4:
           case "end":
             return _context.stop();
         }
