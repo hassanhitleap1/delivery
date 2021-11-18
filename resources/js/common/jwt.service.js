@@ -16,12 +16,23 @@ export function getToken(){
 export const setToken = token => {
     localStorage.setItem(ID_API_TOKEN, token);
 };
-export async function   refreshToken (){
+
+export const getTypeUser =() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user.type ;
+};
+
+export const setAuthStorge = data => {
+    localStorage.setItem('token', data.access_token)
+    localStorage.setItem('token_type', data.token_type)
+    localStorage.setItem('expires_in', data.expires_in)
+    localStorage.setItem('user',JSON.stringify(data.user))
+};
+
+export async function   refreshToken(){
     let data = { _method: "POST" ,_token:$('meta[name="csrf-token"]').attr('content') };
    const response = await  axios.post('/api/auth/refresh',{headers :JSON_HEADERS,data:data }).then(({data}) => {
-       localStorage.setItem('token', data.access_token)
-       localStorage.setItem('token_type', data.token_type)
-       localStorage.setItem('expires_in', data.expires_in)
+       setAuthStorge(data);
        return true;
    }).then(res=> {
        return false;
@@ -44,4 +55,5 @@ export async function   chkeckedAuthApi(response){
         return false;
     }
 }
-export default {getToken, setToken, unsetToken ,JSON_HEADERS ,chkeckedAuthApi};
+
+export default {getToken, setToken, unsetToken ,JSON_HEADERS ,chkeckedAuthApi,setAuthStorge};

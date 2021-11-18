@@ -55895,7 +55895,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!********************************************!*\
   !*** ./resources/js/common/jwt.service.js ***!
   \********************************************/
-/*! exports provided: JSON_HEADERS, getToken, setToken, refreshToken, unsetToken, chkeckedAuthApi, default */
+/*! exports provided: JSON_HEADERS, getToken, setToken, getTypeUser, setAuthStorge, refreshToken, unsetToken, chkeckedAuthApi, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55903,6 +55903,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JSON_HEADERS", function() { return JSON_HEADERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getToken", function() { return getToken; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setToken", function() { return setToken; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTypeUser", function() { return getTypeUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAuthStorge", function() { return setAuthStorge; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "refreshToken", function() { return refreshToken; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unsetToken", function() { return unsetToken; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chkeckedAuthApi", function() { return chkeckedAuthApi; });
@@ -55938,6 +55940,16 @@ function getToken() {
 var setToken = function setToken(token) {
   localStorage.setItem(ID_API_TOKEN, token);
 };
+var getTypeUser = function getTypeUser() {
+  var user = JSON.parse(localStorage.getItem('user'));
+  return user.type;
+};
+var setAuthStorge = function setAuthStorge(data) {
+  localStorage.setItem('token', data.access_token);
+  localStorage.setItem('token_type', data.token_type);
+  localStorage.setItem('expires_in', data.expires_in);
+  localStorage.setItem('user', JSON.stringify(data.user));
+};
 function refreshToken() {
   return _refreshToken.apply(this, arguments);
 }
@@ -55959,9 +55971,7 @@ function _refreshToken() {
               data: data
             }).then(function (_ref) {
               var data = _ref.data;
-              localStorage.setItem('token', data.access_token);
-              localStorage.setItem('token_type', data.token_type);
-              localStorage.setItem('expires_in', data.expires_in);
+              setAuthStorge(data);
               return true;
             }).then(function (res) {
               return false;
@@ -56048,7 +56058,8 @@ function _chkeckedAuthApi() {
   setToken: setToken,
   unsetToken: unsetToken,
   JSON_HEADERS: JSON_HEADERS,
-  chkeckedAuthApi: chkeckedAuthApi
+  chkeckedAuthApi: chkeckedAuthApi,
+  setAuthStorge: setAuthStorge
 });
 
 /***/ }),
@@ -56413,6 +56424,13 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     meta: {
       guest: true
     }
+  }, {
+    path: '/nonauthorized',
+    name: 'Nonauthorized',
+    component: function component() {
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ../views/errors/Nonauthorized */ "./resources/js/views/errors/Nonauthorized.vue"));
+    } // meta: {guest: true}
+
   }, {
     path: '/forgot-password',
     name: 'Forgot_password',

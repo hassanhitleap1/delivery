@@ -33,6 +33,7 @@
 import Layout from '../views/layouts/Layout';
 import {get_dara_dashboard} from "../services/home";
 import {chkeckedAuthApi} from "../common/jwt.service";
+import {allowRules} from "../common/roules";
 
 export default {
     name: `Home`,
@@ -45,7 +46,11 @@ export default {
     },
     components: {
         Layout,
-    },mounted() {
+    },
+    created(){
+        allowRules('admins');
+    },
+    mounted() {
         get_dara_dashboard()
             .then(({data}) => {
                  this.usersDate= data;

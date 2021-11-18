@@ -12,6 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_layouts_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/layouts/Layout */ "./resources/js/views/layouts/Layout.js");
 /* harmony import */ var _services_home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/home */ "./resources/js/services/home.js");
 /* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/jwt.service */ "./resources/js/common/jwt.service.js");
+/* harmony import */ var _common_roules__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/roules */ "./resources/js/common/roules.js");
 //
 //
 //
@@ -43,6 +44,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -57,6 +59,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Layout: _views_layouts_Layout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  created: function created() {
+    Object(_common_roules__WEBPACK_IMPORTED_MODULE_3__["allowRules"])('admins');
   },
   mounted: function mounted() {
     var _this = this;
@@ -141,6 +146,65 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./resources/js/common/roules.js":
+/*!***************************************!*\
+  !*** ./resources/js/common/roules.js ***!
+  \***************************************/
+/*! exports provided: ADMIN, USER, DRIVER, CUSTOMER, roules, allowRules, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADMIN", function() { return ADMIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER", function() { return USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DRIVER", function() { return DRIVER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CUSTOMER", function() { return CUSTOMER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "roules", function() { return roules; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allowRules", function() { return allowRules; });
+/* harmony import */ var _jwt_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jwt.service */ "./resources/js/common/jwt.service.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router */ "./resources/js/router/index.js");
+
+
+var ADMIN = 1;
+var USER = 2;
+var DRIVER = 3;
+var CUSTOMER = 4;
+var roules = [{
+  action: "admins",
+  roulesType: [ADMIN]
+}, {
+  action: "drivers",
+  roulesType: [ADMIN, USER]
+}, {
+  action: "users",
+  roulesType: [ADMIN, DRIVER]
+}, {
+  action: "customers",
+  roulesType: [ADMIN]
+}];
+function allowRules(action) {
+  var type = Object(_jwt_service__WEBPACK_IMPORTED_MODULE_0__["getTypeUser"])();
+  var roule = roules.filter(function (el) {
+    return el.action == action;
+  })[0];
+
+  if (!roule.roulesType.includes(type)) {
+    _router__WEBPACK_IMPORTED_MODULE_1__["default"].push({
+      'name': 'Nonauthorized'
+    });
+  }
+}
+/* harmony default export */ __webpack_exports__["default"] = ({
+  allowRules: allowRules,
+  roules: roules,
+  ADMIN: ADMIN,
+  USER: USER,
+  DRIVER: DRIVER,
+  CUSTOMER: CUSTOMER
+});
+
+/***/ }),
+
 /***/ "./resources/js/services/home.js":
 /*!***************************************!*\
   !*** ./resources/js/services/home.js ***!
@@ -181,10 +245,9 @@ function _get_dara_dashboard() {
 
           case 2:
             response = _context.sent;
-            console.log(response);
             return _context.abrupt("return", response);
 
-          case 5:
+          case 4:
           case "end":
             return _context.stop();
         }

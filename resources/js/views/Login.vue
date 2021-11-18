@@ -85,6 +85,7 @@
 <script>
 
 import Layout from '../views/layouts/Layout';
+import {setAuthStorge} from "../common/jwt.service";
 
 export default {
     name: "Login",
@@ -101,11 +102,8 @@ export default {
     methods: {
         login() {
             axios.post('api/auth/login', {phone:this.phone,password:this.password}).then((response) => {
-                console.log(response);
-                localStorage.setItem('token', response.data.access_token)
-                localStorage.setItem('token_type', response.data.token_type)
-                localStorage.setItem('expires_in', response.data.expires_in)
-                this.$router.push('/');
+                setAuthStorge(response.data);
+                this.$router.push({name:'home'});
             }).catch((errors) => {
                 this.errors = errors.response.data.errors
             })

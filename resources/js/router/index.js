@@ -254,13 +254,20 @@ const route =  new VueRouter({
             component:()=>import("../views/Register"),
             meta: {guest: true}
         } ,
-        
+        {
+            path: '/nonauthorized',
+            name: 'Nonauthorized',
+            component:()=>import("../views/errors/Nonauthorized"),
+            // meta: {guest: true}
+        } ,
         {
             path: '/forgot-password',
             name: 'Forgot_password',
             component:()=>import("../views/Forgot_password"),
             meta: {guest: true}
         } ,
+
+
         {
             name: 'about',
             path: '/about',

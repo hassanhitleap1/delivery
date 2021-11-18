@@ -10,6 +10,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_layouts_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/layouts/Layout */ "./resources/js/views/layouts/Layout.js");
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/jwt.service */ "./resources/js/common/jwt.service.js");
 //
 //
 //
@@ -94,6 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Login",
@@ -115,12 +117,11 @@ __webpack_require__.r(__webpack_exports__);
         phone: this.phone,
         password: this.password
       }).then(function (response) {
-        console.log(response);
-        localStorage.setItem('token', response.data.access_token);
-        localStorage.setItem('token_type', response.data.token_type);
-        localStorage.setItem('expires_in', response.data.expires_in);
+        Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_1__["setAuthStorge"])(response.data);
 
-        _this.$router.push('/');
+        _this.$router.push({
+          name: 'home'
+        });
       })["catch"](function (errors) {
         _this.errors = errors.response.data.errors;
       });

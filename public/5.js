@@ -123,8 +123,7 @@ __webpack_require__.r(__webpack_exports__);
         var response = _ref2.response;
 
         if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_5__["chkeckedAuthApi"])(response)) {
-          _this.get_admins();
-
+          //this.get_admins();
           return;
         }
       });
