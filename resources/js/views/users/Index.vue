@@ -71,6 +71,7 @@
     import AWN from "awesome-notifications";
     import pagination from 'laravel-vue-pagination';
     import Layout from "../layouts/Layout";
+    import {chkeckedAuthApi} from "../../common/jwt.service";
 
     export default {
         name: "Index",
@@ -119,8 +120,11 @@
             get_all(page=1){
                 services.get_all(page ,this.keywords).then(({data})=>{
                     this.users = data
-                }).catch((error) => {
-                    console.log("error",error)
+                }).catch(({response}) => {
+                    if(chkeckedAuthApi(response)){
+                        this.get_all(1);
+                        return ;
+                    }
                 });
             }
 

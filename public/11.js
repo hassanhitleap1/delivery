@@ -17,6 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js");
 /* harmony import */ var laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(laravel_vue_pagination__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../layouts/Layout */ "./resources/js/views/layouts/Layout.js");
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../common/jwt.service */ "./resources/js/common/jwt.service.js");
 //
 //
 //
@@ -84,6 +85,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -141,8 +143,14 @@ __webpack_require__.r(__webpack_exports__);
       _services_users__WEBPACK_IMPORTED_MODULE_0__["get_all"](page, this.keywords).then(function (_ref) {
         var data = _ref.data;
         _this2.users = data;
-      })["catch"](function (error) {
-        console.log("error", error);
+      })["catch"](function (_ref2) {
+        var response = _ref2.response;
+
+        if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_5__["chkeckedAuthApi"])(response)) {
+          _this2.get_all(1);
+
+          return;
+        }
       });
     }
   }

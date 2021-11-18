@@ -19,9 +19,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','registration']]);
-//        $this->middleware('cors');
-
+        $this->middleware('jwt.verify', ['except' => ['login','registration']]);
     }
 
     /**
@@ -80,8 +78,8 @@ class AuthController extends Controller
      */
     public function refresh()
     {
-        dd('sss');
-        return $this->respondWithToken(auth('api-jwt')->refresh());
+
+        return $this->respondWithToken( auth('api-jwt')->refresh());
     }
 
 

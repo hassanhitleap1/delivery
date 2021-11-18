@@ -68,6 +68,7 @@ import  * as services from '../../services/drivers';
 import Swal from 'sweetalert2';
 import AWN from "awesome-notifications";
 import pagination from 'laravel-vue-pagination';
+import {chkeckedAuthApi} from "../../common/jwt.service";
 
 
 export default {
@@ -115,8 +116,11 @@ export default {
         get_all(page=1){
             services.get_all(page ,this.keywords).then(({data})=>{
                 this.drivers = data
-            }).catch((error) => {
-                console.log("error",error)
+            }).catch(({response}) => {
+                if(chkeckedAuthApi(response)){
+                    this.get_all(1);
+                    return ;
+                }
             });
         }
 

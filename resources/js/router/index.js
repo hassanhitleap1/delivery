@@ -12,11 +12,10 @@ const route =  new VueRouter({
     linkActiveClass: "active",
     routes: [
         {
-            path: '/',
+            path: '',
             name: 'home',
             component: ()=>import("../views/Home"),
             meta: {requiresAuth: true}
-
         },
         {
             path: '/shipments',

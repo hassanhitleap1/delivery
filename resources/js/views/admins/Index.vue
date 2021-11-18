@@ -100,7 +100,7 @@ export default {
                 this.admins = data
             }).catch(({response}) => {
                 if(chkeckedAuthApi(response)){
-                    //this.get_admins();
+                    this.get_admins(1);
                     return ;
                 }
             });

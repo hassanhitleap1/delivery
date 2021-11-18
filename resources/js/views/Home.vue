@@ -32,7 +32,7 @@
 <script>
 import Layout from '../views/layouts/Layout';
 import {get_dara_dashboard} from "../services/home";
-import {chkeckedAuthApi} from "../common/jwt.service";
+import {chkeckedAuthApi, refreshToken} from "../common/jwt.service";
 import {allowRules} from "../common/roules";
 
 export default {
@@ -59,7 +59,7 @@ export default {
                     this.get_dara_dashboard();
                     return ;
                 }
-        })
+            })
     }
 };
 </script>
