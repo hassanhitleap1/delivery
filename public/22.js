@@ -293,7 +293,7 @@ var render = function() {
                       staticClass: "btn btn-primary btn-block btn-flat",
                       attrs: { type: "submit" }
                     },
-                    [_vm._v("register")]
+                    [_vm._v("login")]
                   )
                 ])
               ])

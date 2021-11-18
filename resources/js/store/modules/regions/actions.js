@@ -1,3 +1,6 @@
+import {chkeckedAuthApi} from "../../../common/jwt.service";
+import * as services from "../../../services/regions";
+
 let actions = {
     createregion({commit}, statu) {
         axios.post('/api/regions', statu)
@@ -12,14 +15,17 @@ let actions = {
         commit('UPDATE_REGION', region)
     },
     fetchregions({commit}) {
-        axios.get('/api/regions')
-            .then(res => {
-                console.log(res.data.data)
-                commit('FETCH_REGIONS', res.data.data);
+        services.get_all().then(({data})=>{
+            commit('FETCH_REGIONS', data);
+        }).catch(({response}) => {
+            if(chkeckedAuthApi(response)){
+                services.get_all().then(({data})=>{
+                    commit('FETCH_REGIONS', data);
+                })
+                return ;
+            }
+        });
 
-            }).catch(err => {
-            console.log(err)
-        })
     },
     deleteregion({commit}, region) {
         axios.delete(`/api/regions/${region.id}`)

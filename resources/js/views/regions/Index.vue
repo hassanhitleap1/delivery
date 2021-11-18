@@ -81,7 +81,6 @@
         },
         methods:{
             _delete(region){
-
                 this.$store.dispatch('RegionModule/deleteregion',region);
             },
             search(){

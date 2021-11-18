@@ -1,16 +1,22 @@
+import * as services from "../../../services/areas";
+import {chkeckedAuthApi} from "../../../common/jwt.service";
+
 let actions = {
     createArea({commit}, area) {
         commit('CREATE_AREA', area)
 
     },
     fetchareas({commit}) {
-        axios.get('/api/areas')
-            .then(res => {
-                console.log( res.data)
-                commit('FETCH_AREAS', res.data.data)
-            }).catch(err => {
-            console.log(err)
-        })
+        services.get_all().then(({data})=>{
+            commit('FETCH_AREAS', data);
+        }).catch(({response}) => {
+            if(chkeckedAuthApi(response)){
+                services.get_all().then(({data})=>{
+                    commit('FETCH_AREAS', data);
+                })
+                return ;
+            }
+        });
     },
     updateArea({commit}, area) {
         commit('UPDATE_AREA', area)

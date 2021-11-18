@@ -23,10 +23,18 @@ export const getTypeUser =() => {
 };
 
 export const setAuthStorge = data => {
+    unsetAuthStorge();
     localStorage.setItem('token', data.access_token)
     localStorage.setItem('token_type', data.token_type)
     localStorage.setItem('expires_in', data.expires_in)
     localStorage.setItem('user',JSON.stringify(data.user))
+};
+
+export const unsetAuthStorge = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('token_type')
+    localStorage.removeItem('expires_in')
+    localStorage.removeItem('user')
 };
 
 export async function   refreshToken(){
@@ -48,7 +56,7 @@ export async function   chkeckedAuthApi(response){
             return true;
         };
         route.push({ 'name': 'login' });
-    }else if(response.data.code==602 || response.data.code==600 ){
+    }else if(response.data.code==602 || response.data.code==600 || response.data.code== 500){
         route.push({ 'name': 'login' });
     }else {
         new AWN().warning('sumthing error', {durations: {warning: 0}})
@@ -56,4 +64,4 @@ export async function   chkeckedAuthApi(response){
     }
 }
 
-export default {getToken, setToken, unsetToken ,JSON_HEADERS ,chkeckedAuthApi,setAuthStorge};
+export default {getToken, setToken, unsetToken ,JSON_HEADERS ,chkeckedAuthApi,setAuthStorge,unsetAuthStorge};

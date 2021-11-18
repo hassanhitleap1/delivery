@@ -1,3 +1,6 @@
+import * as services from "../../../services/countries";
+import {chkeckedAuthApi} from "../../../common/jwt.service";
+
 let actions = {
     createContry({commit}, contry) {
         commit('CREATE_CONTRY', contry)
@@ -6,14 +9,15 @@ let actions = {
         commit('UPDATE_CONTRY', contry)
     },
     fetchcountries({commit}) {
-        axios.get('/api/countries')
-            .then(res => {
-                console.log("FETCH_COUNTRIES",res.data.data)
-
-                commit('FETCH_COUNTRIES', res.data.data)
-            }).catch(err => {
-            console.log(err)
-        })
+        services.get_all().then(({data})=>{
+            commit('FETCH_COUNTRIES', data)
+        }).catch(({response}) => {
+            if(chkeckedAuthApi(response)){
+                services.get_all().then(({data})=>{
+                    commit('FETCH_COUNTRIES', data)
+                });
+            }
+        });
     },
     deleteContry({commit}, contry) {
         commit('DELETE_CONTRY', contry)

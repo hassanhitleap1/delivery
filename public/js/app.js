@@ -55895,7 +55895,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!********************************************!*\
   !*** ./resources/js/common/jwt.service.js ***!
   \********************************************/
-/*! exports provided: JSON_HEADERS, getToken, setToken, getTypeUser, setAuthStorge, refreshToken, unsetToken, chkeckedAuthApi, default */
+/*! exports provided: JSON_HEADERS, getToken, setToken, getTypeUser, setAuthStorge, unsetAuthStorge, refreshToken, unsetToken, chkeckedAuthApi, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55905,6 +55905,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setToken", function() { return setToken; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTypeUser", function() { return getTypeUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAuthStorge", function() { return setAuthStorge; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unsetAuthStorge", function() { return unsetAuthStorge; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "refreshToken", function() { return refreshToken; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unsetToken", function() { return unsetToken; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chkeckedAuthApi", function() { return chkeckedAuthApi; });
@@ -55945,10 +55946,17 @@ var getTypeUser = function getTypeUser() {
   return user.type;
 };
 var setAuthStorge = function setAuthStorge(data) {
+  unsetAuthStorge();
   localStorage.setItem('token', data.access_token);
   localStorage.setItem('token_type', data.token_type);
   localStorage.setItem('expires_in', data.expires_in);
   localStorage.setItem('user', JSON.stringify(data.user));
+};
+var unsetAuthStorge = function unsetAuthStorge() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('token_type');
+  localStorage.removeItem('expires_in');
+  localStorage.removeItem('user');
 };
 function refreshToken() {
   return _refreshToken.apply(this, arguments);
@@ -56024,7 +56032,7 @@ function _chkeckedAuthApi() {
             break;
 
           case 7:
-            if (!(response.data.code == 602 || response.data.code == 600)) {
+            if (!(response.data.code == 602 || response.data.code == 600 || response.data.code == 500)) {
               _context2.next = 11;
               break;
             }
@@ -56059,7 +56067,8 @@ function _chkeckedAuthApi() {
   unsetToken: unsetToken,
   JSON_HEADERS: JSON_HEADERS,
   chkeckedAuthApi: chkeckedAuthApi,
-  setAuthStorge: setAuthStorge
+  setAuthStorge: setAuthStorge,
+  unsetAuthStorge: unsetAuthStorge
 });
 
 /***/ }),
@@ -56104,7 +56113,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   linkActiveClass: "active",
   routes: [{
-    path: '',
+    path: '/',
     name: 'home',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../views/Home */ "./resources/js/views/Home.vue"));
@@ -56484,6 +56493,588 @@ route.beforeEach(function (to, from, next) {
 
 /***/ }),
 
+/***/ "./resources/js/services/areas.js":
+/*!****************************************!*\
+  !*** ./resources/js/services/areas.js ***!
+  \****************************************/
+/*! exports provided: get_all, create, update, get_area, _delete, get_areas_region */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_all", function() { return get_all; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_area", function() { return get_area; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_delete", function() { return _delete; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_areas_region", function() { return get_areas_region; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../globals */ "./resources/js/globals.js");
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/jwt.service */ "./resources/js/common/jwt.service.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+function get_all() {
+  return _get_all.apply(this, arguments);
+}
+
+function _get_all() {
+  _get_all = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    var page,
+        keywords,
+        options,
+        response,
+        _args = arguments;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+            keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
+              params: {
+                page: page,
+                keywords: keywords
+              }
+            };
+            _context.next = 5;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas"), options);
+
+          case 5:
+            response = _context.sent;
+            return _context.abrupt("return", response);
+
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _get_all.apply(this, arguments);
+}
+
+function create(_x) {
+  return _create.apply(this, arguments);
+}
+
+function _create() {
+  _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(area) {
+    var options, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
+              data: area
+            };
+            response = axios.post('/api/areas', options);
+            return _context2.abrupt("return", response);
+
+          case 3:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _create.apply(this, arguments);
+}
+
+function update(_x2, _x3) {
+  return _update.apply(this, arguments);
+}
+
+function _update() {
+  _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(area, id) {
+    var options, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
+              data: area
+            };
+            response = axios.put('/api/areas/' + id, options);
+            return _context3.abrupt("return", response);
+
+          case 3:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+  return _update.apply(this, arguments);
+}
+
+function get_area(_x4) {
+  return _get_area.apply(this, arguments);
+}
+
+function _get_area() {
+  _get_area = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.next = 2;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
+
+          case 2:
+            response = _context4.sent;
+            return _context4.abrupt("return", response);
+
+          case 4:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+  return _get_area.apply(this, arguments);
+}
+
+function _delete(_x5) {
+  return _delete2.apply(this, arguments);
+}
+
+function _delete2() {
+  _delete2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.next = 2;
+            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
+
+          case 2:
+            response = _context5.sent;
+            return _context5.abrupt("return", response);
+
+          case 4:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+  return _delete2.apply(this, arguments);
+}
+
+function get_areas_region(_x6) {
+  return _get_areas_region.apply(this, arguments);
+}
+
+function _get_areas_region() {
+  _get_areas_region = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(region_id) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            _context6.next = 2;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/areas"), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
+
+          case 2:
+            response = _context6.sent;
+            return _context6.abrupt("return", response);
+
+          case 4:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }));
+  return _get_areas_region.apply(this, arguments);
+}
+
+/***/ }),
+
+/***/ "./resources/js/services/countries.js":
+/*!********************************************!*\
+  !*** ./resources/js/services/countries.js ***!
+  \********************************************/
+/*! exports provided: get_all, create, update, get_country, _delete */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_all", function() { return get_all; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_country", function() { return get_country; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_delete", function() { return _delete; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../globals */ "./resources/js/globals.js");
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/jwt.service */ "./resources/js/common/jwt.service.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+function get_all() {
+  return _get_all.apply(this, arguments);
+}
+
+function _get_all() {
+  _get_all = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    var page,
+        keywords,
+        response,
+        _args = arguments;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+            keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
+            _context.next = 4;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/countries"), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
+
+          case 4:
+            response = _context.sent;
+            return _context.abrupt("return", response);
+
+          case 6:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _get_all.apply(this, arguments);
+}
+
+function create(_x) {
+  return _create.apply(this, arguments);
+}
+
+function _create() {
+  _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(country) {
+    var options, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
+              data: country
+            };
+            _context2.next = 3;
+            return axios.post('/api/countries', options);
+
+          case 3:
+            response = _context2.sent;
+            return _context2.abrupt("return", response);
+
+          case 5:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _create.apply(this, arguments);
+}
+
+function update(_x2, _x3) {
+  return _update.apply(this, arguments);
+}
+
+function _update() {
+  _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(country, id) {
+    var options, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
+              data: country
+            };
+            response = axios.put('/api/countries/' + id, options);
+            return _context3.abrupt("return", response);
+
+          case 3:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+  return _update.apply(this, arguments);
+}
+
+function get_country(_x4) {
+  return _get_country.apply(this, arguments);
+}
+
+function _get_country() {
+  _get_country = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.next = 2;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/countries/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
+
+          case 2:
+            response = _context4.sent;
+            return _context4.abrupt("return", response);
+
+          case 4:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+  return _get_country.apply(this, arguments);
+}
+
+function _delete(_x5) {
+  return _delete2.apply(this, arguments);
+}
+
+function _delete2() {
+  _delete2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.next = 2;
+            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/countries/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
+
+          case 2:
+            response = _context5.sent;
+            return _context5.abrupt("return", response);
+
+          case 4:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+  return _delete2.apply(this, arguments);
+}
+
+/***/ }),
+
+/***/ "./resources/js/services/regions.js":
+/*!******************************************!*\
+  !*** ./resources/js/services/regions.js ***!
+  \******************************************/
+/*! exports provided: get_all, create, update, get_region, _delete */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_all", function() { return get_all; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "update", function() { return update; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get_region", function() { return get_region; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_delete", function() { return _delete; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../globals */ "./resources/js/globals.js");
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/jwt.service */ "./resources/js/common/jwt.service.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+function get_all() {
+  return _get_all.apply(this, arguments);
+}
+
+function _get_all() {
+  _get_all = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    var page,
+        keywords,
+        response,
+        _args = arguments;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+            keywords = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
+            _context.next = 4;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/regions"), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
+
+          case 4:
+            response = _context.sent;
+            return _context.abrupt("return", response);
+
+          case 6:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _get_all.apply(this, arguments);
+}
+
+function create(_x) {
+  return _create.apply(this, arguments);
+}
+
+function _create() {
+  _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(region) {
+    var options, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
+              data: region
+            };
+            _context2.next = 3;
+            return axios.post('/api/regions', options);
+
+          case 3:
+            response = _context2.sent;
+            return _context2.abrupt("return", response);
+
+          case 5:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _create.apply(this, arguments);
+}
+
+function update(_x2, _x3) {
+  return _update.apply(this, arguments);
+}
+
+function _update() {
+  _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(region, id) {
+    var options, response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            options = {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
+              data: region
+            };
+            response = axios.put('/api/regions/' + id, options);
+            return _context3.abrupt("return", response);
+
+          case 3:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+  return _update.apply(this, arguments);
+}
+
+function get_region(_x4) {
+  return _get_region.apply(this, arguments);
+}
+
+function _get_region() {
+  _get_region = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.next = 2;
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/regions/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
+
+          case 2:
+            response = _context4.sent;
+            return _context4.abrupt("return", response);
+
+          case 4:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+  return _get_region.apply(this, arguments);
+}
+
+function _delete(_x5) {
+  return _delete2.apply(this, arguments);
+}
+
+function _delete2() {
+  _delete2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(id) {
+    var response;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.next = 2;
+            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/regions/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
+
+          case 2:
+            response = _context5.sent;
+            return _context5.abrupt("return", response);
+
+          case 4:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+  return _delete2.apply(this, arguments);
+}
+
+/***/ }),
+
 /***/ "./resources/js/services/status.js":
 /*!*****************************************!*\
   !*** ./resources/js/services/status.js ***!
@@ -56712,6 +57303,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _services_areas__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../services/areas */ "./resources/js/services/areas.js");
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../common/jwt.service */ "./resources/js/common/jwt.service.js");
+
+
 var actions = {
   createArea: function createArea(_ref, area) {
     var commit = _ref.commit;
@@ -56719,19 +57314,27 @@ var actions = {
   },
   fetchareas: function fetchareas(_ref2) {
     var commit = _ref2.commit;
-    axios.get('/api/areas').then(function (res) {
-      console.log(res.data);
-      commit('FETCH_AREAS', res.data.data);
-    })["catch"](function (err) {
-      console.log(err);
+    _services_areas__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref3) {
+      var data = _ref3.data;
+      commit('FETCH_AREAS', data);
+    })["catch"](function (_ref4) {
+      var response = _ref4.response;
+
+      if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_1__["chkeckedAuthApi"])(response)) {
+        _services_areas__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref5) {
+          var data = _ref5.data;
+          commit('FETCH_AREAS', data);
+        });
+        return;
+      }
     });
   },
-  updateArea: function updateArea(_ref3, area) {
-    var commit = _ref3.commit;
+  updateArea: function updateArea(_ref6, area) {
+    var commit = _ref6.commit;
     commit('UPDATE_AREA', area);
   },
-  deleteArea: function deleteArea(_ref4, area) {
-    var commit = _ref4.commit;
+  deleteArea: function deleteArea(_ref7, area) {
+    var commit = _ref7.commit;
     commit('DELETE_AREA', area);
   }
 };
@@ -56843,6 +57446,10 @@ var state = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _services_countries__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../services/countries */ "./resources/js/services/countries.js");
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../common/jwt.service */ "./resources/js/common/jwt.service.js");
+
+
 var actions = {
   createContry: function createContry(_ref, contry) {
     var commit = _ref.commit;
@@ -56854,15 +57461,22 @@ var actions = {
   },
   fetchcountries: function fetchcountries(_ref3) {
     var commit = _ref3.commit;
-    axios.get('/api/countries').then(function (res) {
-      console.log("FETCH_COUNTRIES", res.data.data);
-      commit('FETCH_COUNTRIES', res.data.data);
-    })["catch"](function (err) {
-      console.log(err);
+    _services_countries__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref4) {
+      var data = _ref4.data;
+      commit('FETCH_COUNTRIES', data);
+    })["catch"](function (_ref5) {
+      var response = _ref5.response;
+
+      if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_1__["chkeckedAuthApi"])(response)) {
+        _services_countries__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref6) {
+          var data = _ref6.data;
+          commit('FETCH_COUNTRIES', data);
+        });
+      }
     });
   },
-  deleteContry: function deleteContry(_ref4, contry) {
-    var commit = _ref4.commit;
+  deleteContry: function deleteContry(_ref7, contry) {
+    var commit = _ref7.commit;
     commit('DELETE_CONTRY', contry);
   }
 };
@@ -57114,6 +57728,10 @@ var state = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../common/jwt.service */ "./resources/js/common/jwt.service.js");
+/* harmony import */ var _services_regions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/regions */ "./resources/js/services/regions.js");
+
+
 var actions = {
   createregion: function createregion(_ref, statu) {
     var commit = _ref.commit;
@@ -57129,15 +57747,23 @@ var actions = {
   },
   fetchregions: function fetchregions(_ref3) {
     var commit = _ref3.commit;
-    axios.get('/api/regions').then(function (res) {
-      console.log(res.data.data);
-      commit('FETCH_REGIONS', res.data.data);
-    })["catch"](function (err) {
-      console.log(err);
+    _services_regions__WEBPACK_IMPORTED_MODULE_1__["get_all"]().then(function (_ref4) {
+      var data = _ref4.data;
+      commit('FETCH_REGIONS', data);
+    })["catch"](function (_ref5) {
+      var response = _ref5.response;
+
+      if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_0__["chkeckedAuthApi"])(response)) {
+        _services_regions__WEBPACK_IMPORTED_MODULE_1__["get_all"]().then(function (_ref6) {
+          var data = _ref6.data;
+          commit('FETCH_REGIONS', data);
+        });
+        return;
+      }
     });
   },
-  deleteregion: function deleteregion(_ref4, region) {
-    var commit = _ref4.commit;
+  deleteregion: function deleteregion(_ref7, region) {
+    var commit = _ref7.commit;
     axios["delete"]("/api/regions/".concat(region.id)).then(function (res) {
       if (res.data === 'ok') commit('DELETE_REGION', region);
     })["catch"](function (err) {
@@ -57384,6 +58010,8 @@ var state = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_status__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../services/status */ "./resources/js/services/status.js");
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../common/jwt.service */ "./resources/js/common/jwt.service.js");
+
 
 var actions = {
   createStatu: function createStatu(_ref, statu) {
@@ -57396,14 +58024,23 @@ var actions = {
   },
   fetchstatus: function fetchstatus(_ref3) {
     var commit = _ref3.commit;
-    _services_status__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (res) {
-      commit('FETCH_STATUS', res.data.data);
-    })["catch"](function (err) {
-      console.log(err);
+    _services_status__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref4) {
+      var data = _ref4.data;
+      commit('FETCH_STATUS', data);
+    })["catch"](function (_ref5) {
+      var response = _ref5.response;
+
+      if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_1__["chkeckedAuthApi"])(response)) {
+        _services_status__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref6) {
+          var data = _ref6.data;
+          commit('FETCH_STATUS', data);
+        });
+        return;
+      }
     });
   },
-  deleteStatu: function deleteStatu(_ref4, statu) {
-    var commit = _ref4.commit;
+  deleteStatu: function deleteStatu(_ref7, statu) {
+    var commit = _ref7.commit;
 
     _services_status__WEBPACK_IMPORTED_MODULE_0__["_delete"](statu.id).then(function (res) {
       commit('DELETE_STATU', statu);

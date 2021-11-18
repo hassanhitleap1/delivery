@@ -32,11 +32,11 @@
 <script>
 import Layout from '../views/layouts/Layout';
 import {get_dara_dashboard} from "../services/home";
-import {chkeckedAuthApi, refreshToken} from "../common/jwt.service";
+import {chkeckedAuthApi} from "../common/jwt.service";
 import {allowRules} from "../common/roules";
 
 export default {
-    name: `Home`,
+    name: "home",
     data(){
         return {
             usersDate:{},
