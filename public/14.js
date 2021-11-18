@@ -13,6 +13,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/home */ "./resources/js/services/home.js");
 /* harmony import */ var awesome_notifications__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! awesome-notifications */ "./node_modules/awesome-notifications/dist/index.js");
 /* harmony import */ var awesome_notifications__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(awesome_notifications__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/jwt.service */ "./resources/js/common/jwt.service.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../globals */ "./resources/js/globals.js");
 //
 //
 //
@@ -44,6 +46,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
 
 
 
@@ -65,12 +69,22 @@ __webpack_require__.r(__webpack_exports__);
     Object(_services_home__WEBPACK_IMPORTED_MODULE_1__["get_dara_dashboard"])().then(function (_ref) {
       var data = _ref.data;
       _this.usersDate = data;
-    })["catch"](function (errors) {
-      new awesome_notifications__WEBPACK_IMPORTED_MODULE_2___default.a().warning('sumthing error', {
-        durations: {
-          warning: 0
-        }
-      });
+    })["catch"](function (_ref2) {
+      var response = _ref2.response;
+
+      if (response.data.code == 601) {
+        Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_3__["refreshToken"])();
+      } else if (response.data.code == 602 || response.data.code == 600) {
+        _this.$router.push({
+          'name': 'login'
+        });
+      } else {
+        new awesome_notifications__WEBPACK_IMPORTED_MODULE_2___default.a().warning('sumthing error', {
+          durations: {
+            warning: 0
+          }
+        });
+      }
     });
   }
 });
@@ -168,7 +182,7 @@ function get_dara_dashboard() {
 
 function _get_dara_dashboard() {
   _get_dara_dashboard = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-    var res;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -179,8 +193,8 @@ function _get_dara_dashboard() {
             });
 
           case 2:
-            res = _context.sent;
-            return _context.abrupt("return", res);
+            response = _context.sent;
+            return _context.abrupt("return", response);
 
           case 4:
           case "end":

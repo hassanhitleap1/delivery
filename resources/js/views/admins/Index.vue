@@ -73,6 +73,7 @@ import  * as services from '../../services/admin';
 import Swal from 'sweetalert2';
 import AWN from "awesome-notifications";
 import Layout from "../layouts/Layout";
+import {chkeckedAuthApi} from "../../common/jwt.service";
 
 export default {
     name:"users",
@@ -97,8 +98,11 @@ export default {
         get_admins(page=1){
             services.get_admins(page ,this.keywords).then(({data})=>{
                 this.admins = data
-            }).catch((error) => {
-                console.log("error",error)
+            }).catch(({response}) => {
+                if(chkeckedAuthApi(response)){
+                    this.get_admins();
+                    return ;
+                }
             });
         },
         search(){
@@ -118,9 +122,12 @@ export default {
                     services.delete_admin(admin.id).then( response => {
                         this.get_admins();
                         new AWN().success();
-                    }).catch((error) => {
-                        console.log("error",error)
-                    });
+                    }).catch(({response}) => {
+                        if(chkeckedAuthApi(response)){
+                            this.delete_admin(admin.id);
+                            return ;
+                        }
+                    })
                 }
             })
 

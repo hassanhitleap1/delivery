@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div v-for="(index ,data) in usersDate" class="col-lg-3 col-6" :key="index">
+                    <div v-for="(data,index ) in usersDate" class="col-lg-3 col-6" :key="index">
                         <!-- small box -->
                         <div :class="['small-box',classBux[index]]">
                             <div class="inner">
@@ -32,7 +32,8 @@
 <script>
 import Layout from '../views/layouts/Layout';
 import {get_dara_dashboard} from "../services/home";
-import AWN from "awesome-notifications";
+import {chkeckedAuthApi} from "../common/jwt.service";
+
 export default {
     name: `Home`,
     data(){
@@ -45,10 +46,14 @@ export default {
     components: {
         Layout,
     },mounted() {
-        get_dara_dashboard().then(({data}) => {
-            this.usersDate= data;
-        }).catch((errors) => {
-            new AWN().warning('sumthing error', {durations: {warning: 0}})
+        get_dara_dashboard()
+            .then(({data}) => {
+                 this.usersDate= data;
+            }).catch(({response}) => {
+                if(chkeckedAuthApi(response)){
+                    this.get_dara_dashboard();
+                    return ;
+                }
         })
     }
 };

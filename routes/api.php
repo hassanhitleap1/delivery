@@ -5,16 +5,16 @@ Route::group(['prefix' => 'dashboard' ], function () {
     Route::get('/', 'Home\Dashboard@index');
 });
 
-Route::get('auth/refresh', function () {
-    dd('');
-})->middleware('cors');
+//Route::get('auth/refresh', function () {
+//    dd('');
+//})->middleware('cors');
 
 
 
 Route::group(['prefix' => 'auth' ], function () {
     Route::post('login', 'AuthJwt\AuthController@login');
     Route::post('logout', 'AuthJwt\AuthController@logout');
-    //Route::post('refresh', 'AuthJwt\AuthController@refresh');
+    Route::post('refresh', 'AuthJwt\AuthController@refresh');
     Route::post('me', 'AuthJwt\AuthController@me');
     Route::post('registration','AuthJwt\AuthController@registration');
 });

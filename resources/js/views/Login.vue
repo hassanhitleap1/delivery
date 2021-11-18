@@ -65,13 +65,13 @@
                       <router-link class="nav-link " :to="{name:'forgot_password'}" exact>
                            I forgot my password
                      </router-link>
-                       
+
                     </p>
                     <p class="mb-0">
                      <router-link class="nav-link " :to="{name:'register'}" exact>
                             Register a new membership
                      </router-link>
-                   
+
                     </p>
                 </div>
                 <!-- /.login-card-body -->
