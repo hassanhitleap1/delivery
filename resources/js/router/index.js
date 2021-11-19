@@ -292,6 +292,7 @@ route.beforeEach((to, from, next) => {
         if (loggedIn()) {
             next({
                 path: '/',
+                name:'home',
                 query: { redirect: to.fullPath }
             })
         } else {

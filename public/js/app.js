@@ -55932,7 +55932,7 @@ var ID_API_TOKEN = 'token';
 var JSON_HEADERS = {
   'Accept': 'application/json',
   'Content-Type': 'application/json; charset=utf-8',
-  'Authorization': "Bearer ".concat(getToken()),
+  'Authorization': "bearer ".concat(getToken()),
   'X-CSRF-TOKEN': jquery__WEBPACK_IMPORTED_MODULE_3___default()('meta[name="csrf-token"]').attr('content')
 };
 function getToken() {
@@ -56116,7 +56116,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/',
     name: 'home',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../views/Home */ "./resources/js/views/Home.vue"));
+      return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../views/Home */ "./resources/js/views/Home.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56125,7 +56125,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/shipments',
     name: 'shipments',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 37).then(__webpack_require__.bind(null, /*! ../views/shipments/Index */ "./resources/js/views/shipments/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ../views/shipments/Index */ "./resources/js/views/shipments/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56134,7 +56134,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'shipments.create',
     path: 'shipments/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56161,7 +56161,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/drivers',
     name: 'drivers',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ../views/drivers/Index */ "./resources/js/views/drivers/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ../views/drivers/Index */ "./resources/js/views/drivers/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56170,7 +56170,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/drivers',
     name: 'drivers.index',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ../views/drivers/Index */ "./resources/js/views/drivers/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ../views/drivers/Index */ "./resources/js/views/drivers/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56179,7 +56179,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'drivers.create',
     path: '/user/drivers/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ../views/drivers/Create */ "./resources/js/views/drivers/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ../views/drivers/Create */ "./resources/js/views/drivers/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56188,7 +56188,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'drivers.edit',
     path: '/user/drivers/:id/edit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ../views/drivers/Edit */ "./resources/js/views/drivers/Edit.vue"));
+      return __webpack_require__.e(/*! import() */ 32).then(__webpack_require__.bind(null, /*! ../views/drivers/Edit */ "./resources/js/views/drivers/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56197,7 +56197,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/users',
     name: 'users',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56206,7 +56206,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/users',
     name: 'users.index',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../views/users/Index */ "./resources/js/views/users/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56215,7 +56215,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'users.create',
     path: '/user/users/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ../views/users/Create */ "./resources/js/views/users/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56224,7 +56224,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'users.edit',
     path: '/user/users/:id/edit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ../views/users/Edit */ "./resources/js/views/users/Edit.vue"));
+      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../views/users/Edit */ "./resources/js/views/users/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56233,7 +56233,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/admins',
     name: 'admins',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4), __webpack_require__.e(40)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56242,7 +56242,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/admins',
     name: 'admins.index',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4), __webpack_require__.e(40)]).then(__webpack_require__.bind(null, /*! ../views/admins/Index */ "./resources/js/views/admins/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56251,7 +56251,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'admins.create',
     path: '/user/admins/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../views/admins/Create */ "./resources/js/views/admins/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ../views/admins/Create */ "./resources/js/views/admins/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56260,7 +56260,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'admins.edit',
     path: '/user/admins/:id/edit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ../views/admins/Edit */ "./resources/js/views/admins/Edit.vue"));
+      return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ../views/admins/Edit */ "./resources/js/views/admins/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56269,7 +56269,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/custmers',
     name: 'custmers',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56278,7 +56278,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/user/custmers',
     name: 'custmers.index',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ../views/custmers/Index */ "./resources/js/views/custmers/Index.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56287,7 +56287,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'custmers.create',
     path: '/user/custmers/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ../views/custmers/Create */ "./resources/js/views/custmers/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ../views/custmers/Create */ "./resources/js/views/custmers/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56296,7 +56296,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'custmers.edit',
     path: '/user/custmers/:id/edit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 34).then(__webpack_require__.bind(null, /*! ../views/custmers/Edit */ "./resources/js/views/custmers/Edit.vue"));
+      return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ../views/custmers/Edit */ "./resources/js/views/custmers/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56304,7 +56304,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/status',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ../views/status/Index */ "./resources/js/views/status/Index.vue"));
     },
     name: 'status',
     meta: {
@@ -56314,7 +56314,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'status.create',
     path: '/status/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ../views/status/Create */ "./resources/js/views/status/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56323,7 +56323,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'status.edit',
     path: '/status/:id/edit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ../views/status/Edit */ "./resources/js/views/status/Edit.vue"));
+      return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ../views/status/Edit */ "./resources/js/views/status/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56331,7 +56331,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/countries',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 32).then(__webpack_require__.bind(null, /*! ../views/countries/Index */ "./resources/js/views/countries/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ../views/countries/Index */ "./resources/js/views/countries/Index.vue"));
     },
     name: 'countries',
     meta: {
@@ -56341,7 +56341,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'countries.create',
     path: '/countries/create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ../views/countries/Create */ "./resources/js/views/countries/Create.vue"));
+      return __webpack_require__.e(/*! import() */ 34).then(__webpack_require__.bind(null, /*! ../views/countries/Create */ "./resources/js/views/countries/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56350,7 +56350,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'countries.edit',
     path: '/countries/:id/edit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ../views/countries/Edit */ "./resources/js/views/countries/Edit.vue"));
+      return __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ../views/countries/Edit */ "./resources/js/views/countries/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56358,7 +56358,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/regions',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ../views/regions/Index */ "./resources/js/views/regions/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ../views/regions/Index */ "./resources/js/views/regions/Index.vue"));
     },
     name: 'regions',
     meta: {
@@ -56368,7 +56368,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'regions.create',
     path: '/regions/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(25), __webpack_require__.e(44)]).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(37), __webpack_require__.e(45)]).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56377,7 +56377,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'regions.edit',
     path: '/regions/:id/edit',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(25), __webpack_require__.e(43)]).then(__webpack_require__.bind(null, /*! ../views/regions/Edit */ "./resources/js/views/regions/Edit.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(37), __webpack_require__.e(44)]).then(__webpack_require__.bind(null, /*! ../views/regions/Edit */ "./resources/js/views/regions/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56385,7 +56385,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/areas',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/areas/Index */ "./resources/js/views/areas/Index.vue"));
+      return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ../views/areas/Index */ "./resources/js/views/areas/Index.vue"));
     },
     name: 'areas',
     meta: {
@@ -56395,7 +56395,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'areas.create',
     path: '/areas/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(25), __webpack_require__.e(41)]).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(37), __webpack_require__.e(42)]).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56404,7 +56404,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'areas.edit',
     path: '/areas/:id/edit',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(25), __webpack_require__.e(42)]).then(__webpack_require__.bind(null, /*! ../views/areas/Edit */ "./resources/js/views/areas/Edit.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(37), __webpack_require__.e(43)]).then(__webpack_require__.bind(null, /*! ../views/areas/Edit */ "./resources/js/views/areas/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56413,7 +56413,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: 'areas/view',
     name: 'areas.create',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ../views/areas/View */ "./resources/js/views/areas/View.vue"));
+      return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ../views/areas/View */ "./resources/js/views/areas/View.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56422,13 +56422,13 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/login',
     name: 'login',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ../views/Login */ "./resources/js/views/Login.vue"));
+      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ../views/Login */ "./resources/js/views/Login.vue"));
     }
   }, {
     path: '/register',
     name: 'register',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ../views/Register */ "./resources/js/views/Register.vue"));
+      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ../views/Register */ "./resources/js/views/Register.vue"));
     },
     meta: {
       guest: true
@@ -56437,14 +56437,14 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/nonauthorized',
     name: 'Nonauthorized',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ../views/errors/Nonauthorized */ "./resources/js/views/errors/Nonauthorized.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(41)]).then(__webpack_require__.bind(null, /*! ../views/errors/Nonauthorized */ "./resources/js/views/errors/Nonauthorized.vue"));
     } // meta: {guest: true}
 
   }, {
     path: '/forgot-password',
     name: 'Forgot_password',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ../views/Forgot_password */ "./resources/js/views/Forgot_password.vue"));
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ../views/Forgot_password */ "./resources/js/views/Forgot_password.vue"));
     },
     meta: {
       guest: true
@@ -56453,7 +56453,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'about',
     path: '/about',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ../views/About */ "./resources/js/views/About.vue"));
+      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ../views/About */ "./resources/js/views/About.vue"));
     }
   }]
 });
@@ -56478,6 +56478,7 @@ route.beforeEach(function (to, from, next) {
     if (loggedIn()) {
       next({
         path: '/',
+        name: 'home',
         query: {
           redirect: to.fullPath
         }
@@ -56567,19 +56568,17 @@ function create(_x) {
 
 function _create() {
   _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(area) {
-    var options, response;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            options = {
-              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
-              data: area
-            };
-            response = axios.post('/api/areas', options);
+            response = axios.post('/api/areas', area, {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
             return _context2.abrupt("return", response);
 
-          case 3:
+          case 2:
           case "end":
             return _context2.stop();
         }
@@ -56595,19 +56594,17 @@ function update(_x2, _x3) {
 
 function _update() {
   _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(area, id) {
-    var options, response;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            options = {
-              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
-              data: area
-            };
-            response = axios.put('/api/areas/' + id, options);
+            response = axios.put('/api/areas/' + id, area, {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
             return _context3.abrupt("return", response);
 
-          case 3:
+          case 2:
           case "end":
             return _context3.stop();
         }
@@ -56776,23 +56773,21 @@ function create(_x) {
 
 function _create() {
   _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(country) {
-    var options, response;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            options = {
-              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
-              data: country
-            };
-            _context2.next = 3;
-            return axios.post('/api/countries', options);
+            _context2.next = 2;
+            return axios.post('/api/countries', country, {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
-          case 3:
+          case 2:
             response = _context2.sent;
             return _context2.abrupt("return", response);
 
-          case 5:
+          case 4:
           case "end":
             return _context2.stop();
         }
@@ -56808,19 +56803,17 @@ function update(_x2, _x3) {
 
 function _update() {
   _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(country, id) {
-    var options, response;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            options = {
-              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
-              data: country
-            };
-            response = axios.put('/api/countries/' + id, options);
+            response = axios.put('/api/countries/' + id, country, {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
             return _context3.abrupt("return", response);
 
-          case 3:
+          case 2:
           case "end":
             return _context3.stop();
         }
@@ -56959,23 +56952,21 @@ function create(_x) {
 
 function _create() {
   _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(region) {
-    var options, response;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            options = {
-              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
-              data: region
-            };
-            _context2.next = 3;
-            return axios.post('/api/regions', options);
+            _context2.next = 2;
+            return axios.post('/api/regions', region, {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
-          case 3:
+          case 2:
             response = _context2.sent;
             return _context2.abrupt("return", response);
 
-          case 5:
+          case 4:
           case "end":
             return _context2.stop();
         }
@@ -56991,19 +56982,17 @@ function update(_x2, _x3) {
 
 function _update() {
   _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(region, id) {
-    var options, response;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            options = {
-              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
-              data: region
-            };
-            response = axios.put('/api/regions/' + id, options);
+            response = axios.put('/api/regions/' + id, region, {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
             return _context3.abrupt("return", response);
 
-          case 3:
+          case 2:
           case "end":
             return _context3.stop();
         }
@@ -57142,19 +57131,17 @@ function create(_x) {
 
 function _create() {
   _create = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(statu) {
-    var options, response;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            options = {
-              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
-              data: statu
-            };
-            response = axios.post('/api/status', options);
+            response = axios.post('/api/status', statu, {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
             return _context2.abrupt("return", response);
 
-          case 3:
+          case 2:
           case "end":
             return _context2.stop();
         }
@@ -57170,19 +57157,17 @@ function update(_x2, _x3) {
 
 function _update() {
   _update = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(statu, id) {
-    var options, response;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            options = {
-              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
-              data: statu
-            };
-            response = axios.patch('/api/status/' + id, options);
+            response = axios.patch('/api/status/' + id, statu, {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
             return _context3.abrupt("return", response);
 
-          case 3:
+          case 2:
           case "end":
             return _context3.stop();
         }

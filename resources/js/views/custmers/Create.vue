@@ -78,6 +78,7 @@ export default {
     },
     methods:{
         create(custmer) {
+            
             services.create(custmer).then( response => {
                 this.errors = [];
                 this.custmer.name = null;

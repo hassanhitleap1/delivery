@@ -10,20 +10,14 @@ export  async  function get_all(page = 1,keywords=null)  {
 }
 
 export  async  function create(user) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: user
-    };
-    const response= axios.post('/api/user/users', options);
+ 
+    const response= axios.post('/api/user/users',user, {headers :JSON_HEADERS});
     return  response;
 }
 
 export  async  function update(user,id) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: user
-    };
-    const response= axios.put('/api/user/users/'+id, options);
+
+    const response= axios.put('/api/user/users/'+id, user, {headers :JSON_HEADERS});
     return  response;
 }
 

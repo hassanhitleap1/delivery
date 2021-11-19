@@ -1,85 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);var map = {
-	"./AppLayout": [
-		"./resources/js/views/layouts/AppLayout.vue",
-		9
-	],
-	"./AppLayout.vue": [
-		"./resources/js/views/layouts/AppLayout.vue",
-		9
-	],
-	"./Layout": [
-		"./resources/js/views/layouts/Layout.js"
-	],
-	"./Layout.js": [
-		"./resources/js/views/layouts/Layout.js"
-	],
-	"./LayoutDefault": [
-		"./resources/js/views/layouts/LayoutDefault.vue",
-		3
-	],
-	"./LayoutDefault.vue": [
-		"./resources/js/views/layouts/LayoutDefault.vue",
-		3
-	],
-	"./LayoutEmpty": [
-		"./resources/js/views/layouts/LayoutEmpty.vue",
-		4
-	],
-	"./LayoutEmpty.vue": [
-		"./resources/js/views/layouts/LayoutEmpty.vue",
-		4
-	]
-};
-function webpackAsyncContext(req) {
-	if(!__webpack_require__.o(map, req)) {
-		return Promise.resolve().then(function() {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
-	}
-
-	var ids = map[req], id = ids[0];
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
-		return __webpack_require__(id);
-	});
-}
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = "./resources/js/views/layouts lazy recursive ^\\.\\/.*$";
-module.exports = webpackAsyncContext;var map = {
-	"./AppLayout.vue": [
-		"./resources/js/views/layouts/AppLayout.vue"
-	],
-	"./LayoutDefault.vue": [
-		"./resources/js/views/layouts/LayoutDefault.vue",
-		3
-	],
-	"./LayoutEmpty.vue": [
-		"./resources/js/views/layouts/LayoutEmpty.vue",
-		4
-	]
-};
-function webpackAsyncContext(req) {
-	if(!__webpack_require__.o(map, req)) {
-		return Promise.resolve().then(function() {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
-	}
-
-	var ids = map[req], id = ids[0];
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
-		return __webpack_require__(id);
-	});
-}
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = "./resources/js/views/layouts lazy recursive ^\\.\\/.*\\.vue$";
-module.exports = webpackAsyncContext;/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
@@ -12434,3 +12353,85 @@ body {
   height: 100%;
 }
 
+var map = {
+	"./AppLayout": [
+		"./resources/js/views/layouts/AppLayout.vue",
+		8
+	],
+	"./AppLayout.vue": [
+		"./resources/js/views/layouts/AppLayout.vue",
+		8
+	],
+	"./Layout": [
+		"./resources/js/views/layouts/Layout.js"
+	],
+	"./Layout.js": [
+		"./resources/js/views/layouts/Layout.js"
+	],
+	"./LayoutDefault": [
+		"./resources/js/views/layouts/LayoutDefault.vue",
+		2
+	],
+	"./LayoutDefault.vue": [
+		"./resources/js/views/layouts/LayoutDefault.vue",
+		2
+	],
+	"./LayoutEmpty": [
+		"./resources/js/views/layouts/LayoutEmpty.vue",
+		3
+	],
+	"./LayoutEmpty.vue": [
+		"./resources/js/views/layouts/LayoutEmpty.vue",
+		3
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(function() {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(id);
+	});
+}
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = "./resources/js/views/layouts lazy recursive ^\\.\\/.*$";
+module.exports = webpackAsyncContext;var map = {
+	"./AppLayout.vue": [
+		"./resources/js/views/layouts/AppLayout.vue"
+	],
+	"./LayoutDefault.vue": [
+		"./resources/js/views/layouts/LayoutDefault.vue",
+		2
+	],
+	"./LayoutEmpty.vue": [
+		"./resources/js/views/layouts/LayoutEmpty.vue",
+		3
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(function() {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(id);
+	});
+}
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = "./resources/js/views/layouts lazy recursive ^\\.\\/.*\\.vue$";
+module.exports = webpackAsyncContext;

@@ -11,20 +11,13 @@ export  async  function get_all(page = 1,keywords=null) {
 }
 
 export  async  function create(area) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: area
-    };
-    const response= axios.post('/api/areas', options);
+
+    const response= axios.post('/api/areas',area, {headers :JSON_HEADERS});
     return  response;
 }
 
 export  async  function update(area,id) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: area
-    };
-    const response= axios.put('/api/areas/'+id, options);
+    const response= axios.put('/api/areas/'+id, area, {headers :JSON_HEADERS});
     return  response;
 }
 

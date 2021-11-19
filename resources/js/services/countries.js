@@ -7,20 +7,14 @@ export  async  function get_all(page = 1,keywords=null) {
 }
 
 export  async  function create(country) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: country
-    };
-    const response=  await axios.post('/api/countries', options);
+
+    const response=  await axios.post('/api/countries', country,{headers :JSON_HEADERS});
     return  response;
 }
 
 export  async  function update(country,id) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: country
-    };
-    const response= axios.put('/api/countries/'+id, options);
+
+    const response= axios.put('/api/countries/'+id, country,{headers :JSON_HEADERS});
     return  response;
 }
 

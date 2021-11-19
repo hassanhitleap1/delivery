@@ -7,20 +7,14 @@ export  async  function get_all(page = 1,keywords=null) {
 }
 
 export  async  function create(statu) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: statu
-    };
-    const response= axios.post('/api/status', options);
+   
+    const response= axios.post('/api/status', statu, {headers :JSON_HEADERS});
     return  response;
 }
 
 export  async  function update(statu,id) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: statu
-    };
-    const response= axios.patch('/api/status/'+id, options);
+ 
+    const response= axios.patch('/api/status/'+id, statu, {headers :JSON_HEADERS});
     return  response;
 }
 

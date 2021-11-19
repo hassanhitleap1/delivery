@@ -6,20 +6,12 @@ export  async  function get_all(page = 1,keywords=null) {
 }
 
 export  async  function create(region) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: region
-    };
-    const response=  await axios.post('/api/regions',options);
+    const response=  await axios.post('/api/regions',region, {headers :JSON_HEADERS});
     return  response;
 }
 
 export  async  function update(region,id) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: region
-    };
-    const response= axios.put('/api/regions/'+id,options);
+    const response= axios.put('/api/regions/'+id,region, {headers :JSON_HEADERS});
     return  response;
 }
 

@@ -17,6 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var awesome_notifications__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! awesome-notifications */ "./node_modules/awesome-notifications/dist/index.js");
 /* harmony import */ var awesome_notifications__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(awesome_notifications__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _layouts_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../layouts/Layout */ "./resources/js/views/layouts/Layout.js");
+/* harmony import */ var _common_jwt_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../common/jwt.service */ "./resources/js/common/jwt.service.js");
 //
 //
 //
@@ -86,6 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -117,8 +119,14 @@ __webpack_require__.r(__webpack_exports__);
       _services_admin__WEBPACK_IMPORTED_MODULE_1__["get_admins"](page, this.keywords).then(function (_ref) {
         var data = _ref.data;
         _this.admins = data;
-      })["catch"](function (error) {
-        console.log("error", error);
+      })["catch"](function (_ref2) {
+        var response = _ref2.response;
+
+        if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_5__["chkeckedAuthApi"])(response)) {
+          _this.get_admins(1);
+
+          return;
+        }
       });
     },
     search: function search() {
@@ -141,8 +149,14 @@ __webpack_require__.r(__webpack_exports__);
             _this2.get_admins();
 
             new awesome_notifications__WEBPACK_IMPORTED_MODULE_3___default.a().success();
-          })["catch"](function (error) {
-            console.log("error", error);
+          })["catch"](function (_ref3) {
+            var response = _ref3.response;
+
+            if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_5__["chkeckedAuthApi"])(response)) {
+              _this2.delete_admin(admin.id);
+
+              return;
+            }
           });
         }
       });
@@ -163,7 +177,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.pagination[data-v-20b66ae6]{\n    margin-bottom: 0;\n}\n", ""]);
+exports.push([module.i, "\n.pagination[data-v-20b66ae6]{\r\n    margin-bottom: 0;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -433,38 +447,14 @@ function _get_admins() {
 
           case 5:
             response = _context.sent;
-
-            if (!(response.data.code == 601)) {
-              _context.next = 13;
-              break;
-            }
-
-            Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["refreshToken"])();
-            _context.next = 10;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/admins"), options);
-
-          case 10:
-            response = _context.sent;
-            _context.next = 14;
-            break;
-
-          case 13:
-            if (response.data.code == 600 || response.data.code == 600) {
-              //redirect to login
-              this.$router.push({
-                'name': 'login'
-              });
-            }
-
-          case 14:
             return _context.abrupt("return", response);
 
-          case 15:
+          case 7:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this);
+    }, _callee);
   }));
   return _get_admins.apply(this, arguments);
 }
@@ -475,19 +465,17 @@ function create_admin(_x) {
 
 function _create_admin() {
   _create_admin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(admin) {
-    var options, response;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            options = {
-              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
-              data: admin
-            };
-            response = axios.post('/api/user/admins', options);
+            response = axios.post('/api/user/admins', admin, {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
             return _context2.abrupt("return", response);
 
-          case 3:
+          case 2:
           case "end":
             return _context2.stop();
         }
@@ -503,19 +491,17 @@ function update_admin(_x2, _x3) {
 
 function _update_admin() {
   _update_admin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(admin, id) {
-    var options, response;
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            options = {
-              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"],
-              data: admin
-            };
-            response = axios.put('/api/user/admins/' + id, options);
+            response = axios.put('/api/user/admins/' + id, admin, {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
             return _context3.abrupt("return", response);
 
-          case 3:
+          case 2:
           case "end":
             return _context3.stop();
         }
@@ -684,11 +670,11 @@ __webpack_require__.r(__webpack_exports__);
 var map = {
 	"./AppLayout": [
 		"./resources/js/views/layouts/AppLayout.vue",
-		9
+		8
 	],
 	"./AppLayout.vue": [
 		"./resources/js/views/layouts/AppLayout.vue",
-		9
+		8
 	],
 	"./Layout": [
 		"./resources/js/views/layouts/Layout.js"
@@ -698,19 +684,19 @@ var map = {
 	],
 	"./LayoutDefault": [
 		"./resources/js/views/layouts/LayoutDefault.vue",
-		3
+		2
 	],
 	"./LayoutDefault.vue": [
 		"./resources/js/views/layouts/LayoutDefault.vue",
-		3
+		2
 	],
 	"./LayoutEmpty": [
 		"./resources/js/views/layouts/LayoutEmpty.vue",
-		4
+		3
 	],
 	"./LayoutEmpty.vue": [
 		"./resources/js/views/layouts/LayoutEmpty.vue",
-		4
+		3
 	]
 };
 function webpackAsyncContext(req) {

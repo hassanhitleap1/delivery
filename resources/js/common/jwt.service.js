@@ -7,7 +7,7 @@ const ID_API_TOKEN = 'token';
 export const JSON_HEADERS = {
     'Accept': 'application/json',
     'Content-Type': 'application/json; charset=utf-8',
-    'Authorization': `Bearer ${getToken()}`,
+    'Authorization': `bearer ${getToken()}`,
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
 };
 export function getToken(){

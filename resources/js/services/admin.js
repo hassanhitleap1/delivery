@@ -10,20 +10,12 @@ export  async  function get_admins(page = 1,keywords=null) {
 }
 
 export  async  function create_admin(admin) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: admin
-    };
-    const response= axios.post('/api/user/admins', options);
+    const response= axios.post('/api/user/admins', admin ,{headers :JSON_HEADERS});
     return  response;
 }
 
 export  async  function update_admin(admin,id) {
-    let options = {
-        headers :JSON_HEADERS,
-        data: admin
-    };
-    const response= axios.put('/api/user/admins/'+id, options);
+    const response= axios.put('/api/user/admins/'+id, admin, {headers :JSON_HEADERS});
     return  response;
 }
 

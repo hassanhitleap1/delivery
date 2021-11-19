@@ -56,7 +56,7 @@ export default {
                  this.usersDate= data.data;
             }).catch(({response}) => {
                 if(chkeckedAuthApi(response)){
-                    this.get_dara_dashboard();
+                     this.get_dara_dashboard();
                     return ;
                 }
             })
