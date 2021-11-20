@@ -133,7 +133,7 @@ __webpack_require__.r(__webpack_exports__);
         name: area.name,
         region_id: area.region_id
       }, id).then(function (response) {
-        _this3.$store.dispatch('AreaModule/updatearea', area);
+        _this3.$store.dispatch('AreaModule/updateArea', area);
 
         _this3.errors = [];
         _this3.success = true;

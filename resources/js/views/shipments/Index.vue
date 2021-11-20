@@ -65,9 +65,8 @@
             }
         },
         mounted() {
-            services.get_shipments().then( response => {
-                this.shipments=response.data;
-                console.log(response.data)
+            services.get_all().then( ({data}) => {
+                this.shipments=data.data;
             }).catch((error) => {
               console.log(error)
             });
