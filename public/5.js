@@ -467,7 +467,9 @@ function _get_one() {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/users/").concat(id), options);
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/users/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context4.sent;
@@ -495,7 +497,9 @@ function _delete_user() {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.next = 2;
-            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/users/").concat(id), options);
+            return axios["delete"]("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/users/").concat(id), {
+              headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
+            });
 
           case 2:
             response = _context5.sent;

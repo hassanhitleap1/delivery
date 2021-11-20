@@ -8,12 +8,12 @@ let actions = {
     },
     fetchareas({commit}) {
         services.get_all().then(({data})=>{
-            commit('FETCH_AREAS', data);
+            commit('FETCH_AREAS', data.data);
         }).catch(({response}) => {
             if(chkeckedAuthApi(response)){
-                services.get_all().then(({data})=>{
-                    commit('FETCH_AREAS', data);
-                })
+                // services.get_all().then(({data})=>{
+                //     commit('FETCH_AREAS', data);
+                // })
                 return ;
             }
         });

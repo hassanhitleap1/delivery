@@ -16,12 +16,12 @@ let actions = {
     },
     fetchregions({commit}) {
         services.get_all().then(({data})=>{
-            commit('FETCH_REGIONS', data);
+            commit('FETCH_REGIONS', data.data);
         }).catch(({response}) => {
             if(chkeckedAuthApi(response)){
-                services.get_all().then(({data})=>{
-                    commit('FETCH_REGIONS', data);
-                })
+                // services.get_all().then(({data})=>{
+                //     commit('FETCH_REGIONS', data);
+                // })
                 return ;
             }
         });

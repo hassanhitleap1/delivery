@@ -22,12 +22,12 @@ export  async  function update(user,id) {
 }
 
 export  async  function get_one(id) {
-    const response = await axios.get(`${api_url}/user/users/${id}`,options);
+    const response = await axios.get(`${api_url}/user/users/${id}`,{headers :JSON_HEADERS});
     return  response;
 }
 
 export  async  function delete_user(id) {
-    const response = await axios.delete(`${api_url}/user/users/${id}`,options);
+    const response = await axios.delete(`${api_url}/user/users/${id}`,{headers :JSON_HEADERS});
     return  response;
 }
 

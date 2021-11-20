@@ -42,8 +42,8 @@
                                     <td>{{area.id}}</td>
                                     <td>{{area.name}}</td>
                                     <td>{{area.region_id}}</td>
-                                    <td>{{area.region.name}}</td>
-                                    <td>{{area.country.name}}</td>
+                                    <td>{{(area.region)?area.region.name:''}}</td>
+                                    <td>{{(area.country)?area.country.name:''}}</td>
                                     <td class="action">
                                         <router-link class="tag tag-success fas fa-edit"  :to="{'name':'areas.edit',params:{'id':area.id}}" />
                                         <span class="tag tag-success fas fa-trash-alt" @click="_delete(area)"></span>

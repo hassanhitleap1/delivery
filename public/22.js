@@ -238,9 +238,13 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(area.region_id))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(area.region.name))]),
+                        _c("td", [
+                          _vm._v(_vm._s(area.region ? area.region.name : ""))
+                        ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(area.country.name))]),
+                        _c("td", [
+                          _vm._v(_vm._s(area.country ? area.country.name : ""))
+                        ]),
                         _vm._v(" "),
                         _c(
                           "td",

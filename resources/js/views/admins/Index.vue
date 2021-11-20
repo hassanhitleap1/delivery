@@ -100,7 +100,7 @@ export default {
                 this.admins = data
             }).catch(({response}) => {
                 if(chkeckedAuthApi(response)){
-                    this.get_admins(1);
+                    // this.get_admins(1);
                     return ;
                 }
             });
@@ -124,7 +124,7 @@ export default {
                         new AWN().success();
                     }).catch(({response}) => {
                         if(chkeckedAuthApi(response)){
-                            this.delete_admin(admin.id);
+                            // this.delete_admin(admin.id);
                             return ;
                         }
                     })

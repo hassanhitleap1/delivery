@@ -99,7 +99,7 @@ export default {
         },
         update(area,id) {
             services.update({name:area.name,region_id:area.region_id},id).then( response => {
-                this.$store.dispatch('AreaModule/updatearea',area);
+                this.$store.dispatch('AreaModule/updateArea',area);
                 this.errors = [];
                 this.success = true;
                 this.$router.push({ name: 'areas' });

@@ -10,12 +10,12 @@ let actions = {
     },
     fetchcountries({commit}) {
         services.get_all().then(({data})=>{
-            commit('FETCH_COUNTRIES', data)
+            commit('FETCH_COUNTRIES', data.data)
         }).catch(({response}) => {
             if(chkeckedAuthApi(response)){
-                services.get_all().then(({data})=>{
-                    commit('FETCH_COUNTRIES', data)
-                });
+                // services.get_all().then(({data})=>{
+                //     commit('FETCH_COUNTRIES', data)
+                // });
             }
         });
     },

@@ -123,8 +123,7 @@ __webpack_require__.r(__webpack_exports__);
         var response = _ref2.response;
 
         if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_5__["chkeckedAuthApi"])(response)) {
-          _this.get_admins(1);
-
+          // this.get_admins(1);
           return;
         }
       });
@@ -153,8 +152,7 @@ __webpack_require__.r(__webpack_exports__);
             var response = _ref3.response;
 
             if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_5__["chkeckedAuthApi"])(response)) {
-              _this2.delete_admin(admin.id);
-
+              // this.delete_admin(admin.id);
               return;
             }
           });

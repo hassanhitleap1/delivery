@@ -57301,25 +57301,24 @@ var actions = {
     var commit = _ref2.commit;
     _services_areas__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref3) {
       var data = _ref3.data;
-      commit('FETCH_AREAS', data);
+      commit('FETCH_AREAS', data.data);
     })["catch"](function (_ref4) {
       var response = _ref4.response;
 
       if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_1__["chkeckedAuthApi"])(response)) {
-        _services_areas__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref5) {
-          var data = _ref5.data;
-          commit('FETCH_AREAS', data);
-        });
+        // services.get_all().then(({data})=>{
+        //     commit('FETCH_AREAS', data);
+        // })
         return;
       }
     });
   },
-  updateArea: function updateArea(_ref6, area) {
-    var commit = _ref6.commit;
+  updateArea: function updateArea(_ref5, area) {
+    var commit = _ref5.commit;
     commit('UPDATE_AREA', area);
   },
-  deleteArea: function deleteArea(_ref7, area) {
-    var commit = _ref7.commit;
+  deleteArea: function deleteArea(_ref6, area) {
+    var commit = _ref6.commit;
     commit('DELETE_AREA', area);
   }
 };
@@ -57448,20 +57447,18 @@ var actions = {
     var commit = _ref3.commit;
     _services_countries__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref4) {
       var data = _ref4.data;
-      commit('FETCH_COUNTRIES', data);
+      commit('FETCH_COUNTRIES', data.data);
     })["catch"](function (_ref5) {
       var response = _ref5.response;
 
-      if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_1__["chkeckedAuthApi"])(response)) {
-        _services_countries__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref6) {
-          var data = _ref6.data;
-          commit('FETCH_COUNTRIES', data);
-        });
+      if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_1__["chkeckedAuthApi"])(response)) {// services.get_all().then(({data})=>{
+        //     commit('FETCH_COUNTRIES', data)
+        // });
       }
     });
   },
-  deleteContry: function deleteContry(_ref7, contry) {
-    var commit = _ref7.commit;
+  deleteContry: function deleteContry(_ref6, contry) {
+    var commit = _ref6.commit;
     commit('DELETE_CONTRY', contry);
   }
 };
@@ -57734,21 +57731,20 @@ var actions = {
     var commit = _ref3.commit;
     _services_regions__WEBPACK_IMPORTED_MODULE_1__["get_all"]().then(function (_ref4) {
       var data = _ref4.data;
-      commit('FETCH_REGIONS', data);
+      commit('FETCH_REGIONS', data.data);
     })["catch"](function (_ref5) {
       var response = _ref5.response;
 
       if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_0__["chkeckedAuthApi"])(response)) {
-        _services_regions__WEBPACK_IMPORTED_MODULE_1__["get_all"]().then(function (_ref6) {
-          var data = _ref6.data;
-          commit('FETCH_REGIONS', data);
-        });
+        // services.get_all().then(({data})=>{
+        //     commit('FETCH_REGIONS', data);
+        // })
         return;
       }
     });
   },
-  deleteregion: function deleteregion(_ref7, region) {
-    var commit = _ref7.commit;
+  deleteregion: function deleteregion(_ref6, region) {
+    var commit = _ref6.commit;
     axios["delete"]("/api/regions/".concat(region.id)).then(function (res) {
       if (res.data === 'ok') commit('DELETE_REGION', region);
     })["catch"](function (err) {
@@ -58011,7 +58007,7 @@ var actions = {
     var commit = _ref3.commit;
     _services_status__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref4) {
       var data = _ref4.data;
-      commit('FETCH_STATUS', data);
+      commit('FETCH_STATUS', data.data);
     })["catch"](function (_ref5) {
       var response = _ref5.response;
 
