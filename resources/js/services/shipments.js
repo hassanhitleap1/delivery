@@ -1,16 +1,31 @@
 import { site_url, api_url } from '../globals'
-export  async  function get_shipments() {
-    const res = await axios.get(`${api_url}/shipments`);
-    return  res;
-}
+import {JSON_HEADERS} from "../common/jwt.service";
 
-export  async  function create(shipment) {
-    const response= axios.post('/api/user/shipments', shipment);
+export  async  function get_all(page = 1,keywords=null)  {
+    let options = {
+        headers :JSON_HEADERS,
+        params: { page: page , keywords:keywords}};
+    const response = await axios.get(`${api_url}/shipments` ,options);
     return  response;
 }
 
-export  async  function update_shipment(shipment,id) {
-    const response= axios.put('/api/user/shipments/'+id, shipment);
+export  async  function create(shipment) {
+     const response= axios.post('/api/shipments', shipment,{headers :JSON_HEADERS});
+    return  response;
+}
+
+export  async  function update(custmer,id) {
+    const response= axios.put('/api/shipments/'+id,shipment,{headers :JSON_HEADERS});
+    return  response;
+}
+
+export  async  function get_one(id) {
+    const response = await axios.get(`${api_url}/shipments/${id}`,{headers :JSON_HEADERS});
+    return  response;
+}
+
+export  async  function _delete(id) {
+    const response = await axios.delete(`${api_url}/shipments/${id}`,{headers :JSON_HEADERS});
     return  response;
 }
 

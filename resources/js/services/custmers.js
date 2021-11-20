@@ -1,4 +1,4 @@
-import { site_url, api_url } from '../globals'
+import {api_url } from '../globals'
 import {JSON_HEADERS} from "../common/jwt.service";
 
 export  async  function get_all(page = 1,keywords=null)  {

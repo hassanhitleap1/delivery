@@ -10,32 +10,30 @@ class ShipmentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt.verify');
+        $this->middleware('jwt.verify')->only(['index','store','update','show','destroy']);
     }
     public function index(){
-        return ShipmentsResource::collection(Shipment::all());
+        return ShipmentsResource::collection(Shipment::paginate(10));
     }
 
-    public function create(Request $request){
-        $request->validate([
-            'title' => 'required|max:255',
-        ]);
-        Shipment::cerate($request->all());
-    }
-
-    public function edit(){
-
-    }
-
-    public function update(Shipment $shipment, Request $request){
-        $request->validate([
-            'title' => 'required|max:255',
-        ]);
-        $shipment->update([$request->all()]);
+    public function create(ShipmentsRequest $request){
+        $shipment  = Shipment::cerate($request->all());
+        return new ShipmentsResource($shipment );
     }
 
 
-    public function delete(Request $shipment){
+    public function update(Shipment $shipment, ShipmentsRequest $request){
+        $shipment=tap($shipment)->update([$request->all()]);
+        return new ShipmentsResource($shipment );
+    }
+
+
+    public function delete(Shipment $shipment){
         $shipment->delete();
+        return Response('',201);
+    }
+
+    public function show(Shipment $shipment){
+        return new ShipmentsResource($shipment );
     }
 }
