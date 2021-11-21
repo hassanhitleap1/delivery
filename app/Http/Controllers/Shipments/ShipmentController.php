@@ -17,7 +17,37 @@ class ShipmentController extends Controller
     }
 
     public function create(ShipmentsRequest $request){
-        $shipment  = Shipment::cerate($request->all());
+
+        $shipmentHelper = new ShipmentsHelper();
+
+        $customerHelper = new CustomerHelper([
+            'name'=>$request->name,
+            'email'=$request->email,
+            'phone'=>$request->phone,
+            'address'=>$request->address
+        ]);
+
+
+        $policyNumber =$shipmentHelper->genaratePolicyNumber();
+        $customer_id=$customerHelper->createAnewCustomer();
+        
+        $shipmentArray=[
+            'policy_number'=>  $policyNumber ,
+            'driver_id'=>$request->driver_id,
+            'customer_id'=>$customer_id,
+            'status_id'=>$request->status_id,
+            'areas_id'=>$request->areas_id,
+            'address'=>$request->address,
+            'phone'=>$request->phone,
+            'other_phone'=>$request->other_phone,
+            'required_amount'=>$request->required_amount,
+            'delivery_amount'=>$request->delivery_amount,
+            'note'=>$request->note,
+            
+            
+        ];
+
+        $shipment  = Shipment::cerate($shipmentArray);
         return new ShipmentsResource($shipment );
     }
 
