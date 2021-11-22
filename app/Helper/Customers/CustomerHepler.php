@@ -30,6 +30,19 @@ class CustomersHelper implements DefinedCustomer
 
     }
 
+    public function updateCustomer(): int{
+        $customer=Customer::find($this->data->customer_id);
+        $customer= tap($customer)->update([
+            'name'=>$this->data->name,
+            'email'=$this->data->email,
+            'phone'=>$this->data->phone,
+            'address'=>$this->data->address
+        ]);
+        return  $customer->id;
+
+    }
+    
+
     /**
      * genaratePassword
      * @override

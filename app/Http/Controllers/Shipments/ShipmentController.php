@@ -44,7 +44,6 @@ class ShipmentController extends Controller
             'delivery_amount'=>$request->delivery_amount,
             'note'=>$request->note,
             
-            
         ];
 
         $shipment  = Shipment::cerate($shipmentArray);
@@ -53,7 +52,30 @@ class ShipmentController extends Controller
 
 
     public function update(Shipment $shipment, ShipmentsRequest $request){
-        $shipment=tap($shipment)->update([$request->all()]);
+
+        $customerHelper = new CustomerHelper([
+            'customer_id'=>$customer_id,
+            'name'=>$request->name,
+            'email'=$request->email,
+            'phone'=>$request->phone,
+            'address'=>$request->address
+        ]);
+
+
+        $shipment=tap($shipment)->update([
+            'policy_number'=>  $request->policy_number ,
+            'driver_id'=>$request->driver_id,
+            'status_id'=>$request->status_id,
+            'areas_id'=>$request->areas_id,
+            'address'=>$request->address,
+            'phone'=>$request->phone,
+            'other_phone'=>$request->other_phone,
+            'required_amount'=>$request->required_amount,
+            'delivery_amount'=>$request->delivery_amount,
+            'note'=>$request->note,
+
+        ]);
+        
         return new ShipmentsResource($shipment );
     }
 
