@@ -47,7 +47,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.centered[data-v-0aeb0be3] {\r\n    display: table-cell;\r\n    height: 400px;\r\n    width: 800px;\r\n    text-align: center;\r\n    vertical-align: middle;\n}\r\n", ""]);
+exports.push([module.i, "\n.centered[data-v-0aeb0be3] {\n    display: table-cell;\n    height: 400px;\n    width: 800px;\n    text-align: center;\n    vertical-align: middle;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

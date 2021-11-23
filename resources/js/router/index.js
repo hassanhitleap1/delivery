@@ -26,7 +26,7 @@ const route =  new VueRouter({
         },
         {
             name: 'shipments.create',
-            path: 'shipments/create',
+            path: '/shipments/create',
             component:  ()=>import("../views/shipments/Create"),
             meta: {requiresAuth: true}
 

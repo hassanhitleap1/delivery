@@ -5,12 +5,6 @@ Route::group(['prefix' => 'dashboard' ], function () {
     Route::get('/', 'Home\Dashboard@index');
 });
 
-//Route::get('auth/refresh', function () {
-//    dd('');
-//})->middleware('cors');
-
-
-
 Route::group(['prefix' => 'auth' ], function () {
     Route::post('login', 'AuthJwt\AuthController@login');
     Route::post('logout', 'AuthJwt\AuthController@logout');
@@ -29,10 +23,12 @@ Route::apiResources([
    'countries'=> \Areas\CountriesController::class,
 ]);
 Route::group(['prefix' => 'user'], function () {
+    Route::get('drivers/list-drivers' , 'Users\DriverController@list_drivers')->name('list_drivers');
     Route::apiResources([
         'admins' => \Users\AdminController::class,
         'custmers' => \Users\CustomerController::class,
         'drivers' => \Users\DriverController::class,
         'users' => \Users\UsersController::class,
     ]);
+
 });

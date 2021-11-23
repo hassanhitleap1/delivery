@@ -30,8 +30,8 @@ export  async  function _delete(id) {
 }
 
 
-export  async  function get()  {
-    const response = await axios.get(`${api_url}/user/drivers/get`,{headers :JSON_HEADERS});
+export  async  function get_list()  {
+    const response = await axios.get(`${api_url}/user/drivers/list-drivers`,{headers :JSON_HEADERS});
     return  response;
 }
 

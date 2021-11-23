@@ -2,6 +2,7 @@
 
 
 namespace App\Http\Controllers\Shipments;
+use App\Helper\Customers\CustomersHelper;
 use App\Model\Shipments\Shipment;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Shipments\ShipmentsResource;
@@ -17,12 +18,11 @@ class ShipmentController extends Controller
     }
 
     public function create(ShipmentsRequest $request){
-
         $shipmentHelper = new ShipmentsHelper();
 
-        $customerHelper = new CustomerHelper([
+        $customerHelper = new CustomersHelper([
             'name'=>$request->name,
-            'email'=$request->email,
+            'email'=>$request->email,
             'phone'=>$request->phone,
             'address'=>$request->address
         ]);
@@ -30,7 +30,7 @@ class ShipmentController extends Controller
 
         $policyNumber =$shipmentHelper->genaratePolicyNumber();
         $customer_id=$customerHelper->createAnewCustomer();
-        
+
         $shipmentArray=[
             'policy_number'=>  $policyNumber ,
             'driver_id'=>$request->driver_id,
@@ -43,7 +43,7 @@ class ShipmentController extends Controller
             'required_amount'=>$request->required_amount,
             'delivery_amount'=>$request->delivery_amount,
             'note'=>$request->note,
-            
+
         ];
 
         $shipment  = Shipment::cerate($shipmentArray);
@@ -56,7 +56,7 @@ class ShipmentController extends Controller
         $customerHelper = new CustomerHelper([
             'customer_id'=>$customer_id,
             'name'=>$request->name,
-            'email'=$request->email,
+            'email'=>$request->email,
             'phone'=>$request->phone,
             'address'=>$request->address
         ]);
@@ -75,7 +75,7 @@ class ShipmentController extends Controller
             'note'=>$request->note,
 
         ]);
-        
+
         return new ShipmentsResource($shipment );
     }
 

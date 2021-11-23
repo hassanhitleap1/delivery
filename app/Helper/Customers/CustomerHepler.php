@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 namespace App\Helper\Customers;
@@ -6,8 +6,8 @@ namespace App\Helper\Customers;
 use App\Model\Users\Customer;
 
 class CustomersHelper implements DefinedCustomer
-{ 
-   
+{
+
     private $data;
     public function __construct($data) {
         $this->data = $data;
@@ -20,7 +20,7 @@ class CustomersHelper implements DefinedCustomer
     public function createAnewCustomer(): int{
         $customer= Customer::create([
             'name'=>$this->data->name,
-            'email'=$this->data->email,
+            'email'=>$this->data->email,
             'phone'=>$this->data->phone,
             'password'=>$this->genaratePassword(),
             'type'=>User::CUSTOMER,
@@ -34,14 +34,14 @@ class CustomersHelper implements DefinedCustomer
         $customer=Customer::find($this->data->customer_id);
         $customer= tap($customer)->update([
             'name'=>$this->data->name,
-            'email'=$this->data->email,
+            'email'=>$this->data->email,
             'phone'=>$this->data->phone,
             'address'=>$this->data->address
         ]);
         return  $customer->id;
 
     }
-    
+
 
     /**
      * genaratePassword
@@ -53,6 +53,6 @@ class CustomersHelper implements DefinedCustomer
 
     }
 
-    
+
 }
 ?>

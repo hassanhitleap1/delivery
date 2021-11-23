@@ -16,19 +16,15 @@
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title float-left">create</h3>
-                                <p>
-                                    <button class="btn btn-primary" @click="add_shipment"></button>
+                                <p  class="float-right">
+                                    <button class="btn btn-success" @click.prevent="add_shipment"><span class="fas fa-plus"></span></button>
                                 </p>
                             </div>
                             <form role="form"  @submit.prevent="create()">
                                 <div  class="card-body">
-                                    <div v-for="(index ,shipment) in shipments" class="row" :key="index">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">policy_number</label>
-                                                <input type="text" class="form-control" id="policy_number" placeholder="Enter name" v-model="shipments[index].policy_number">
-                                            </div>
-                                        </div>
+                                    <div v-for="(shipment ,index) in shipments" class="row" :key="index">
+                                        <button class="btn btn-success" @click.prevent="add_shipment"><span class="fas fa-plus"></span></button>
+                                        <button class="btn btn-danger" v-show="index > 0" @click.prevent="remove_shipment(index)"><span class="fas fa-minus"></span></button>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">name</label>
@@ -37,44 +33,44 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="name">name</label>
+                                                <label for="name"> driver </label>
                                                 <input type="text" class="form-control" id="driver_id" placeholder="Enter name" v-model="shipments[index].driver_id">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="name">customer_id</label>
+                                                <label for="name">customer </label>
                                                 <input type="text" class="form-control" id="customer_id" placeholder="Enter name" v-model="shipments[index].customer_id">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="name">status_id</label>
+                                                <label for="name">status </label>
                                                 <input type="text" class="form-control" id="status_id" placeholder="Enter name" v-model="shipments[index].status_id">
                                             </div>
                                         </div>
-
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="name">country_id</label>
-                                                <input type="text" class="form-control" id="country_id" placeholder="Enter name" v-model="shipments[index].country_id">
+                                                <label for="name">country </label>
+                                                <Select2 v-model="shipments[index].country_id" :options="countries_serach" />
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="name">region_id</label>
-                                                <input type="text" class="form-control" id="region_id" placeholder="Enter name" v-model="shipments[index].region_id">
+                                                <label for="name">region </label>
+                                                <Select2 v-model="shipments[index].region_id" :options="regions_serach" />
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="name">areas_id</label>
-                                                <input type="text" class="form-control" id="areas_id" placeholder="Enter name" v-model="shipments[index].areas_id">
+                                                <label for="name">areas </label>
+                                                <Select2 v-model="shipments[index].areas_id" :options="areas" />
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">address</label>
+                                                <Select2Component />
                                                 <input type="text" class="form-control" id="address" placeholder="Enter name" v-model="shipments[index].address">
                                             </div>
                                         </div>
@@ -92,13 +88,13 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="name">required_amount</label>
+                                                <label for="name">required amount</label>
                                                 <input type="text" class="form-control" id="required_amount" placeholder="Enter name" v-model="shipments[index].required_amount">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="name">delivery_amount</label>
+                                                <label for="name">delivery amount</label>
                                                 <input type="text" class="form-control" id="delivery_amount" placeholder="Enter name" v-model="shipments[index].delivery_amount">
                                             </div>
                                         </div>
@@ -130,24 +126,24 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex';
 import  * as services from '../../services/shipments';
 import Layout from "../layouts/Layout";
-import {get}   from "../../services/drivers";
-import * as apiregions from "../../services/regions";
+import {get_list}   from "../../services/drivers";
 import * as apiareas from "../../services/areas";
-import {get_areas_region} from "../../services/areas";
-
+import Select2 from 'v-select2-component';
+import Select2Component from '../../components/inputs/Select2Component';
 export default {
     name: "Create",
     components:{
         Layout,
+        Select2,Select2Component
     },
     data(){
         return {
             errors: null,
             success : false,
             shipments:[{
-                policy_number:null,
                 name:null,
                 driver_id:null,
                 customer_id:null,
@@ -163,12 +159,29 @@ export default {
                 note:null,
             }],
             divers:[],
-            regions:[],
             areas:[],
         }
     }, mounted() {
         this.get_drivers();
-        this.get_regions();
+        this.$store.dispatch('StatusModule/fetchstatus');
+        this.$store.dispatch('ContryModule/fetchcountries');
+        this.$store.dispatch('RegionModule/fetchregions');
+    }, computed: {
+        ...mapGetters('StatusModule', ['status']),
+        ...mapGetters('ContryModule', ['countries']),
+        ...mapGetters('RegionModule', ['regions']),
+        countries_serach: function () {
+            return this.countries.map( function(country) {
+                return {id:country.id,text:country.name};
+            });
+        },
+        regions_serach: function () {
+            return this.regions.map( function(region) {
+                return {id:region.id,text:region.name};
+            });
+        },
+
+
     }, methods:{
         add_shipment(){
               this.shipments.push({
@@ -188,6 +201,11 @@ export default {
                  note:null,
              }) ;
         },
+        remove_shipment(index){
+            this.shipments.splice(index, 1);
+        },
+
+
         saprotarea(area){
             return {id: area.id,text :area.name}
         },
@@ -206,7 +224,6 @@ export default {
         myChangeEventDriver(val){
             console.log(val);
         },
-
         mySelectEventDriver({id, text}){
             this.driver_id =id;
         },
@@ -217,33 +234,20 @@ export default {
         mySelectEventArea({id, text}){
             this.area_id =id;
         },
+
+
         get_drivers(){
-            get.then(({data}) => {
-                this.drivers=res.data.data.map( function(driver) {
+            get_list().then(({data}) => {
+                this.drivers=data.data.map( function(driver) {
                     return {id:driver.id,text:driver.name};
                 });
             }).catch(err => {
                 console.log(err)
             });
 
-            apidrivers.get().then(({data}) => {
-                this.drivers=res.data.data.map( function(driver) {
-                    return {id:driver.id,text:driver.name};
-                });
-            }).catch(err => {
-                console.log(err)
-            });
         },
-        get_regions(){
-            apiregions.get_all().then(res => {
-                this.regions=res.data.data.map( function(region) {
-                    return {id:region.id,text:region.name};
-                });
 
-            }).catch(err => {
-                console.log(err)
-            })
-        },
+
         get_areas(region_id){
             apiareas.get_areas_region(region_id).then(res => {
                 this.areas=res.data.data.map( function(region) {
@@ -280,8 +284,6 @@ export default {
             });
 
         }
-
-
     },
 
 }
