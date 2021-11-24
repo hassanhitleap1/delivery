@@ -1,5 +1,5 @@
 <template>
-    <layout name="LayoutDefault">
+    <Layout name="LayoutDefault">
         <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -60,7 +60,7 @@
         </div>
 
     </section>
-    </layout>
+    </Layout>
 
 </template>
 

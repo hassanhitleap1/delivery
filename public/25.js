@@ -120,7 +120,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("layout", { attrs: { name: "LayoutDefault" } }, [
+  return _c("Layout", { attrs: { name: "LayoutDefault" } }, [
     _c("section", { staticClass: "content" }, [
       _c("div", { staticClass: "container-fluid" }, [
         _c("div", { staticClass: "row" }, [
@@ -283,11 +283,11 @@ render._withStripped = true
 var map = {
 	"./AppLayout": [
 		"./resources/js/views/layouts/AppLayout.vue",
-		8
+		9
 	],
 	"./AppLayout.vue": [
 		"./resources/js/views/layouts/AppLayout.vue",
-		8
+		9
 	],
 	"./Layout": [
 		"./resources/js/views/layouts/Layout.js"

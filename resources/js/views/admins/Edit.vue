@@ -1,61 +1,61 @@
 <template>
-    <layout name="LayoutDefault">
+    <Layout name="LayoutDefault">
         <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- left column -->
-                <div v-if="errors">
-                    <div v-for="(v, k) in errors" :key="k">
-                        <p v-for="error in v" :key="error" class="alert alert-danger" role="alert">
-                            {{ error }}
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <!-- general form elements -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title float-left">create new admin</h3>
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div v-if="errors">
+                        <div v-for="(v, k) in errors" :key="k">
+                            <p v-for="error in v" :key="error" class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </p>
                         </div>
-                        <!-- /.card-header -->
-
-
-
-                        <form role="form" @submit.prevent="update_admin(admin,id)" >
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="name">name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="admin.name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="admin.phone">
-                                </div>
-<!--                                <div class="form-group">-->
-<!--                                    <label for="email">email</label>-->
-<!--                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">-->
-<!--                                </div>-->
-
-
-                                <div class="form-group">
-                                    <label for="name">address</label>
-                                    <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="admin.address">
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
                     </div>
-                    <!-- /.card -->
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title float-left">create new admin</h3>
+                            </div>
+                            <!-- /.card-header -->
 
+
+
+                            <form role="form" @submit.prevent="update_admin(admin,id)" >
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="name">name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="admin.name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">phone</label>
+                                        <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="admin.phone">
+                                    </div>
+    <!--                                <div class="form-group">-->
+    <!--                                    <label for="email">email</label>-->
+    <!--                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">-->
+    <!--                                </div>-->
+
+
+                                    <div class="form-group">
+                                        <label for="name">address</label>
+                                        <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="admin.address">
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    </layout>
+        </section>
+    </Layout>
 </template>
 
 <script>

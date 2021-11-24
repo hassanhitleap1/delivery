@@ -1,4 +1,5 @@
 <template>
+ <Layout name="LayoutDefault">
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -54,13 +55,16 @@
             </div>
         </div>
     </section>
+ </Layout>
 </template>
 
 <script>
 
 import  * as services from '../../services/custmers';
+import Layout from "../layouts/Layout";
 export default {
-    name: "users.edit",
+    name: "Edit",
+     components: {Layout },
     data(){
         return {
             errors: [],

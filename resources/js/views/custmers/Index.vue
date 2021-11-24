@@ -1,4 +1,5 @@
 <template>
+<Layout name="LayoutDefault">
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -61,6 +62,7 @@
             </div>
         </div>
     </section>
+</Layout>
 </template>
 
 <script>
@@ -69,12 +71,13 @@ import Swal from 'sweetalert2';
 import AWN from "awesome-notifications";
 import pagination from 'laravel-vue-pagination';
 import {chkeckedAuthApi} from "../../common/jwt.service";
+ import Layout from "../layouts/Layout";
 
 
 export default {
     name: "Index",
     components:{
-        pagination
+        pagination,Layout
     },
     data(){
         return {

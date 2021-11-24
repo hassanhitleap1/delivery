@@ -1,4 +1,5 @@
 <template>
+     <Layout name="LayoutDefault">
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -33,12 +34,17 @@
             </div>
         </div>
     </section>
+     </Layout>
 </template>
 
 <script>
 import  * as services from '../../services/countries';
+  import Layout from "../layouts/Layout";
 export default {
     name: "Create",
+       components:{
+            Layout,
+        },
     data(){
         return {
             errors: null,

@@ -1,4 +1,5 @@
 <template>
+<Layout name="LayoutDefault">
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -43,16 +44,18 @@
             </div>
         </div>
     </section>
+</Layout>
 </template>
 
 <script>
 import  * as services from '../../services/regions';
 import  * as apicountries from '../../services/countries';
 import Select2 from 'v-select2-component';
+import Layout from "../layouts/Layout";
 
 export default {
     name: "Create",
-    components: {Select2},
+    components: {Select2 ,Layout },
     data(){
         return {
             errors: null,

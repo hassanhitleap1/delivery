@@ -1,5 +1,5 @@
 <template>
-    <layout name="LayoutDefault">
+    <Layout name="LayoutDefault">
             <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -46,7 +46,7 @@
             </div>
         </div>
     </section>
-    </layout>
+    </Layout>
 </template>
 
 <script>

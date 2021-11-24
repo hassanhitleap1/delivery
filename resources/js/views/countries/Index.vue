@@ -1,4 +1,5 @@
 <template>
+<Layout name="LayoutDefault">
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -52,15 +53,17 @@
         </div>
 
     </section>
-
+</Layout>
 
 </template>
 
 <script>
     import {mapGetters} from 'vuex'
     import * as services from "../../services/countries";
+    import Layout from "../layouts/Layout";
     export default {
         name: "Index",
+         components: {Layout },
         mounted() {
             this.$store.dispatch('ContryModule/fetchcountries');
         },

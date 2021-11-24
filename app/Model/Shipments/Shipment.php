@@ -3,6 +3,11 @@
 
 namespace App\Model\Shipments;
 use Illuminate\Database\Eloquent\Model;
+use App\Model\Areas\Area;
+use App\Model\Users\Driver;
+use App\Model\Users\Customer;
+use App\Model\Status\Status;
+
 
 class Shipment extends  Model
 {
@@ -29,7 +34,7 @@ class Shipment extends  Model
 
     
     public function status(){
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Status::class);
     }
 
 
@@ -38,4 +43,7 @@ class Shipment extends  Model
     }
 
     
+    public function area(){
+        return $this->belongsTo(Area::class);
+    }
 }
