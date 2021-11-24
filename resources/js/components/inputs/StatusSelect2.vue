@@ -1,7 +1,6 @@
 <template>
     <div>
-        <Select2 v-model="myValue" :options="status_serach" :settings="{ settingOption: value, settingOption: value }" @change="myChangeEvent($event)" @select="mySelectEvent($event)" />
-        <h4>Value: {{ myValue }}</h4>
+        <Select2 :class="['form-control']"  :options="status_serach"  @select="mySelectEvent($event)" />
     </div>
 </template>
 
@@ -11,12 +10,8 @@ import {mapGetters} from 'vuex';
 export default {
     name:'StatusSelect2',
     components: {Select2},
-    data() {
-        return {
-            myValue: 1,
-            value:1,
-        }
-    }, mounted() {
+    props: ['index'],
+    mounted() {
         this.$store.dispatch('StatusModule/fetchstatus');
     }, computed: {
         ...mapGetters('StatusModule', ['status']),
@@ -27,11 +22,10 @@ export default {
         },
     },
     methods: {
-        myChangeEvent(val){
-            console.log(val);
-        },
         mySelectEvent({id, text}){
-            console.log({id, text})
+            var index=this.index;
+            this.$emit('select_status', {id, text,index });
+            
         }
     }
 }

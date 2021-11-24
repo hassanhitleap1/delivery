@@ -1,7 +1,6 @@
 <template>
     <div>
-        <Select2 v-model="contry" :options="countries_serach" :settings="{ settingOption: value, settingOption: value }" @change="myChangeEvent($event)" @select="mySelectEvent($event)" />
-        <h4>Value: {{ myValue }}</h4>
+        <Select2 :class="['form-control']"  :options="countries_serach"  @select="mySelectEvent($event)" />
     </div>
 </template>
 
@@ -11,27 +10,22 @@ import {mapGetters} from 'vuex';
 export default {
     name:'CountriesSelect2',
     components: {Select2},
-    data() {
-        return {
-            myValue: 1,
-            contry:1,
-        }
-    }, mounted() {
-        this.$store.dispatch('ContryModule/fetchcountries');
+    props: ['index'],
+    mounted() {
+      this.$store.dispatch('ContryModule/fetchcountries');
     }, computed: {
         ...mapGetters('ContryModule', ['countries']),
         countries_serach: function () {
-            return this.countries.map( function(country) {
+            return this.status.map( function(country) {
                 return {id:country.id,text:country.name};
             });
         },
     },
     methods: {
-        myChangeEvent(val){
-            console.log(val);
-        },
         mySelectEvent({id, text}){
-            console.log({id, text})
+            var index=this.index;
+            this.$emit('select_country', {id, text,index });
+            
         }
     }
 }

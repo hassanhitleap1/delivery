@@ -15,7 +15,7 @@ class CountriesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('jwt.verify')->only(['index','store','update','show','destroy']);
+     //   $this->middleware('jwt.verify')->only(['index','store','update','show','destroy']);
     }
 
     public function index(){

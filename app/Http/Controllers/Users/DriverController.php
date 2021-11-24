@@ -17,7 +17,7 @@ class DriverController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt.verify')->only(['index','store','update','show','destroy','list_drivers']);
+      //  $this->middleware('jwt.verify')->only(['index','store','update','show','destroy','list_drivers']);
     }
     public function index(){
         return DriverResource::collection(Driver::paginate(10));

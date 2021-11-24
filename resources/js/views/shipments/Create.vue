@@ -46,31 +46,32 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">status </label>
-                                                <input type="text" class="form-control" id="status_id" placeholder="Enter name" v-model="shipments[index].status_id">
+                                                <StatusSelect2 @select_status="set_status" :index="index" />
+                                                
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">country </label>
-                                                <Select2 v-model="shipments[index].country_id" :options="countries_serach" />
+                                                <!-- <Select2 v-model="shipments[index].country_id" :options="countries_serach" /> -->
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">region </label>
-                                                <Select2 v-model="shipments[index].region_id" :options="regions_serach" />
+                                                <!-- <Select2 v-model="shipments[index].region_id" :options="regions_serach" /> -->
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">areas </label>
-                                                <Select2 v-model="shipments[index].areas_id" :options="areas" />
+                                                <!-- <Select2 v-model="shipments[index].areas_id" :options="areas" /> -->
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">address</label>
-                                                <Select2Component />
+                                            
                                                 <input type="text" class="form-control" id="address" placeholder="Enter name" v-model="shipments[index].address">
                                             </div>
                                         </div>
@@ -132,12 +133,15 @@ import Layout from "../layouts/Layout";
 import {get_list}   from "../../services/drivers";
 import * as apiareas from "../../services/areas";
 import Select2 from 'v-select2-component';
-import Select2Component from '../../components/inputs/Select2Component';
+import StatusSelect2 from "../../components/inputs/StatusSelect2.vue";
+
 export default {
     name: "Create",
     components:{
         Layout,
-        Select2,Select2Component
+        Select2,
+        StatusSelect2
+  
     },
     data(){
         return {
@@ -163,23 +167,16 @@ export default {
         }
     }, mounted() {
         this.get_drivers();
-        this.$store.dispatch('StatusModule/fetchstatus');
-        this.$store.dispatch('ContryModule/fetchcountries');
-        this.$store.dispatch('RegionModule/fetchregions');
+        // this.$store.dispatch('RegionModule/fetchregions');
     }, computed: {
-        ...mapGetters('StatusModule', ['status']),
-        ...mapGetters('ContryModule', ['countries']),
-        ...mapGetters('RegionModule', ['regions']),
-        countries_serach: function () {
-            return this.countries.map( function(country) {
-                return {id:country.id,text:country.name};
-            });
-        },
-        regions_serach: function () {
-            return this.regions.map( function(region) {
-                return {id:region.id,text:region.name};
-            });
-        },
+
+        // ...mapGetters('RegionModule', ['regions']),
+  
+        // regions_serach: function () {
+        //     return this.regions.map( function(region) {
+        //         return {id:region.id,text:region.name};
+        //     });
+        // },
 
 
     }, methods:{
@@ -205,35 +202,13 @@ export default {
             this.shipments.splice(index, 1);
         },
 
+        set_status(data){
+            this.shipments[data.index].status_id=data.id;
+        },
+         set_country(data){
+            this.shipments[data.index].country_id=data.id;
+        },
 
-        saprotarea(area){
-            return {id: area.id,text :area.name}
-        },
-        saprotregion(region){
-            return {id: region.id,text :region.name}
-        },
-        saprotdriver(driver){
-            return {id: driver.id,text :driver.name}
-        },
-        myChangeEventArea(val){
-            console.log(val);
-        },
-        myChangeEventRegion(val){
-            console.log(val);
-        },
-        myChangeEventDriver(val){
-            console.log(val);
-        },
-        mySelectEventDriver({id, text}){
-            this.driver_id =id;
-        },
-        mySelectEventRegion({id, text}){
-            this.get_areas(region_id);
-            this.region_id =id;
-        },
-        mySelectEventArea({id, text}){
-            this.area_id =id;
-        },
 
 
         get_drivers(){
@@ -246,7 +221,6 @@ export default {
             });
 
         },
-
 
         get_areas(region_id){
             apiareas.get_areas_region(region_id).then(res => {
