@@ -27,7 +27,18 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>name   </th>
+                                    <th>shipment id </th>
+                                    <th>driver </th>
+                                    <th>country </th>
+                                    <th>region </th>
+                                    <th>address </th>
+                                    <th>phone </th>
+                                    <th>other_phone </th>
+                                    <th>phone </th>
+                                    <th>other phone </th>
+                                    <th>required amount </th>
+                                    <th>delivery amount</th>
+                                    <th>note</th>
                                     <th>action </th>
 
                                 </tr>
@@ -36,6 +47,21 @@
                                 <tr v-for="shipment in shipments" :key="shipment.id">
                                     <td>{{shipment.id}}</td>
                                     <td>{{shipment.id}}</td>
+                                    <td>{{shipment.country.name}}</td>
+                                    <td>{{shipment.driver.name}}</td>
+                                    <td>{{shipment.region.name}}</td>
+                                    <td>{{shipment.areas.name}}</td>
+                                    <td>{{shipment.address}}</td>
+                                    <td>{{shipment.phone}}</td>
+                                    <td>{{shipment.other_phone}}</td>
+                                    <td>{{shipment.required_amount}}</td>
+                                    <td>{{shipment.delivery_amount}}</td>
+                                    <td>{{shipment.note}}</td>
+
+
+
+
+
 
                                     <td class="action">
                                         <router-link class="tag tag-success fas fa-edit" :to="{name:'shipments.edit',params:{'id':shipment.id}}" >
@@ -68,7 +94,7 @@
             services.get_all().then( ({data}) => {
                 this.shipments=data.data;
             }).catch((error) => {
-              console.log(error)
+              console.log(error);
             });
         },
 
