@@ -56134,7 +56134,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'shipments.create',
     path: '/shipments/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(10), __webpack_require__.e(42)]).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(9), __webpack_require__.e(41)]).then(__webpack_require__.bind(null, /*! ../views/shipments/Create */ "./resources/js/views/shipments/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56143,7 +56143,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: 'shipments/:id/edit',
     name: 'shipments.update',
     components: function components() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(10), __webpack_require__.e(41)]).then(__webpack_require__.bind(null, /*! ../views/shipments/Update */ "./resources/js/views/shipments/Update.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(9), __webpack_require__.e(42)]).then(__webpack_require__.bind(null, /*! ../views/shipments/Update */ "./resources/js/views/shipments/Update.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56368,7 +56368,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'regions.create',
     path: '/regions/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(10), __webpack_require__.e(46)]).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(9), __webpack_require__.e(46)]).then(__webpack_require__.bind(null, /*! ../views/regions/Create */ "./resources/js/views/regions/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56377,7 +56377,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'regions.edit',
     path: '/regions/:id/edit',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(10), __webpack_require__.e(47)]).then(__webpack_require__.bind(null, /*! ../views/regions/Edit */ "./resources/js/views/regions/Edit.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(9), __webpack_require__.e(47)]).then(__webpack_require__.bind(null, /*! ../views/regions/Edit */ "./resources/js/views/regions/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56395,7 +56395,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'areas.create',
     path: '/areas/create',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(10), __webpack_require__.e(44)]).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(9), __webpack_require__.e(44)]).then(__webpack_require__.bind(null, /*! ../views/areas/Create */ "./resources/js/views/areas/Create.vue"));
     },
     meta: {
       requiresAuth: true
@@ -56404,7 +56404,7 @@ var route = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'areas.edit',
     path: '/areas/:id/edit',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(10), __webpack_require__.e(45)]).then(__webpack_require__.bind(null, /*! ../views/areas/Edit */ "./resources/js/views/areas/Edit.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(9), __webpack_require__.e(45)]).then(__webpack_require__.bind(null, /*! ../views/areas/Edit */ "./resources/js/views/areas/Edit.vue"));
     },
     meta: {
       requiresAuth: true
@@ -57910,16 +57910,15 @@ var actions = {
       var response = _ref5.response;
 
       if (Object(_common_jwt_service__WEBPACK_IMPORTED_MODULE_1__["chkeckedAuthApi"])(response)) {
-        _services_status__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref6) {
-          var data = _ref6.data;
-          commit('FETCH_STATUS', data);
-        });
+        // services.get_all().then(({data})=>{
+        //     commit('FETCH_STATUS', data)
+        // })
         return;
       }
     });
   },
-  deleteStatu: function deleteStatu(_ref7, statu) {
-    var commit = _ref7.commit;
+  deleteStatu: function deleteStatu(_ref6, statu) {
+    var commit = _ref6.commit;
 
     _services_status__WEBPACK_IMPORTED_MODULE_0__["_delete"](statu.id).then(function (res) {
       commit('DELETE_STATU', statu);

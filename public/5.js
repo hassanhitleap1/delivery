@@ -528,7 +528,7 @@ function _get_list() {
         switch (_context6.prev = _context6.next) {
           case 0:
             _context6.next = 2;
-            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/custmers/list-drivers"), {
+            return axios.get("".concat(_globals__WEBPACK_IMPORTED_MODULE_1__["api_url"], "/user/custmers/list-custmers"), {
               headers: _common_jwt_service__WEBPACK_IMPORTED_MODULE_2__["JSON_HEADERS"]
             });
 

@@ -8,6 +8,7 @@
 <script>
 import Select2 from 'v-select2-component';
 import  * as services from '../../services/drivers';
+import { chkeckedAuthApi } from '../../common/jwt.service';
 export default {
     name:'DriversSelect2',
     components: {Select2},

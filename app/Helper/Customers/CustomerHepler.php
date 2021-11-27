@@ -5,7 +5,7 @@ namespace App\Helper\Customers;
 
 use App\Model\Users\Customer;
 
-class CustomersHelper implements DefinedCustomer
+class CustomerHepler implements DefinedCustomer
 {
 
     private $data;

@@ -12,9 +12,9 @@ let actions = {
             commit('FETCH_STATUS', data.data)
         }).catch(({response}) => {
             if(chkeckedAuthApi(response)){
-                services.get_all().then(({data})=>{
-                    commit('FETCH_STATUS', data)
-                })
+                // services.get_all().then(({data})=>{
+                //     commit('FETCH_STATUS', data)
+                // })
                 return ;
             }
         });

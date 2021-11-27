@@ -8,6 +8,7 @@
 <script>
 import Select2 from 'v-select2-component';
 import  * as services from '../../services/areas';
+import { chkeckedAuthApi } from '../../common/jwt.service';
 export default {
     name:'AreasSelect2',
     components: {Select2},
@@ -28,13 +29,14 @@ export default {
         },
          get_all(){
             services.get_list().then(({data})=>{
-                    this.areas=data.data.map( function(driver) {
+                console.log("area",data)
+                    this.areas=data.data.map( function(area) {
                         return {id:area.id,text:area.name};
                     });
             }).catch(({response}) => {
-                if(chkeckedAuthApi(response)){
-                    return ;
-                }
+                // if(chkeckedAuthApi(response)){
+                //     return ;
+                // }
             });
         }
     }

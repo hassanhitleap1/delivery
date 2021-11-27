@@ -14,6 +14,7 @@ class Shipment extends  Model
     protected  $table='shipments';
     protected $fillable = [
         'policy_number',
+        'name',
         'driver_id',
         'status_id',
         'customer_id',

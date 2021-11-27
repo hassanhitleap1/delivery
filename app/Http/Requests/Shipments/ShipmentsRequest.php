@@ -1,34 +1,53 @@
 <?php
 
-namespace App\Http\Requests\Areas;
+namespace App\Http\Requests\Shipments;
 use App\Http\Requests\Request;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class AreasRequest extends \App\Http\Requests\Api\FormRequest
+class ShipmentsRequest extends \App\Http\Requests\Api\FormRequest
 {
 
     protected $createRules = [
-        'name' => 'required|max:255',
-        'region_id'=>'required|numeric'
+        'name.*.finding'=> 'required|max:255',
+        'driver_id.*.finding'=>'numeric',
+        'status_id.*.finding'=>'required|numeric',
+        'customer_id.*.finding'=>'required|numeric',
+        'areas_id.*.finding'=>'numeric',
+        'address.*.finding'=> 'required|max:255',
+        'phone.*.finding'=> 'required|max:255',
+        'other_phone.*.finding'=> 'max:255',
+        'required_amount.*.finding'=>'required|numeric',
+        'delivery_amount.*.finding'=>'required|numeric',
+        'note.*.finding'=>'required|numeric',
+
     ];
 
 
     protected $updateRules = [
-        'name' => 'required|max:255',
-        'region_id'=>'required|numeric'
+        'name'=> 'required|max:255',
+        'driver_id'=>'numeric',
+        'status_id'=>'required|numeric',
+        'customer_id'=>'required|numeric',
+        'areas_id'=>'numeric',
+        'address'=> 'required|max:255',
+        'phone'=> 'required|max:255',
+        'other_phone'=> 'max:255',
+        'required_amount'=>'required|numeric',
+        'delivery_amount'=>'required|numeric',
+        'note'=>'required|numeric',
     ];
 
     protected $rules = [];
 
     public function createValidate(){
-        $this->rules = $this->createRules;
-        return $this->rules;
+   
+        return $this->createRules;
     }
 
     public function updateValidate(){
-        $this->rules = $this->updateRules;
-        return $this->rules;
+     
+        return $this->updateRules;
     }
 
     /**

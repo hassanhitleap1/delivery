@@ -28,7 +28,7 @@ export default {
         },
          get_all(){
             services.get_list().then(({data})=>{
-                console.log(data)
+                console.log("custmer" ,data)
                     this.custmers=data.data.map( function(custmer) {
                         return {id:custmer.id,text:custmer.name};
                     });
