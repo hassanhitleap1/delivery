@@ -26,8 +26,6 @@ Route::apiResources([
    'regions' => \Areas\RegionController::class,
    'countries'=> \Areas\CountriesController::class,
 ]);
-//
-
 
 Route::group(['prefix' => 'user'], function () {
     Route::get('drivers/list-drivers' , 'Users\DriverController@list_drivers')->name('list_drivers');
