@@ -8,7 +8,7 @@
 import Select2 from 'v-select2-component';
 import {mapGetters} from 'vuex';
 export default {
-    name:'RegionsSelect2',
+    name:'CustmersSelect2',
     components: {Select2},
     props: ['index'],
     mounted() {

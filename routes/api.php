@@ -17,12 +17,17 @@ Route::apiResources([
     'status' => \Status\StatusController::class,
     'history-status' => \Status\HistoryStatusController::class,
 ]);
+
+
+
+Route::get('areas/list-areas' , 'Areas\AreaController@list_areas')->name('list_areas');
 Route::apiResources([
    'areas' => \Areas\AreaController::class,
    'regions' => \Areas\RegionController::class,
    'countries'=> \Areas\CountriesController::class,
 ]);
-Route::get('areas/list-areas' , 'Areas\AreaController@list_areas')->name('list_areas');
+//
+
 
 Route::group(['prefix' => 'user'], function () {
     Route::get('drivers/list-drivers' , 'Users\DriverController@list_drivers')->name('list_drivers');
