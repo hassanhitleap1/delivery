@@ -16,7 +16,7 @@ export default {
     }, computed: {
         ...mapGetters('ContryModule', ['countries']),
         countries_serach: function () {
-            return this.status.map( function(country) {
+            return this.countries.map( function(country) {
                 return {id:country.id,text:country.name};
             });
         },

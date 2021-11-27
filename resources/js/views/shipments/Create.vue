@@ -34,7 +34,8 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name"> driver </label>
-                                                <input type="text" class="form-control" id="driver_id" placeholder="Enter name" v-model="shipments[index].driver_id">
+                                                 <DriversSelect2 @select_driver="set_driver" :index="index" />
+            
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -53,19 +54,21 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">country </label>
-                                                <!-- <Select2 v-model="shipments[index].country_id" :options="countries_serach" /> -->
+                                                <CountriesSelect2 @select_country="set_country" :index="index" />
+                                             
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">region </label>
-                                                <!-- <Select2 v-model="shipments[index].region_id" :options="regions_serach" /> -->
+                                                 <RegionsSelect2 @select_region="set_region" :index="index" />
+                                                
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">areas </label>
-                                                <!-- <Select2 v-model="shipments[index].areas_id" :options="areas" /> -->
+                                                <AreasSelect2 @select_area="set_area" :index="index" />
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -127,20 +130,25 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
 import  * as services from '../../services/shipments';
 import Layout from "../layouts/Layout";
-import {get_list}   from "../../services/drivers";
-import * as apiareas from "../../services/areas";
 import Select2 from 'v-select2-component';
 import StatusSelect2 from "../../components/inputs/StatusSelect2.vue";
+import CountriesSelect2 from  "../../components/inputs/CountriesSelect2.vue";
+import RegionsSelect2 from  "../../components/inputs/RegionsSelect2.vue";
+import DriversSelect2 from  "../../components/inputs/DriversSelect2.vue";
+import AreasSelect2 from  "../../components/inputs/AreasSelect2.vue";
 
 export default {
     name: "Create",
     components:{
         Layout,
         Select2,
-        StatusSelect2
+        StatusSelect2,
+        CountriesSelect2,
+        RegionsSelect2,
+        DriversSelect2,
+        AreasSelect2
   
     },
     data(){
@@ -165,20 +173,6 @@ export default {
             divers:[],
             areas:[],
         }
-    }, mounted() {
-        this.get_drivers();
-        // this.$store.dispatch('RegionModule/fetchregions');
-    }, computed: {
-
-        // ...mapGetters('RegionModule', ['regions']),
-  
-        // regions_serach: function () {
-        //     return this.regions.map( function(region) {
-        //         return {id:region.id,text:region.name};
-        //     });
-        // },
-
-
     }, methods:{
         add_shipment(){
               this.shipments.push({
@@ -208,28 +202,14 @@ export default {
          set_country(data){
             this.shipments[data.index].country_id=data.id;
         },
-
-
-
-        get_drivers(){
-            get_list().then(({data}) => {
-                this.drivers=data.data.map( function(driver) {
-                    return {id:driver.id,text:driver.name};
-                });
-            }).catch(err => {
-                console.log(err)
-            });
-
+        set_region(data){
+            this.shipments[data.index].region_id=data.id;
         },
-
-        get_areas(region_id){
-            apiareas.get_areas_region(region_id).then(res => {
-                this.areas=res.data.data.map( function(region) {
-                    return {id:area.id,text:area.name};
-                });
-            }).catch(err => {
-                console.log(err)
-            })
+        set_driver(data){
+            this.shipments[data.index].driver_id=data.id;
+        },
+        set_area(data){
+            this.shipments[data.index].area_id=data.id;
         },
         create() {
             services.create(this.shipments).then( response => {
@@ -250,7 +230,7 @@ export default {
                 });
 
                 this.success = true;
-                this.$router.push({ name: 'admins' });
+                this.$router.push({ name: 'shipments' });
             }).catch((error) => {
                 this.errors = error.response.data.errors;
                 this.success = false;

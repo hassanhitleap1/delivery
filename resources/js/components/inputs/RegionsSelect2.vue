@@ -1,7 +1,6 @@
 <template>
     <div>
-        <Select2 v-model="myValue" :options="regions_serach" :settings="{ settingOption: value, settingOption: value }" @change="myChangeEvent($event)" @select="mySelectEvent($event)" />
-        <h4>Value: {{ myValue }}</h4>
+        <Select2 :class="['form-control']"  :options="regions_serach"  @select="mySelectEvent($event)" />
     </div>
 </template>
 
@@ -11,30 +10,28 @@ import {mapGetters} from 'vuex';
 export default {
     name:'RegionsSelect2',
     components: {Select2},
-    data() {
-        return {
-            myValue: 1,
-            value:1,
-        }
-    }, mounted() {
+    props: ['index'],
+    mounted() {
         this.$store.dispatch('RegionModule/fetchregions');
     }, computed: {
         ...mapGetters('RegionModule', ['regions']),
-        regions_serach: function () {
+         regions_serach: function () {
             return this.regions.map( function(region) {
                 return {id:region.id,text:region.name};
             });
         },
     },
     methods: {
-        myChangeEvent(val){
-            console.log(val);
-        },
         mySelectEvent({id, text}){
-            console.log({id, text})
+            var index=this.index;
+            this.$emit('select_region', {id, text,index });
+            
         }
     }
 }
 </script>
+
+
+
 
 

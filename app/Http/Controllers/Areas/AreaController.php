@@ -16,10 +16,14 @@ class AreaController extends Controller
 
     public function __construct()
     {
-      //  $this->middleware('jwt.verify')->only(['index','store','update','show','destroy']);
+      //  $this->middleware('jwt.verify')->only(['index','store','update','show','destroy','list_areas']);
     }
 
     public function index(){
+        return AreaResource::collection(Area::all());
+    }
+
+    public function list_areas(){
         return AreaResource::collection(Area::all());
     }
 

@@ -37,6 +37,11 @@ export  async  function get_areas_region(region_id) {
     return  response;
 }
 
+export  async  function get_list()  {
+    const response = await axios.get(`${api_url}/areas/list-areas`,{headers :JSON_HEADERS});
+    return  response;
+}
+
 
 
 
