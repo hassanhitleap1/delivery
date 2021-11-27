@@ -14,12 +14,14 @@ class CustomerController extends  Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt.verify')->only(['index','store','update','show','destroy']);
+      //  $this->middleware('jwt.verify')->only(['index','store','update','show','destroy']);
     }
     public function index(){
         return CustomerResource::collection(Customer::paginate(10));
     }
-
+    public function list_custmers(){
+        return CustomerResource::collection(Customer::all());
+    }
     public function store(CustomerRequest $request){
         $customer= Customer::create([
             'name'=>$request->name,

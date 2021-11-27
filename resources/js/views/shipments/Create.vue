@@ -41,7 +41,9 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">customer </label>
-                                                <input type="text" class="form-control" id="customer_id" placeholder="Enter name" v-model="shipments[index].customer_id">
+                                                
+                                                 <CustmersSelect2 @select_customer="set_customer" :index="index" />
+                                                
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -138,6 +140,7 @@ import CountriesSelect2 from  "../../components/inputs/CountriesSelect2.vue";
 import RegionsSelect2 from  "../../components/inputs/RegionsSelect2.vue";
 import DriversSelect2 from  "../../components/inputs/DriversSelect2.vue";
 import AreasSelect2 from  "../../components/inputs/AreasSelect2.vue";
+import CustmersSelect2 from  "../../components/inputs/CustmersSelect2.vue";
 
 export default {
     name: "Create",
@@ -148,7 +151,8 @@ export default {
         CountriesSelect2,
         RegionsSelect2,
         DriversSelect2,
-        AreasSelect2
+        AreasSelect2,
+        CustmersSelect2
   
     },
     data(){
@@ -211,6 +215,10 @@ export default {
         set_area(data){
             this.shipments[data.index].area_id=data.id;
         },
+        set_customer(data){
+            this.shipments[data.index].custmer_id=data.id;
+        },
+        
         create() {
             services.create(this.shipments).then( response => {
                 this.errors = [];

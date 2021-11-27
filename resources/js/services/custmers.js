@@ -29,6 +29,11 @@ export  async  function _delete(id) {
     return  response;
 }
 
+export  async  function get_list()  {
+    const response = await axios.get(`${api_url}/user/custmers/list-drivers`,{headers :JSON_HEADERS});
+    return  response;
+}
+
 
 
 

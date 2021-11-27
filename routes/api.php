@@ -26,6 +26,7 @@ Route::get('areas/list-areas' , 'Areas\AreaController@list_areas')->name('list_a
 
 Route::group(['prefix' => 'user'], function () {
     Route::get('drivers/list-drivers' , 'Users\DriverController@list_drivers')->name('list_drivers');
+    Route::get('custmers/list-custmers' , 'Users\CustomerController@list_custmers')->name('list_custmers');
     Route::apiResources([
         'admins' => \Users\AdminController::class,
         'custmers' => \Users\CustomerController::class,
