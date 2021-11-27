@@ -16,101 +16,80 @@
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title float-left">create</h3>
-                                <p  class="float-right">
+                                <div  class="float-right">
                                     <button class="btn btn-success" @click.prevent="add_shipment"><span class="fas fa-plus"></span></button>
-                                </p>
+                                </div>
                             </div>
                             <form role="form"  @submit.prevent="create()">
                                 <div  class="card-body">
                                     <div v-for="(shipment ,index) in shipments" class="row" :key="index">
-                                        <button class="btn btn-success" @click.prevent="add_shipment"><span class="fas fa-plus"></span></button>
-                                        <button class="btn btn-danger" v-show="index > 0" @click.prevent="remove_shipment(index)"><span class="fas fa-minus"></span></button>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">name</label>
-                                                <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="shipments[index].name">
-                                            </div>
+                                        <div class="col-md-12">
+                                            <button class="btn btn-success float-right" @click.prevent="add_shipment"><span class="fas fa-plus"></span></button>
+                                            <button class="btn btn-danger float-right" v-show="index > 0" @click.prevent="remove_shipment(index)"><span class="fas fa-minus"></span></button>
                                         </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name"> driver </label>
-                                                 <DriversSelect2 @select_driver="set_driver" :index="index" />
-            
+                                        <div class="shipment row animate__animated animate__backInRight">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="name">name</label>
+                                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="shipments[index].name">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">customer </label>
-                                                
-                                                 <CustmersSelect2 @select_customer="set_customer" :index="index" />
-                                                
+                                            <div class="col-md-2">
+                                               <DriversSelect2 @select_driver="set_driver" :index="index" /> 
                                             </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">status </label>
-                                                <StatusSelect2 @select_status="set_status" :index="index" />
-                                                
+                                            <div class="col-md-2">
+                                                <CustmersSelect2 @select_customer="set_customer" :index="index" />
                                             </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">country </label>
+                                            <div class="col-md-2">
+                                               <StatusSelect2 @select_status="set_status" :index="index" />     
+                                            </div>
+                                            <div class="col-md-2">
                                                 <CountriesSelect2 @select_country="set_country" :index="index" />
-                                             
+                                            </div>
+                                            <div class="col-md-2">
+                                                <RegionsSelect2 @select_region="set_region" :index="index" />
+                                            </div>
+                                            <div class="col-md-2">
+                                               <AreasSelect2 @select_area="set_area" :index="index" />
+                                               
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="name">address</label>
+                                                    <input type="text" class="form-control" id="address" placeholder="address" v-model="shipments[index].address">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="name">phone</label>
+                                                    <input type="text" class="form-control" id="phone" placeholder="phone" v-model="shipments[index].phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="name">other phone</label>
+                                                    <input type="text" class="form-control" id="other_phone" placeholder="other phone" v-model="shipments[index].other_phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="name">required amount</label>
+                                                    <input type="text" class="form-control" id="required_amount" placeholder="required amount" v-model="shipments[index].required_amount">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="name">delivery amount</label>
+                                                    <input type="text" class="form-control" id="delivery_amount" placeholder="delivery amount" v-model="shipments[index].delivery_amount">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="name">note</label>
+                                                    <input type="text" class="form-control" id="note" placeholder="note" v-model="shipments[index].note">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">region </label>
-                                                 <RegionsSelect2 @select_region="set_region" :index="index" />
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">areas </label>
-                                                <AreasSelect2 @select_area="set_area" :index="index" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">address</label>
-                                            
-                                                <input type="text" class="form-control" id="address" placeholder="Enter name" v-model="shipments[index].address">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">phone</label>
-                                                <input type="text" class="form-control" id="phone" placeholder="Enter name" v-model="shipments[index].phone">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">other_phone</label>
-                                                <input type="text" class="form-control" id="other_phone" placeholder="Enter name" v-model="shipments[index].other_phone">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">required amount</label>
-                                                <input type="text" class="form-control" id="required_amount" placeholder="Enter name" v-model="shipments[index].required_amount">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">delivery amount</label>
-                                                <input type="text" class="form-control" id="delivery_amount" placeholder="Enter name" v-model="shipments[index].delivery_amount">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="name">note</label>
-                                                <input type="text" class="form-control" id="note" placeholder="Enter name" v-model="shipments[index].note">
-                                            </div>
-                                        </div>
-
 
                                     </div>
 
@@ -251,4 +230,10 @@ export default {
 }
 </script>
 
-
+<style scoped>
+    .shipment {
+        border: solid black 1px; 
+        border-radius:20px; 
+        margin: 4px;;  
+    }
+</style>

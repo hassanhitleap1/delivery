@@ -1,7 +1,8 @@
 <template>
-    <div>
-        <Select2 :class="['form-control']"  :options="drivers"  @select="mySelectEvent($event)" />
-    </div>
+ <div class="form-group">
+     <label for="name"> driver </label>
+    <Select2   :options="drivers"  @select="mySelectEvent($event)" />
+ </div>
 </template>
 
 <script>

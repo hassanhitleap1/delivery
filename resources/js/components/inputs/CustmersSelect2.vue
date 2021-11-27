@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <Select2 :class="['form-control']"  :options="custmers"  @select="mySelectEvent($event)" />
+    <div class="form-group">
+        <label for="name">customer </label>
+        <Select2   :options="custmers"  @select="mySelectEvent($event)" />
     </div>
 </template>
 
