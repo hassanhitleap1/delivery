@@ -60,7 +60,7 @@
                                         <td>{{shipment.note}}</td>
 
                                         <td class="action">
-                                            <router-link class="tag tag-success fas fa-edit" :to="{name:'shipments.edit',params:{'id':shipment.id}}" >
+                                             <router-link class="tag tag-success fas fa-edit"  :to="{'name':'shipments.edit',params:{'id':shipment.id}}" >
                                             </router-link>
                                             <span class="tag tag-success fas fa-trash-alt" @click="deletePost(shipment.id)"></span>
                                         </td>

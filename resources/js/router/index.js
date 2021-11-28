@@ -31,20 +31,14 @@ const route =  new VueRouter({
             meta: {requiresAuth: true}
 
         },
+    
         {
-            path: 'shipments/:id/edit',
-            name: 'shipments.update',
-            components:  ()=>import("../views/shipments/Update"),
+            name: 'shipments.edit',
+            path: '/shipments/:id/edit',
+            component:  ()=>import("../views/shipments/Edit"),
             meta: {requiresAuth: true}
-
         },
-        {
-            path: 'shipments/view',
-            name: 'shipments.view',
-            component:()=>import("../views/shipments/View"),
-            meta: {requiresAuth: true}
-
-        },
+   
         {
             path: '/user/drivers',
             name: 'drivers',

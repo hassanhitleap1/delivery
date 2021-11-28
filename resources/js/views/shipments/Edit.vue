@@ -25,62 +25,62 @@
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="name">name</label>
-                                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="shipments[index].name">
+                                                    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="shipment.name">
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
-                                               <DriversSelect2 @select_driver="set_driver" :index="index" /> 
+                                               <DriversSelect2 @select_driver="set_driver" :index="0" /> 
                                             </div>
                                             <div class="col-md-2">
-                                                <CustmersSelect2 @select_customer="set_customer" :index="index" />
+                                                <CustmersSelect2 @select_customer="set_customer" :index="0" />
                                             </div>
                                             <div class="col-md-2">
-                                               <StatusSelect2 @select_status="set_status" :index="index" />     
+                                               <StatusSelect2 @select_status="set_status" :index="0" />     
                                             </div>
                                             <div class="col-md-2">
-                                                <CountriesSelect2 @select_country="set_country" :index="index" />
+                                                <CountriesSelect2 @select_country="set_country" :index="0" />
                                             </div>
                                             <div class="col-md-2">
-                                                <RegionsSelect2 @select_region="set_region" :index="index" />
+                                                <RegionsSelect2 @select_region="set_region" :index="0" />
                                             </div>
                                             <div class="col-md-2">
-                                               <AreasSelect2 @select_area="set_area" :index="index" />
+                                               <AreasSelect2 @select_area="set_area" :index="0" />
                                                
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="name">address</label>
-                                                    <input type="text" class="form-control" id="address" placeholder="address" v-model="shipments[index].address">
+                                                    <input type="text" class="form-control" id="address" placeholder="address" v-model="shipment.address">
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="name">phone</label>
-                                                    <input type="text" class="form-control" id="phone" placeholder="phone" v-model="shipments[index].phone">
+                                                    <input type="text" class="form-control" id="phone" placeholder="phone" v-model="shipment.phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="name">other phone</label>
-                                                    <input type="text" class="form-control" id="other_phone" placeholder="other phone" v-model="shipments[index].other_phone">
+                                                    <input type="text" class="form-control" id="other_phone" placeholder="other phone" v-model="shipment.other_phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="name">required amount</label>
-                                                    <input type="text" class="form-control" id="required_amount" placeholder="required amount" v-model="shipments[index].required_amount">
+                                                    <input type="text" class="form-control" id="required_amount" placeholder="required amount" v-model="shipment.required_amount">
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="name">delivery amount</label>
-                                                    <input type="text" class="form-control" id="delivery_amount" placeholder="delivery amount" v-model="shipments[index].delivery_amount">
+                                                    <input type="text" class="form-control" id="delivery_amount" placeholder="delivery amount" v-model="shipment.delivery_amount">
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="name">note</label>
-                                                    <input type="text" class="form-control" id="note" placeholder="note" v-model="shipments[index].note">
+                                                    <input type="text" class="form-control" id="note" placeholder="note" v-model="shipment.note">
                                                 </div>
                                             </div>
                                         </div>
@@ -106,7 +106,6 @@
 <script>
 import  * as services from '../../services/shipments';
 import Layout from "../layouts/Layout";
-import Select2 from 'v-select2-component';
 import StatusSelect2 from "../../components/inputs/StatusSelect2.vue";
 import CountriesSelect2 from  "../../components/inputs/CountriesSelect2.vue";
 import RegionsSelect2 from  "../../components/inputs/RegionsSelect2.vue";
@@ -115,10 +114,9 @@ import AreasSelect2 from  "../../components/inputs/AreasSelect2.vue";
 import CustmersSelect2 from  "../../components/inputs/CustmersSelect2.vue";
 
 export default {
-    name: "Update",
+    name: "Edit",
     components:{
         Layout,
-        Select2,
         StatusSelect2,
         CountriesSelect2,
         RegionsSelect2,
@@ -135,10 +133,9 @@ export default {
             shipment:{},
         }
     },mounted(){
-
       this.id=this.$route.params.id;
             services.get_one(this.id).then( response => {
-                this.admin=response.data.data;
+                this.shipment=response.data.data;
                 console.log("response.data.data",response.data.data)
             }).catch((error) => {
                 console.log("error",error)
@@ -146,9 +143,7 @@ export default {
 
     }, methods:{
     
-        remove_shipment(index){
-            this.shipments.splice(index, 1);
-        },
+       
 
         set_status(data){
             this.shipment.status_id=data.id;
