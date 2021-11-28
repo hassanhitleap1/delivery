@@ -90,6 +90,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -99,18 +104,33 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      shipments: []
+      keywords: null,
+      shipments: {
+        type: Object,
+        "default": null
+      }
     };
   },
   mounted: function mounted() {
-    var _this = this;
+    this.get_all();
+  },
+  methods: {
+    get_all: function get_all() {
+      var _this = this;
 
-    _services_shipments__WEBPACK_IMPORTED_MODULE_0__["get_all"]().then(function (_ref) {
-      var data = _ref.data;
-      _this.shipments = data.data;
-    })["catch"](function (error) {
-      console.log(error);
-    });
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      _services_shipments__WEBPACK_IMPORTED_MODULE_0__["get_all"](page, this.keywords).then(function (_ref) {
+        var data = _ref.data;
+        _this.shipments = data;
+      })["catch"](function (_ref2) {
+        var response = _ref2.response;
+
+        if (chkeckedAuthApi(response)) {
+          // this.get_admins(1);
+          return;
+        }
+      });
+    }
   }
 });
 
@@ -193,129 +213,159 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body table-responsive p-0" }, [
-                _c("table", { staticClass: "table table-hover" }, [
-                  _c("thead", [
-                    _c("tr", [
-                      _c("th", [_vm._v("ID")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("shipment id ")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("driver ")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("country ")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("region ")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("address ")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("phone ")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("other_phone ")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("phone ")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("other phone ")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("required amount ")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("delivery amount")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("note")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("action ")])
-                    ])
+              _c(
+                "div",
+                { staticClass: "card-body table-responsive p-0" },
+                [
+                  _c("table", { staticClass: "table table-hover" }, [
+                    _c("thead", [
+                      _c("tr", [
+                        _c("th", [_vm._v("ID")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("shipment id ")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("driver ")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("country ")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("region ")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("areas ")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("address ")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("phone ")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("other_phone ")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("required amount ")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("delivery amount")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("note")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("action ")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.shipments.data, function(shipment) {
+                        return _c("tr", { key: shipment.id }, [
+                          _c("td", [_vm._v(_vm._s(shipment.id))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(shipment.policy_number))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                shipment.driver == null
+                                  ? ""
+                                  : shipment.driver.name
+                              )
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                shipment.country == null
+                                  ? ""
+                                  : shipment.country.name
+                              )
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                shipment.region == null
+                                  ? ""
+                                  : shipment.region.name
+                              )
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                shipment.areas == null
+                                  ? ""
+                                  : shipment.areas.name
+                              )
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(shipment.address))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(shipment.phone))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(shipment.other_phone))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(shipment.required_amount))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(shipment.delivery_amount))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(shipment.note))]),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            { staticClass: "action" },
+                            [
+                              _c("router-link", {
+                                staticClass: "tag tag-success fas fa-edit",
+                                attrs: {
+                                  to: {
+                                    name: "shipments.edit",
+                                    params: { id: shipment.id }
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", {
+                                staticClass: "tag tag-success fas fa-trash-alt",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deletePost(shipment.id)
+                                  }
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
+                      }),
+                      0
+                    )
                   ]),
                   _vm._v(" "),
                   _c(
-                    "tbody",
-                    _vm._l(_vm.shipments, function(shipment) {
-                      return _c("tr", { key: shipment.id }, [
-                        _c("td", [_vm._v(_vm._s(shipment.id))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(shipment.id))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            _vm._s(
-                              shipment.country == null
-                                ? ""
-                                : shipment.country.name
-                            )
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            _vm._s(
-                              shipment.driver == null
-                                ? ""
-                                : shipment.driver.name
-                            )
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            _vm._s(
-                              shipment.region == null
-                                ? ""
-                                : shipment.region.name
-                            )
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            _vm._s(
-                              shipment.areas == null ? "" : shipment.areas.name
-                            )
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(shipment.address))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(shipment.phone))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(shipment.other_phone))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(shipment.required_amount))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(shipment.delivery_amount))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(shipment.note))]),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          { staticClass: "action" },
-                          [
-                            _c("router-link", {
-                              staticClass: "tag tag-success fas fa-edit",
-                              attrs: {
-                                to: {
-                                  name: "shipments.edit",
-                                  params: { id: shipment.id }
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("span", {
-                              staticClass: "tag tag-success fas fa-trash-alt",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deletePost(shipment.id)
-                                }
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ])
-                    }),
-                    0
+                    "pagination",
+                    {
+                      attrs: {
+                        align: "left",
+                        paginateTo: 10,
+                        data: _vm.shipments
+                      },
+                      on: { "pagination-change-page": _vm.get_all }
+                    },
+                    [
+                      _c(
+                        "span",
+                        { attrs: { slot: "prev-nav" }, slot: "prev-nav" },
+                        [_vm._v("< Previous")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        { attrs: { slot: "next-nav" }, slot: "next-nav" },
+                        [_vm._v("Next >")]
+                      )
+                    ]
                   )
-                ])
-              ])
+                ],
+                1
+              )
             ])
           ])
         ])

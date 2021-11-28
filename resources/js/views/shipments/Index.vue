@@ -32,11 +32,12 @@
                                         <th>driver </th>
                                         <th>country </th>
                                         <th>region </th>
+                                        <th>areas </th>
+                                        
                                         <th>address </th>
                                         <th>phone </th>
                                         <th>other_phone </th>
-                                        <th>phone </th>
-                                        <th>other phone </th>
+                                    
                                         <th>required amount </th>
                                         <th>delivery amount</th>
                                         <th>note</th>
@@ -44,11 +45,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="shipment in shipments" :key="shipment.id">
+                                    <tr v-for="shipment in shipments.data" :key="shipment.id">
                                         <td>{{shipment.id}}</td>
-                                        <td>{{shipment.id}}</td>
+                                        <td>{{shipment.policy_number}}</td>
+                                          <td>{{(shipment.driver==null)? '': shipment.driver.name}}</td>
                                         <td>{{(shipment.country==null)? '':shipment.country.name }}</td>
-                                        <td>{{(shipment.driver==null)? '': shipment.driver.name}}</td>
                                         <td>{{ (shipment.region==null)? '':shipment.region.name}}</td>
                                         <td>{{(shipment.areas==null)? '':shipment.areas.name}}</td>
                                         <td>{{shipment.address}}</td>
@@ -66,6 +67,10 @@
                                     </tr>
                                     </tbody>
                                 </table>
+                                 <pagination align="left" :paginateTo="10" :data="shipments" @pagination-change-page="get_all">
+                                     <span slot="prev-nav">&lt; Previous</span>
+                                        <span slot="next-nav">Next &gt;</span>
+                                 </pagination>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -87,16 +92,29 @@
         },
         data(){
             return {
-                shipments:[]
+                keywords:null,
+                shipments:{
+                     type:Object,
+                    default:null
+                }
             }
         },
         mounted() {
-            services.get_all().then( ({data}) => {
-                this.shipments=data.data;
-            }).catch((error) => {
-              console.log(error);
-            });
+                this.get_all();
         },
+        methods:{
+              get_all(page=1){
+                services.get_all(page ,this.keywords).then(({data})=>{
+                    this.shipments = data
+                }).catch(({response}) => {
+                    if(chkeckedAuthApi(response)){
+                        // this.get_admins(1);
+                        return ;
+                    }
+            });
+            }
+       
+        }
 
 
 
