@@ -23,7 +23,7 @@ export default {
     methods: {
         mySelectEvent({id, text}){
             var index=this.index;
-            this.$emit('select_custmer', {id, text,index });
+            this.$emit('select_customer', {id, text,index });
             
         },
          get_all(){

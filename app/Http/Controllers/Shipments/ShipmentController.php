@@ -23,33 +23,33 @@ class ShipmentController extends Controller
         $shipmentHelper = new ShipmentsHelper();
 
 
-
-        foreach($requests as $request){
-      
-            $customerHelper = new CustomersHelper([
-                'name'=>$request->name,
-                'email'=>$request->email,
-                'phone'=>$request->phone,
-                'address'=>$request->address
+        foreach($requests->all() as  $request){
+            
+            $customerHelper = new CustomerHepler([
+                'name'=>$request['name'],
+                'email'=>NULL,//$request['email'],
+                'phone'=>$request['phone'],
+                'address'=>$request['address']
             ]);
             $policyNumber =$shipmentHelper->genaratePolicyNumber();
             $customer_id=$customerHelper->createAnewCustomer();
+          
             
             $shipmentArray=[
                 'policy_number'=>  $policyNumber ,
-                'driver_id'=>$request->driver_id,
+                'driver_id'=>$request['driver_id'],
                 'customer_id'=>$customer_id,
-                'status_id'=>$request->status_id,
-                'areas_id'=>$request->areas_id,
-                'address'=>$request->address,
-                'phone'=>$request->phone,
-                'other_phone'=>$request->other_phone,
-                'required_amount'=>$request->required_amount,
-                'delivery_amount'=>$request->delivery_amount,
-                'note'=>$request->note,
+                'status_id'=>$request['status_id'],
+                'areas_id'=>$request['areas_id'],
+                'address'=>$request['address'],
+                'phone'=>$request['phone'],
+                'other_phone'=>$request['other_phone'],
+                'required_amount'=>$request['required_amount'],
+                'delivery_amount'=>$request['delivery_amount'],
+                'note'=>$request['note'],
 
             ];
-            $shipments[]  = Shipment::cerate($shipmentArray);
+            $shipments[]  = Shipment::create($shipmentArray);
            
         }
 
@@ -62,8 +62,8 @@ class ShipmentController extends Controller
 
     public function update(Shipment $shipment, ShipmentsRequest $request){
 
-        $customerHelper = new CustomerHelper([
-            'customer_id'=>$customer_id,
+        $customerHelper = new CustomerHepler([
+            'customer_id'=>$request->customer_id,
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,

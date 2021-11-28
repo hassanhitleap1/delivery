@@ -192,29 +192,30 @@ export default {
             this.shipments[data.index].driver_id=data.id;
         },
         set_area(data){
-            this.shipments[data.index].area_id=data.id;
+            this.shipments[data.index].areas_id=data.id;
         },
         set_customer(data){
-            this.shipments[data.index].custmer_id=data.id;
+            this.shipments[data.index].customer_id=data.id;
         },
         
         create() {
             services.create(this.shipments).then( response => {
+                console.log('sss');
                 this.errors = [];
-                this.shipments.forEach((index,shipment) => {
-                    this.shipments[index].driver_id = null;
-                    this.shipments[index].customer_id = null;
-                    this.shipments[index].status_id = null;
-                    this.shipments[index].country_id = null;
-                    this.shipments[index].region_id = null;
-                    this.shipments[index].areas_id = null;
-                    this.shipments[index].address = null;
-                    this.shipments[index].delivery_amount = null;
-                    this.shipments[index].required_amount = null;
-                    this.shipments[index].phone = null;
-                    this.shipments[index].other_phone = null;
+                // this.shipments.forEach((index,shipment) => {
+                //     this.shipments[index].driver_id = null;
+                //     this.shipments[index].customer_id = null;
+                //     this.shipments[index].status_id = null;
+                //     this.shipments[index].country_id = null;
+                //     this.shipments[index].region_id = null;
+                //     this.shipments[index].areas_id = null;
+                //     this.shipments[index].address = null;
+                //     this.shipments[index].delivery_amount = null;
+                //     this.shipments[index].required_amount = null;
+                //     this.shipments[index].phone = null;
+                //     this.shipments[index].other_phone = null;
 
-                });
+                // });
 
                 this.success = true;
                 this.$router.push({ name: 'shipments' });

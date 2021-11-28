@@ -9,33 +9,33 @@ class ShipmentsRequest extends \App\Http\Requests\Api\FormRequest
 {
 
     protected $createRules = [
-        'name.*.finding'=> 'required|max:255',
-        'driver_id.*.finding'=>'numeric',
-        'status_id.*.finding'=>'required|numeric',
-        'customer_id.*.finding'=>'required|numeric',
-        'areas_id.*.finding'=>'numeric',
-        'address.*.finding'=> 'required|max:255',
-        'phone.*.finding'=> 'required|max:255',
-        'other_phone.*.finding'=> 'max:255',
-        'required_amount.*.finding'=>'required|numeric',
-        'delivery_amount.*.finding'=>'required|numeric',
-        'note.*.finding'=>'required|numeric',
+        '*.name'=> 'required|max:255',
+        '*.driver_id'=>'numeric',
+        '*.status_id'=>'required|numeric',
+        '*.customer_id'=>'required|numeric',
+        '*.areas_id'=>'numeric',
+        '*.address'=> 'required|max:255',
+        '*.phone'=> 'required|max:255',
+        '*.other_phone'=> 'max:255',
+        '*.required_amount'=>'required|numeric',
+        '*.delivery_amount'=>'required|numeric',
+        '*.note'=>'required|numeric',
 
     ];
 
 
     protected $updateRules = [
-        'name'=> 'required|max:255',
-        'driver_id'=>'numeric',
-        'status_id'=>'required|numeric',
-        'customer_id'=>'required|numeric',
-        'areas_id'=>'numeric',
-        'address'=> 'required|max:255',
-        'phone'=> 'required|max:255',
-        'other_phone'=> 'max:255',
-        'required_amount'=>'required|numeric',
-        'delivery_amount'=>'required|numeric',
-        'note'=>'required|numeric',
+        '*.name'=> 'required|max:255',
+        '*.driver_id'=>'numeric',
+        '*.status_id'=>'required|numeric',
+        '*.customer_id'=>'required|numeric',
+        '*.areas_id'=>'numeric',
+        '*.address'=> 'required|max:255',
+        '*.phone'=> 'required|max:255',
+        '*.other_phone'=> 'max:255',
+        '*.required_amount'=>'required|numeric',
+        '*.delivery_amount'=>'required|numeric',
+        '*.note'=>'required|numeric',
     ];
 
     protected $rules = [];

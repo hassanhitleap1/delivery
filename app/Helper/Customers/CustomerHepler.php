@@ -4,6 +4,7 @@
 namespace App\Helper\Customers;
 
 use App\Model\Users\Customer;
+use App\User;
 
 class CustomerHepler implements DefinedCustomer
 {
@@ -18,25 +19,46 @@ class CustomerHepler implements DefinedCustomer
      * @return int
      */
     public function createAnewCustomer(): int{
-        $customer= Customer::create([
-            'name'=>$this->data->name,
-            'email'=>$this->data->email,
-            'phone'=>$this->data->phone,
-            'password'=>$this->genaratePassword(),
-            'type'=>User::CUSTOMER,
-            'address'=>$this->data->address
-        ]);
+        $customer=$this->findCustomerByPhone($this->data['phone']);
+        
+        if(is_null($customer)){
+            $customer= Customer::create([
+                'name'=>$this->data['name'],
+                'email'=>$this->data['email'],
+                'phone'=>$this->data['phone'],
+                'password'=>$this->genaratePassword(),
+                'type'=>User::CUSTOMER,
+                'address'=>$this->data['address']
+            ]);
+    
+        }else{
+            $customer= tap($customer)->update([
+                'name'=>$this->data['name'],
+                'email'=>$this->data['email'],
+                'address'=>$this->data['address']
+            ]); 
+        }
+        
         return  $customer->id;
 
     }
 
+    public function findCustomer($customer_id)
+    {
+        return Customer::find($this->data['customer_id']);
+    }
+
+    public function findCustomerByPhone($phone)
+    {
+        return Customer::where('phone',$phone)->first();
+    }
+
     public function updateCustomer(): int{
-        $customer=Customer::find($this->data->customer_id);
+        $customer=$this->findCustomer($this->data['customer_id']);
         $customer= tap($customer)->update([
-            'name'=>$this->data->name,
-            'email'=>$this->data->email,
-            'phone'=>$this->data->phone,
-            'address'=>$this->data->address
+            'name'=>$this->data['name'],
+            'email'=>$this->data['email'],
+            'address'=>$this->data['address']
         ]);
         return  $customer->id;
 
