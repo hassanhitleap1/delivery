@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="29">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Prices/PriceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Prices/PriceRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Prices/PriceResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Prices/Prices.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/services/prices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/prices/Edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Shipments/FileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Files/XLSRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/prices/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/prices/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/prices/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/prices/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/prices/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/prices/View.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +178,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Requests/Prices" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -360,7 +351,9 @@
       <workItem from="1637475682059" duration="27000" />
       <workItem from="1637670979606" duration="7359000" />
       <workItem from="1638169532660" duration="2267000" />
-      <workItem from="1638171942751" duration="1805000" />
+      <workItem from="1638171942751" duration="2795000" />
+      <workItem from="1638175135801" duration="203000" />
+      <workItem from="1638175377460" duration="409000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
