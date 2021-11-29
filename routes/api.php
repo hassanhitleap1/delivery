@@ -12,7 +12,11 @@ Route::group(['prefix' => 'auth' ], function () {
     Route::post('me', 'AuthJwt\AuthController@me');
     Route::post('registration','AuthJwt\AuthController@registration');
 });
+
 Route::apiResource('shipments',\Shipments\ShipmentController::class);
+
+Route::apiResource('prices',\Prices\PriceController::class);
+
 Route::apiResources([
     'status' => \Status\StatusController::class,
     'history-status' => \Status\HistoryStatusController::class,

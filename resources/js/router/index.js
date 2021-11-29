@@ -31,14 +31,14 @@ const route =  new VueRouter({
             meta: {requiresAuth: true}
 
         },
-    
+
         {
             name: 'shipments.edit',
             path: '/shipments/:id/edit',
             component:  ()=>import("../views/shipments/Edit"),
             meta: {requiresAuth: true}
         },
-   
+
         {
             path: '/user/drivers',
             name: 'drivers',
@@ -236,6 +236,33 @@ const route =  new VueRouter({
             component:()=>import("../views/areas/View"),
             meta: {requiresAuth: true}
         },
+        {
+            path: '/prices',
+            name: 'prices',
+            component: ()=>import("../views/prices/Index"),
+            meta: {requiresAuth: true}
+
+        },
+        {
+            path: '/prices',
+            name: 'prices.index',
+            component: ()=>import("../views/prices/Index"),
+            meta: {requiresAuth: true}
+
+        },
+        {
+            name: 'prices.create',
+            path: '/user/prices/create',
+            component:  ()=>import("../views/prices/Create"),
+            meta: {requiresAuth: true}
+        },
+        {
+            name: 'prices.edit',
+            path: '/user/prices/:id/edit',
+            component:  ()=>import("../views/prices/Edit"),
+            meta: {requiresAuth: true}
+        },
+
         {
             path: '/login',
             name: 'login',

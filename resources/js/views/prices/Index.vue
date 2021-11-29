@@ -1,48 +1,58 @@
 <template>
-    <section class="content">
+    <Layout name="LayoutDefault">
+        <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">users</h3>
-                            <router-link class="btn btn-primary" :to="{name:'create.user'}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>create users</p>
-                            </router-link>
-                            <div class="card-tools">
+                            <div>
+                                <h3 class="card-title float-left">prices</h3>
+                                <router-link class="btn btn-primary float-right" :to="{'name':'admins.create'}" >
+                                    create price
+                                </router-link>
+                            </div>
+
+                            <div class="card-tools mt-4">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search" v-model="keywords" @keyup="search">
 
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
+                        <div class="card-body table-responsive p-2">
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>name   </th>
+                                    <th>custumer</th>
+                                    <th>region</th>
+                                    <th>price </th>
                                     <th>action </th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="stat in posts" :key="stat.id">
-                                    <td>{{stat.id}}</td>
-                                    <td>{{stat.name}}</td>
-
+                                <tr v-for="(price,index) in prices.data" :key="index">
+                                    <td>{{price.id}}</td>
+                                    <td>{{(price.custumer==null)?'':price.custumer.name}}</td>
+                                    <td>{{(price.region==null)?'':price.region.name}}</td>
+                                    <td>{{price.region}}</td>
                                     <td class="action">
-                                        <span class="tag tag-success fas fa-edit" @click="edit(stat.id)"></span>
-                                        <span class="tag tag-success fas fa-trash-alt" @click="deletePost(stat.id)"></span>
+                                        <router-link class="tag tag-success fas fa-edit"  :to="{'name':'prices.edit',params:{'id':price.id}}" >
+                                        </router-link>
+                                        <span class="tag tag-success fas fa-trash-alt" @click="_delete(price)"></span>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
+
+                            <pagination align="center" :data="prices" @pagination-change-page="get_all"></pagination>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -50,36 +60,84 @@
                 </div>
             </div>
         </div>
+
     </section>
+    </Layout>
+
+
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
-    export default {
-        name: "Index",
-        mounted() {
-            this.$store.dispatch('fetchPosts');
-            console.log(this.posts)
-        },
-        methods: {
-            deletePost(post) {
-                this.$store.dispatch('deletePost',post)
-            },
-            edit(id){
-                alert(id)
-            }
+import pagination from 'laravel-vue-pagination'
+import  * as services from '../../services/prices';
+import Swal from 'sweetalert2';
+import AWN from "awesome-notifications";
+import Layout from "../layouts/Layout";
+import {chkeckedAuthApi} from "../../common/jwt.service";
 
-        },
-        computed: {
-            ...mapGetters([
-                'posts'
-            ]),
+export default {
+    name:"Prices",
+    components:{
+        pagination,
+        Layout,
+    },
+    data(){
+        return {
+            prices:{
+                type:Object,
+                default:null
+            },
+            keywords:null,
 
         }
+    },
+    mounted(){
+        this.get_all();
+    },
+    methods:{
+        get_all(page=1){
+            services.get_all(page ,this.keywords).then(({data})=>{
+                this.prices = data
+            }).catch(({response}) => {
+                if(chkeckedAuthApi(response)){
+                    // this.get_admins(1);
+                    return ;
+                }
+            });
+        },
+        search(){
+            this.get_all();
+        },
+        _delete(price) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    services._delete(price.id).then( response => {
+                        this.get_all();
+                        new AWN().success();
+                    }).catch(({response}) => {
+                        if(chkeckedAuthApi(response)){
+                            // this.delete_admin(admin.id);
+                            return ;
+                        }
+                    })
+                }
+            })
 
+        },
     }
+}
 </script>
 
 <style scoped>
-
+.pagination{
+    margin-bottom: 0;
+}
 </style>
