@@ -15,19 +15,20 @@ class CreateShipmentsTable extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
-            $table->string('policy_number');
+            $table->string('policy_number')->nullable();
             $table->integer('driver_id');
             $table->integer('customer_id');
             $table->smallInteger('status_id');
             $table->integer('country_id');
             $table->integer('region_id');
             $table->integer('areas_id');
-            $table->string('address'); 
-            $table->string('name');
-            $table->string('phone');
+            $table->string('address')->nullable();
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
             $table->string('other_phone');
-            $table->float('required_amount');
-            $table->float('delivery_amount');
+            $table->float('required_amount')->nullable();
+            $table->float('delivery_amount')->nullable();
+            $table->smallInteger('approved')->default(\App\Model\Shipments\Shipment::NotApproved);
             $table->longtext('note');
             $table->timestamps();
         });

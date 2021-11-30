@@ -22,6 +22,11 @@ export const getTypeUser =() => {
     return user.type ;
 };
 
+export const getUser =() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user ;
+};
+
 export const setAuthStorge = data => {
     unsetAuthStorge();
     localStorage.setItem('token', data.access_token)

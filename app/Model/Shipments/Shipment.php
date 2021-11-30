@@ -11,6 +11,8 @@ use App\Model\Status\Status;
 
 class Shipment extends  Model
 {
+    const Approved=1;
+    const NotApproved=2;
     protected  $table='shipments';
     protected $fillable = [
         'policy_number',
@@ -24,6 +26,7 @@ class Shipment extends  Model
         'other_phone',
         'required_amount',
         'delivery_amount',
+        'approved',
         'note',
     ];
 
@@ -33,7 +36,7 @@ class Shipment extends  Model
         return $this->belongsTo(Customer::class);
     }
 
-    
+
     public function status(){
         return $this->belongsTo(Status::class);
     }
@@ -43,7 +46,7 @@ class Shipment extends  Model
         return $this->belongsTo(Driver::class);
     }
 
-    
+
     public function area(){
         return $this->belongsTo(Area::class);
     }
