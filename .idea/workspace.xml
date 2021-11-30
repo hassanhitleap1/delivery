@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d6617b4-bde5-472e-aed3-2fade344f508" name="Default Changelist" comment="29">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Shipments/FileController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Files/XLSRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helper/File/FactoryFile/CSV/CsvFileUploader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helper/File/FactoryFile/CSV/CsvUploader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helper/File/FactoryFile/Json/JsonFileUploader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helper/File/FactoryFile/Json/JsonUploader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helper/File/FactoryFile/UnixUploaderFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helper/File/FactoryFile/UploadFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helper/File/FactoryFile/XLS/XLSFileUploader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helper/File/FactoryFile/XLS/XlsUploader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shipments/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shipments/FileController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +185,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Helper/File/FactoryFile/Json" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -186,18 +193,20 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\app\Helper\File\FactoryFile\Json" />
       <recent name="C:\xampp\htdocs\delivery\app\Http\Requests\Prices" />
       <recent name="C:\xampp\htdocs\delivery\app\Http\Resources\Prices" />
       <recent name="C:\xampp\htdocs\delivery\app\Model\Prices" />
       <recent name="C:\xampp\htdocs\delivery\app\Http\Controllers\Prices" />
-      <recent name="C:\xampp\htdocs\delivery\resources\js\services" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\delivery\app\Helper\File\FactoryFile" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\services" />
       <recent name="C:\xampp\htdocs\delivery\resources\js\store\modules\status" />
     </key>
@@ -354,6 +363,8 @@
       <workItem from="1638171942751" duration="2795000" />
       <workItem from="1638175135801" duration="203000" />
       <workItem from="1638175377460" duration="409000" />
+      <workItem from="1638269462482" duration="14000" />
+      <workItem from="1638273154029" duration="2061000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1624451760324</created>
