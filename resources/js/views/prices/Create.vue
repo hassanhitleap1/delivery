@@ -50,7 +50,7 @@
 </template>
 
 <script>
-    import  * as services from '../../services/admin';
+    import  * as services from '../../services/prices';
     import RegionsSelect2 from  "../../components/inputs/RegionsSelect2.vue";
     import CustmersSelect2 from  "../../components/inputs/CustmersSelect2.vue";
     import Layout from "../layouts/Layout";

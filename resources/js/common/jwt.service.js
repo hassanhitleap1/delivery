@@ -69,4 +69,12 @@ export async function   chkeckedAuthApi(response){
     }
 }
 
-export default {getToken, setToken, unsetToken ,JSON_HEADERS ,chkeckedAuthApi,setAuthStorge,unsetAuthStorge};
+export const logout = () => {
+    localStorage.removeItem("expires_in");
+    localStorage.removeItem("token_type");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    route.push({ name: 'login' });
+};
+
+export default {getToken,logout, setToken, unsetToken ,JSON_HEADERS ,chkeckedAuthApi,setAuthStorge,unsetAuthStorge};

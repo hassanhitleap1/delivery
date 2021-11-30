@@ -1,7 +1,6 @@
 <template>
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-
             <router-link class="nav-link " to="/">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Dashboard</p>
@@ -95,21 +94,23 @@
         </li>
 
         <li class="nav-item">
-        <li class="nav-link " @click="logout" exact>
-            <i class="far fa-circle nav-icon"></i>
-            <p>logout</p>
+            <a class="nav-link " @click.prevent="logout()" >
+                <i class="far fa-circle nav-icon"></i>
+                <p>logout</p>
+            </a>
         </li>
-        </li>
-
     </ul>
 </template>
 
 <script>
+   import auth from "../common/jwt.service"
 export default {
-    name: "RightNavbar"
+    name: "RightNavbar",
+     methods:{
+            logout (){
+                auth.logout()
+            }
+        }
 }
 </script>
 
-<style scoped>
-
-</style>
