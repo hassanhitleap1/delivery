@@ -5,12 +5,12 @@ namespace App\Helper\File\FactoryFile\XLS;
 class XLSFileUploader implements XlsUploader
 {
 
-    public function upload($request): void
+    public function upload($request): string
     {
         // TODO: Implement upload() method.
         $uploadedFile = $request->file('file');
         $filename = $uploadedFile->getClientOriginalName();
-        $this->store($uploadedFile,$filename);
+        return $this->store($uploadedFile,$filename);
     }
 
     public function store($uploadedFile , $filename): string{
@@ -21,5 +21,13 @@ class XLSFileUploader implements XlsUploader
             $uploadedFile,
             $filename);
         return "files/$path/$filename";
+    }
+
+    public function fatch_to_array($path) : array{
+        if ( $xlsx = SimpleXLSX::parse($path) ) {
+            return $xlsx->rows() ;
+        } else {
+            throw new \Exception(SimpleXLSX::parseError()) ;
+        }
     }
 }

@@ -16,6 +16,7 @@
         "laravel/passport": "~9.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.5",
+        "shuchkin/simplexlsx": "^0.8.29",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {

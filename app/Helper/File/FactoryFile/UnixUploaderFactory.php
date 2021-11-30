@@ -2,7 +2,9 @@
 
 namespace App\Helper\File\FactoryFile;
 
+use App\Helper\File\FactoryFile\CSV\CsvFileUploader;
 use App\Helper\File\FactoryFile\CSV\JsonFileUploader;
+use App\Helper\File\FactoryFile\XLS\XLSFileUploader;
 
 class UnixUploaderFactory implements UploadFactory
 {
@@ -13,7 +15,7 @@ class UnixUploaderFactory implements UploadFactory
         return  new CsvFileUploader();
     }
 
-    public function createXlsUploader(): XlsFileUploader
+    public function createXlsUploader(): XLSFileUploader
     {
         // TODO: Implement createXlsUploader() method.
         return  new XlsFileUploader();
