@@ -245,9 +245,16 @@ function _get_dara_dashboard() {
 
           case 2:
             response = _context.sent;
+
+            if (response.code == 602) {
+              vm.$router.push({
+                name: "login"
+              });
+            }
+
             return _context.abrupt("return", response);
 
-          case 4:
+          case 5:
           case "end":
             return _context.stop();
         }

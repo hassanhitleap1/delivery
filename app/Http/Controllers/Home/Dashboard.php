@@ -17,6 +17,7 @@ class Dashboard extends Controller
     }
 
     public function index(){
+        return [];
         $data=User::select(DB::raw('count(*) as count_user'),
             DB::raw('
                 ( CASE

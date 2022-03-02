@@ -7,9 +7,9 @@
                     <div class="card">
                         <div class="card-header">
                             <div>
-                                <h3 class="card-title float-left">admins</h3>
+                                <h3 class="card-title float-left">admin</h3>
                                 <router-link class="btn btn-primary float-right" :to="{'name':'admins.create'}" >
-                                    create users
+                                    create admin
                                 </router-link>
                             </div>
 

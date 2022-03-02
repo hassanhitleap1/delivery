@@ -2,6 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+
+use App\Model\Areas\Countries;
 use App\Model\Areas\Region;
 use Faker\Generator as Faker;
 
@@ -20,5 +22,7 @@ use Faker\Generator as Faker;
 $factory->define(Region::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'price'=>$faker->randomDigit,
+        'country_id'=>Countries::all()->random()->id,
     ];
 });

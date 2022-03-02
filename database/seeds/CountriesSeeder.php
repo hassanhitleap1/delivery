@@ -1,9 +1,9 @@
 <?php
 
-use App\Model\Status\Status;
+use App\Model\Areas\Countries;
 use Illuminate\Database\Seeder;
 
-class StatusSeeder extends Seeder
+class CountriesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,6 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-      
-        factory(Status::class, 30)->create();
+        factory(Countries::class, 30)->create();
     }
 }

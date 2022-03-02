@@ -133,9 +133,9 @@
 </template>
 
 <script>
-    import  AdminRightNavbar from "./admin/RightNavbar";
-    import  DriverRightNavbar from "./driver/RightNavbar";
-    import  CustomerRightNavbar from "./customer/RightNavbar";
+    // import  AdminRightNavbar from "./admin/RightNavbar";
+    // import  DriverRightNavbar from "./driver/RightNavbar";
+    // import  CustomerRightNavbar from "./customer/RightNavbar";
     import auth from "../common/jwt.service"
     export default {
         name: "Sidebar",
