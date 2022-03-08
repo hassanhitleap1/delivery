@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Prices\PriceRequest;
 use App\Http\Resources\Prices\PriceResource;
 use App\Model\Prices\Prices;
+use App\Model\Users\Customer;
+use App\Model\Users\Users;
 
 
 class PriceController extends  Controller
@@ -48,6 +50,11 @@ class PriceController extends  Controller
     public function destroy(Prices $price){
         $price->delete();
         return Response('',201);
+    }
+
+
+    public  function  listPrices(Customer $customer){
+        return PriceResource::collection(Prices::listPrices($customer)->paginate(10));
     }
 
 

@@ -238,7 +238,7 @@ var render = function() {
                   "div",
                   [
                     _c("h3", { staticClass: "card-title float-left" }, [
-                      _vm._v("admins")
+                      _vm._v("admin")
                     ]),
                     _vm._v(" "),
                     _c(
@@ -249,7 +249,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                                create users\n                            "
+                          "\n                                create admin\n                            "
                         )
                       ]
                     )
@@ -668,11 +668,11 @@ __webpack_require__.r(__webpack_exports__);
 var map = {
 	"./AppLayout": [
 		"./resources/js/views/layouts/AppLayout.vue",
-		11
+		13
 	],
 	"./AppLayout.vue": [
 		"./resources/js/views/layouts/AppLayout.vue",
-		11
+		13
 	],
 	"./Layout": [
 		"./resources/js/views/layouts/Layout.js"

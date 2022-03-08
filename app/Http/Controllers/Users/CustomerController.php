@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\CustomerRequest;
 use App\Http\Resources\Users\CustomerResource;
+use App\Model\Prices\Wallet;
 use App\Model\Users\Customer;
 use App\User;
 
@@ -31,6 +32,10 @@ class CustomerController extends  Controller
             'type'=>User::CUSTOMER,
             'address'=>$request->address
         ]);
+        Wallet::create([
+             'custmer_id'=>$customer->id,
+             'balance'=>0,
+         ]);
         return new CustomerResource($customer);
     }
 

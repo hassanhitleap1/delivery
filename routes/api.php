@@ -15,7 +15,11 @@ Route::group(['prefix' => 'auth' ], function () {
 
 Route::apiResource('shipments',\Shipments\ShipmentController::class);
 
+
+Route::get('/prices/list-prices', [\Prices\PriceController::class,'listPrices']);
 Route::apiResource('prices',\Prices\PriceController::class);
+Route::apiResource('wallets',\Prices\WalletController::class);
+Route::apiResource('driver-wallets',\Prices\DriverWalletController::class);
 
 Route::apiResources([
     'status' => \Status\StatusController::class,

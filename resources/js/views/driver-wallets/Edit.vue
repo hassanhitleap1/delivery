@@ -1,0 +1,105 @@
+<template>
+    <Layout name="LayoutDefault">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div v-if="errors">
+                        <div v-for="(v, k) in errors" :key="k">
+                            <p v-for="error in v" :key="error" class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title float-left">create new admin</h3>
+                            </div>
+                            <!-- /.card-header -->
+
+
+
+                            <form role="form" @submit.prevent="update_admin(admin,id)" >
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="name">name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="admin.name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">phone</label>
+                                        <input type="text" class="form-control" id="phone" placeholder="Enter phone" v-model="admin.phone">
+                                    </div>
+    <!--                                <div class="form-group">-->
+    <!--                                    <label for="email">email</label>-->
+    <!--                                    <input type="text" class="form-control" id="email" placeholder="Enter email" v-model="admin.email">-->
+    <!--                                </div>-->
+
+
+                                    <div class="form-group">
+                                        <label for="name">address</label>
+                                        <input type="text" class="form-control" id="address" placeholder="Enter address" v-model="admin.address">
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </Layout>
+</template>
+
+<script>
+     import  * as services from '../../services/driverwallet';
+     import Layout from "../layouts/Layout";
+    export default {
+        name: "driverwallet.edit",
+        components:{
+            Layout,
+        },
+        data(){
+                return {
+                    errors: [],
+                    success : false,
+                    id:null,
+                    wallet:{},
+                }
+            },
+        mounted() {
+            this.id=this.$route.params.id;
+            services.get_admin(this.id).then( response => {
+                this.admin=response.data.data;
+                console.log("response.data.data",response.data.data)
+            }).catch((error) => {
+                console.log("error",error)
+            });
+
+        },methods:{
+
+            update_admin(wallet,id) {
+                services.update_wallet(wallet,id).then( response => {
+                    this.errors = [];
+                    this.success = true;
+                    this.$router.push({ 'name': 'driverwallet.index' });
+                }).catch((error) => {
+                    this.errors = error.response.data.errors;
+                    this.success = false;
+                });
+
+            }
+        },
+
+
+    }
+</script>
+
+

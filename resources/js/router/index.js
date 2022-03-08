@@ -293,6 +293,49 @@ const route =  new VueRouter({
             path: '/about',
             component:  ()=>import("../views/About")
         },
+
+        {
+            path: '/wallets',
+            name: 'wallets',
+            component: ()=>import("../views/wallets/Index"),
+            meta: {requiresAuth: true}
+
+        },
+        {
+            path: '/wallets',
+            name: 'wallets.index',
+            component: ()=>import("../views/wallets/Index"),
+            meta: {requiresAuth: true}
+
+        },
+        {
+            name: 'wallets.edit',
+            path: '/wallets/:id/edit',
+            component:  ()=>import("../views/wallets/Edit"),
+            meta: {requiresAuth: true}
+        },
+
+        {
+            path: '/driver-wallets',
+            name: 'driverwallets',
+            component: ()=>import("../views/driver-wallets/Index"),
+            meta: {requiresAuth: true}
+
+        },
+        {
+            path: '/driver-wallets',
+            name: 'driverwallets.index',
+            component: ()=>import("../views/driver-wallets/Index"),
+            meta: {requiresAuth: true}
+
+        },
+        {
+            name: 'driverwallets.edit',
+            path: '/driver-wallets/:id/edit',
+            component:  ()=>import("../views/driver-wallets/Edit"),
+            meta: {requiresAuth: true}
+        },
+
     ]
 });
 

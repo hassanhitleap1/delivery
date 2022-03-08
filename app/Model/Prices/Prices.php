@@ -18,4 +18,8 @@ class Prices extends  Model
     public function region(){
         return $this->belongsTo(Region::class);
     }
+
+    public static  function  listPrices($customer){
+        return self::where('custmer_id',$customer->id);
+    }
 }
